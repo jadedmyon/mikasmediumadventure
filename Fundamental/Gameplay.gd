@@ -1,10 +1,18 @@
 extends Node2D
 
-
+##For levels to work correctly, the level node MUST be named Entities.
+#No entity/hitbox that's expected to follow basic rules like hitstop should be a child of another entity.
+#Hitboxes and TileMap are also direct children of Entities node. 
+func loadlevel(levelname:String,levelpos:int):
+	var entitiesnode = load("res://Levels/" + levelname +".tscn").instantiate()
+	if has_node("Entities"): #delete existing entities node first
+		get_node("Entities").free() #yabai
+	add_child(entitiesnode)
+	
 
 
 func _ready():
-	pass 
+	loadlevel(global.nextlevel,global.nextposid)
 
 
 
