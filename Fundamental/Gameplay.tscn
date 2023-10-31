@@ -15978,6 +15978,17 @@ texture = ExtResource("8_ik22r")
 
 [node name="Sprite2D" type="Sprite2D" parent="Entities"]
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Entities"]
+offset_left = 172.0
+offset_top = 173.0
+offset_right = 416.0
+offset_bottom = 314.0
+text = "arrow keys / left stick to move 
+A/ A to jump
+S / B to attack
+D / L to dash
+Enter / Start to reset"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
