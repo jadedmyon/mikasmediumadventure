@@ -5,8 +5,8 @@ var nextlevel := "testlevel"
 var nextposid := 0
 
 
-#mika stats
-var hp := 1 #saved when switching levels 
+#mika stats, saved when switching levels 
+var hp := 1
 
 var meter := 0
 var meter_max := 100
