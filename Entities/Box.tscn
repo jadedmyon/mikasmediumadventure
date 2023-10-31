@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccnapqdxxth14"]
+
+[ext_resource type="Texture2D" uid="uid://becurbce13mao" path="res://icon.svg" id="1_83ydg"]
+[ext_resource type="Script" path="res://Entities/Box.gd" id="1_lb1kp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qve7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_83ydg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amssi"]
+size = Vector2(41, 33.5)
+
+[node name="Box" type="CharacterBody2D"]
+script = ExtResource("1_lb1kp")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qve7s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ECB" type="CollisionShape2D" parent="."]
+position = Vector2(0, -17.25)
+shape = SubResource("RectangleShape2D_amssi")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+modulate = Color(0.6, 0.419608, 0.901961, 0.8)
+polygon = PackedVector2Array(-35, -5, 47, -5, 47, 46, -35, 45)

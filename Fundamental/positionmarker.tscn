@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://q6oik8e2kjc0"]
+
+[ext_resource type="Texture2D" uid="uid://b07pwdbysdqmk" path="res://CopyrightInfringement/position marker.png" id="1_xtj7s"]
+[ext_resource type="Script" path="res://Fundamental/positionmarker.gd" id="2_85gpf"]
+
+[node name="positionmarker" type="Sprite2D"]
+texture = ExtResource("1_xtj7s")
+script = ExtResource("2_85gpf")

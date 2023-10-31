@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmsdum7dn3qlt"]
+
+[ext_resource type="PackedScene" uid="uid://dv6x4ylpjslba" path="res://Fundamental/Gameplay.tscn" id="1_ulcc3"]
+
+[node name="Meta" type="Node2D"]
+
+[node name="Gameplay" parent="." instance=ExtResource("1_ulcc3")]

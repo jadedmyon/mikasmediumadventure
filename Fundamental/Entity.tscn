@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8myo72lhuv5i"]
+
+[ext_resource type="Script" path="res://Fundamental/Entity.gd" id="1_yr3kq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0jto"]
+size = Vector2(41, 33.5)
+
+[node name="Entity" type="CharacterBody2D"]
+script = ExtResource("1_yr3kq")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ECB" type="CollisionShape2D" parent="."]
+position = Vector2(0, -17.25)
+shape = SubResource("RectangleShape2D_y0jto")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+modulate = Color(0.6, 0.419608, 0.901961, 0.8)
+polygon = PackedVector2Array(-10, 7, 10, 7, 10, 21, -10, 21)

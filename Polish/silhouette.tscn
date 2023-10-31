@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://k7smmnnw2i5d"]
+
+[ext_resource type="Script" path="res://Polish/silhouette.gd" id="1_nuyw1"]
+
+[node name="Silhouette" type="Sprite2D"]
+modulate = Color(0.698039, 0.780392, 1, 0.662745)
+script = ExtResource("1_nuyw1")

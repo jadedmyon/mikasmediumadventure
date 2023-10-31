@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://brvchakgarqo4"]
+
+[ext_resource type="Script" path="res://Fundamental/Hitbox.gd" id="1_3lxlb"]
+
+[node name="Hitbox" type="Area2D"]
+script = ExtResource("1_3lxlb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
