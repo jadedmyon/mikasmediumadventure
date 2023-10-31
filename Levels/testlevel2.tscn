@@ -1,6 +1,5 @@
 [gd_scene load_steps=11 format=3 uid="uid://rsgooflya4a4"]
 
-[ext_resource type="PackedScene" uid="uid://dhvvksbke2k82" path="res://Fundamental/Mika.tscn" id="1_onfo3"]
 [ext_resource type="PackedScene" uid="uid://ccnapqdxxth14" path="res://Entities/Box.tscn" id="2_j6dkl"]
 [ext_resource type="Texture2D" uid="uid://dc6hxkbj0fc5m" path="res://MikaMika/untitled.png" id="3_o2u7h"]
 [ext_resource type="Texture2D" uid="uid://dogve71nr5gwv" path="res://MikaMika/tpose mika.png" id="4_5bfx5"]
@@ -8,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c8spowqk0o3bh" path="res://CopyrightInfringement/hisui_stand1.png" id="6_qosr5"]
 [ext_resource type="Texture2D" uid="uid://yjvmly5brtbf" path="res://MikaMika/tpose mika turned.png" id="7_x0ufi"]
 [ext_resource type="PackedScene" uid="uid://q6oik8e2kjc0" path="res://Fundamental/positionmarker.tscn" id="8_aygnh"]
+[ext_resource type="PackedScene" uid="uid://dxbfu3j55h7bp" path="res://Fundamental/LevelWarp.tscn" id="8_qcwuq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xguiq"]
 texture = ExtResource("5_qde6h")
@@ -15955,9 +15955,6 @@ sources/2 = SubResource("TileSetAtlasSource_xguiq")
 
 [node name="Entities" type="Node2D"]
 
-[node name="Mika" parent="." instance=ExtResource("1_onfo3")]
-position = Vector2(471, 252)
-
 [node name="Box" parent="." instance=ExtResource("2_j6dkl")]
 position = Vector2(269, 176)
 direction = -1
@@ -15988,4 +15985,8 @@ texture = ExtResource("7_x0ufi")
 
 [node name="positionmarker" parent="." instance=ExtResource("8_aygnh")]
 modulate = Color(1, 1, 1, 0.486275)
-position = Vector2(1257, 212)
+position = Vector2(1464, -716)
+
+[node name="LevelWarp" parent="." instance=ExtResource("8_qcwuq")]
+position = Vector2(2740, 129)
+scale = Vector2(1.22857, 8.26471)

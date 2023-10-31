@@ -1,6 +1,8 @@
-extends Sprite2D
+class_name PositionMarker extends Sprite2D
 
-var positionid := 0
+
+
+@export var positionid := 0
 
 
 func _ready():

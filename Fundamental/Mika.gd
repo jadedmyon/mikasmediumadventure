@@ -353,7 +353,8 @@ func death_state():
 	var camera = get_parent().get_parent().get_node("Camera2D")
 	camera.zoom += Vector2(0.005,0.005)
 	
-	
+	if frame == 100:
+		get_parent().get_parent().loadlevel(global.nextlevel,global.nextposid)
 
 							#state machine helpers
 

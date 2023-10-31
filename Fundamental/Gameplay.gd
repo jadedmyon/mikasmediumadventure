@@ -3,12 +3,30 @@ extends Node2D
 ##For levels to work correctly, the level node MUST be named Entities.
 #No entity/hitbox that's expected to follow basic rules like hitstop should be a child of another entity.
 #Hitboxes and TileMap are also direct children of Entities node. 
-func loadlevel(levelname:String,levelpos:int):
+func loadlevel(levelname:String,posid:int):
 	var entitiesnode = load("res://Levels/" + levelname +".tscn").instantiate()
 	if has_node("Entities"): #delete existing entities node first
 		get_node("Entities").free() #yabai
 	add_child(entitiesnode)
+			#Instantiate Mika
+	var mika = preload('res://Fundamental/Mika.tscn').instantiate()
+	entitiesnode.add_child(mika)
+		#Find position
+	var pos:Vector2 = Vector2(-9999999,-9999999) #default value to control for positionid not existing
+	for x in entitiesnode.get_children():
+		if x is PositionMarker:
+			if x.positionid == posid:
+				pos = x.position
+				break
+			if pos == Vector2(-9999999,-9999999) and x.positionid == 0: #if positionid doesn't exist for some reason
+				pos = x.position #no break because it'll be overwritten by a real position
 	
+	mika.position = pos
+
+##To be replaced later with maybe a fadeout effect 
+func levelswitch(levelname:String,posid:int):
+	loadlevel(levelname,posid)
+
 
 
 func _ready():
