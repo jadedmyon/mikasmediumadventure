@@ -28,6 +28,8 @@ var storedvelocity := 0 #used for walljumping preserving momentum probably
 
 
 func _ready():
+	hp = 80
+	hp_max = 80
 	fallaccel = 25
 	fallspeed_max = 900
 	team = "mika"
@@ -294,7 +296,6 @@ func walljump_state():
 	#insert attack cancel
 	if frame >= 1:
 		dashcheck()
-		attackOK_air()
 	
 	if frame == 10:
 		endstate()
@@ -325,12 +326,12 @@ func downstrike_state():
 		endstate()
 
 func forwardair_state():
-	drift()
-	fricting()
+	if true or frame > 0 or (frame == 0 and prevstate != "air"): #without this you can drift twice in 1 frame
+		fricting()
+		drift()
+
 	if is_on_floor(): nstate("stand")
 	
-	if frame == 0:
-		momentumreset(100)
 	
 	if frame == 3:
 		create_hitbox({damage = 8,duration = 3, offset = Vector2(50,10),scale = Vector2(2,2)})
@@ -346,7 +347,7 @@ func backair_state():
 
 
 func die():
-	nstate("death")
+	if state != "death": nstate("death")
 func death_state():
 	modulate.a -= 0.01
 	fricting()
@@ -354,7 +355,8 @@ func death_state():
 	camera.zoom += Vector2(0.005,0.005)
 	
 	if frame == 100:
-		get_parent().get_parent().loadlevel(global.nextlevel,global.nextposid)
+		get_tree().reload_current_scene() #placeholder 
+		
 
 							#state machine helpers
 
@@ -373,6 +375,7 @@ func attackOK_ground():
 func attackOK_air():
 	if inputpressed("B"):
 		var dirheld:String = direction_held()
+		if state in ["forwarddash","novdash"]: momentumreset(100)
 		if dirheld in ["4","1","7"]:
 			nstate("backair")
 		elif dirheld in ["5","6","3","9","8","2",]:

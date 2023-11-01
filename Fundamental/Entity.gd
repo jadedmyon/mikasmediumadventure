@@ -12,6 +12,7 @@ extends CharacterBody2D
 
 
 var state:= "stand"
+var prevstate := ""
 var frame:= 0
 var hitstop:= 0 #should prolly be applied to all children of Entities in Gameplay script
 var flashingtimer = 0
@@ -21,9 +22,11 @@ var invulntimer := 0
 var fallaccel := 25
 var fallspeed_max := 400
 
+var displayname := "? ? ? ?" 
 var team:= "enemy"
 var hp:= 10
 var hp_max:= 10
+
 
 var realscale = 1 #for mika
 
@@ -106,6 +109,7 @@ func statecheck(checkedstate:String) -> bool:
 		return false
 
 func nstate(newstate:String):
+	prevstate = state
 	state = newstate
 	frame = 0
 	update_animation()

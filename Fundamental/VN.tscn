@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvi8rdpmmwrih"]
+
+[ext_resource type="Script" path="res://Fundamental/VN.gd" id="1_gonm3"]
+[ext_resource type="Texture2D" uid="uid://bl4e3udellahv" path="res://Graphics/UI/ninepatch1.png" id="2_1up5t"]
+
+[node name="VN" type="Node2D"]
+script = ExtResource("1_gonm3")
+
+[node name="textbox" type="NinePatchRect" parent="."]
+offset_left = 288.0
+offset_top = 438.0
+offset_right = 968.0
+offset_bottom = 619.0
+texture = ExtResource("2_1up5t")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="label" type="Label" parent="textbox"]
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 670.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 22
+text = "I am a default text. What the bollocks is going on for something like this to happen!?! Barnacles!! "
+autowrap_mode = 3
+
+[node name="speakerbox" type="NinePatchRect" parent="."]
+offset_left = 174.0
+offset_top = 372.0
+offset_right = 377.0
+offset_bottom = 428.0
+texture = ExtResource("2_1up5t")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="label" type="Label" parent="speakerbox"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 194.0
+offset_bottom = 91.0
+theme_override_colors/font_outline_color = Color(0.811765, 0.454902, 0.905882, 1)
+theme_override_font_sizes/font_size = 24
+text = "Mikaur
+"
