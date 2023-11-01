@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8lkh4n1p87l2"]
+[gd_scene load_steps=13 format=3 uid="uid://c8lkh4n1p87l2"]
 
 [ext_resource type="PackedScene" uid="uid://ccnapqdxxth14" path="res://Entities/Box.tscn" id="2_xnb4p"]
 [ext_resource type="Texture2D" uid="uid://dc6hxkbj0fc5m" path="res://MikaMika/untitled.png" id="3_8xncr"]
@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://da0iljue6msxl" path="res://CopyrightInfringement/TILE1_A.png" id="5_6ao6m"]
 [ext_resource type="Texture2D" uid="uid://c8spowqk0o3bh" path="res://CopyrightInfringement/hisui_stand1.png" id="6_4e0w2"]
 [ext_resource type="Texture2D" uid="uid://yjvmly5brtbf" path="res://MikaMika/tpose mika turned.png" id="7_8ub42"]
+[ext_resource type="Texture2D" uid="uid://d3u5g276hbcd4" path="res://Graphics/firefox_Hkxr0O68Bw.png" id="8_cqm7n"]
 [ext_resource type="PackedScene" uid="uid://q6oik8e2kjc0" path="res://Fundamental/positionmarker.tscn" id="8_yd23n"]
+[ext_resource type="PackedScene" uid="uid://bwj75sf3yetn1" path="res://Fundamental/VNTrigger.tscn" id="9_nlmiy"]
+[ext_resource type="PackedScene" uid="uid://dxbfu3j55h7bp" path="res://Fundamental/LevelWarp.tscn" id="10_v1x3d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xguiq"]
 texture = ExtResource("5_6ao6m")
@@ -15980,8 +15983,19 @@ texture = ExtResource("6_4e0w2")
 position = Vector2(650, 178)
 texture = ExtResource("7_8ub42")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
 [node name="positionmarker" parent="." instance=ExtResource("8_yd23n")]
 modulate = Color(1, 1, 1, 0.486275)
-position = Vector2(1257, 212)
+position = Vector2(555, 13)
+
+[node name="FirefoxHkxr0o68Bw" type="Sprite2D" parent="."]
+position = Vector2(2134, 153)
+texture = ExtResource("8_cqm7n")
+
+[node name="VNTrigger" parent="." instance=ExtResource("9_nlmiy")]
+position = Vector2(1960, 180)
+scale = Vector2(1, 4.32353)
+
+[node name="LevelWarp" parent="." instance=ExtResource("10_v1x3d")]
+position = Vector2(2866, 170)
+scale = Vector2(3.85714, 5.70588)
+levelname = "testlevel2"

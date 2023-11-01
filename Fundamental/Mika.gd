@@ -28,11 +28,16 @@ var storedvelocity := 0 #used for walljumping preserving momentum probably
 
 
 func _ready():
+	#initialization
+	state = "air"
+	team = "mika"
+
+	
+	#custom values
 	hp = 80
 	hp_max = 80
 	fallaccel = 25
 	fallspeed_max = 900
-	team = "mika"
 	realscale = 1
 
 

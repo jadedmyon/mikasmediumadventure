@@ -6,7 +6,10 @@ extends Node2D
 func loadlevel(levelname:String,posid:int):
 	var entitiesnode = load("res://Levels/" + levelname +".tscn").instantiate()
 	if has_node("Entities"): #delete existing entities node first
-		get_node("Entities").free() #yabai
+		var oldentities = get_node("Entities")
+		oldentities.name = "AwfulEntities"
+		oldentities.visible = false
+		oldentities.queue_free() #this used to be a free() but it crashed too often with no discernible reason
 	add_child(entitiesnode)
 			#Instantiate Mika
 	var mika = preload('res://Fundamental/Mika.tscn').instantiate()
@@ -23,15 +26,23 @@ func loadlevel(levelname:String,posid:int):
 	
 	mika.position = pos
 
+
 ##To be replaced later with maybe a fadeout effect 
 func levelswitch(levelname:String,posid:int):
 	loadlevel(levelname,posid)
 
 
 
+func createvn(scenename:String):
+	var VN = preload('res://Fundamental/VN.tscn').instantiate()
+	get_parent().get_node("CanvasLayer").add_child(VN)
+	VN.loadscene(scenename)
+
+
+
+
 func _ready():
 	loadlevel(global.nextlevel,global.nextposid)
-
 
 
 func _physics_process(delta):
@@ -100,6 +111,9 @@ func buffer_processing():
 			buffer[key][2] = 0
 
 func inputheld(input) -> bool:
+	if get_parent().get_node("CanvasLayer").has_node("VN"): #absolutely monstrous 
+		return false #no inputs while cutscene happens 
+	
 	for key in buffer: if key == input:
 		if buffer[key][0] > 0:
 			return true
@@ -108,7 +122,10 @@ func inputheld(input) -> bool:
 	print ("Key doesn't exist??? What the fuck")
 	return false
 
-func inputpressed(input,buffernum:int=standardbuffer,erase=true) -> bool: #erase makes the input unbufferable. 
+func inputpressed(input,buffernum:int=standardbuffer,erase=true) -> bool: #erase means 1 input = 1 outcome
+	if get_parent().get_node("CanvasLayer").has_node("VN"): #the fact I have 2 canvas layers is kinda fucked up
+		return false #no inputs while cutscene happens 
+
 	for key in buffer: if key == input: #Useful for preventing one input doing two things at once
 		if buffer[input][1] < buffernum:
 			if erase: buffer[input][1] = buffernum
@@ -121,6 +138,8 @@ func inputpressed(input,buffernum:int=standardbuffer,erase=true) -> bool: #erase
 #this is an "instant" release check, I'll finish this if this ends up useful
 #if you want to check if a button isn't held at all this frame then just do !inputheld()
 func inputreleased(input,buffernum:int=edgebuffer, erase=true):
+	if get_parent().get_node("CanvasLayer").has_node("VN"): 
+		return false #no inputs while cutscene happens 
 	for key in buffer: if key == input:
 		pass
 
@@ -157,6 +176,4 @@ func flip_direction(input:String) -> String:
 		"9": result = "7"
 	return result
 	
-
-
 

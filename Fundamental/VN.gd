@@ -56,7 +56,12 @@ func processline():
 		speakercolor(command[1])
 	if commandname in ["addscene"]:
 		addscene(command[1])
-	
+	if commandname in ["hidespeaker","hs"]:
+		hidespeaker()
+	if commandname in ["hidespeakerbox", "hsb"]:
+		hidespeakerbox()
+	if commandname in ["hideicon","hi"]:
+		hideicon()
 	
 	
 	##Continues scene. Needs to be a separate function for the same frame loop to work(?)
@@ -73,14 +78,23 @@ func printspeech(text:String):
 	$textbox/label.text = text
 
 func speakername(text:String):
+	$speakerbox.visible = true 
 	$speakerbox/label.text = text 
 
-func speakercolor(color): #not sure what type 
+func speakercolor(color):
+	$speakerbox.visible = true 
 	$speakerbox/label.add_theme_color_override("font_color", Color.hex(int(color))) 
 
+func hidespeakerbox():
+	$speakerbox.visible = false
+
+func hidespeaker():
+	hidespeakerbox()
+	hideicon()
 
 
-
+func hideicon():
+	pass
 
 
 func addscene(scenename:String):
@@ -94,7 +108,7 @@ func addscene(scenename:String):
 		var commandname:String = linesplit[0]
 		if len(linesplit) == 1: #regular print line
 			currentscene.append(["print",linesplit[0]])
-		else:
+		elif commandname != "" and commandname[0] != "#":
 			currentscene.append(linesplit)
 	
 	loadfile.close() 
@@ -108,8 +122,7 @@ func loadscene(scenename:String):
 
 func _ready():
 	
-	processline()
-	loadscene("testvn")
+	pass
 
 
 func _process(delta):

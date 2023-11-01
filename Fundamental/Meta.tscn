@@ -5,3 +5,5 @@
 [node name="Meta" type="Node2D"]
 
 [node name="Gameplay" parent="." instance=ExtResource("1_ulcc3")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

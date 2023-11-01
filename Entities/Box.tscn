@@ -1,35 +1,38 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccnapqdxxth14"]
 
-[ext_resource type="Texture2D" uid="uid://becurbce13mao" path="res://icon.svg" id="1_83ydg"]
 [ext_resource type="Script" path="res://Entities/Box.gd" id="1_lb1kp"]
+[ext_resource type="Texture2D" uid="uid://bxi0tnbwiucp8" path="res://CopyrightInfringement/boxOpen.png" id="2_j02vx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qve7s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_83ydg")
+"texture": ExtResource("2_j02vx")
 }],
 "loop": true,
-"name": &"default",
+"name": &"stand",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amssi"]
-size = Vector2(41, 33.5)
+size = Vector2(81, 45.5)
 
 [node name="Box" type="CharacterBody2D"]
 script = ExtResource("1_lb1kp")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -31)
 sprite_frames = SubResource("SpriteFrames_qve7s")
+animation = &"stand"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="ECB" type="CollisionShape2D" parent="."]
-position = Vector2(0, -17.25)
+position = Vector2(3.5, -23.25)
 shape = SubResource("RectangleShape2D_amssi")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -32)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]

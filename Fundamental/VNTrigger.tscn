@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwj75sf3yetn1"]
+
+[ext_resource type="Texture2D" uid="uid://blcswajwo5eul" path="res://MikaMika/firefox_OZMKKRrQLp.png" id="1_ycw75"]
+[ext_resource type="Script" path="res://Fundamental/VNTrigger.gd" id="2_gig3e"]
+
+[node name="VNTrigger" type="Sprite2D"]
+modulate = Color(1, 0.603922, 0.372549, 0.780392)
+texture = ExtResource("1_ycw75")
+script = ExtResource("2_gig3e")
+
+[node name="Area2D" type="Area2D" parent="."]
+modulate = Color(1, 1, 1, 0.545098)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-35, -17, 35, -17, 35, 17, -35, 17)
