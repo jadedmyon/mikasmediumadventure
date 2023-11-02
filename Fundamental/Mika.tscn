@@ -1,11 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhvvksbke2k82"]
+[gd_scene load_steps=17 format=3 uid="uid://dhvvksbke2k82"]
 
 [ext_resource type="Script" path="res://Fundamental/Mika.gd" id="1_c1pl4"]
-[ext_resource type="Texture2D" uid="uid://blcswajwo5eul" path="res://MikaMika/firefox_OZMKKRrQLp.png" id="2_xrg21"]
+[ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_p34cf"]
+[ext_resource type="Texture2D" uid="uid://dnx0mufltyv35" path="res://Graphics/MikaMika/stand.png" id="3_lmn2e"]
 [ext_resource type="Script" path="res://Fundamental/WallChecker.gd" id="3_su34n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clxpm"]
 size = Vector2(41, 33.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tibil"]
+shader = ExtResource("2_p34cf")
+shader_parameter/line_color = Vector4(0.5, 0.5, 0.7, 0.6)
+shader_parameter/line_thickness = 6.925
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l5345"]
 animations = [{
@@ -36,7 +42,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_xrg21")
+"texture": ExtResource("3_lmn2e")
 }],
 "loop": true,
 "name": &"stand",
@@ -219,7 +225,9 @@ position = Vector2(0, -17.25)
 shape = SubResource("RectangleShape2D_clxpm")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -18)
+texture_filter = 1
+material = SubResource("ShaderMaterial_tibil")
+position = Vector2(0, -86)
 sprite_frames = SubResource("SpriteFrames_l5345")
 animation = &"stand"
 

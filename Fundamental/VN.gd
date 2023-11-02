@@ -102,7 +102,7 @@ func addscene(scenename:String):
 	
 	var loadfile = FileAccess.open('res://VNScenes/' + scenename + '.mikascene', FileAccess.READ)
 
-	var splitperline = loadfile.get_as_text().split("\n")
+	var splitperline = loadfile.get_as_text().split("\r\n")
 	for line in splitperline:
 		var linesplit:Array = line.split(";")
 		var commandname:String = linesplit[0]
@@ -126,6 +126,5 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("A"):
+	if Input.is_action_just_pressed("B"):
 		processline()
-		

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blcswajwo5eul"
-path="res://.godot/imported/firefox_OZMKKRrQLp.png-759c081314690e0f6d09b0bab4c9bac4.ctex"
+uid="uid://dogve71nr5gwv"
+path="res://.godot/imported/tpose mika.png-4b16894416d4cb177c806674641b0ec9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MikaMika/firefox_OZMKKRrQLp.png"
-dest_files=["res://.godot/imported/firefox_OZMKKRrQLp.png-759c081314690e0f6d09b0bab4c9bac4.ctex"]
+source_file="res://Graphics/MikaMika/tpose mika.png"
+dest_files=["res://.godot/imported/tpose mika.png-4b16894416d4cb177c806674641b0ec9.ctex"]
 
 [params]
 

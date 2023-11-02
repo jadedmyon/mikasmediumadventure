@@ -1,13 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8lkh4n1p87l2"]
+[gd_scene load_steps=12 format=3 uid="uid://c8lkh4n1p87l2"]
 
+[ext_resource type="Texture2D" uid="uid://dc6hxkbj0fc5m" path="res://Graphics/MikaMika/untitled.png" id="2_7turm"]
 [ext_resource type="PackedScene" uid="uid://ccnapqdxxth14" path="res://Entities/Box.tscn" id="2_xnb4p"]
-[ext_resource type="Texture2D" uid="uid://dc6hxkbj0fc5m" path="res://MikaMika/untitled.png" id="3_8xncr"]
-[ext_resource type="Texture2D" uid="uid://dogve71nr5gwv" path="res://MikaMika/tpose mika.png" id="4_ktacb"]
+[ext_resource type="Texture2D" uid="uid://dogve71nr5gwv" path="res://Graphics/MikaMika/tpose mika.png" id="3_jo6mt"]
 [ext_resource type="Texture2D" uid="uid://da0iljue6msxl" path="res://CopyrightInfringement/TILE1_A.png" id="5_6ao6m"]
 [ext_resource type="Texture2D" uid="uid://c8spowqk0o3bh" path="res://CopyrightInfringement/hisui_stand1.png" id="6_4e0w2"]
-[ext_resource type="Texture2D" uid="uid://yjvmly5brtbf" path="res://MikaMika/tpose mika turned.png" id="7_8ub42"]
-[ext_resource type="Texture2D" uid="uid://d3u5g276hbcd4" path="res://Graphics/firefox_Hkxr0O68Bw.png" id="8_cqm7n"]
 [ext_resource type="PackedScene" uid="uid://q6oik8e2kjc0" path="res://Fundamental/positionmarker.tscn" id="8_yd23n"]
+[ext_resource type="Texture2D" uid="uid://d3u5g276hbcd4" path="res://Graphics/Crap/firefox_Hkxr0O68Bw.png" id="9_ncncx"]
 [ext_resource type="PackedScene" uid="uid://bwj75sf3yetn1" path="res://Fundamental/VNTrigger.tscn" id="9_nlmiy"]
 [ext_resource type="PackedScene" uid="uid://dxbfu3j55h7bp" path="res://Fundamental/LevelWarp.tscn" id="10_v1x3d"]
 
@@ -15962,13 +15961,13 @@ position = Vector2(793, 224)
 direction = -1
 
 [node name="Untitled" type="Sprite2D" parent="."]
-position = Vector2(1461, -109)
-texture = ExtResource("3_8xncr")
+position = Vector2(3053, 191)
+texture = ExtResource("2_7turm")
 
 [node name="TposeMika" type="Sprite2D" parent="."]
 position = Vector2(933, 229)
 scale = Vector2(0.61, 0.61)
-texture = ExtResource("4_ktacb")
+texture = ExtResource("3_jo6mt")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_bncds")
@@ -15979,17 +15978,13 @@ layer_0/tile_data = PackedInt32Array(1835131, 1966082, 50, 1900667, 1966082, 51,
 position = Vector2(1223, 128)
 texture = ExtResource("6_4e0w2")
 
-[node name="TposeMikaTurned" type="Sprite2D" parent="."]
-position = Vector2(650, 178)
-texture = ExtResource("7_8ub42")
-
 [node name="positionmarker" parent="." instance=ExtResource("8_yd23n")]
 modulate = Color(1, 1, 1, 0.486275)
 position = Vector2(555, 13)
 
 [node name="FirefoxHkxr0o68Bw" type="Sprite2D" parent="."]
 position = Vector2(2134, 153)
-texture = ExtResource("8_cqm7n")
+texture = ExtResource("9_ncncx")
 
 [node name="VNTrigger" parent="." instance=ExtResource("9_nlmiy")]
 position = Vector2(1960, 180)

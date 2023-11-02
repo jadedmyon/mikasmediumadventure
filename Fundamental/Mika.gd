@@ -38,7 +38,7 @@ func _ready():
 	hp_max = 80
 	fallaccel = 25
 	fallspeed_max = 900
-	realscale = 1
+	realscale = 0.18
 
 
 func _physics_process(delta):
@@ -50,7 +50,9 @@ func _physics_process(delta):
 		state_called = [] #put this after all state logic always 
 	update_animation()
 	update_direction()
-
+	if inputheld("down") and inputpressed("B"):
+		hp = 0
+		gethit()
 	
 
 	
