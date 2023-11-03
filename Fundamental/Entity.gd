@@ -77,14 +77,16 @@ func create_hitbox(p:Dictionary):
 	#weirder edge cases
 	if not p.has("hitstop_dealt"):
 		hitbox.hitstop_dealt = int ( hitbox.damage / 2 ) + 3
-	
-	
+	if p.has("animation"):
+		hitbox.get_node("sprite").animation = p['animation']
+	elif hitbox.hitboxtype == "melee":
+		hitbox.get_node("sprite").visible = false
 	
 
 ##Replace this in inherited script if you want special code
 func gethit():
 #flash 
-	flashingtimer = 5
+	flashingtimer = 4
 	$sprite.modulate = Color(5,5,5,1)
 	if hp <= 0:
 		die()

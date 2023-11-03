@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvi8rdpmmwrih"]
+[gd_scene load_steps=5 format=3 uid="uid://bvi8rdpmmwrih"]
 
 [ext_resource type="Script" path="res://Fundamental/VN.gd" id="1_gonm3"]
 [ext_resource type="Texture2D" uid="uid://bl4e3udellahv" path="res://Graphics/UI/ninepatch1.png" id="2_1up5t"]
+[ext_resource type="Texture2D" uid="uid://blcswajwo5eul" path="res://Graphics/MikaMika/firefox_OZMKKRrQLp.png" id="3_xhgeh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ilg0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xhgeh")
+}],
+"loop": true,
+"name": &"Mika",
+"speed": 5.0
+}]
 
 [node name="VN" type="Node2D"]
 script = ExtResource("1_gonm3")
@@ -50,3 +62,19 @@ text = "Mikaur
 "
 
 [node name="Voice" type="AudioStreamPlayer" parent="."]
+
+[node name="iconbox" type="NinePatchRect" parent="."]
+offset_left = 402.0
+offset_top = 330.0
+offset_right = 498.0
+offset_bottom = 426.0
+texture = ExtResource("2_1up5t")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="icon" type="AnimatedSprite2D" parent="."]
+position = Vector2(450, 380)
+sprite_frames = SubResource("SpriteFrames_5ilg0")
+animation = &"Mika"
