@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkyrm0f4hhn2g"
-path="res://.godot/imported/MansionDrawer.png-1944ab637d3ce8946af67d8977c1b995.ctex"
+uid="uid://dnpfq074r4pkk"
+path="res://.godot/imported/MansionLamp.png-08391a93cdafe114eb01e0d46786e774.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CopyrightInfringement/MansionDrawer.png"
-dest_files=["res://.godot/imported/MansionDrawer.png-1944ab637d3ce8946af67d8977c1b995.ctex"]
+source_file="res://CopyrightInfringement/Environment/Mansion/MansionLamp.png"
+dest_files=["res://.godot/imported/MansionLamp.png-08391a93cdafe114eb01e0d46786e774.ctex"]
 
 [params]
 

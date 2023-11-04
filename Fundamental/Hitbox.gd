@@ -52,6 +52,12 @@ func hit_process():
 				entity.global_hitstop(hitstop_dealt)
 				if creator.name == "Mika":
 					entity.hitstop+= hitstop_dealt
+				elif true: #!entity.is_on_floor() #if mika is one getting hit, kinda hacky
+					if entity.position.x > 0:
+						entity.direction = 1
+					else: entity.direction = -1
+					entity.nstate("hitstunair")
+					entity.invulntimer = 90
 				entity.gethit()
 				
 				hitsleft -= 1

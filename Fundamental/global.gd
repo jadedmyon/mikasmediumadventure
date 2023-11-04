@@ -1,7 +1,7 @@
 extends Node
 
 
-var nextlevel := "testlevel"
+var nextlevel := "testmansion"
 var nextposid := 0
 
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyof6q3475rob"
-path="res://.godot/imported/moldyshroom.png-efe42e16ff17cc318c1168d410adac45.ctex"
+uid="uid://ds0l4f2yljp8g"
+path="res://.godot/imported/0031.png-6cbc85ab1977dd636d86a52354d88218.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CopyrightInfringement/moldyshroom.png"
-dest_files=["res://.godot/imported/moldyshroom.png-efe42e16ff17cc318c1168d410adac45.ctex"]
+source_file="res://Graphics/MikaMika/Rendered/inward/0031.png"
+dest_files=["res://.godot/imported/0031.png-6cbc85ab1977dd636d86a52354d88218.ctex"]
 
 [params]
 

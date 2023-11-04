@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo6vtfuwp0dt5"
-path="res://.godot/imported/MansionBookcaseSide.png-aac35298a914c5d882f49ebd09faf6f8.ctex"
+uid="uid://dqhgo5dw8353t"
+path="res://.godot/imported/0030.png-d730fcdfbda501d8ba9b19771a355a90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CopyrightInfringement/MansionBookcaseSide.png"
-dest_files=["res://.godot/imported/MansionBookcaseSide.png-aac35298a914c5d882f49ebd09faf6f8.ctex"]
+source_file="res://Graphics/MikaMika/Rendered/inward/0030.png"
+dest_files=["res://.godot/imported/0030.png-d730fcdfbda501d8ba9b19771a355a90.ctex"]
 
 [params]
 

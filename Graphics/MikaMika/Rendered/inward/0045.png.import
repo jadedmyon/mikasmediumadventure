@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnpfq074r4pkk"
-path="res://.godot/imported/MansionLamp.png-1183c0e85572d66754ebbf6245e1d2db.ctex"
+uid="uid://700dj8nug3cg"
+path="res://.godot/imported/0045.png-d1b1df83c9a370770fdb22b4966c95e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CopyrightInfringement/MansionLamp.png"
-dest_files=["res://.godot/imported/MansionLamp.png-1183c0e85572d66754ebbf6245e1d2db.ctex"]
+source_file="res://Graphics/MikaMika/Rendered/inward/0045.png"
+dest_files=["res://.godot/imported/0045.png-d1b1df83c9a370770fdb22b4966c95e1.ctex"]
 
 [params]
 

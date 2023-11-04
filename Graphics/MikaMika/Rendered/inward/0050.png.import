@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ympb53oq2tiw"
-path="res://.godot/imported/mikamansionbg.png-a67a6e721bd9f23b857feeafe554ec68.ctex"
+uid="uid://dcdye0ce3uj17"
+path="res://.godot/imported/0050.png-e9e002f9e9f2bbb198c987ac1d554058.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CopyrightInfringement/mikamansionbg.png"
-dest_files=["res://.godot/imported/mikamansionbg.png-a67a6e721bd9f23b857feeafe554ec68.ctex"]
+source_file="res://Graphics/MikaMika/Rendered/inward/0050.png"
+dest_files=["res://.godot/imported/0050.png-e9e002f9e9f2bbb198c987ac1d554058.ctex"]
 
 [params]
 

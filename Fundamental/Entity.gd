@@ -19,6 +19,7 @@ var flashingtimer = 0
 @export var direction:= 1 #1 and -1
 var invulntimer := 0
 
+
 var fallaccel := 25
 var fallspeed_max := 400
 
@@ -76,7 +77,7 @@ func create_hitbox(p:Dictionary):
 			hitbox.set(x,p[x])
 	#weirder edge cases
 	if not p.has("hitstop_dealt"):
-		hitbox.hitstop_dealt = int ( hitbox.damage / 2 ) + 3
+		hitbox.hitstop_dealt = int ( hitbox.damage / 3 ) + 4
 	if p.has("animation"):
 		hitbox.get_node("sprite").animation = p['animation']
 	elif hitbox.hitboxtype == "melee":
@@ -86,13 +87,15 @@ func create_hitbox(p:Dictionary):
 ##Replace this in inherited script if you want special code
 func gethit():
 #flash 
+
 	flashingtimer = 4
-	$sprite.modulate = Color(5,5,5,1)
+	$sprite.modulate = Color(3,3,3,1)
 	if hp <= 0:
 		die()
 
 func die():
 	#animation
+
 	queue_free()
 
 
@@ -118,18 +121,16 @@ func nstate(newstate:String):
 	state_caller()
 
 
-func update_direction(): #kill me in the ass
-	pass
-	#$sprite.scale.x = abs($sprite.scale.x) * direction
+
 
 func update_animation():
 	$sprite.play(state)
 	$sprite.frame = frame
-	#$AnimationPlayer.play(state)
+	$AnimationPlayer.play(state)
 	$sprite.scale.x = direction * realscale#yes this isn't perfect. go fuck yourself 
 	$sprite.scale.y = realscale
 	if flashingtimer > 0:
-		$sprite.modulate = Color(4,4,4,1)
+		$sprite.modulate = Color(2,2,2,1)
 		flashingtimer-=1
 	else: $sprite.modulate = Color(1,1,1,1)
 
@@ -143,9 +144,9 @@ func tickframe():
 
 #Usefuls
 
-func gravity():
+func gravity(customaccel:int=fallaccel):
 	if velocity.y < fallspeed_max:
-		velocity.y += fallaccel
+		velocity.y += customaccel
 		if velocity.y > fallspeed_max: velocity.y = fallspeed_max
 	
 func global_hitstop(length:int):

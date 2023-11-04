@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8a0xvtubu4uc"
-path="res://.godot/imported/mansion mirror.png-6ec42550fc42c3d9a778f4db8b86db41.ctex"
+uid="uid://omrxg3m18fcf"
+path="res://.godot/imported/MansionBookcaseTop.png-1475965f87b33c42dcdcb70b56c99330.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CopyrightInfringement/mansion mirror.png"
-dest_files=["res://.godot/imported/mansion mirror.png-6ec42550fc42c3d9a778f4db8b86db41.ctex"]
+source_file="res://CopyrightInfringement/Environment/Mansion/MansionBookcaseTop.png"
+dest_files=["res://.godot/imported/MansionBookcaseTop.png-1475965f87b33c42dcdcb70b56c99330.ctex"]
 
 [params]
 

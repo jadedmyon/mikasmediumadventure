@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu2qn5j6dknbc"
-path="res://.godot/imported/MansionDesk.png-a55c6d65ac4ba2fb4f7c14fe5c9b386d.ctex"
+uid="uid://cct5etoajkmy7"
+path="res://.godot/imported/forwarddash.png-903f865a8dc35b34e4ed7121e77950fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CopyrightInfringement/MansionDesk.png"
-dest_files=["res://.godot/imported/MansionDesk.png-a55c6d65ac4ba2fb4f7c14fe5c9b386d.ctex"]
+source_file="res://Graphics/MikaMika/Rendered/forwarddash.png"
+dest_files=["res://.godot/imported/forwarddash.png-903f865a8dc35b34e4ed7121e77950fe.ctex"]
 
 [params]
 

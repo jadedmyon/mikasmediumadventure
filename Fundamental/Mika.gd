@@ -15,7 +15,7 @@ var walkspeed_max := 500
 
 var dashes_max = 1
 var walljumps_max = 2
-var gravity_exceptions:Array[String] = ["dashstart","forwarddash","downdash","wallcling"]
+var gravity_exceptions:Array[String] = ["dashstart","forwarddash","downdash","novdash","wallcling"]
  
 #not stats
 var dashes := 0
@@ -31,7 +31,7 @@ func _ready():
 	#initialization
 	state = "air"
 	team = "mika"
-
+	
 	
 	#custom values
 	hp = 80
@@ -49,10 +49,9 @@ func _physics_process(delta):
 		if state not in gravity_exceptions: gravity() #this is wonky 
 		state_called = [] #put this after all state logic always 
 	update_animation()
-	update_direction()
+
 	if inputheld("down") and inputpressed("B"):
-		hp = 0
-		gethit()
+		get_parent().get_parent().get_node("Camera2D").zoom = Vector2(4,4)
 	
 
 	
@@ -85,7 +84,7 @@ func state_caller():
 	if statecheck("forwardair"): forwardair_state()
 	if statecheck("backair"): backair_state()
 
-
+	if statecheck("hitstunair"): hitstunair_state()
 	if statecheck("death"): death_state()
 
 	#states
@@ -244,9 +243,9 @@ func novdash_state():
 		if direction*velocity.x < 0:
 			momentumreset(500)
 		xvelocity_towards(450*direction, 5000)
-		if velocity.y > 0: momentumresetY(600)
+		if velocity.y > 0: momentumresetY(800)
 		momentumresetY(150)
-		velocity.y -= 650
+		velocity.y -= 550
 	if frame > 0: attackOK_air()
 	if frame > 0 and frame <= 9:
 		xvelocity_towards((5 + frame*2 )*direction, 900)
@@ -264,7 +263,7 @@ func tridash_state():
 			momentumreset(600)
 		xvelocity_towards(500*direction, 1200)
 		velocity.y += 900
-	if frame > 0: attackOK_air()
+	if frame > 0: attackOK_both()
 	if frame > 0 and frame <= 9:
 		xvelocity_towards((5 + frame*2 )*direction, 900)
 	
@@ -311,17 +310,31 @@ func walljump_state():
 func groundstrike1_state():
 	tracting()
 	slideoff()
-	if frame == 5:
-		create_hitbox({damage = 8,duration = 7, offset = Vector2(60,-10),scale = Vector2(2,2)})
 
-	if frame == 21:
+	if frame == 5:
+		create_hitbox({damage = 8,duration = 7, offset = Vector2(80,-55),scale = Vector2(3,3.5)})
+	if frame > 5:
+		if inputpressed("B",5+4): #increased buffer for successive attacks
+			nstate("groundstrike2")
+	if frame == 24:
 		endstate()
 
 func groundstrike2_state():
-	pass
+	
+	if frame == 5:
+		create_hitbox({damage = 8,duration = 4, offset = Vector2(80,-55),scale = Vector2(3,3.5)})
+	if frame > 5 and inputpressed("B",9):
+		nstate("groundstrike3")
+	if frame == 25:
+		endstate()
 
 func groundstrike3_state():
-	pass
+	
+	if frame == 8:
+		create_hitbox({damage = 8,duration = 4, offset = Vector2(90,-55),scale = Vector2(4,2.5)})
+	
+	if frame == 36:
+		endstate()
 
 func upstrike_state():
 	pass
@@ -351,6 +364,21 @@ func backair_state():
 	nstate("forwardair") #placeholder
 
 
+func hitstunair_state():
+	if frame == 0:
+		momentumreset(3000)
+		momentumresetY(1000)
+		velocity.y = -800
+		velocity.x = direction * - 800
+	gravity()
+	fricting()
+	fricting()
+	
+	if frame == 30:
+		endstate()
+
+func hitstunground_state():
+	pass
 
 
 func die():
@@ -387,7 +415,12 @@ func attackOK_air():
 			nstate("backair")
 		elif dirheld in ["5","6","3","9","8","2",]:
 			nstate("forwardair")
-		
+
+func attackOK_both():
+	if is_on_floor():
+		attackOK_ground()
+	else:
+		attackOK_air()
 
 func dashcheck():
 	if inputpressed("L") and dashes < dashes_max:
@@ -501,7 +534,7 @@ func silhouette():
 	if frame % 3 and dashing:
 		var sillhouette_node = preload("res://Polish/silhouette.tscn").instantiate()
 		get_parent().add_child(sillhouette_node)
-		sillhouette_node.position = position + $sprite.position
+		sillhouette_node.position = $sprite.global_position + $sprite.offset * abs($sprite.scale.x) #this is fucked
 		sillhouette_node.texture = $sprite.sprite_frames.get_frame_texture($sprite.animation,$sprite.frame)
 		sillhouette_node.scale = $sprite.scale
 		if dashes > 0:

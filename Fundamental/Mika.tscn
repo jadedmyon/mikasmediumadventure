@@ -1,12 +1,40 @@
-[gd_scene load_steps=17 format=3 uid="uid://dhvvksbke2k82"]
+[gd_scene load_steps=43 format=3 uid="uid://dhvvksbke2k82"]
 
 [ext_resource type="Script" path="res://Fundamental/Mika.gd" id="1_c1pl4"]
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_p34cf"]
-[ext_resource type="Texture2D" uid="uid://dnx0mufltyv35" path="res://Graphics/MikaMika/stand.png" id="3_lmn2e"]
+[ext_resource type="Texture2D" uid="uid://dnx0mufltyv35" path="res://Graphics/MikaMika/Rendered/stand.png" id="3_3m654"]
 [ext_resource type="Script" path="res://Fundamental/WallChecker.gd" id="3_su34n"]
+[ext_resource type="Texture2D" uid="uid://q2ej7wv2mcij" path="res://Graphics/MikaMika/Rendered/air.png" id="3_ukje7"]
+[ext_resource type="Texture2D" uid="uid://cct5etoajkmy7" path="res://Graphics/MikaMika/Rendered/forwarddash.png" id="4_r467y"]
+[ext_resource type="Texture2D" uid="uid://ds0l4f2yljp8g" path="res://Graphics/MikaMika/Rendered/inward/0031.png" id="5_kmj53"]
+[ext_resource type="Texture2D" uid="uid://b6bkt4hr3k71k" path="res://Graphics/MikaMika/Rendered/inward/0032.png" id="6_c2aob"]
+[ext_resource type="Texture2D" uid="uid://c7ya1c45xeahi" path="res://Graphics/MikaMika/Rendered/inward/0033.png" id="7_qrnsf"]
+[ext_resource type="Texture2D" uid="uid://dja3a6crlcdl8" path="res://Graphics/MikaMika/Rendered/inward/0034.png" id="8_lkvbl"]
+[ext_resource type="Texture2D" uid="uid://ckjn5gcgysdp3" path="res://Graphics/MikaMika/Rendered/inward/0035.png" id="9_5ql3n"]
+[ext_resource type="Texture2D" uid="uid://b5nlhdui3qdjr" path="res://Graphics/MikaMika/Rendered/inward/0036.png" id="10_kgk1q"]
+[ext_resource type="Texture2D" uid="uid://c8rmsy5wawuuc" path="res://Graphics/MikaMika/Rendered/inward/0037.png" id="11_gcoll"]
+[ext_resource type="Texture2D" uid="uid://r7lvajin8o6k" path="res://Graphics/MikaMika/Rendered/inward/0038.png" id="12_fw30n"]
+[ext_resource type="Texture2D" uid="uid://dtv2tmixsj4na" path="res://Graphics/MikaMika/Rendered/inward/0039.png" id="13_6sxfj"]
+[ext_resource type="Texture2D" uid="uid://bjjj6q7ugwdle" path="res://Graphics/MikaMika/Rendered/inward/0040.png" id="14_5dn3b"]
+[ext_resource type="Texture2D" uid="uid://cfb4yr8psha7b" path="res://Graphics/MikaMika/Rendered/inward/0041.png" id="15_i67k4"]
+[ext_resource type="Texture2D" uid="uid://c5td1cm0r8kgn" path="res://Graphics/MikaMika/Rendered/inward/0043.png" id="16_5l10x"]
+[ext_resource type="Texture2D" uid="uid://40htdpurhc1n" path="res://Graphics/MikaMika/Rendered/inward/0042.png" id="16_qe1f8"]
+[ext_resource type="Texture2D" uid="uid://if6nloejny32" path="res://Graphics/MikaMika/Rendered/inward/0044.png" id="18_gdl81"]
+[ext_resource type="Texture2D" uid="uid://700dj8nug3cg" path="res://Graphics/MikaMika/Rendered/inward/0045.png" id="19_g8mgm"]
+[ext_resource type="Texture2D" uid="uid://c2hc5c1rq5v6e" path="res://Graphics/MikaMika/Rendered/inward/0046.png" id="20_2ajc7"]
+[ext_resource type="Texture2D" uid="uid://5w707u6xdt1k" path="res://Graphics/MikaMika/Rendered/inward/0047.png" id="21_wxvpo"]
+[ext_resource type="Texture2D" uid="uid://b3o58o1cr7udo" path="res://Graphics/MikaMika/Rendered/inward/0049.png" id="22_15o8e"]
+[ext_resource type="Texture2D" uid="uid://21k8o854eyud" path="res://Graphics/MikaMika/Rendered/inward/0048.png" id="23_xwe0u"]
+[ext_resource type="Texture2D" uid="uid://dcdye0ce3uj17" path="res://Graphics/MikaMika/Rendered/inward/0050.png" id="24_rwphu"]
+[ext_resource type="Texture2D" uid="uid://dqhgo5dw8353t" path="res://Graphics/MikaMika/Rendered/inward/0030.png" id="25_1lqt7"]
+[ext_resource type="Texture2D" uid="uid://bax8po67oiypy" path="res://Graphics/MikaMika/Rendered/inward/0029.png" id="26_x7byo"]
+[ext_resource type="Texture2D" uid="uid://d3c56t353v4ur" path="res://Graphics/MikaMika/Rendered/inward/0028.png" id="27_ar72k"]
+[ext_resource type="Texture2D" uid="uid://77kegtrs8yy0" path="res://Graphics/MikaMika/Rendered/inward/0027.png" id="28_xnvfo"]
+[ext_resource type="Texture2D" uid="uid://cm200208gxkto" path="res://Graphics/MikaMika/Rendered/inward/0026.png" id="29_3vjdb"]
+[ext_resource type="Texture2D" uid="uid://cdm6b3udxuti2" path="res://Graphics/MikaMika/Rendered/inward/0025.png" id="30_oupvd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clxpm"]
-size = Vector2(41, 33.5)
+size = Vector2(41, 116.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tibil"]
 shader = ExtResource("2_p34cf")
@@ -15,7 +43,10 @@ shader_parameter/line_thickness = 6.925
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l5345"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ukje7")
+}],
 "loop": true,
 "name": &"air",
 "speed": 5.0
@@ -30,19 +61,149 @@ animations = [{
 "name": &"downdash",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_r467y")
+}],
 "loop": true,
 "name": &"forwarddash",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kmj53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_c2aob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qrnsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lkvbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5ql3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kgk1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gcoll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fw30n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6sxfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5dn3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_i67k4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5l10x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qe1f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_gdl81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_g8mgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_2ajc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_wxvpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_15o8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_xwe0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_rwphu")
+}],
+"loop": true,
+"name": &"groundstrike1",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_qe1f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_i67k4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5dn3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6sxfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fw30n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gcoll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kgk1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5ql3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lkvbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qrnsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_c2aob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_1lqt7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kmj53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_x7byo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ar72k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_xnvfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_3vjdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_oupvd")
+}],
+"loop": true,
+"name": &"groundstrike2",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_r467y")
+}],
 "loop": true,
 "name": &"novdash",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_lmn2e")
+"texture": ExtResource("3_3m654")
 }],
 "loop": true,
 "name": &"stand",
@@ -85,76 +246,46 @@ step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:scale")
+tracks/0/path = NodePath("sprite:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.0166667),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(45, 60)]
 }
 
-[sub_resource type="Animation" id="Animation_moake"]
-resource_name = "dashstart"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.28, 0.4), Vector2(0.45, 0.7), Vector2(0.8, 0.8)]
-}
-
-[sub_resource type="Animation" id="Animation_5txbu"]
-resource_name = "downdash"
+[sub_resource type="Animation" id="Animation_5lysh"]
+resource_name = "forwarddash"
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:scale")
+tracks/0/path = NodePath("sprite:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.28, 1.4)]
+"values": [Vector2(-42, 180)]
 }
 
-[sub_resource type="Animation" id="Animation_ikem2"]
-resource_name = "forwarddash"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.9, 0.3)]
-}
-
-[sub_resource type="Animation" id="Animation_ahgyt"]
+[sub_resource type="Animation" id="Animation_bju8n"]
 resource_name = "novdash"
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:scale")
+tracks/0/path = NodePath("sprite:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(-42, 180)]
 }
 
 [sub_resource type="Animation" id="Animation_0mxpl"]
@@ -162,58 +293,54 @@ resource_name = "stand"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.0166667),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_0mhqy"]
-resource_name = "tridash"
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:scale")
+tracks/0/path = NodePath("sprite:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_hkqnh"]
-resource_name = "updash"
-step = 0.0166667
+[sub_resource type="Animation" id="Animation_4ekko"]
+resource_name = "groundstrike1"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:scale")
+tracks/0/path = NodePath("sprite:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.25, 1.6)]
+"values": [Vector2(30, 42)]
+}
+
+[sub_resource type="Animation" id="Animation_kbqgi"]
+resource_name = "groundstrike2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 42)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgdef"]
 _data = {
 "air": SubResource("Animation_vcegn"),
-"dashstart": SubResource("Animation_moake"),
-"downdash": SubResource("Animation_5txbu"),
-"forwarddash": SubResource("Animation_ikem2"),
-"novdash": SubResource("Animation_ahgyt"),
-"stand": SubResource("Animation_0mxpl"),
-"tridash": SubResource("Animation_0mhqy"),
-"updash": SubResource("Animation_hkqnh")
+"forwarddash": SubResource("Animation_5lysh"),
+"groundstrike1": SubResource("Animation_4ekko"),
+"groundstrike2": SubResource("Animation_kbqgi"),
+"novdash": SubResource("Animation_bju8n"),
+"stand": SubResource("Animation_0mxpl")
 }
 
 [node name="Mika" type="CharacterBody2D"]
@@ -221,15 +348,17 @@ z_index = 685
 script = ExtResource("1_c1pl4")
 
 [node name="ECB" type="CollisionShape2D" parent="."]
-position = Vector2(0, -17.25)
+position = Vector2(0, -58.75)
 shape = SubResource("RectangleShape2D_clxpm")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_tibil")
 position = Vector2(0, -86)
+scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_l5345")
-animation = &"stand"
+animation = &"groundstrike2"
+offset = Vector2(30, 42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -237,23 +366,21 @@ libraries = {
 }
 
 [node name="WallCheckerL" type="Area2D" parent="."]
-visible = false
-position = Vector2(-19, -23)
+position = Vector2(-19, -75)
 script = ExtResource("3_su34n")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallCheckerL"]
-position = Vector2(-3.8, 0)
-scale = Vector2(1.59375, 1)
+position = Vector2(-3.8, -9.625)
+scale = Vector2(1.59375, 1.4375)
 polygon = PackedVector2Array(-4, -4, -4, 16, 4, 16, 4, -4)
 
 [node name="WallCheckerR" type="Area2D" parent="."]
-visible = false
-position = Vector2(19, -23)
+position = Vector2(19, -75)
 script = ExtResource("3_su34n")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallCheckerR"]
-position = Vector2(3.8, 0)
-scale = Vector2(1.59375, 1)
+position = Vector2(3.8, -9.625)
+scale = Vector2(1.59375, 1.4375)
 polygon = PackedVector2Array(-4, -4, -4, 16, 4, 16, 4, -4)
 
 [node name="Hurtbox" type="Area2D" parent="."]
@@ -261,4 +388,5 @@ position = Vector2(0, -32)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
 modulate = Color(0.6, 0.419608, 0.901961, 0.8)
-polygon = PackedVector2Array(-10, 7, 10, 7, 10, 21, -10, 21)
+position = Vector2(4, -80)
+polygon = PackedVector2Array(-6, 7, 7, 7, 7, 24, -6, 24)

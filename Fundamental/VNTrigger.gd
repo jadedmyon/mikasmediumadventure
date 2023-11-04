@@ -15,5 +15,6 @@ func _process(delta):
 	for x in $Area2D.get_overlapping_bodies():
 		if x.name == "Mika":
 			if triggertype == "touch":
+				x.momentumreset(1000)
 				get_parent().get_parent().createvn(scenename)
 				queue_free()

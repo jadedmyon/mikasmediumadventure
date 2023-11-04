@@ -50,7 +50,7 @@ func _physics_process(delta):
 	debug()
 	buffer_processing()
 	gametime+=1 
-	$Camera2D.position = get_node("Entities/Mika").position
+	$Camera2D.position = get_node("Entities/Mika").position + Vector2(0,-100)
 
 
 func debug():

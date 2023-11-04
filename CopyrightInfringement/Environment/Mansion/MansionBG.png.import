@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doxagn6aa5727"
-path="res://.godot/imported/MansionBed.png-04cbe22c349d292e80f8947d6c3075f8.ctex"
+uid="uid://ympb53oq2tiw"
+path="res://.godot/imported/MansionBG.png-eaba6933385eb0d00419751e52fbaed7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CopyrightInfringement/MansionBed.png"
-dest_files=["res://.godot/imported/MansionBed.png-04cbe22c349d292e80f8947d6c3075f8.ctex"]
+source_file="res://CopyrightInfringement/Environment/Mansion/MansionBG.png"
+dest_files=["res://.godot/imported/MansionBG.png-eaba6933385eb0d00419751e52fbaed7.ctex"]
 
 [params]
 
