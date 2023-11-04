@@ -1,6 +1,7 @@
 extends "res://Fundamental/Entity.gd"
 
 func _ready():
+	
 	hp = 20
 
 

@@ -51,7 +51,7 @@ func _physics_process(delta):
 	update_animation()
 
 	if inputheld("down") and inputpressed("B"):
-		get_parent().get_parent().get_node("Camera2D").zoom = Vector2(4,4)
+		get_parent().get_parent().get_node("Camera2D").zoom = Vector2(3,3)
 	
 
 	
@@ -114,6 +114,7 @@ func walk_state():
 	dashcheck()
 	attackOK_ground()
 	if !is_on_floor(): nstate("air")
+	if frame == 36: frame = 0 #too lazy to program looping anims correctly
 
 
 func air_state():
@@ -320,6 +321,8 @@ func groundstrike1_state():
 		endstate()
 
 func groundstrike2_state():
+	tracting()
+	slideoff()
 	
 	if frame == 5:
 		create_hitbox({damage = 8,duration = 4, offset = Vector2(80,-55),scale = Vector2(3,3.5)})
@@ -329,9 +332,11 @@ func groundstrike2_state():
 		endstate()
 
 func groundstrike3_state():
+	tracting()
+	slideoff()
 	
 	if frame == 8:
-		create_hitbox({damage = 8,duration = 4, offset = Vector2(90,-55),scale = Vector2(4,2.5)})
+		create_hitbox({damage = 8,duration = 9, offset = Vector2(120,-80),scale = Vector2(4.1,3)})
 	
 	if frame == 36:
 		endstate()

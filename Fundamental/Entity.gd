@@ -126,7 +126,7 @@ func nstate(newstate:String):
 func update_animation():
 	$sprite.play(state)
 	$sprite.frame = frame
-	$AnimationPlayer.play(state)
+	if has_node("AnimationPlayer"):$AnimationPlayer.play(state)
 	$sprite.scale.x = direction * realscale#yes this isn't perfect. go fuck yourself 
 	$sprite.scale.y = realscale
 	if flashingtimer > 0:
