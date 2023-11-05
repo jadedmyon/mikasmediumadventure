@@ -1,0 +1,155 @@
+[gd_scene load_steps=10 format=3 uid="uid://rbkvjplxjhvc"]
+
+[ext_resource type="Script" path="res://Entities/Spider.gd" id="1_rp3rx"]
+[ext_resource type="Texture2D" uid="uid://y2mu8d2hcb7n" path="res://CopyrightInfringement/enemies/spider1.png" id="2_l84iy"]
+[ext_resource type="Texture2D" uid="uid://cuj7qtxfap0u5" path="res://CopyrightInfringement/enemies/spider2.png" id="3_c6w7q"]
+[ext_resource type="Texture2D" uid="uid://cdsbo8jl0becu" path="res://CopyrightInfringement/enemies/spider3.png" id="4_aah3s"]
+[ext_resource type="Texture2D" uid="uid://bdm68j80hlasq" path="res://CopyrightInfringement/enemies/spider4.png" id="5_7nahy"]
+[ext_resource type="Texture2D" uid="uid://bk4drcm1082ww" path="res://CopyrightInfringement/enemies/spider5.png" id="6_kwjvl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nurt3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l84iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_l84iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_l84iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c6w7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c6w7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c6w7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aah3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aah3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aah3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7nahy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7nahy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7nahy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kwjvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kwjvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kwjvl")
+}],
+"loop": true,
+"name": &"climb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kwjvl")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l84iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_l84iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_l84iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c6w7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c6w7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c6w7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aah3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aah3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aah3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7nahy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7nahy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7nahy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kwjvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kwjvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kwjvl")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2k7q"]
+size = Vector2(41.5, 30.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlvkv"]
+size = Vector2(673, 636.875)
+
+[node name="Spider" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_rp3rx")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nurt3")
+animation = &"shoot"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ECB" type="CollisionShape2D" parent="."]
+position = Vector2(0, -17.25)
+shape = SubResource("RectangleShape2D_k2k7q")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+modulate = Color(0.6, 0.419608, 0.901961, 0.8)
+polygon = PackedVector2Array(-27, -11, 33, -14, 47, 54, -44, 58)
+
+[node name="MikaDetector" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MikaDetector"]
+position = Vector2(6.5, -18)
+shape = SubResource("RectangleShape2D_mlvkv")
+debug_color = Color(0.654902, 0.505882, 0.282353, 0.419608)

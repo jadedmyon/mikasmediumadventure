@@ -18,7 +18,8 @@ var hitstop:= 0 #should prolly be applied to all children of Entities in Gamepla
 var flashingtimer = 0
 @export var direction:= 1 #1 and -1
 var invulntimer := 0
-
+var mikadetected := false
+var mikadirection := -1
 
 var fallaccel := 25
 var fallspeed_max := 400
@@ -37,7 +38,7 @@ var state_called:Array[String] = [] #used to fix states not being called after s
 
 
 func _ready():
-	pass
+	process_priority = 100
 
 ##this method won't happen because any inheritor will replace it with their own physics process
 ##use this as a copypaste you build enemy behavior off later 
@@ -48,6 +49,7 @@ func _physics_process(delta):
 		move_and_slide()
 		gravity()
 		update_animation()
+		detect_mika()
 		state_called = []
 
 
@@ -95,8 +97,14 @@ func gethit():
 
 func die():
 	#animation
-
+	for x in get_parent().get_children():
+		if x is HitBox:
+			if x.creator == self and x.hitboxtype == "melee":
+				x.queue_free()
 	queue_free()
+
+
+
 
 
 #state machine logic
@@ -121,7 +129,17 @@ func nstate(newstate:String):
 	state_caller()
 
 
-
+func detect_mika():
+	if has_node("MikaDetector"):
+		for x in get_node("MikaDetector").get_overlapping_bodies():
+			if x.name == "Mika":
+				mikadetected = true
+				if x.position.x > position.x:
+					mikadirection = 1 
+				else:
+					mikadirection = -1
+				return
+		mikadetected = false
 
 func update_animation():
 	$sprite.play(state)

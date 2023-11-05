@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ch8wu4cjrkc4j"]
+
+[ext_resource type="Texture2D" uid="uid://djy2lr0l71vo0" path="res://CopyrightInfringement/enemies/spidersheet.png" id="1_kgiho"]
+
+[resource]
+atlas = ExtResource("1_kgiho")
+region = Rect2(128, 128, 256, 256)

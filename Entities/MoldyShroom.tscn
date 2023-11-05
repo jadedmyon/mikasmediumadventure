@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://bk1fnuqmkhfox"]
+
+[ext_resource type="Script" path="res://Entities/MoldyShroom.gd" id="1_h7ce5"]
+[ext_resource type="Texture2D" uid="uid://dyof6q3475rob" path="res://CopyrightInfringement/enemies/moldyshroom.png" id="1_sovtj"]
+[ext_resource type="Texture2D" uid="uid://suuvx878emau" path="res://CopyrightInfringement/enemies/moldyshroom2.png" id="3_0g3a1"]
+[ext_resource type="Texture2D" uid="uid://cjaai42tgoc1o" path="res://CopyrightInfringement/enemies/moldyshroom3.png" id="4_58dr6"]
+[ext_resource type="Texture2D" uid="uid://dck3egq7g466g" path="res://CopyrightInfringement/enemies/moldyshroom4.png" id="5_njft7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uf6lg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0g3a1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_sovtj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_58dr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0g3a1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_58dr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_njft7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_njft7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_njft7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_njft7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_njft7")
+}],
+"loop": true,
+"name": &"prepare",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sovtj")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_qrq14"]
+resource_name = "stand"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eh0dp"]
+_data = {
+"stand": SubResource("Animation_qrq14")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is6ro"]
+size = Vector2(30, 48.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjd12"]
+size = Vector2(901.5, 497)
+
+[node name="MoldyShroom" type="CharacterBody2D"]
+script = ExtResource("1_h7ce5")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -39)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_uf6lg")
+animation = &"prepare"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eh0dp")
+}
+
+[node name="ECB" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -25.9375)
+shape = SubResource("RectangleShape2D_is6ro")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+modulate = Color(0.6, 0.419608, 0.901961, 0.8)
+z_index = 10
+position = Vector2(-12, -1)
+polygon = PackedVector2Array(-38, -49, 47, -47, 59, 34, -24, 32)
+
+[node name="MikaDetector" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MikaDetector"]
+position = Vector2(0, -19)
+shape = SubResource("RectangleShape2D_yjd12")
+debug_color = Color(0.654902, 0.505882, 0.282353, 0.419608)

@@ -1,4 +1,4 @@
-extends Area2D
+class_name HitBox extends Area2D
 
 var creator = null #reference
 var team := "enemy"
@@ -6,12 +6,14 @@ var direction := 1
 var initial_state := "penis" #the state the creator was in when the hitbox was made
 var created_frame := 0 #global frametime. Not used for anything 
 var already_hit = [] #list of entities this hitbox already hit 
+var velocity = Vector2(0,0)
+
 
 var frame := 0
 var hitstop := 0
 
 #definable parameters
-var duration:=5
+var duration:=15
 var damage:= 8
 
 var hitboxtype:= "melee" #melee is attached to the creator, projectile travels on its own
@@ -19,21 +21,51 @@ var hitsleft = 99 #how many times before destroyed
 var offset := Vector2(0,0) #not the best way to implement hitboxes tracking owners, better way would be paths ig
 var speedX := 10
 var speedY := 0
+var fallaccel:= 0
+var destroyontilemap := true
+var velocitytowardmika = 0
+
 
 var hitstop_dealt := 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	process_priority = 10
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	hit_process()
+	
 	if hitboxtype == "melee":
 		position = creator.position + Vector2(offset.x*creator.direction , offset.y)
 		if initial_state != creator.state: queue_free() #if you get hit or slide off, delete hitbox 
 	if hitboxtype == "projectile":
-		position+= Vector2(speedX*direction,speedY)
+		if frame == 0:
+			position+= offset
+			velocity.x = speedX
+			velocity.y = speedY
+			
+			if velocitytowardmika > 0:
+				var angle = get_angle_to(findmika().position)
+				var newvelocity = Vector2(cos(angle), sin(angle)) * velocitytowardmika
+				velocity += newvelocity
+		
+		velocity.y += fallaccel
+		
+		if destroyontilemap and frame > 5:
+			for x in get_overlapping_bodies():
+				if x is TileMap:
+					queue_free()
+
+
+		#actually moves things 
+		position.y += fallaccel
+	
+	
+	position += velocity
+	
+	
 	
 	if frame >= duration:
 		queue_free()
@@ -41,6 +73,12 @@ func _process(delta):
 	
 	if hitsleft <= 0: queue_free()
 
+
+func findmika() -> Node:
+	for x in get_parent().get_children():
+		if x.name == "Mika":
+			return x
+	return null
 
 func hit_process():
 	for x in get_overlapping_areas():

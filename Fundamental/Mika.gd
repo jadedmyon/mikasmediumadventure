@@ -3,7 +3,7 @@
 extends "res://Fundamental/Entity.gd"
 
 
-var jumpstrength = 400
+var jumpstrength = 550
 var driftaccel = 100
 var driftspeed_max = 475
 var air_friction = 15 #per frame

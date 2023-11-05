@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://byed55t14tjfu"]
+
+[ext_resource type="Texture2D" uid="uid://cajbdgqmsa23q" path="res://CopyrightInfringement/enemies/dustbunny1.png" id="1_6n3mg"]
+[ext_resource type="Script" path="res://Entities/DustBunny.gd" id="1_jtxaw"]
+[ext_resource type="Texture2D" uid="uid://cf886ccrloxcb" path="res://CopyrightInfringement/enemies/dustbunny4.png" id="2_2kjkh"]
+[ext_resource type="Texture2D" uid="uid://bjbg83qqjykw4" path="res://CopyrightInfringement/enemies/dustbunny5.png" id="3_vmk6o"]
+[ext_resource type="Texture2D" uid="uid://ca3hgpdl3ks2y" path="res://CopyrightInfringement/enemies/dustbunny2.png" id="5_7fb83"]
+[ext_resource type="Texture2D" uid="uid://chsyjup3nnsav" path="res://CopyrightInfringement/enemies/dustbunny3.png" id="6_4qmpm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7o6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2kjkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vmk6o")
+}],
+"loop": true,
+"name": &"bigjump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2kjkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vmk6o")
+}],
+"loop": true,
+"name": &"smalljump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6n3mg")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7fb83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7fb83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7fb83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4qmpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4qmpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4qmpm")
+}],
+"loop": true,
+"name": &"windup",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0jto"]
+size = Vector2(41.5, 30.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6i50"]
+size = Vector2(901.5, 497)
+
+[node name="DustBunny" type="CharacterBody2D"]
+z_index = 10
+script = ExtResource("1_jtxaw")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_a7o6e")
+animation = &"windup"
+
+[node name="ECB" type="CollisionShape2D" parent="."]
+position = Vector2(-1.25, -13.625)
+shape = SubResource("RectangleShape2D_y0jto")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+modulate = Color(0.6, 0.419608, 0.901961, 0.8)
+position = Vector2(-13, -2)
+polygon = PackedVector2Array(-10, 7, 34, 7, 34, 33, -14, 32)
+
+[node name="MikaDetector" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MikaDetector"]
+position = Vector2(1, -11)
+shape = SubResource("RectangleShape2D_u6i50")
+debug_color = Color(0.654902, 0.505882, 0.282353, 0.419608)
