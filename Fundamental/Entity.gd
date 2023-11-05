@@ -26,7 +26,7 @@ var fallspeed_max := 400
 
 var displayname := "? ? ? ?" 
 var team:= "enemy"
-var hp:= 10
+@export var hp:= 10
 var hp_max:= 10
 
 

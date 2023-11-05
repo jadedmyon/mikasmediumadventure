@@ -359,7 +359,7 @@ func forwardair_state():
 	
 	
 	if frame == 3:
-		create_hitbox({damage = 8,duration = 3, offset = Vector2(50,10),scale = Vector2(2,2)})
+		create_hitbox({damage = 8,duration = 3, offset = Vector2(80,-85),scale = Vector2(4,4)})
 	if frame == 21:
 		endstate()
 	

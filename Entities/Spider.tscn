@@ -133,8 +133,6 @@ script = ExtResource("1_rp3rx")
 sprite_frames = SubResource("SpriteFrames_nurt3")
 animation = &"shoot"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
 [node name="ECB" type="CollisionShape2D" parent="."]
 position = Vector2(0, -17.25)
 shape = SubResource("RectangleShape2D_k2k7q")

@@ -88,7 +88,7 @@ func hit_process():
 				already_hit.append(entity)
 				entity.hp -= damage
 				entity.global_hitstop(hitstop_dealt)
-				if creator.name == "Mika":
+				if !entity.name == "Mika":
 					entity.hitstop+= hitstop_dealt
 				elif true: #!entity.is_on_floor() #if mika is one getting hit, kinda hacky
 					if entity.position.x > 0:
