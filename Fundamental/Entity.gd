@@ -21,6 +21,7 @@ var invulntimer := 0
 var mikadetected := false
 var mikadirection := -1
 
+
 var fallaccel := 25
 var fallspeed_max := 400
 
@@ -28,9 +29,9 @@ var displayname := "? ? ? ?"
 var team:= "enemy"
 @export var hp:= 10
 var hp_max:= 10
+@export var deathgraphics:Array[String] = ["explosion"] #explosion;toss
 
-
-var realscale = 1 #for mika
+var realscale := 1.0
 
 #don't need to change these
 var state_called:Array[String] = [] #used to fix states not being called after state changes because of ordering
@@ -43,6 +44,11 @@ func _ready():
 ##this method won't happen because any inheritor will replace it with their own physics process
 ##use this as a copypaste you build enemy behavior off later 
 func _physics_process(delta):
+	defaultbehavior()
+
+
+##Mika doesn't use this, but all the enemies probably should.
+func defaultbehavior():
 	tickframe()
 	if hitstop == 0:
 		if invulntimer > 0: invulntimer-=1
@@ -50,9 +56,12 @@ func _physics_process(delta):
 		gravity()
 		update_animation()
 		detect_mika()
+		uniquebehavior()
 		state_called = []
 
-
+#this should be replaced in the inherited script for custom behavior like the state machine. 
+func uniquebehavior():
+	pass
 
 #hitbox/hurtbox logic
 
@@ -96,11 +105,19 @@ func gethit():
 		die()
 
 func die():
-	#animation
+	#fixes hitboxes referencing a creator that don't exist no more
 	for x in get_parent().get_children():
 		if x is HitBox:
 			if x.creator == self and x.hitboxtype == "melee":
 				x.queue_free()
+	for x in deathgraphics: match x:
+		"explosion":
+			var explosion := preload("res://Polish/DeathExplode.tscn").instantiate()
+			get_parent().add_child(explosion)
+			explosion.scale *= $sprite.scale
+			explosion.position = $sprite.global_position
+		"toss":
+			pass
 	queue_free()
 
 

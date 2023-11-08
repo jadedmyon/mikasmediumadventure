@@ -22,8 +22,11 @@ var offset := Vector2(0,0) #not the best way to implement hitboxes tracking owne
 var speedX := 10
 var speedY := 0
 var fallaccel:= 0
-var destroyontilemap := true
 var velocitytowardmika = 0
+var angle := 0
+var speedscale :=  0.5
+
+var destroyontilemap := true
 
 
 var hitstop_dealt := 3
@@ -43,15 +46,16 @@ func _process(delta):
 	if hitboxtype == "projectile":
 		if frame == 0:
 			position+= offset
-			velocity.x = speedX
-			velocity.y = speedY
+			velocity.x = speedX 
+			velocity.y = speedY 
 			
 			if velocitytowardmika > 0:
+			##  VVVV get_angle_to() is slow, first priority to amend if game chugs 
 				var angle = get_angle_to(findmika().position)
-				var newvelocity = Vector2(cos(angle), sin(angle)) * velocitytowardmika
-				velocity += newvelocity
+				velocity +=  Vector2(cos(angle), sin(angle)) * velocitytowardmika
+
 		
-		velocity.y += fallaccel
+		velocity.y += fallaccel * speedscale
 		
 		if destroyontilemap and frame > 5:
 			for x in get_overlapping_bodies():
@@ -59,11 +63,9 @@ func _process(delta):
 					queue_free()
 
 
-		#actually moves things 
-		position.y += fallaccel
 	
 	
-	position += velocity
+	position += velocity * speedscale
 	
 	
 	

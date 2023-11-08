@@ -8,17 +8,7 @@ func _ready():
 	realscale = 1.1
 
 
-func _physics_process(delta):
-	tickframe()
-	if hitstop == 0:
-		if invulntimer > 0: invulntimer-=1
-		move_and_slide()
-		gravity()
-		update_animation()
-		detect_mika()
-		state_called = []
-
-	
+func uniquebehavior():
 	match state:
 		"stand":
 			if frame == 1:
@@ -32,7 +22,7 @@ func _physics_process(delta):
 					nstate("windup")
 			
 		"smalljump":
-			if frame == 1:
+			if frame == 5:
 				fallaccel = 12
 				create_hitbox({damage=8,duration=120, scale = Vector2(3,3)})
 				velocity.y = - 250

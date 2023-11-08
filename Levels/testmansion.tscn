@@ -224,12 +224,13 @@ modulate = Color(1, 1, 1, 0.486275)
 position = Vector2(87, 143)
 
 [node name="FirefoxHkxr0o68Bw" type="Sprite2D" parent="."]
-position = Vector2(3586, 915.5)
+position = Vector2(3038, 192.5)
 texture = ExtResource("8_01oor")
 
 [node name="VNTrigger" parent="." instance=ExtResource("9_epp2a")]
-position = Vector2(3408, 957.5)
+position = Vector2(2860, 234.5)
 scale = Vector2(1, 4.32353)
+scenename = "testvn2"
 
 [node name="LevelWarp" parent="." instance=ExtResource("10_36jqq")]
 position = Vector2(3128, 1284.5)

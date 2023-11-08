@@ -64,7 +64,18 @@ func processline():
 		hidespeakerbox()
 	if commandname in ["hideicon","hi"]:
 		hideicon()
-	
+	if commandname == "shadowspeaker":
+		speakername(command[1])
+		#default speaker color
+		if command[1] in speakercolors:
+			$speakerbox/label.add_theme_color_override("font_color", Color.hex(speakercolors[command[1]]))
+		else:
+			$speakerbox/label.add_theme_color_override("font_color", Color(1,1,1,1)) 
+		hideicon()
+	if commandname == "loadlevel":
+		var posid = "0"
+		if len(command) > 2: posid = command[2]
+		loadlevel(command[1],posid)
 	
 	##Continues scene. Needs to be a separate function for the same frame loop to work(?)
 	continuescene(instantcontinue)
@@ -89,6 +100,7 @@ func speakercolor(color):
 
 func hidespeakerbox():
 	$speakerbox.visible = false
+	
 
 func hidespeaker():
 	hidespeakerbox()
@@ -96,8 +108,14 @@ func hidespeaker():
 
 
 func hideicon():
-	pass
+	$iconbox.visible = false
+	$icon.visible = false
 
+
+
+
+func loadlevel(levelname:String,posid:String):
+	get_parent().get_parent().get_node("Gameplay").levelswitch(levelname,int(posid))
 
 func addscene(scenename:String):
 

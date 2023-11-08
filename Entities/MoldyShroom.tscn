@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk1fnuqmkhfox"]
+[gd_scene load_steps=9 format=3 uid="uid://bk1fnuqmkhfox"]
 
 [ext_resource type="Script" path="res://Entities/MoldyShroom.gd" id="1_h7ce5"]
 [ext_resource type="Texture2D" uid="uid://dyof6q3475rob" path="res://CopyrightInfringement/enemies/moldyshroom.png" id="1_sovtj"]
@@ -52,14 +52,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_qrq14"]
-resource_name = "stand"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eh0dp"]
-_data = {
-"stand": SubResource("Animation_qrq14")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is6ro"]
 size = Vector2(30, 48.125)
 
@@ -74,11 +66,6 @@ position = Vector2(-1, -39)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_uf6lg")
 animation = &"prepare"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_eh0dp")
-}
 
 [node name="ECB" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -25.9375)
