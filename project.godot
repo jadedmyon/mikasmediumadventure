@@ -20,6 +20,10 @@ config/icon="res://icon.png"
 
 global="*res://Fundamental/global.gd"
 
+[display]
+
+window/vsync/vsync_mode=0
+
 [input]
 
 up={

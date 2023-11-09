@@ -7,3 +7,6 @@
 [node name="Gameplay" parent="." instance=ExtResource("1_ulcc3")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+autoplay = true
