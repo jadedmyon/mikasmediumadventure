@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dppfuolcj1y1v"
-path="res://.godot/imported/0102.png-43de7c25c7fb4f8ab2a06fafd1a6d45c.ctex"
+uid="uid://da71e027orqq8"
+path="res://.godot/imported/broomrenderReady.png-2682db4e4a9798e914e8a04beba85656.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/MikaMika/Rendered/0102.png"
-dest_files=["res://.godot/imported/0102.png-43de7c25c7fb4f8ab2a06fafd1a6d45c.ctex"]
+source_file="res://Graphics/Weapons/broomrenderReady.png"
+dest_files=["res://.godot/imported/broomrenderReady.png-2682db4e4a9798e914e8a04beba85656.ctex"]
 
 [params]
 

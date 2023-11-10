@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b21vuywpllb2b"]
+
+[ext_resource type="Texture2D" uid="uid://s2k28aau63go" path="res://Graphics/UI/ChoiceMarker.png" id="1_jjupj"]
+[ext_resource type="Script" path="res://Polish/ChoiceMarker.gd" id="2_ibxd2"]
+
+[node name="ChoiceMarker" type="Sprite2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_jjupj")
+script = ExtResource("2_ibxd2")
+
+[node name="behind" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.419608)
+z_index = -1
+position = Vector2(-6, 0)
+texture = ExtResource("1_jjupj")

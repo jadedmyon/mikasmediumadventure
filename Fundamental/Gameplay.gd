@@ -42,7 +42,7 @@ func createvn(scenename:String):
 
 
 func _ready():
-	loadlevel(global.nextlevel,global.nextposid)
+	loadlevel(global.gamesave.nextlevel,global.gamesave.nextposid)
 
 
 func _physics_process(delta):

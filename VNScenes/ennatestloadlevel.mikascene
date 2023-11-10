@@ -1,0 +1,12 @@
+flag;loop
+speaker;Enna
+Mika, my love :) I will send you to the test chambers now:)
+speaker;Mika
+what
+hideicon;
+s;Enna
+EN GUARDE
+jump;loop
+choice;Yes. I need to escape the confines of my resting place.;woke
+choice;No. The outside world does not deserve me.;evenwoker
+Get out of bed?

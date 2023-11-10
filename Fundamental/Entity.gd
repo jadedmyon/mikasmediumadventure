@@ -168,7 +168,7 @@ func update_animation():
 		$sprite.modulate = Color(2,2,2,1)
 		flashingtimer-=1
 	else: $sprite.modulate = Color(1,1,1,1)
-
+	
 
 func tickframe():
 	if hitstop > 0: #putting this before frame increment might be a bad idea 

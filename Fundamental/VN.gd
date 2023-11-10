@@ -19,7 +19,9 @@ var currentscene = [
 ]
 var sceneindex := 0 #currentscene list index
 
-
+var dialogueoptions:Array = []
+var dialogueselected := -1 #array index. -1 by default so you don't accidentally continue.
+var dialoguepositions:Array[Vector2] = [] #For rendering the text 
 
 
 var speakercolors:Dictionary = {
@@ -31,13 +33,13 @@ var speakercolors:Dictionary = {
 
 
 func processline():
-	if sceneindex > len(currentscene) - 1:
-		queue_free() #replace with anim maybe
+	if sceneindex > len(currentscene) - 1: #if the scene ends
+		end()
 		return 
 	var command:Array = currentscene[sceneindex]
 	var commandname:String = command[0]
 
-	var instantcontinue = true #used for speakers. This will also mean an unknown command will just be skipped
+	var instantcontinue = true #if false, the loop will end. Only rly happens w/ print
 
 	if commandname in ["print","p"]:
 		printspeech(command[1])
@@ -50,8 +52,9 @@ func processline():
 			$speakerbox/label.add_theme_color_override("font_color", Color.hex(speakercolors[command[1]]))
 		else:
 			$speakerbox/label.add_theme_color_override("font_color", Color(1,1,1,1)) 
+		
 	if commandname in ["icon"]:
-		pass
+		icon(command[1])
 	if commandname in ["speakertext","st"]:
 		speakername(command[1])
 	if commandname in ["speakercolor","sc"]:
@@ -72,10 +75,20 @@ func processline():
 		else:
 			$speakerbox/label.add_theme_color_override("font_color", Color(1,1,1,1)) 
 		hideicon()
+	if commandname == "jump":
+		jump(command[1])
+	
+	
 	if commandname == "loadlevel":
 		var posid = "0"
 		if len(command) > 2: posid = command[2]
 		loadlevel(command[1],posid)
+	
+	if commandname == "choice":
+		dialogueoptions.append([  command[1],command[2]     ])
+
+	if commandname == "end":
+		end()
 	
 	##Continues scene. Needs to be a separate function for the same frame loop to work(?)
 	continuescene(instantcontinue)
@@ -89,6 +102,8 @@ func continuescene(instantcontinue):
 
 func printspeech(text:String):
 	$textbox/label.text = text
+	if dialogueoptions != []:
+		renderchoices()
 
 func speakername(text:String):
 	$speakerbox.visible = true 
@@ -111,8 +126,52 @@ func hideicon():
 	$iconbox.visible = false
 	$icon.visible = false
 
+func icon(animname:String):
+	$iconbox.visible = true
+	$icon.visible = true
+	if $icon.sprite_frames.has_animation(animname):
+		$icon.animation = animname
+
+func renderchoices():
+	$OptionsText.visible = true
+	$OptionsText.text = "\n"
+	var current_dialoguepos = 0
+	
+	for x in dialogueoptions:
+		dialoguepositions.append( $OptionsText.position + Vector2(0,$OptionsText.get_content_height()))
+		var lineposition:Vector2 =  $OptionsText.position + Vector2(0,$OptionsText.get_content_height())
+		create_choicemarker( lineposition  +\
+		Vector2(-26,($OptionsText.get_theme_font_size("normal_font_size") / 1.5 )), current_dialoguepos)
+		$OptionsText.get_theme_font_size("normal_font_size") /2 
+		$OptionsText.append_text(x[0])
+		$OptionsText.append_text("\n\n")
+		
+		#end
+		current_dialoguepos+=1
+	#update optionsbox
+	$OptionsBox.visible = true
+	var contentsize := Vector2($OptionsText.get_content_width(),$OptionsText.get_content_height())
+	$OptionsBox.size = contentsize + Vector2(64,24)
+	
 
 
+func create_choicemarker(pos:Vector2,dialoguepos:int):
+	var choicemarker := preload("res://Polish/ChoiceMarker.tscn").instantiate()
+	add_child(choicemarker)
+	choicemarker.position = pos
+	choicemarker.dialoguepos = dialoguepos
+
+
+func jump(flagname:String):
+	for x in len(currentscene):
+		if currentscene[x][0] == "flag":
+			if currentscene[x][1] == flagname:
+				sceneindex = x
+				processline()
+				return
+
+func end():
+	queue_free()
 
 func loadlevel(levelname:String,posid:String):
 	get_parent().get_parent().get_node("Gameplay").levelswitch(levelname,int(posid))
@@ -144,7 +203,37 @@ func _ready():
 	
 	pass
 
+func PlayerInput():
+	if dialogueoptions == []:
+		processline()
+	else:
+
+		if dialogueselected in range(len(dialogueoptions)):
+			var flag:String = dialogueoptions[dialogueselected][1]
+			dialogueoptions = []
+			$OptionsBox.visible = false
+			$OptionsText.visible = false
+			dialogueselected = -1
+			jump(flag)
+			
+
+
+
 
 func _process(delta):
+	if dialogueoptions != []:
+		var lastoption = len(dialogueoptions)-1
+		if Input.is_action_just_pressed("down"):
+			if dialogueselected == -1:
+				dialogueselected = 0
+			elif dialogueselected != lastoption:
+				dialogueselected+=1
+		if Input.is_action_just_pressed("up"):
+			if dialogueselected == -1:
+				dialogueselected = lastoption
+			elif dialogueselected != 0:
+				dialogueselected-=1
+	
+	
 	if Input.is_action_just_pressed("B"):
-		processline()
+		PlayerInput()

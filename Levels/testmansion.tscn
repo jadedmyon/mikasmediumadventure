@@ -224,13 +224,13 @@ modulate = Color(1, 1, 1, 0.486275)
 position = Vector2(87, 143)
 
 [node name="FirefoxHkxr0o68Bw" type="Sprite2D" parent="."]
-position = Vector2(3038, 192.5)
+position = Vector2(579, -96.5)
 texture = ExtResource("8_01oor")
 
 [node name="VNTrigger" parent="." instance=ExtResource("9_epp2a")]
-position = Vector2(2860, 234.5)
+position = Vector2(401, -54.5)
 scale = Vector2(1, 4.32353)
-scenename = "testvn2"
+scenename = "ennatestchoice"
 
 [node name="LevelWarp" parent="." instance=ExtResource("10_36jqq")]
 position = Vector2(3128, 1284.5)
@@ -273,26 +273,11 @@ texture = ExtResource("15_22eev")
 position = Vector2(319, 189)
 texture = ExtResource("16_jn2cp")
 
-[node name="Spider" parent="." instance=ExtResource("19_afu04")]
-position = Vector2(2361, 53)
-
 [node name="Spider2" parent="." instance=ExtResource("19_afu04")]
 position = Vector2(4189, 239)
 
-[node name="DustBunny" parent="." instance=ExtResource("17_tw6u3")]
-position = Vector2(747, 303)
-
 [node name="DustBunny2" parent="." instance=ExtResource("17_tw6u3")]
 position = Vector2(1129, 297)
-
-[node name="DustBunny3" parent="." instance=ExtResource("17_tw6u3")]
-position = Vector2(2349, 231)
-
-[node name="DustBunny4" parent="." instance=ExtResource("17_tw6u3")]
-position = Vector2(2672, 254)
-
-[node name="DustBunny5" parent="." instance=ExtResource("17_tw6u3")]
-position = Vector2(2668, 183)
 
 [node name="DustBunny6" parent="." instance=ExtResource("17_tw6u3")]
 position = Vector2(3600, 286)
@@ -347,12 +332,6 @@ position = Vector2(6570, -977)
 
 [node name="DustBunny7" parent="." instance=ExtResource("17_tw6u3")]
 position = Vector2(4674, 290)
-
-[node name="MoldyShroom" parent="." instance=ExtResource("18_hdsap")]
-position = Vector2(1703, 309)
-
-[node name="MoldyShroom2" parent="." instance=ExtResource("18_hdsap")]
-position = Vector2(3291, 281)
 
 [node name="MoldyShroom3" parent="." instance=ExtResource("18_hdsap")]
 position = Vector2(6359, 49)

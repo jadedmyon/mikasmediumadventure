@@ -1,0 +1,32 @@
+speaker;Enna
+Mika, my love :) I will burden you with the immeasurable weight of decision making now:)
+speaker;Mika
+what
+hideicon;
+s;Enna
+EN GUARDE
+choice;Yes. I need to escape the confines of my resting place.;woke
+choice;No. The outside world does not deserve me.;evenwoker
+choice;A completely unique, third option nobody expected ;broke
+Get out of bed?
+
+flag;woke
+speaker;Narrator
+You decide to escape the bed.
+It's slightly colder than you expected. You regret your decision immediately.
+end;
+
+
+
+flag;evenwoker
+You decide to stay in bed.
+The world realizes its mistakes after this decision and immediately gets better to suit your benevolent nature.
+You win :)
+end;
+
+
+flag;broke
+Get fucked please?
+Please have sex.
+Skibidi toilet or whatever the fuck you kids say. 
+end;

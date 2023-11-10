@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://dhvvksbke2k82"]
+[gd_scene load_steps=122 format=3 uid="uid://dhvvksbke2k82"]
 
 [ext_resource type="Script" path="res://Fundamental/Mika.gd" id="1_c1pl4"]
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_p34cf"]
@@ -23,7 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://700dj8nug3cg" path="res://Graphics/MikaMika/Rendered/inward/0045.png" id="19_g8mgm"]
 [ext_resource type="Texture2D" uid="uid://c2hc5c1rq5v6e" path="res://Graphics/MikaMika/Rendered/inward/0046.png" id="20_2ajc7"]
 [ext_resource type="Texture2D" uid="uid://5w707u6xdt1k" path="res://Graphics/MikaMika/Rendered/inward/0047.png" id="21_wxvpo"]
-[ext_resource type="Texture2D" uid="uid://b3o58o1cr7udo" path="res://Graphics/MikaMika/Rendered/inward/0049.png" id="22_15o8e"]
 [ext_resource type="Texture2D" uid="uid://21k8o854eyud" path="res://Graphics/MikaMika/Rendered/inward/0048.png" id="23_xwe0u"]
 [ext_resource type="Texture2D" uid="uid://dcdye0ce3uj17" path="res://Graphics/MikaMika/Rendered/inward/0050.png" id="24_rwphu"]
 [ext_resource type="Texture2D" uid="uid://dqhgo5dw8353t" path="res://Graphics/MikaMika/Rendered/inward/0030.png" id="25_1lqt7"]
@@ -105,6 +104,9 @@
 [ext_resource type="Texture2D" uid="uid://tr72bfdibo37" path="res://Graphics/MikaMika/Rendered/kick/0113.png" id="66_sgl8j"]
 [ext_resource type="Texture2D" uid="uid://bqtemhnb2vuge" path="res://Graphics/MikaMika/Rendered/walk/0036.png" id="67_1c01x"]
 [ext_resource type="Texture2D" uid="uid://de6tikxbpxrdp" path="res://Graphics/MikaMika/Rendered/kick/0112.png" id="67_o7ney"]
+[ext_resource type="Texture2D" uid="uid://da71e027orqq8" path="res://Graphics/Weapons/broomrenderReady.png" id="106_k0khr"]
+[ext_resource type="Texture2D" uid="uid://h1ot5ytb0d6t" path="res://Graphics/Weapons/broomInward2.png" id="107_rrhcj"]
+[ext_resource type="Script" path="res://Fundamental/weapon.gd" id="107_ux2as"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clxpm"]
 size = Vector2(41, 116.5)
@@ -191,9 +193,6 @@ animations = [{
 "texture": ExtResource("16_5l10x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_qe1f8")
-}, {
-"duration": 1.0,
 "texture": ExtResource("18_gdl81")
 }, {
 "duration": 1.0,
@@ -204,9 +203,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("21_wxvpo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_15o8e")
 }, {
 "duration": 1.0,
 "texture": ExtResource("23_xwe0u")
@@ -563,6 +559,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(45, 60)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("weapon:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_i4x1q"]
 resource_name = "forwardair"
@@ -597,6 +605,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_4ekko"]
 resource_name = "groundstrike1"
+step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -608,6 +617,78 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(30, 42)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("weapon:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("weapon:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("weapon:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.1, 0.133333, 0.183333),
+"transitions": PackedFloat32Array(1.23114, 0.90125, 90.5097, 1, 1),
+"update": 0,
+"values": [Vector2(-80, -60), Vector2(10, -105), Vector2(35, -90), Vector2(-60, -72), Vector2(-100, -80)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("weapon:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.1, 0.133333, 0.183333),
+"transitions": PackedFloat32Array(1.41421, 1, 25538, 1, 1),
+"update": 0,
+"values": [1.0472, 1.309, 0.0, 1.02102, 1.22173]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("weapon:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.3), Vector2(-1, 1), Vector2(-1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("weapon:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"broomdef", &"broominward2", &"broomdef"]
 }
 
 [sub_resource type="Animation" id="Animation_kbqgi"]
@@ -670,6 +751,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("weapon:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ke67f"]
 resource_name = "walk"
@@ -685,6 +778,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(20, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("weapon:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgdef"]
 _data = {
@@ -699,6 +804,25 @@ _data = {
 "walk": SubResource("Animation_ke67f")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_mvaol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("106_k0khr")
+}],
+"loop": true,
+"name": &"broomdef",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("107_rrhcj")
+}],
+"loop": true,
+"name": &"broominward2",
+"speed": 5.0
+}]
+
 [node name="Mika" type="CharacterBody2D"]
 z_index = 685
 script = ExtResource("1_c1pl4")
@@ -708,13 +832,15 @@ position = Vector2(0, -58.75)
 shape = SubResource("RectangleShape2D_clxpm")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = 5
 texture_filter = 1
 material = SubResource("ShaderMaterial_tibil")
 position = Vector2(0, -86)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_l5345")
-animation = &"forwardair"
-offset = Vector2(45, 60)
+animation = &"groundstrike1"
+frame = 11
+offset = Vector2(30, 42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -731,6 +857,7 @@ scale = Vector2(1.59375, 1.4375)
 polygon = PackedVector2Array(-4, -4, -4, 16, 4, 16, 4, -4)
 
 [node name="WallCheckerR" type="Area2D" parent="."]
+visible = false
 position = Vector2(19, -75)
 script = ExtResource("3_su34n")
 
@@ -746,3 +873,11 @@ position = Vector2(0, -32)
 modulate = Color(0.6, 0.419608, 0.901961, 0.8)
 position = Vector2(4, -79)
 polygon = PackedVector2Array(-14, 1, 13, 1, 17, 38, -20, 38)
+
+[node name="weapon" type="AnimatedSprite2D" parent="."]
+z_index = 6
+position = Vector2(35, -90)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_mvaol")
+animation = &"broominward2"
+script = ExtResource("107_ux2as")

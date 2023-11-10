@@ -3,7 +3,9 @@
 extends "res://Fundamental/Entity.gd"
 
 
-var jumpstrength = 550
+var jumpstrength = 350
+var jumpstrength_heldbase = 60 #every frame
+var jumpstrength_heldadd = 18 #first few frames 
 var driftaccel = 100
 var driftspeed_max = 475
 var air_friction = 15 #per frame
@@ -125,10 +127,10 @@ func air_state():
 
 	if airframes > 0 and inputheld("A"):
 		if airframes > 10:
-			velocity.y -= 30
+			velocity.y -= jumpstrength_heldadd * 3
 		if airframes > 8:
-			velocity.y -= 20
-		velocity.y -= 30
+			velocity.y -= jumpstrength_heldadd * 2
+		velocity.y -= jumpstrength_heldbase
 		airframes -= 1
 	if not inputheld("A"): airframes = 0
 	#Wall cling
@@ -143,6 +145,7 @@ func dashstart_state():
 		momentumreset(200)
 		velocity.y = 0
 		airframes = 0
+		if invulntimer < 4: invulntimer = 4
 		
 	position.x -= velocity.x / 60 #wacky hack to make you stop in the air without erasing velocity 
 	
@@ -203,7 +206,8 @@ func forwarddash_state():
 		xvelocity_towards(900*direction, 5000)
 	if frame > 0:
 		if is_on_floor():
-			attackOK_ground() 
+			attackOK_ground()
+			if inputheld("L"): jumpcheck()
 		else:attackOK_air()
 
 	if frame > 0 and frame <= 9:
@@ -215,7 +219,7 @@ func forwarddash_state():
 			jumpcheck()
 			dashing = true
 			tracting()
-			attackOK_ground()
+
 	if frame == 14:
 		endstate()
 		
