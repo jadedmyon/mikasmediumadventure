@@ -1,12 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhvvksbke2k82"]
+[gd_scene load_steps=17 format=3 uid="uid://dhvvksbke2k82"]
 
 [ext_resource type="Script" path="res://Fundamental/Mika.gd" id="1_c1pl4"]
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_p34cf"]
 [ext_resource type="SpriteFrames" uid="uid://cpjnacijfvjqf" path="res://Fundamental/MikaSpriteFrames.tres" id="3_jqmke"]
 [ext_resource type="Script" path="res://Fundamental/WallChecker.gd" id="3_su34n"]
-[ext_resource type="Texture2D" uid="uid://da71e027orqq8" path="res://Graphics/Weapons/broomrenderReady.png" id="106_k0khr"]
-[ext_resource type="Texture2D" uid="uid://h1ot5ytb0d6t" path="res://Graphics/Weapons/broomInward2.png" id="107_rrhcj"]
-[ext_resource type="Script" path="res://Fundamental/weapon.gd" id="107_ux2as"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clxpm"]
 size = Vector2(41, 116.5)
@@ -30,18 +27,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(45, 60)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("weapon:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_i4x1q"]
@@ -90,78 +75,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(30, 42)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("weapon:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("weapon:z_index")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [4, 6]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("weapon:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.1, 0.133333, 0.183333, 0.283333),
-"transitions": PackedFloat32Array(1.23114, 0.90125, 90.5097, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-80, -60), Vector2(10, -105), Vector2(35, -90), Vector2(-60, -72), Vector2(-100, -80), Vector2(-45, -41)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("weapon:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.1, 0.133333, 0.183333, 0.283333),
-"transitions": PackedFloat32Array(1.41421, 1, 25538, 1, 1, 1),
-"update": 0,
-"values": [1.0472, 1.309, 0.0, 1.02102, 1.22173, 0.349066]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("weapon:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.1, 0.133333, 0.183333, 0.283333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.8, 0.3), Vector2(-1, 1), Vector2(-1, 1), Vector2(-1, 1), Vector2(-1, 0.8)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("weapon:animation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.133333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [&"broomdef", &"broominward2", &"broomdef"]
-}
 
 [sub_resource type="Animation" id="Animation_kbqgi"]
 resource_name = "groundstrike2"
@@ -177,78 +90,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(30, 42)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("weapon:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("weapon:z_index")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.133333, 0.283333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [6, 4]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("weapon:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.1, 0.133333, 0.2, 0.283333),
-"transitions": PackedFloat32Array(1, 1, 1, 90.5097, 0.90125, 1.23114),
-"update": 0,
-"values": [Vector2(-45, -41), Vector2(-100, -80), Vector2(-60, -72), Vector2(35, -90), Vector2(10, -105), Vector2(-80, -60)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("weapon:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.1, 0.133333, 0.2, 0.283333),
-"transitions": PackedFloat32Array(1, 1, 1, 25538, 1, 1.41421),
-"update": 0,
-"values": [0.349066, 1.22173, 1.02102, 0.0, 1.309, 1.0472]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("weapon:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.1, 0.133333, 0.2, 0.283333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-1, 0.8), Vector2(-1, 1), Vector2(-1, 1), Vector2(-1, 1), Vector2(0.8, 0.3), Vector2(1, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("weapon:animation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.133333, 0.283333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [&"broomdef", &"broominward2", &"broomdef", &"broomdef"]
 }
 
 [sub_resource type="Animation" id="Animation_2g1xp"]
@@ -296,18 +137,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("weapon:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_ke67f"]
 resource_name = "walk"
@@ -323,18 +152,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(20, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("weapon:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgdef"]
 _data = {
@@ -348,25 +165,6 @@ _data = {
 "stand": SubResource("Animation_0mxpl"),
 "walk": SubResource("Animation_ke67f")
 }
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mvaol"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("106_k0khr")
-}],
-"loop": true,
-"name": &"broomdef",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("107_rrhcj")
-}],
-"loop": true,
-"name": &"broominward2",
-"speed": 5.0
-}]
 
 [node name="Mika" type="CharacterBody2D"]
 z_index = 685
@@ -417,12 +215,3 @@ position = Vector2(0, -32)
 modulate = Color(0.6, 0.419608, 0.901961, 0.8)
 position = Vector2(4, -79)
 polygon = PackedVector2Array(-14, 1, 13, 1, 17, 38, -20, 38)
-
-[node name="weapon" type="AnimatedSprite2D" parent="."]
-z_index = 6
-position = Vector2(-60, -72)
-rotation = 1.02102
-scale = Vector2(-1, 1)
-sprite_frames = SubResource("SpriteFrames_mvaol")
-animation = &"broominward2"
-script = ExtResource("107_ux2as")

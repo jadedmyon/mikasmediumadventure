@@ -52,7 +52,7 @@ func processline():
 			$speakerbox/label.add_theme_color_override("font_color", Color.hex(speakercolors[command[1]]))
 		else:
 			$speakerbox/label.add_theme_color_override("font_color", Color(1,1,1,1)) 
-		
+		icon(command[1])
 	if commandname in ["icon"]:
 		icon(command[1])
 	if commandname in ["speakertext","st"]:
