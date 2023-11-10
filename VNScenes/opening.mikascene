@@ -1,0 +1,169 @@
+speaker;Narrator
+..
+...
+It's 9 AM. Your room is welcomed by the sun. The rays are beckoning your arrival to this world.
+It's a great time to get a snack from the fridge, go outside and breathe some fresh air! 
+...
+It's 3 PM. You wake up.
+You remember that for some reason, you are Mika Melatika.
+choice;Get out of bed;wake1
+choice;Stay in bed a little more;stay1
+What do you do, now knowing the truth about yourself?
+
+
+
+
+
+flag;stay1
+You stay a little more in bed.
+Maybe a couple more hours.
+You die.
+die;
+
+
+flag;wake1
+You attempt to get out of bed.
+But, I mean, come on, it's snug in here, what's the harm in sleeping in a little longer?
+choice;If I stay in bed now I will literally die;wake2
+choice;I guess there's no harm to it, let's sleep some more;stay2
+?
+
+
+flag;stay2
+I told you. It's fiine.
+You sleep maybe an hour more.
+You wake up three centuries later.
+Everyone you know and love is dead.
+You kill yourself and die.
+The end.
+die;
+
+
+flag;wake2
+Seriously?
+I mean, if you want. 
+You can get up, IF you want.
+But..
+Is this really the best thing to do?
+Is this the best thing you CAN do? 
+Are you really so arrogant to think that you know exactly if that decision will improve your life? The world, even?
+choice;Yes;wake3
+choice;No;stay3
+Are you prepared for the consequences?
+
+
+flag;stay3
+Yes, it's as I thought. Sleeping in, gathering your energy.
+You've got a lot to do today, so it's the best option.
+..Or is it?
+Maybe you should have gotten out of bed. Maybe I shouldn't have been so biased in my commentary.
+I would ask you what you think, but... Does that matter?
+Maybe we should think this over.
+...
+Are you thinking?
+I'll give you some more time.
+...
+Alright.
+choice;Get out of bed;wake3
+choice;Go back to sleep;stay4
+What should we do now?
+
+flag;stay4
+You go back to sleep.
+You have a scary nightmare and piss yourself from fear.
+You drown in piss.
+You're dead.
+This is all your fault and not mine btw.
+Also, your mom.
+die;
+
+
+flag;wake3
+Alright. Let's do it.
+Fuck yeah. YEAH. LET'S GO! LET'S GET OUTTA BED!
+NOW!
+...
+choice;YEAHAHHHH LET'S GO OOGA BOOGA;wake4
+choice;Nah;stay4
+..??
+
+
+flag;wake4
+Oh, good, you're finally up.
+Like that was hard. 
+speaker;Mika
+Fucking bitch, I looked at the other choices before getting here and I literally DIE in them!
+speaker;Narrator
+So? We constantly make simple decisions on which our life depends on.
+Drinking water, or eating food, not doing those WILL kill you.
+But they're simple all the same.
+speaker;Mika
+You haven't even read the other routes. In one of them, I get crushed by a cinder block and I die a slow and painful death.
+speaker;Narrator
+That doesn't happen. You just made that up.
+speaker;Mika
+Ah, so you HAVE read them! So you know how hard it is to be me, Mika Melatika, on a daily basis!
+speaker;Narrator
+Of course I know. I'm a voice inside your head. Stop being a bitch and get dressed already.
+speaker;Mika
+Fine.
+speaker;Narrator
+But... now that I think about it...
+speaker;Mika
+Oh my god.
+speaker;Narrator
+choice;Yes fucking obviously;dress
+choice;Hmmm... Now that I think about it...;nodress
+Should you REALLY get dressed? Is that really the best option here?
+
+
+flag;nodress
+You enter an endless cycle of pondering.
+What must you TRULY do? Is it really right to enjoy the luxury of clothing?
+What does it really mean to get dressed? How many articles of clothing exactly do I need?
+May I simply go on with my day naked? Who's being harmed by my nakedness?
+And just like that, you turn to stone.
+A bird tips you over and you break into a million tiny pieces.
+You're dead.
+die;
+
+flag;dress
+speaker;Mika
+You're such a brat.
+s;Narrator
+I know. After all, since you took your break from streaming, you don't have a chat to bully you.
+Your will to getting bullied is so strong that you do it to yourself in the absence of your community.
+Bit sad innit?
+speaker;Mika
+Why am I suddenly British?
+s;Narrator
+Why aren't you brushing your teeth?
+s;Mika
+Are you going to throw more choices at me that end with my death?
+s;Narrator
+Yes.
+choice;Brush teeth;brush
+choice;Die;nobrush
+Brave hero, what is thine will?
+
+
+
+
+flag;nobrush
+uhhhh a bunch of teeth eat you and then you die i guess idk
+whatever you're probably tired of going through all the choices and mashing buttons to get here
+you dont die and in fact go to bathroom and brush teeth
+wee
+woo
+happy
+flag;brush
+You brush your teeth. They're clean and cute like you.
+s;Mika
+Whoa, what's with the sudden praise?
+s;Narrator
+I mean, who else is going to-
+s;Mika
+Do not finish that sentence.
+
+
+

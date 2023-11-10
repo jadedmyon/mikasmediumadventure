@@ -89,7 +89,8 @@ func processline():
 
 	if commandname == "end":
 		end()
-	
+	if commandname == "die":
+		end() #placeholder
 	##Continues scene. Needs to be a separate function for the same frame loop to work(?)
 	continuescene(instantcontinue)
 
@@ -211,6 +212,7 @@ func PlayerInput():
 		if dialogueselected in range(len(dialogueoptions)):
 			var flag:String = dialogueoptions[dialogueselected][1]
 			dialogueoptions = []
+			$OptionsText.text = ""
 			$OptionsBox.visible = false
 			$OptionsText.visible = false
 			dialogueselected = -1

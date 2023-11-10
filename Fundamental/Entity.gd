@@ -30,6 +30,8 @@ var team:= "enemy"
 @export var hp:= 10
 var hp_max:= 10
 @export var deathgraphics:Array[String] = ["explosion"] #explosion;toss
+var deathtype := "normal" #normal, forceddeath, standup
+
 
 var realscale := 1.0
 
@@ -161,7 +163,9 @@ func detect_mika():
 func update_animation():
 	$sprite.play(state)
 	$sprite.frame = frame
-	if has_node("AnimationPlayer"):$AnimationPlayer.play(state)
+	if has_node("AnimationPlayer"):
+		$AnimationPlayer.play(state)
+
 	$sprite.scale.x = direction * realscale#yes this isn't perfect. go fuck yourself 
 	$sprite.scale.y = realscale
 	if flashingtimer > 0:
