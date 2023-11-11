@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq2lg163ah2n0"]
+
+[ext_resource type="Script" path="res://Fundamental/TitleScreen.gd" id="1_3bq6d"]
+[ext_resource type="Texture2D" uid="uid://caaetjpvf4a7s" path="res://CopyrightInfringement/Environment/darksky.png" id="2_1cbcy"]
+[ext_resource type="Texture2D" uid="uid://yjvmly5brtbf" path="res://Graphics/MikaMika/tpose mika turned.png" id="2_4akn5"]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_3bq6d")
+
+[node name="Darksky" type="Sprite2D" parent="."]
+texture = ExtResource("2_1cbcy")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 32.0
+offset_right = 896.0
+offset_bottom = 238.0
+theme_override_font_sizes/font_size = 36
+text = "Mika Melatika's Medium Adventure
+
+      An Action Bullying Game
+"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 894.0
+offset_top = 609.0
+offset_right = 1154.0
+offset_bottom = 649.0
+theme_override_font_sizes/font_size = 24
+text = "Nijisanji 1999-2085©"
+
+[node name="TposeMikaTurned" type="Sprite2D" parent="."]
+position = Vector2(159, 216)
+texture = ExtResource("2_4akn5")

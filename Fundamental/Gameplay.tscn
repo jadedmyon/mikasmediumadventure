@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv6x4ylpjslba"]
+[gd_scene load_steps=4 format=3 uid="uid://dv6x4ylpjslba"]
 
 [ext_resource type="Script" path="res://Fundamental/Gameplay.gd" id="1_6v8t4"]
+[ext_resource type="Texture2D" uid="uid://d3u5g276hbcd4" path="res://Graphics/Crap/firefox_Hkxr0O68Bw.png" id="2_43ujn"]
+[ext_resource type="Script" path="res://Polish/fade.gd" id="3_sjc80"]
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_6v8t4")
@@ -14,3 +16,12 @@ offset_right = 266.0
 offset_bottom = 153.0
 text = "Fuck
 "
+metadata/_edit_use_anchors_ = true
+
+[node name="fade" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+modulate = Color(0, 0, 0, 0)
+position = Vector2(525, 268.5)
+scale = Vector2(4.74627, 4.38983)
+texture = ExtResource("2_43ujn")
+script = ExtResource("3_sjc80")

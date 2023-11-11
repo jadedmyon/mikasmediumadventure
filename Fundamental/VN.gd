@@ -91,6 +91,17 @@ func processline():
 		end()
 	if commandname == "die":
 		end() #placeholder
+		
+	if commandname == "fadein":
+		var fadenode = get_parent().get_parent().get_node("Gameplay/CanvasLayer/fade") #fuck this hierarchy
+		fadenode.state = "fadein"
+		if command[1] != "":
+			fadenode.fadespeed = float(command[1])
+	if commandname == "fadeout":
+		var fadenode = get_parent().get_parent().get_node("Gameplay/CanvasLayer/fade")
+		fadenode.state = "fadeout"
+		if command[1] != "":
+			fadenode.fadespeed = float(command[1])
 	##Continues scene. Needs to be a separate function for the same frame loop to work(?)
 	continuescene(instantcontinue)
 

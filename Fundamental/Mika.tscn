@@ -181,7 +181,7 @@ material = SubResource("ShaderMaterial_tibil")
 position = Vector2(0, -86)
 scale = Vector2(0.18, 0.18)
 sprite_frames = ExtResource("3_jqmke")
-animation = &"groundstrike1"
+animation = &"air"
 offset = Vector2(30, 42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

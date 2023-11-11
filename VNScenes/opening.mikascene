@@ -6,6 +6,7 @@ It's 9 AM. Your room is welcomed by the sun. The rays are beckoning your arrival
 It's a great time to get a snack from the fridge, go outside and breathe some fresh air! 
 ...
 It's 3 PM. You wake up.
+fadein;
 You remember that for some reason, you are Mika Melatika.
 choice;Get out of bed;wake1
 choice;Stay in bed a little more;stay1

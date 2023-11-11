@@ -317,7 +317,7 @@ func groundstrike1_state():
 	slideoff()
 
 	if frame == 6:
-		create_hitbox({damage = 8,duration = 7, offset = Vector2(80,-55),scale = Vector2(3,3.5)})
+		create_hitbox({damage = 8,duration = 5, offset = Vector2(80,-55),scale = Vector2(3,3.5)})
 	if frame > 6:
 		if inputpressed("B",5+4): #increased buffer for successive attacks
 			nstate("groundstrike2")

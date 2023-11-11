@@ -1,6 +1,13 @@
 extends Node
 
+var debug := true
 
+var levelsettings = { 
+	#0= 
+	#1= default fade status
+	"testmansion" : [],
+	
+	}
 
 
 var gamesave:Dictionary = {
