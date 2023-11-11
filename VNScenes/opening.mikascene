@@ -1,12 +1,15 @@
+fadealpha;
+loadlevel;testmansion
 speaker;Narrator
                                     October 10, 2023
+
 ..
 ...
+
 It's 9 AM. Your room is welcomed by the sun. The rays are beckoning your arrival to this world.
 It's a great time to get a snack from the fridge, go outside and breathe some fresh air! 
 ...
 It's 3 PM. You wake up.
-fadein;
 You remember that for some reason, you are Mika Melatika.
 choice;Get out of bed;wake1
 choice;Stay in bed a little more;stay1
@@ -91,16 +94,17 @@ choice;Nah;stay4
 
 
 flag;wake4
+fadein;
 Oh, good, you're finally up.
 Like that was hard. 
 speaker;Mika
-Fucking bitch, I looked at the other choices before getting here and I literally DIE in them!
+You poopyhead, I looked at the other choices before getting here and I literally DIE in them!
 speaker;Narrator
 So? We constantly make simple decisions on which our life depends on.
 Drinking water, or eating food, not doing those WILL kill you.
 But they're simple all the same.
 speaker;Mika
-You haven't even read the other routes. In one of them, I get crushed by a cinder block and I die a slow and painful death.
+You haven't even read the other routes, rascal. In one of them, I get crushed by a cinder block and I die a slow and painful death.
 speaker;Narrator
 That doesn't happen. You just made that up.
 speaker;Mika

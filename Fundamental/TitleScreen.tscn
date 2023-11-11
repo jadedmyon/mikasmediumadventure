@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq2lg163ah2n0"]
+[gd_scene load_steps=5 format=3 uid="uid://dq2lg163ah2n0"]
 
 [ext_resource type="Script" path="res://Fundamental/TitleScreen.gd" id="1_3bq6d"]
 [ext_resource type="Texture2D" uid="uid://caaetjpvf4a7s" path="res://CopyrightInfringement/Environment/darksky.png" id="2_1cbcy"]
 [ext_resource type="Texture2D" uid="uid://yjvmly5brtbf" path="res://Graphics/MikaMika/tpose mika turned.png" id="2_4akn5"]
+[ext_resource type="Texture2D" uid="uid://bl4e3udellahv" path="res://Graphics/UI/ninepatch1.png" id="3_6gd5c"]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_3bq6d")
@@ -11,25 +12,50 @@ script = ExtResource("1_3bq6d")
 texture = ExtResource("2_1cbcy")
 centered = false
 
-[node name="Label" type="Label" parent="."]
-offset_left = 280.0
+[node name="bg" type="NinePatchRect" parent="."]
+modulate = Color(0.431373, 0.870588, 0.184314, 1)
+offset_left = 238.0
+offset_top = -1.0
+offset_right = 1043.0
+offset_bottom = 656.0
+texture = ExtResource("3_6gd5c")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="title of game" type="Label" parent="."]
+offset_left = 347.0
 offset_top = 32.0
-offset_right = 896.0
-offset_bottom = 238.0
+offset_right = 963.0
+offset_bottom = 222.0
+theme_override_colors/font_shadow_color = Color(0.85098, 0, 0.105882, 0.772549)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
 theme_override_font_sizes/font_size = 36
 text = "Mika Melatika's Medium Adventure
 
-      An Action Bullying Game
 "
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 894.0
-offset_top = 609.0
-offset_right = 1154.0
-offset_bottom = 649.0
+[node name="title of game" type="Label" parent="title of game"]
+offset_left = 117.0
+offset_top = 54.0
+offset_right = 490.0
+offset_bottom = 244.0
+theme_override_colors/font_outline_color = Color(0, 0.443137, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 30
+text = "An Action-Bullying Game
+"
+
+[node name="copyright" type="Label" parent="."]
+offset_left = 1026.0
+offset_top = 680.0
+offset_right = 1286.0
+offset_bottom = 720.0
 theme_override_font_sizes/font_size = 24
-text = "Nijisanji 1999-2085©"
+text = "Nijisanji 1999-2099©"
 
 [node name="TposeMikaTurned" type="Sprite2D" parent="."]
-position = Vector2(159, 216)
+position = Vector2(276, 229)
 texture = ExtResource("2_4akn5")

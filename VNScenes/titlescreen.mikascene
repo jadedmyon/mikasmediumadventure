@@ -1,0 +1,41 @@
+hidespeaker;
+hideicon;
+hidetextbox;
+choiceboxalpha;0
+choicetextsize;40
+choicelinespacing;-10
+
+choiceboxpos;740;150
+
+
+
+
+choice;New Game;newgame
+choice;Continue;continue
+choice;Settings;settings
+choice;Exit Game;exitgame
+    :)
+
+
+
+
+
+
+
+
+
+
+flag;newgame
+newgame;
+
+
+flag;continue
+newgame;
+#continue;
+
+flag;settings
+newgame;
+#opengamesettings;
+
+flag;exitgame
+exitgame;

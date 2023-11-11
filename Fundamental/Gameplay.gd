@@ -42,21 +42,23 @@ func createvn(scenename:String):
 
 
 func _ready():
-	loadlevel(global.gamesave.nextlevel,global.gamesave.nextposid)
-
+	#loadlevel(global.gamesave.nextlevel,global.gamesave.nextposid)
+	pass
 
 func _physics_process(delta):
 	if Input.is_action_pressed("Start"): get_tree().reload_current_scene()
 	debug()
 	buffer_processing()
-	gametime+=1 
-	$Camera2D.position = get_node("Entities/Mika").position + Vector2(0,-100)
+	gametime+=1
+	if has_node("Entities"):
+		$Camera2D.position = get_node("Entities/Mika").position + Vector2(0,-100)
 
 
 func debug():
-	var mika = get_node("Entities/Mika")
-	$CanvasLayer/DebugText.text = "state- " + str(mika.state) + "\nframe- " + str(mika.frame) \
-	+ "\nvelocity- " + str(mika.velocity) + "\nhitstop " + str(mika.hitstop)
+	if has_node("Entities"):
+		var mika = get_node("Entities/Mika")
+		$CanvasLayer/DebugText.text = "state- " + str(mika.state) + "\nframe- " + str(mika.frame) \
+		+ "\nvelocity- " + str(mika.velocity) + "\nhitstop " + str(mika.hitstop)
 
 
 func global_hitstop(length:int):

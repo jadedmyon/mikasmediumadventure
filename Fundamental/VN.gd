@@ -90,11 +90,14 @@ func processline():
 	if commandname == "end":
 		end()
 	if commandname == "die":
-		end() #placeholder
+		die()
+
 		
 	if commandname == "fadein":
 		var fadenode = get_parent().get_parent().get_node("Gameplay/CanvasLayer/fade") #fuck this hierarchy
+		fadenode.modulate.a = 1
 		fadenode.state = "fadein"
+		
 		if command[1] != "":
 			fadenode.fadespeed = float(command[1])
 	if commandname == "fadeout":
@@ -102,6 +105,30 @@ func processline():
 		fadenode.state = "fadeout"
 		if command[1] != "":
 			fadenode.fadespeed = float(command[1])
+			##TITLE SCREEN COMMANDS
+	if commandname == "fadealpha":
+		var fadenode = get_parent().get_parent().get_node("Gameplay/CanvasLayer/fade")
+		if command[1] != "":
+			fadenode.modulate.a = float(command[1])
+		else:
+			fadenode.modulate.a = 1.0
+	if commandname == "hidetextbox":
+		hidetextbox()
+	if commandname == "choiceboxpos":
+		$OptionsText.position.x = int(command[1])
+		$OptionsText.position.y = int(command[2])
+	if commandname == "choicetextsize":
+		$OptionsText.add_theme_font_size_override("normal_font_size",int(command[1]) )
+	if commandname == "choiceboxalpha":
+		$OptionsBox.modulate.a = float(command[1])
+	if commandname == "choicelinespacing":
+		$OptionsText.add_theme_constant_override("line_separation", int(command[1]))
+	if commandname == "newgame":
+		
+		get_parent().get_parent().newgame()
+		instantcontinue = false
+	if commandname == "exitgame":
+		get_tree().quit()
 	##Continues scene. Needs to be a separate function for the same frame loop to work(?)
 	continuescene(instantcontinue)
 
@@ -127,12 +154,15 @@ func speakercolor(color):
 
 func hidespeakerbox():
 	$speakerbox.visible = false
-	
+
+
 
 func hidespeaker():
 	hidespeakerbox()
 	hideicon()
 
+func hidetextbox():
+	$textbox.visible = false
 
 func hideicon():
 	$iconbox.visible = false
@@ -185,6 +215,10 @@ func jump(flagname:String):
 func end():
 	queue_free()
 
+func die():
+	get_parent().get_parent().titlescreen()
+	end()
+
 func loadlevel(levelname:String,posid:String):
 	get_parent().get_parent().get_node("Gameplay").levelswitch(levelname,int(posid))
 
@@ -197,7 +231,7 @@ func addscene(scenename:String):
 	for line in splitperline:
 		var linesplit:Array = line.split(";")
 		var commandname:String = linesplit[0]
-		if len(linesplit) == 1: #regular print line
+		if len(linesplit) == 1 and commandname != "": #regular print line, skip if empty
 			currentscene.append(["print",linesplit[0]])
 		elif commandname != "" and commandname[0] != "#":
 			currentscene.append(linesplit)

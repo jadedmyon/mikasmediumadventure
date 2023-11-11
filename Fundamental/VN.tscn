@@ -52,10 +52,10 @@ animations = [{
 script = ExtResource("1_gonm3")
 
 [node name="textbox" type="NinePatchRect" parent="."]
-offset_left = 288.0
-offset_top = 438.0
-offset_right = 968.0
-offset_bottom = 619.0
+offset_left = 290.0
+offset_top = 529.0
+offset_right = 970.0
+offset_bottom = 710.0
 texture = ExtResource("2_1up5t")
 patch_margin_left = 8
 patch_margin_top = 8
@@ -73,10 +73,10 @@ text = "I am a default text. What the bollocks is going on for something like th
 autowrap_mode = 3
 
 [node name="speakerbox" type="NinePatchRect" parent="."]
-offset_left = 192.0
-offset_top = 382.0
-offset_right = 395.0
-offset_bottom = 438.0
+offset_left = 194.0
+offset_top = 473.0
+offset_right = 397.0
+offset_bottom = 529.0
 texture = ExtResource("2_1up5t")
 patch_margin_left = 8
 patch_margin_top = 8
@@ -97,10 +97,10 @@ text = "Mikaur
 [node name="Voice" type="AudioStreamPlayer" parent="."]
 
 [node name="iconbox" type="NinePatchRect" parent="."]
-offset_left = 192.0
-offset_top = 438.0
-offset_right = 288.0
-offset_bottom = 534.0
+offset_left = 194.0
+offset_top = 529.0
+offset_right = 290.0
+offset_bottom = 625.0
 texture = ExtResource("2_1up5t")
 patch_margin_left = 8
 patch_margin_top = 8
@@ -108,7 +108,7 @@ patch_margin_right = 8
 patch_margin_bottom = 8
 
 [node name="icon" type="AnimatedSprite2D" parent="."]
-position = Vector2(240, 488)
+position = Vector2(242, 579)
 sprite_frames = SubResource("SpriteFrames_5ilg0")
 animation = &"Mika"
 
@@ -116,10 +116,10 @@ animation = &"Mika"
 visible = false
 modulate = Color(0.698039, 0.678431, 1, 1)
 z_index = -2
-offset_left = 331.0
-offset_top = 123.0
-offset_right = 1152.0
-offset_bottom = 364.0
+offset_left = 336.0
+offset_top = 162.0
+offset_right = 1157.0
+offset_bottom = 403.0
 texture = ExtResource("2_1up5t")
 patch_margin_left = 8
 patch_margin_top = 8
@@ -128,10 +128,10 @@ patch_margin_bottom = 8
 
 [node name="OptionsText" type="RichTextLabel" parent="."]
 visible = false
-offset_left = 377.0
-offset_top = 124.0
-offset_right = 1095.0
-offset_bottom = 398.0
+offset_left = 382.0
+offset_top = 163.0
+offset_right = 1100.0
+offset_bottom = 824.0
 theme_override_constants/line_separation = 0
 theme_override_font_sizes/normal_font_size = 18
 text = "Option 1- You give up all your valuables.

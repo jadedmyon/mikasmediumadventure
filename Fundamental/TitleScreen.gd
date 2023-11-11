@@ -1,5 +1,6 @@
 extends Node2D
 
+var fadestate := "visible"
 
 
 func _ready():
@@ -9,4 +10,8 @@ func _ready():
 		pass
 
 func _process(delta):
-	pass
+	if fadestate == "fadeout":
+		modulate.a -= 0.007
+	if modulate.a <= 0:
+		queue_free()
+
