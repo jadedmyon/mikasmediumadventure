@@ -95,7 +95,19 @@ func create_hitbox(p:Dictionary):
 		hitbox.get_node("sprite").animation = p['animation']
 	elif hitbox.hitboxtype == "melee":
 		hitbox.get_node("sprite").visible = false
-	
+
+func mikacollision_bounce():
+
+	for x in $Hurtbox.get_overlapping_bodies():
+		if x.name == "Mika" and x.position.y > position.y + 50:
+			var relative := 1 #1 or =1, depends on where mika x is
+			if x.position.x > position.x: relative = -1
+			var rngy := randi() % 10
+			var rngx := randi() % 4
+			var rngrotation := randi() % 30
+			velocity.y -= 100 + 30 * rngy
+			velocity.x += relative * 100 * (rngx+1)
+			rotation_degrees += rngrotation
 
 ##Replace this in inherited script if you want special code
 func gethit():

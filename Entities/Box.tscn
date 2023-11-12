@@ -26,6 +26,7 @@ sprite_frames = SubResource("SpriteFrames_qve7s")
 animation = &"stand"
 
 [node name="ECB" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(3.5, -22.75)
 shape = SubResource("RectangleShape2D_amssi")
 
@@ -35,4 +36,4 @@ position = Vector2(0, -32)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
 modulate = Color(0.6, 0.419608, 0.901961, 0.8)
 position = Vector2(-5, -11)
-polygon = PackedVector2Array(-35, -5, 47, -5, 47, 46, -35, 45)
+polygon = PackedVector2Array(-20, 0, 38, 1, 40, 41, -21, 41)

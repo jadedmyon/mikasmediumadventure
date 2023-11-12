@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://gqoqtfg5h5sm"]
+
+[ext_resource type="Texture2D" uid="uid://cwecrxoif6i2j" path="res://Graphics/Weapons/broomPickup.png" id="1_ckwpn"]
+[ext_resource type="Script" path="res://Polish/pickup.gd" id="2_1y2j3"]
+[ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="2_2w1c1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fi25s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ckwpn")
+}],
+"loop": true,
+"name": &"broom",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuiqd"]
+size = Vector2(44, 41.25)
+
+[node name="pickup" type="AnimatedSprite2D"]
+z_index = 5
+sprite_frames = SubResource("SpriteFrames_fi25s")
+animation = &"broom"
+script = ExtResource("2_1y2j3")
+
+[node name="glow" type="Sprite2D" parent="."]
+modulate = Color(1, 0.572549, 0.243137, 0.580392)
+position = Vector2(0, 9.875)
+scale = Vector2(1.17172, 1.99747)
+texture = ExtResource("2_2w1c1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_yuiqd")
+debug_color = Color(0.368627, 0.537255, 0.807843, 0.419608)

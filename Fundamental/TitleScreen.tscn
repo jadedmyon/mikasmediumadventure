@@ -38,6 +38,7 @@ text = "Mika Melatika's Medium Adventure
 "
 
 [node name="title of game" type="Label" parent="title of game"]
+layout_mode = 0
 offset_left = 117.0
 offset_top = 54.0
 offset_right = 490.0

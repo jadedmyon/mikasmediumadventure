@@ -1,22 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://5okcngqvmqed"]
+[gd_scene load_steps=5 format=3 uid="uid://5okcngqvmqed"]
 
 [ext_resource type="Script" path="res://Entities/Box.gd" id="1_44g44"]
-[ext_resource type="Texture2D" uid="uid://bxi0tnbwiucp8" path="res://CopyrightInfringement/boxOpen.png" id="2_beqss"]
 [ext_resource type="Texture2D" uid="uid://d003fc58c5jo4" path="res://CopyrightInfringement/boxClosed.png" id="2_jg5u4"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qve7s"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4g6r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_jg5u4")
-}],
-"loop": true,
-"name": &"closed",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_beqss")
 }],
 "loop": true,
 "name": &"stand",
@@ -26,15 +17,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amssi"]
 size = Vector2(81, 44.5)
 
-[node name="BoxOpen" type="CharacterBody2D"]
+[node name="BoxClosed" type="CharacterBody2D"]
 script = ExtResource("1_44g44")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -24)
-sprite_frames = SubResource("SpriteFrames_qve7s")
-animation = &"closed"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+sprite_frames = SubResource("SpriteFrames_i4g6r")
+animation = &"stand"
 
 [node name="ECB" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -22.75)
@@ -46,4 +35,4 @@ position = Vector2(0, -32)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
 modulate = Color(0.6, 0.419608, 0.901961, 0.8)
 position = Vector2(-7, -9)
-polygon = PackedVector2Array(-35, -5, 47, -5, 47, 46, -35, 45)
+polygon = PackedVector2Array(-36, -3, 47, -4, 45, 45, -34, 42)

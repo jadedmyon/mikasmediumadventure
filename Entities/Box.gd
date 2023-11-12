@@ -2,13 +2,12 @@ extends "res://Fundamental/Entity.gd"
 
 func _ready():
 	
-	hp = 20
-
+	hp = 6
 
 func _physics_process(delta):
 	tickframe()
 	if hitstop == 0:
-
+		mikacollision_bounce()
 		move_and_slide()
 		gravity()
 		update_animation()

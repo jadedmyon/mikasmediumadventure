@@ -58,7 +58,8 @@ func debug():
 	if has_node("Entities"):
 		var mika = get_node("Entities/Mika")
 		$CanvasLayer/DebugText.text = "state- " + str(mika.state) + "\nframe- " + str(mika.frame) \
-		+ "\nvelocity- " + str(mika.velocity) + "\nhitstop " + str(mika.hitstop)
+		+ "\nvelocity- " + str(mika.velocity) + "\nhitstop " + str(mika.hitstop) + \
+		"\nhp " + str(mika.hp) + "/" + str(mika.hp_max)
 
 
 func global_hitstop(length:int):

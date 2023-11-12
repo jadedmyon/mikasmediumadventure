@@ -52,9 +52,8 @@ func _physics_process(delta):
 		state_called = [] #put this after all state logic always 
 	update_animation()
 
-	if inputheld("down") and inputpressed("B"):
-		get_parent().get_parent().get_node("Camera2D").zoom = Vector2(3,3)
-	
+
+
 
 	
 	
@@ -339,10 +338,10 @@ func groundstrike3_state():
 	tracting()
 	slideoff()
 	
-	if frame == 8:
-		create_hitbox({damage = 8,duration = 9, offset = Vector2(120,-80),scale = Vector2(4.1,3)})
+	if frame == 7:
+		create_hitbox({damage = 12,duration = 9, offset = Vector2(120,-80),scale = Vector2(4.1,3)})
 	
-	if frame == 36:
+	if frame == 32:
 		endstate()
 
 func upstrike_state():
@@ -406,24 +405,29 @@ func death_state():
 
 func attackOK_ground():
 	if inputpressed("B"):
-		match direction_held():
-			"5":
-				nstate("groundstrike1")
-			"6":
-				nstate("groundstrike1")
-			"2":
-				if true:
+		if global.gamesave.progression >= 1:
+			match direction_held():
+				
+				"5":
 					nstate("groundstrike1")
+				"6":
+					nstate("groundstrike1")
+				"1":
+					nstate("groundstrike1")
+				"2":
+					if true:
+						nstate("groundstrike1")
 
 
 func attackOK_air():
 	if inputpressed("B"):
-		var dirheld:String = direction_held()
-		if state in ["forwarddash","novdash"]: momentumreset(100)
-		if dirheld in ["4","1","7"]:
-			nstate("backair")
-		elif dirheld in ["5","6","3","9","8","2",]:
-			nstate("forwardair")
+		if global.gamesave.progression >= 1:
+				var dirheld:String = direction_held()
+				if state in ["forwarddash","novdash"]: momentumreset(100)
+				if dirheld in ["4","1","7"]:
+					nstate("backair")
+				elif dirheld in ["5","6","3","9","8","2",]:
+					nstate("forwardair")
 
 func attackOK_both():
 	if is_on_floor():
