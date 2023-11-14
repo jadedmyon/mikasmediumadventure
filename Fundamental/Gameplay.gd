@@ -60,7 +60,10 @@ func debug():
 		$CanvasLayer/DebugText.text = "state- " + str(mika.state) + "\nframe- " + str(mika.frame) \
 		+ "\nvelocity- " + str(mika.velocity) + "\nhitstop " + str(mika.hitstop) + \
 		"\nhp " + str(mika.hp) + "/" + str(mika.hp_max)
-
+		
+		$CanvasLayer/PlaceholderDisplay.text = \
+		"HP     " + str(mika.hp) + "/" + str(mika.hp_max)
+		
 
 func global_hitstop(length:int):
 	for x in get_node("Entities").get_children():

@@ -43,7 +43,7 @@ func _physics_process(delta):
 				
 			"shoot":
 				if frame == 1:
-					create_hitbox({hitboxtype = "projectile", velocitytowardmika = 9, speedX = 0, speedY = 0, duration = 2100, })
+					create_hitbox({hitboxtype = "projectile", animation = "spider", velocitytowardmika = 9, speedX = 0, speedY = 0, duration = 2100, })
 				
 				if frame == 40:
 					nstate("stand")

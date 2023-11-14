@@ -12,6 +12,7 @@ script = ExtResource("1_6v8t4")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DebugText" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
 offset_right = 266.0
 offset_bottom = 153.0
 text = "Fuck
@@ -25,3 +26,19 @@ position = Vector2(522.5, 253.5)
 scale = Vector2(9.22015, 7.35028)
 texture = ExtResource("2_43ujn")
 script = ExtResource("3_sjc80")
+
+[node name="PlaceholderDisplay" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.00625
+anchor_bottom = 0.4125
+offset_right = 266.0
+offset_bottom = 153.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.235294, 0.176471, 0.352941, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/line_separation = 2
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/normal_font_size = 36
+text = "Fuck"
+metadata/_edit_use_anchors_ = true

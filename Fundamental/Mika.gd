@@ -48,6 +48,7 @@ func _physics_process(delta):
 		if invulntimer > 0: invulntimer -= 1
 		state_caller()
 		move_and_slide()
+		
 		if state not in gravity_exceptions: gravity() #this is wonky 
 		state_called = [] #put this after all state logic always 
 	update_animation()
@@ -298,16 +299,16 @@ func wallcling_state():
 
 func walljump_state():
 	if frame == 0:
-		velocity.x += 800*direction
+		velocity.x += 600*direction
 		velocity.y -= 800
 		
-	if frame >0 and frame < 5:
-		xvelocity_towards(10*direction,1500)
+#	if frame >0 and frame < 5:
+#		xvelocity_towards(9*direction,1500)
 	#insert attack cancel
 	if frame >= 1:
 		dashcheck()
 	
-	if frame == 10:
+	if frame == 8:
 		endstate()
 
 
@@ -328,7 +329,7 @@ func groundstrike2_state():
 	slideoff()
 	
 	if frame == 5:
-		create_hitbox({damage = 8,duration = 4, offset = Vector2(80,-55),scale = Vector2(3,3.5)})
+		create_hitbox({damage = 8,duration = 4, offset = Vector2(42,-55),scale = Vector2(5,5)})
 	if frame > 5 and inputpressed("B",9):
 		nstate("groundstrike3")
 	if frame == 25:
@@ -371,7 +372,9 @@ func backair_state():
 	flip()
 	nstate("forwardair") #placeholder
 
-
+#hitstunground was planned but I might not do that. It was meant to have less stun and knockback
+#so staying on the ground was more advantageous and you could intentionally get hit on the floor
+#for more advantage
 func hitstunair_state():
 	if frame == 0:
 		momentumreset(3000)
@@ -382,7 +385,7 @@ func hitstunair_state():
 	fricting()
 	fricting()
 	
-	if frame == 30:
+	if frame == 42:
 		endstate()
 
 func hitstunground_state():
