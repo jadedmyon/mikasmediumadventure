@@ -5,7 +5,8 @@ func _ready():
 	displayname = "Dust Bunny"
 	fallaccel = 12
 	process_priority = 1
-	realscale = 1.1
+	realscale = 1.2
+	hp = 8
 
 
 func uniquebehavior():

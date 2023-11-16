@@ -19,9 +19,9 @@ var damage:= 8
 var hitboxtype:= "melee" #melee is attached to the creator, projectile travels on its own
 var hitsleft = 99 #how many times before destroyed 
 var offset := Vector2(0,0) #not the best way to implement hitboxes tracking owners, better way would be paths ig
-var speedX := 10
-var speedY := 0
-var fallaccel:= 0
+var speedX := 10.0
+var speedY := 0.0
+var fallaccel:= 0.0
 var velocitytowardmika = 0
 var angle := 0
 var speedscale :=  0.5
@@ -46,7 +46,7 @@ func _process(delta):
 	if hitboxtype == "projectile":
 		if frame == 0:
 			position+= offset
-			velocity.x = speedX 
+			velocity.x = speedX * direction
 			velocity.y = speedY 
 			
 			if velocitytowardmika > 0:

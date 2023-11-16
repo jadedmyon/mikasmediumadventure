@@ -236,6 +236,8 @@ _data = {
 
 [node name="Mika" type="CharacterBody2D"]
 z_index = 685
+floor_max_angle = 0.872665
+floor_snap_length = 32.0
 script = ExtResource("1_c1pl4")
 
 [node name="ECB" type="CollisionShape2D" parent="."]
@@ -250,7 +252,7 @@ position = Vector2(0, -86)
 scale = Vector2(0.18, 0.18)
 sprite_frames = ExtResource("3_jqmke")
 animation = &"forwardair"
-offset = Vector2(-42, 180)
+offset = Vector2(45, 60)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -258,6 +260,7 @@ libraries = {
 }
 
 [node name="WallCheckerL" type="Area2D" parent="."]
+visible = false
 position = Vector2(-19, -75)
 script = ExtResource("3_su34n")
 
@@ -281,5 +284,5 @@ position = Vector2(0, -32)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
 modulate = Color(0.6, 0.419608, 0.901961, 0.8)
-position = Vector2(4, -79)
-polygon = PackedVector2Array(-14, 1, 13, 1, 17, 38, -20, 38)
+position = Vector2(6, -79)
+polygon = PackedVector2Array(-17, 19, 6, 19, 6, 45, -17, 45)

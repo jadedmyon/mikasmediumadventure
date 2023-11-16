@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://ejrxjevmoho5"]
+
+[ext_resource type="Script" path="res://Entities/DustBunnyBig.gd" id="1_vfuxd"]
+[ext_resource type="Texture2D" uid="uid://cf886ccrloxcb" path="res://CopyrightInfringement/enemies/dustbunny4.png" id="2_31day"]
+[ext_resource type="Texture2D" uid="uid://bjbg83qqjykw4" path="res://CopyrightInfringement/enemies/dustbunny5.png" id="3_ft80u"]
+[ext_resource type="Texture2D" uid="uid://cajbdgqmsa23q" path="res://CopyrightInfringement/enemies/dustbunny1.png" id="4_3dei5"]
+[ext_resource type="Texture2D" uid="uid://cnf3wvajwa0ty" path="res://CopyrightInfringement/enemies/dustbunnyshoot.png" id="4_oelts"]
+[ext_resource type="Texture2D" uid="uid://ca3hgpdl3ks2y" path="res://CopyrightInfringement/enemies/dustbunny2.png" id="5_f74hc"]
+[ext_resource type="Texture2D" uid="uid://chsyjup3nnsav" path="res://CopyrightInfringement/enemies/dustbunny3.png" id="6_182ut"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7o6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_31day")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ft80u")
+}],
+"loop": true,
+"name": &"bigjump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_oelts")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_31day")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ft80u")
+}],
+"loop": true,
+"name": &"smalljump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3dei5")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_f74hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f74hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f74hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_182ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_182ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_182ut")
+}],
+"loop": true,
+"name": &"windup",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0jto"]
+size = Vector2(67, 79.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6i50"]
+size = Vector2(901.5, 497)
+
+[node name="DustBunnyBig" type="CharacterBody2D"]
+modulate = Color(1, 0.827451, 0.670588, 1)
+z_index = 10
+position = Vector2(-2, 0)
+script = ExtResource("1_vfuxd")
+hp = 19
+realscale = 2.0
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -46)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_a7o6e")
+animation = &"stand"
+
+[node name="ECB" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -38.125)
+shape = SubResource("RectangleShape2D_y0jto")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+modulate = Color(0.6, 0.419608, 0.901961, 0.8)
+position = Vector2(-12, -4)
+polygon = PackedVector2Array(-39, -49, 74, -60, 74, 36, -53, 37)
+
+[node name="MikaDetector" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MikaDetector"]
+position = Vector2(1, -11)
+shape = SubResource("RectangleShape2D_u6i50")
+debug_color = Color(0.654902, 0.505882, 0.282353, 0.419608)

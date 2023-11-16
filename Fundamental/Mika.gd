@@ -315,6 +315,7 @@ func walljump_state():
 func groundstrike1_state():
 	tracting()
 	slideoff()
+	attackwalking()
 
 	if frame == 6:
 		create_hitbox({damage = 8,duration = 5, offset = Vector2(80,-55),scale = Vector2(3,3.5)})
@@ -339,8 +340,8 @@ func groundstrike3_state():
 	tracting()
 	slideoff()
 	
-	if frame == 7:
-		create_hitbox({damage = 12,duration = 9, offset = Vector2(120,-80),scale = Vector2(4.1,3)})
+	if frame == 5:
+		create_hitbox({damage = 16,duration = 9, offset = Vector2(120,-80),scale = Vector2(4.1,3)})
 	
 	if frame == 32:
 		endstate()
@@ -476,7 +477,11 @@ func landevent(): #not sure what im using this for
 	walljumps = 0
 	dashing = false 
 
-
+func attackwalking():
+	if inputheld("left"):
+		xvelocity_towards((walkaccel+ground_traction)*-1,walkspeed_max)
+	elif inputheld("right"):
+		xvelocity_towards((walkaccel+ground_traction)*1,walkspeed_max)
 
 ##Used for drifting left/right and friction
 func drift():

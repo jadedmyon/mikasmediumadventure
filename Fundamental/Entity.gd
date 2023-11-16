@@ -33,7 +33,7 @@ var hp_max:= 10
 var deathtype := "normal" #normal, forceddeath, standup
 
 
-var realscale := 1.0
+@export var realscale := 1.0
 
 #don't need to change these
 var state_called:Array[String] = [] #used to fix states not being called after state changes because of ordering
@@ -95,6 +95,8 @@ func create_hitbox(p:Dictionary):
 		hitbox.get_node("sprite").animation = p['animation']
 	elif hitbox.hitboxtype == "melee":
 		hitbox.get_node("sprite").visible = false
+
+
 
 func mikacollision_bounce():
 
