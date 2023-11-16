@@ -22,9 +22,10 @@ var offset := Vector2(0,0) #not the best way to implement hitboxes tracking owne
 var speedX := 10.0
 var speedY := 0.0
 var fallaccel:= 0.0
-var velocitytowardmika = 0
-var angle := 0
-var speedscale :=  0.5
+var velocitytowardmika = 0.0
+var angle := 0.0
+var anglevelocity := 0.0
+var speedscale :=  1.0
 
 var destroyontilemap := true
 
@@ -50,11 +51,17 @@ func _process(delta):
 			velocity.y = speedY 
 			
 			if velocitytowardmika > 0:
-			##  VVVV get_angle_to() is slow, first priority to amend if game chugs 
-				var angle = get_angle_to(findmika().position)
-				velocity +=  Vector2(cos(angle), sin(angle)) * velocitytowardmika
-
-		
+				if angle == 0:
+					velocity +=  (mikahurtboxpos() - position ).normalized() * velocitytowardmika
+				elif anglevelocity == 0: #All of this is broken
+					var normals = ( Vector2(cos(deg_to_rad(angle)), sin(deg_to_rad(angle))) + (mikahurtboxpos() - position ).normalized() ).normalized() #wtf
+					velocity += normals * velocitytowardmika
+				else:
+					velocity +=  (mikahurtboxpos() - position ).normalized() * velocitytowardmika
+			if angle != 0:
+				var normal = Vector2(cos(angle), sin(angle))
+				velocity+= normal * anglevelocity
+				
 		velocity.y += fallaccel * speedscale
 		
 		if destroyontilemap and frame > 5:
@@ -81,6 +88,9 @@ func findmika() -> Node:
 		if x.name == "Mika":
 			return x
 	return null
+
+func mikahurtboxpos() -> Vector2:
+	return findmika().get_node("Hurtbox").global_position
 
 func hit_process():
 	for x in get_overlapping_areas():

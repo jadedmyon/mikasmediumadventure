@@ -76,7 +76,7 @@ animations = [{
 size = Vector2(67, 79.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6i50"]
-size = Vector2(901.5, 497)
+size = Vector2(1243, 425)
 
 [node name="DustBunnyBig" type="CharacterBody2D"]
 modulate = Color(1, 0.827451, 0.670588, 1)
@@ -108,6 +108,6 @@ polygon = PackedVector2Array(-39, -49, 74, -60, 74, 36, -53, 37)
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MikaDetector"]
-position = Vector2(1, -11)
+position = Vector2(-0.5, -1.5)
 shape = SubResource("RectangleShape2D_u6i50")
 debug_color = Color(0.654902, 0.505882, 0.282353, 0.419608)

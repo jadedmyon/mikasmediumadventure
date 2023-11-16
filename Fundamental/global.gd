@@ -21,15 +21,21 @@ var gamesave:Dictionary = {
 	nextposid = 0,
 	progression = 0,
 	
-	#Saved when switching levels
-	hp = 1,
-	hp_max = 1,
-	meter = 1,
-	meter_max = 1,
+	#Saved stats when switching levels
+	hp = 80,
+	hp_max = 80,
+	meter = 0,
+	meter_max = 100,
+	exp = 0,
+	level = 1,
 	
+	
+	mikaquestionasked = false,
 	
 	}
 
+#copies gamesave on boot if this is empty
+var gamesave_default:Dictionary = {}
 
 func _ready():
 	pass 

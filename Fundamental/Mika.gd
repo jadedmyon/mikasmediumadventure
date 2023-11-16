@@ -299,8 +299,8 @@ func wallcling_state():
 
 func walljump_state():
 	if frame == 0:
-		velocity.x += 600*direction
-		velocity.y -= 800
+		velocity.x += 650*direction
+		velocity.y -= 850
 		
 #	if frame >0 and frame < 5:
 #		xvelocity_towards(9*direction,1500)

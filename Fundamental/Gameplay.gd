@@ -14,6 +14,8 @@ func loadlevel(levelname:String,posid:int):
 			#Instantiate Mika
 	var mika = preload('res://Fundamental/Mika.tscn').instantiate()
 	entitiesnode.add_child(mika)
+	loadstats()
+	mika.direction = -1
 		#Find position
 	var pos:Vector2 = Vector2(-9999999,-9999999) #default value to control for positionid not existing
 	for x in entitiesnode.get_children():
@@ -27,10 +29,24 @@ func loadlevel(levelname:String,posid:int):
 	mika.position = pos
 
 
-##To be replaced later with maybe a fadeout effect 
+##To be replaced later with maybe a fadeout effect?
 func levelswitch(levelname:String,posid:int):
+	if has_node("Entities/Mika"): savestats()
 	loadlevel(levelname,posid)
 
+const savedstatnames:Array[String] = ["hp","hp_max","meter","meter_max","exp","level",]
+
+
+func savestats():
+	var mika = get_node("Entities/Mika")
+
+	for x in savedstatnames:
+		global.gamesave[x] = mika.get(x)
+
+func loadstats():
+	var mika = get_node("Entities/Mika")
+	for x in savedstatnames:
+		mika.set(x,global.gamesave[x])
 
 
 func createvn(scenename:String):
@@ -42,7 +58,6 @@ func createvn(scenename:String):
 
 
 func _ready():
-	#loadlevel(global.gamesave.nextlevel,global.gamesave.nextposid)
 	pass
 
 func _physics_process(delta):

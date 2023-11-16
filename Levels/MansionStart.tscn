@@ -227,6 +227,54 @@ texture_region_size = Vector2i(32, 32)
 7:5/0 = 0
 7:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:5/0/physics_layer_0/angular_velocity = 0.0
+6:6/0 = 0
+6:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:6/0/physics_layer_0/angular_velocity = 0.0
+6:7/0 = 0
+6:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:7/0/physics_layer_0/angular_velocity = 0.0
+7:7/0 = 0
+7:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:7/0/physics_layer_0/angular_velocity = 0.0
+8:7/0 = 0
+8:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:7/0/physics_layer_0/angular_velocity = 0.0
+8:6/0 = 0
+8:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:6/0/physics_layer_0/angular_velocity = 0.0
+7:6/0 = 0
+7:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:6/0/physics_layer_0/angular_velocity = 0.0
+9:6/0 = 0
+9:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:6/0/physics_layer_0/angular_velocity = 0.0
+9:5/0 = 0
+9:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:5/0/physics_layer_0/angular_velocity = 0.0
+8:5/0 = 0
+8:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:5/0/physics_layer_0/angular_velocity = 0.0
+9:7/0 = 0
+9:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:7/0/physics_layer_0/angular_velocity = 0.0
+5:7/0 = 0
+5:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:7/0/physics_layer_0/angular_velocity = 0.0
+5:6/0 = 0
+5:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:6/0/physics_layer_0/angular_velocity = 0.0
+3:7/0 = 0
+3:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:7/0/physics_layer_0/angular_velocity = 0.0
+3:6/0 = 0
+3:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:6/0/physics_layer_0/angular_velocity = 0.0
+0:6/0 = 0
+0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:6/0/physics_layer_0/angular_velocity = 0.0
+0:7/0 = 0
+0:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:7/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_bncds"]
 tile_size = Vector2i(32, 32)
@@ -377,7 +425,7 @@ scale = Vector2(1.64286, 16.25)
 scenename = "firstencounter"
 
 [node name="VNTrigger2" parent="." instance=ExtResource("8_jnmad")]
-position = Vector2(4139, 50.625)
+position = Vector2(4102, 50.625)
 scale = Vector2(1.64286, 17.0368)
 scenename = "firstencounterafter"
 
@@ -500,7 +548,7 @@ position = Vector2(2617, 164)
 position = Vector2(3220, 269)
 
 [node name="DustBunny7" parent="." instance=ExtResource("18_0sjsn")]
-position = Vector2(3877, 230)
+position = Vector2(3853, 243)
 
 [node name="BoxOpen" parent="." instance=ExtResource("17_m5vtq")]
 position = Vector2(913, 320)
@@ -562,7 +610,7 @@ position = Vector2(2451, 147)
 position = Vector2(1565, 274)
 
 [node name="pickup" parent="." instance=ExtResource("17_fpj1h")]
-position = Vector2(2242, 250)
+position = Vector2(2247, 246)
 
 [node name="ActionPrompt" type="TextureRect" parent="."]
 offset_left = 736.0
@@ -649,11 +697,6 @@ texture = ExtResource("26_xo22l")
 
 [node name="LevelWarp" parent="." instance=ExtResource("27_c6d1g")]
 position = Vector2(4433, 900)
-scale = Vector2(1.88572, 20.8971)
-levelname = "MansionDashTutorial"
-
-[node name="LevelWarp2" parent="." instance=ExtResource("27_c6d1g")]
-position = Vector2(438, -457)
 scale = Vector2(1.88572, 20.8971)
 levelname = "MansionDashTutorial"
 

@@ -92,7 +92,7 @@ func processline():
 	if commandname == "die":
 		die()
 
-		
+	
 	if commandname == "fadein":
 		var fadenode = get_parent().get_parent().get_node("Gameplay/CanvasLayer/fade") #fuck this hierarchy
 		fadenode.modulate.a = 1
@@ -129,9 +129,17 @@ func processline():
 		instantcontinue = false
 	if commandname == "exitgame":
 		get_tree().quit()
+		
+	
+			#music
+	if commandname == "playmusic":
+		var volume = -10
+		if len(command) > 2: volume = float(command[2])
+		get_parent().get_parent().playmusic(command[1],volume)
 	##Continues scene. Needs to be a separate function for the same frame loop to work(?)
 	continuescene(instantcontinue)
-
+	if commandname == "stopmusic":
+		get_parent().get_parent().stopmusic()
 
 func continuescene(instantcontinue):
 	sceneindex+=1
@@ -284,5 +292,5 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("B"):
 		PlayerInput()
-	if Input.is_action_pressed("L"):
+	if Input.is_action_pressed("L") and Input.is_key_pressed(KEY_SHIFT):
 		PlayerInput()

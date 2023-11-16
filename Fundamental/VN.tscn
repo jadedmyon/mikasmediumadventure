@@ -1,9 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvi8rdpmmwrih"]
+[gd_scene load_steps=11 format=3 uid="uid://bvi8rdpmmwrih"]
 
 [ext_resource type="Script" path="res://Fundamental/VN.gd" id="1_gonm3"]
 [ext_resource type="Texture2D" uid="uid://bl4e3udellahv" path="res://Graphics/UI/ninepatch1.png" id="2_1up5t"]
+[ext_resource type="Texture2D" uid="uid://bwhf0tx67yj7a" path="res://addons/input_prompts/icons/keyboard/s.png" id="3_5rpwo"]
 [ext_resource type="Texture2D" uid="uid://c7bfmp3vlgt86" path="res://Graphics/MikaMika/emotedmika.png" id="3_wtdo2"]
+[ext_resource type="Script" path="res://addons/input_prompts/action_prompt/action_prompt.gd" id="4_0spfq"]
 [ext_resource type="Texture2D" uid="uid://dyof6q3475rob" path="res://CopyrightInfringement/enemies/moldyshroom.png" id="5_v3ity"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_w6qia"]
+device = -1
+keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_hu27p"]
+device = -1
+physical_keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_t2ctd"]
+device = -1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5ilg0"]
 animations = [{
@@ -71,6 +86,18 @@ offset_bottom = 170.0
 theme_override_font_sizes/font_size = 22
 text = "I am a default text. What the bollocks is going on for something like this to happen!?! Barnacles!! "
 autowrap_mode = 3
+
+[node name="ActionPrompt6" type="TextureRect" parent="textbox"]
+offset_left = 678.0
+offset_top = 104.0
+offset_right = 758.0
+offset_bottom = 184.0
+texture = ExtResource("3_5rpwo")
+stretch_mode = 5
+script = ExtResource("4_0spfq")
+action = "B"
+icon = 4
+events = Array[InputEvent]([SubResource("InputEventKey_w6qia"), SubResource("InputEventKey_hu27p"), SubResource("InputEventJoypadButton_t2ctd")])
 
 [node name="speakerbox" type="NinePatchRect" parent="."]
 offset_left = 194.0

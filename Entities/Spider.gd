@@ -43,8 +43,12 @@ func _physics_process(delta):
 				
 			"shoot":
 				if frame == 1:
-					create_hitbox({hitboxtype = "projectile", animation = "spider", velocitytowardmika = 9, speedX = 0, speedY = 0, duration = 2100, })
-				
+					create_hitbox({hitboxtype = "projectile", animation = "spider", 
+					velocitytowardmika = 13, speedX = 0, speedY = 0, duration = 2100, speedscale = 0.5, })
+					create_hitbox({hitboxtype = "projectile", animation = "spider", 
+					velocitytowardmika = 12, speedX = 0, speedY = 0, duration = 2100, speedscale = 0.5, anglevelocity = 1, angle =15})
+					create_hitbox({hitboxtype = "projectile", animation = "spider", 
+					velocitytowardmika = 12, speedX = 0, speedY = 0, duration = 2100, speedscale = 0.5, anglevelocity = 1, angle = -15 })
 				if frame == 40:
 					nstate("stand")
 
@@ -55,3 +59,11 @@ func findmika() -> Node:
 		if x.name == "Mika":
 			return x
 	return null
+#for a harder version of this enemy?
+func interestingshoot():
+	create_hitbox({hitboxtype = "projectile", animation = "spider", 
+					velocitytowardmika = 9, speedX = 0, speedY = 0, duration = 2100, speedscale = 0.5, })
+	create_hitbox({hitboxtype = "projectile", animation = "spider", 
+					velocitytowardmika = 9, speedX = 0, speedY = 0, duration = 2100, speedscale = 0.5, anglevelocity = 5, angle = 5 })
+	create_hitbox({hitboxtype = "projectile", animation = "spider", 
+					velocitytowardmika = 9, speedX = 0, speedY = 0, duration = 2100, speedscale = 0.5, anglevelocity = 5, angle = -5 })				

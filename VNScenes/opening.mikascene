@@ -5,7 +5,6 @@ speaker;Narrator
 
 ..
 ...
-
 It's 9 AM. Your room is welcomed by the sun. The rays are beckoning your arrival to this world.
 It's a great time to get a snack from the fridge, go outside and breathe some fresh air! 
 ...
@@ -104,11 +103,11 @@ So? We constantly make simple decisions on which our life depends on.
 Drinking water, or eating food, not doing those WILL kill you.
 But they're simple all the same.
 speaker;Mika
-You haven't even read the other routes, rascal. In one of them, I get crushed by a cinder block and I die a slow and painful death.
+In one of the routes, I get crushed by a cinder block and I die a slow and painful death.
 speaker;Narrator
 That doesn't happen. You just made that up.
 speaker;Mika
-Ah, so you HAVE read them! So you know how hard it is to be me, Mika Melatika, on a daily basis!
+So what if I did? You should know how hard it is to be me, Mika Melatika, on a daily basis!
 speaker;Narrator
 Of course I know. I'm a voice inside your head. Stop being a bitch and get dressed already.
 speaker;Mika
@@ -185,10 +184,12 @@ And thus, Mika Melatika went off on her adventure to the outside.
 She went on her break recently, and so she decided to get some air. Maybe this will give her a hint on what to do next.
 Come forth, Mika Melatika. Step down to the first floor of your massive Mika Mansion and explore what you've been neglecting for the past 2 years.
 s;Narrator
-First off, narration is my thing. Why did you create me if you're not letting me do my job?
-Second off.. Going outside is cool and all, but, what to do next? What do you mean by that? You on break, girl. Go to the hospital or something.
+Mika, stop talking to yourself!
 s;Mika
-...Let's just go. 
+flag;letsjustgo
+...Let's just go.
+fadealpha;0.0
+playmusic;ys3-theboywhohadwings;-30
 end;
 
 

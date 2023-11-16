@@ -21,14 +21,14 @@ func _physics_process(delta):
 		"stand":
 			if frame == 1:
 				dustoomf(Vector2(0,-20))
-				create_hitbox({hitboxtype = "projectile",damage = 16, duration = 100, animation = "spore", offset = Vector2(0,-50),speedY = -25,fallaccel = 1,speedX = 3})
-				create_hitbox({hitboxtype = "projectile",damage = 16, duration = 100, animation = "spore", offset = Vector2(0,-50),speedY = -25,fallaccel = 1,speedX = -3})
+				create_hitbox({hitboxtype = "projectile",damage = 10, speedscale = 0.5, duration = 100, animation = "spore", offset = Vector2(0,-50),speedY = -24,fallaccel = 1,speedX = 3})
+				create_hitbox({hitboxtype = "projectile",damage = 10, speedscale = 0.5, duration = 100, animation = "spore", offset = Vector2(0,-50),speedY = -24,fallaccel = 1,speedX = -3})
 				#FARTHER
 
-				create_hitbox({hitboxtype = "projectile",damage = 16, duration = 100, animation = "spore", offset = Vector2(0,-50),speedY = -25,fallaccel = 1,speedX = 6})
-				create_hitbox({hitboxtype = "projectile",damage = 16, duration = 100, animation = "spore", offset = Vector2(0,-50),speedY = -25,fallaccel = 1,speedX = -6})
+				create_hitbox({hitboxtype = "projectile",damage = 10, speedscale = 0.5, duration = 100, animation = "spore", offset = Vector2(0,-50),speedY = -24,fallaccel = 1,speedX = 6})
+				create_hitbox({hitboxtype = "projectile",damage = 10, speedscale = 0.5, duration = 100, animation = "spore", offset = Vector2(0,-50),speedY = -24,fallaccel = 1,speedX = -6})
 
-			if frame == 80:
+			if frame == 100:
 				nstate("prepare")
 		"prepare":
 			if frame == 11:

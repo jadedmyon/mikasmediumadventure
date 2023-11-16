@@ -27,3 +27,38 @@ func titlescreen():
 
 func _ready():
 	createvn("titlescreen")
+	playmusic("titlescreen")
+#	playmusic("ys3-theboywhohadwings")
+
+
+
+
+
+
+
+				#MUSIC
+
+##When music is played, a thingie shows up in the bottom of the screen that tells you the track name 
+var musicnames:Dictionary = {
+	"ys3-theboywhohadwings" : "Ys III- The Boy Who Had Wings by Falcom",
+	"titlescreen" : "vghjfkkgj" ,
+	
+	}
+
+func stopmusic():
+	$Music.stream = null
+	$Music.stop()
+
+##Assumes it's an ogg file. You SHOULD be assuming that. OGG is great. Do not use not OGG for game music
+func playmusic(musicname:String,musicvolume:float=-10):
+	$Music.stop()
+	var musicused = load('Music/' + musicname + ".ogg")
+	
+	$Music.stream = musicused
+	$Music.volume_db = musicvolume
+	$Music.play()
+	promptmusicname(musicname)
+
+func promptmusicname(musicname:String):
+	var showntext:String = musicnames[musicname]
+	

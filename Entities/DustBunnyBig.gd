@@ -48,7 +48,7 @@ func shoot():
 	create_hitbox({
 					hitboxtype = "projectile",damage = 8, duration = 600, 
 					animation = "dustbullet", scale = Vector2(2,2),
-					offset = Vector2(0,-30),fallaccel = 0.25, speedX = 16, speedY = -5})
+					offset = Vector2(0,-30),fallaccel = 0.125, speedX = 8, speedY = -5,speedscale = 1,})
 
 
 func dustoomf():
