@@ -133,14 +133,18 @@ func processline():
 	
 			#music
 	if commandname == "playmusic":
-		var volume = -10
+		var volume := -10.0
 		if len(command) > 2: volume = float(command[2])
 		get_parent().get_parent().playmusic(command[1],volume)
 	##Continues scene. Needs to be a separate function for the same frame loop to work(?)
 	continuescene(instantcontinue)
 	if commandname == "stopmusic":
 		get_parent().get_parent().stopmusic()
-
+	if commandname == "sfx": #untested
+		var volume := 0.0
+		if len(command) > 2: volume = float(command[2])
+		sfx(command[1],volume)
+	
 func continuescene(instantcontinue):
 	sceneindex+=1
 	if instantcontinue:
@@ -251,6 +255,14 @@ func loadscene(scenename:String):
 	addscene(scenename)
 	processline()
 
+func sfx(soundname:String,sfxvolume:float=-10):
+	var sfxnode := preload("res://Fundamental/SFX.tscn").instantiate()
+	var soundused := load('SFX/' + soundname + ".wav") 
+	add_child(sfxnode)
+	sfxnode.stream = soundused
+	sfxnode.volume_db = sfxvolume
+	sfxnode.play()
+
 
 
 func _ready():
@@ -281,14 +293,17 @@ func _process(delta):
 		if Input.is_action_just_pressed("down"):
 			if dialogueselected == -1:
 				dialogueselected = 0
+				sfx("VNscroll")
 			elif dialogueselected != lastoption:
 				dialogueselected+=1
+				sfx("VNscroll")
 		if Input.is_action_just_pressed("up"):
 			if dialogueselected == -1:
 				dialogueselected = lastoption
+				sfx("VNscroll")
 			elif dialogueselected != 0:
 				dialogueselected-=1
-	
+				sfx("VNscroll")
 	
 	if Input.is_action_just_pressed("B"):
 		PlayerInput()

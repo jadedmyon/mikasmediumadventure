@@ -31,7 +31,8 @@ var team:= "enemy"
 var hp_max:= 10
 @export var deathgraphics:Array[String] = ["explosion"] #explosion;toss
 var deathtype := "normal" #normal, forceddeath, standup
-
+var hitsound := "hit1"
+var hitvolume := -10.0
 
 @export var realscale := 1.0
 
@@ -116,6 +117,7 @@ func gethit():
 #flash 
 
 	flashingtimer = 4
+	sfx(hitsound,hitvolume,1)
 	$sprite.modulate = Color(3,3,3,1)
 	if hp <= 0:
 		die()
@@ -193,6 +195,18 @@ func tickframe():
 		hitstop -=1
 	if hitstop == 0:
 		frame+=1
+
+
+func sfx(soundname:String,sfxvolume:float=0,pitch:float = 1.0):
+	var sfxnode := preload("res://Fundamental/SFX.tscn").instantiate()
+	var soundused := load('SFX/' + soundname + ".wav") 
+	get_parent().add_child(sfxnode)
+	sfxnode.position = position
+	sfxnode.pitch_scale = pitch
+	sfxnode.stream = soundused
+	sfxnode.volume_db = sfxvolume
+	sfxnode.play()
+
 
 
 #Usefuls

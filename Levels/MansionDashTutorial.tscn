@@ -459,6 +459,6 @@ texture = ExtResource("20_ltk1o")
 position = Vector2(2382, 1281)
 
 [node name="VNTrigger2" parent="." instance=ExtResource("19_5xv88")]
-position = Vector2(3985, 866)
-scale = Vector2(1.64286, 34.1002)
+position = Vector2(4042, 1786)
+scale = Vector2(1.64286, 27.4324)
 scenename = "mikaisanerd"

@@ -14,6 +14,8 @@ var double_traction_threshold = 600 #traction is double above this point
 
 var walkaccel := 125
 var walkspeed_max := 500
+var crawlspeed_max := 165
+
 
 var dashes_max = 1
 var walljumps_max = 2
@@ -42,6 +44,8 @@ func _ready():
 	fallspeed_max = 900
 	realscale = 0.18
 
+	hitsound = "hitmika"
+	hitvolume = -3.0
 
 func _physics_process(delta):
 	if hitstop == 0:
@@ -107,9 +111,14 @@ func stand_state():
 func walk_state():
 	turn_ok()
 	tracting()
-	xvelocity_towards((walkaccel+ground_traction)*direction,walkspeed_max)
+	if inputheld("down"):
+		xvelocity_towards((walkaccel+ground_traction)*direction,crawlspeed_max)
+	else:
+		xvelocity_towards((walkaccel+ground_traction)*direction,walkspeed_max)
+	
 	if !inputheld("left") and !inputheld("right"):
 		momentumreset(200)
+		velocity.y +=100
 		nstate("stand")
 	
 	jumpcheck()
@@ -136,7 +145,9 @@ func air_state():
 	#Wall cling
 	if frame > 3: wallclingcheck() #frame is completely arbitrary 
 	
-	if is_on_floor() and frame > 1: nstate("stand")
+	if is_on_floor() and frame > 1:
+		sfx("land")
+		nstate("stand")
 	
 
 func dashstart_state():
@@ -150,6 +161,7 @@ func dashstart_state():
 	position.x -= velocity.x / 60 #wacky hack to make you stop in the air without erasing velocity 
 	
 	if frame == 4:
+		sfx("dash")
 		match direction_held():
 			"1":
 				flip()
@@ -274,6 +286,7 @@ func tridash_state():
 	
 	if frame >= 4:
 		if is_on_floor():
+			if dashes != 0: sfx("land")
 			dashing = true
 			dashes = 0
 			attackOK_ground()
@@ -318,6 +331,7 @@ func groundstrike1_state():
 	attackwalking()
 
 	if frame == 6:
+		sfx("swing1",-4)
 		create_hitbox({damage = 8,duration = 5, offset = Vector2(80,-55),scale = Vector2(3,3.5)})
 	if frame > 6:
 		if inputpressed("B",5+4): #increased buffer for successive attacks
@@ -330,6 +344,7 @@ func groundstrike2_state():
 	slideoff()
 	
 	if frame == 5:
+		sfx("swing1",-4)
 		create_hitbox({damage = 8,duration = 4, offset = Vector2(42,-55),scale = Vector2(5,5)})
 	if frame > 5 and inputpressed("B",9):
 		nstate("groundstrike3")
@@ -341,6 +356,7 @@ func groundstrike3_state():
 	slideoff()
 	
 	if frame == 5:
+		sfx("swing1",-4,0.8)
 		create_hitbox({damage = 16,duration = 9, offset = Vector2(120,-80),scale = Vector2(4.1,3)})
 	
 	if frame == 32:
@@ -364,6 +380,7 @@ func forwardair_state():
 	
 	
 	if frame == 3:
+		sfx("swing1",-4,1.1)
 		create_hitbox({damage = 8,duration = 3, offset = Vector2(80,-85),scale = Vector2(4,4)})
 	if frame == 21:
 		endstate()
@@ -417,6 +434,8 @@ func attackOK_ground():
 				"6":
 					nstate("groundstrike1")
 				"1":
+					nstate("groundstrike1")
+				"3":
 					nstate("groundstrike1")
 				"2":
 					if true:
@@ -478,10 +497,12 @@ func landevent(): #not sure what im using this for
 	dashing = false 
 
 func attackwalking():
+	var speedmax := walkspeed_max
+	if inputheld("down"): speedmax = crawlspeed_max
 	if inputheld("left"):
-		xvelocity_towards((walkaccel+ground_traction)*-1,walkspeed_max)
+		xvelocity_towards((walkaccel+ground_traction)*-1,speedmax)
 	elif inputheld("right"):
-		xvelocity_towards((walkaccel+ground_traction)*1,walkspeed_max)
+		xvelocity_towards((walkaccel+ground_traction)*1,speedmax)
 
 ##Used for drifting left/right and friction
 func drift():

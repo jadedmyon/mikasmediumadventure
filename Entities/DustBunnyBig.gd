@@ -22,6 +22,7 @@ func uniquebehavior():
 			
 		"smalljump":
 			if frame == 5:
+				sfx("jumpsmall")
 				fallaccel = 8
 
 				velocity.y = - 150
@@ -45,6 +46,7 @@ func uniquebehavior():
 
 
 func shoot():
+	sfx("bunnyshot")
 	create_hitbox({
 					hitboxtype = "projectile",damage = 8, duration = 600, 
 					animation = "dustbullet", scale = Vector2(2,2),

@@ -40,7 +40,7 @@ func _ready():
 
 ##When music is played, a thingie shows up in the bottom of the screen that tells you the track name 
 var musicnames:Dictionary = {
-	"ys3-theboywhohadwings" : "Ys III- The Boy Who Had Wings by Falcom",
+	"mikamansion" : "Ys III- The Boy Who Had Wings by Falcom",
 	"titlescreen" : "vghjfkkgj" ,
 	
 	}

@@ -3,6 +3,8 @@ extends "res://Fundamental/Entity.gd"
 func _ready():
 	
 	hp = 6
+	#hitsound = "hitsmall"
+	hitvolume = -5
 
 func _physics_process(delta):
 	tickframe()

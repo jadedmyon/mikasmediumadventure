@@ -43,6 +43,9 @@ func _physics_process(delta):
 				
 			"shoot":
 				if frame == 1:
+					
+					sfx("shotmedium")
+					
 					create_hitbox({hitboxtype = "projectile", animation = "spider", 
 					velocitytowardmika = 13, speedX = 0, speedY = 0, duration = 2100, speedscale = 0.5, })
 					create_hitbox({hitboxtype = "projectile", animation = "spider", 

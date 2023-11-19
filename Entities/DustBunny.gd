@@ -24,6 +24,7 @@ func uniquebehavior():
 			
 		"smalljump":
 			if frame == 5:
+				sfx("jumpsmall")
 				fallaccel = 12
 				create_hitbox({damage=8,duration=120, scale = Vector2(3,3)})
 				velocity.y = - 250
@@ -33,6 +34,7 @@ func uniquebehavior():
 				dustoomf()
 		"bigjump":
 			if frame == 1:
+				sfx("jumpbig")
 				fallaccel = 23
 				create_hitbox({damage=8,duration=120, scale = Vector2(2,2)})
 				velocity.y = - 450
