@@ -27,8 +27,7 @@ func titlescreen():
 
 func _ready():
 	createvn("titlescreen")
-	playmusic("titlescreen")
-#	playmusic("ys3-theboywhohadwings")
+#	playmusic("titlescreen")
 
 
 
@@ -63,4 +62,5 @@ func playmusic(musicname:String,musicvolume:float=-10,looping:bool=true):
 
 func promptmusicname(musicname:String):
 	var showntext:String = musicnames[musicname]
-	
+	if musicname != "titlescreen":
+		$CanvasLayer/musicshow.startshow(showntext)
