@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhvvksbke2k82"]
+[gd_scene load_steps=23 format=3 uid="uid://dhvvksbke2k82"]
 
 [ext_resource type="Script" path="res://Fundamental/Mika.gd" id="1_c1pl4"]
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_p34cf"]
 [ext_resource type="SpriteFrames" uid="uid://cpjnacijfvjqf" path="res://Fundamental/MikaSpriteFrames.tres" id="3_jqmke"]
 [ext_resource type="Script" path="res://Fundamental/WallChecker.gd" id="3_su34n"]
+[ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="4_8u1ys"]
+[ext_resource type="Script" path="res://Fundamental/mikaflash.gd" id="5_xjlym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clxpm"]
 size = Vector2(41, 116.5)
@@ -245,6 +247,7 @@ position = Vector2(0, -58.75)
 shape = SubResource("RectangleShape2D_clxpm")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+clip_children = 2
 z_index = 5
 texture_filter = 1
 material = SubResource("ShaderMaterial_tibil")
@@ -253,6 +256,13 @@ scale = Vector2(0.18, 0.18)
 sprite_frames = ExtResource("3_jqmke")
 animation = &"forwardair"
 offset = Vector2(45, 60)
+
+[node name="mikaflash" type="Sprite2D" parent="sprite"]
+modulate = Color(0.764706, 0.729412, 0.756863, 0.741176)
+position = Vector2(38.889, 50.0001)
+scale = Vector2(21.8855, 20.4265)
+texture = ExtResource("4_8u1ys")
+script = ExtResource("5_xjlym")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
