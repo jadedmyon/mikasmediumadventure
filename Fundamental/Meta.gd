@@ -42,7 +42,8 @@ func _ready():
 var musicnames:Dictionary = {
 	"mikamansion" : "Ys III- The Boy Who Had Wings by Falcom",
 	"titlescreen" : "vghjfkkgj" ,
-	
+	"death" : "Original- Mika Fuckign Dies by jadedmyon",
+	"sleep" : "Elona- Dungeon 1 song",
 	}
 
 func stopmusic():
@@ -50,8 +51,9 @@ func stopmusic():
 	$Music.stop()
 
 ##Assumes it's an ogg file. You SHOULD be assuming that. OGG is great. Do not use not OGG for game music
-func playmusic(musicname:String,musicvolume:float=-10):
+func playmusic(musicname:String,musicvolume:float=-10,looping:bool=true):
 	$Music.stop()
+	$Music.looping = looping
 	var musicused = load('Music/' + musicname + ".ogg")
 	
 	$Music.stream = musicused

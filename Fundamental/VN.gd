@@ -134,7 +134,9 @@ func processline():
 			#music
 	if commandname == "playmusic":
 		var volume := -10.0
+		var looping:= true
 		if len(command) > 2: volume = float(command[2])
+		if len(command) > 3: looping = bool(command[3])
 		get_parent().get_parent().playmusic(command[1],volume)
 	##Continues scene. Needs to be a separate function for the same frame loop to work(?)
 	continuescene(instantcontinue)
@@ -266,7 +268,7 @@ func sfx(soundname:String,sfxvolume:float=-10):
 
 
 func _ready():
-	
+
 	pass
 
 func PlayerInput():
