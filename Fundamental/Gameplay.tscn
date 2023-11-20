@@ -12,6 +12,7 @@ script = ExtResource("1_6v8t4")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DebugText" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
 offset_right = 266.0
 offset_bottom = 153.0
 text = "Fuck

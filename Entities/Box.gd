@@ -4,7 +4,7 @@ func _ready():
 	
 	hp = 6
 	#hitsound = "hitsmall"
-	hitvolume = -5
+	hitvolume = -18
 
 func _physics_process(delta):
 	tickframe()

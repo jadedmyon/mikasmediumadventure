@@ -45,7 +45,7 @@ func _ready():
 	realscale = 0.18
 
 	hitsound = "hitmika"
-	hitvolume = -3.0
+	hitvolume = -4.0
 
 func _physics_process(delta):
 	if hitstop == 0:

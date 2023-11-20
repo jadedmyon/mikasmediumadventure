@@ -311,13 +311,13 @@ hp = 8
 
 [node name="Squarefade2" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(159.375, 24)
-scale = Vector2(12.0742, 9.03263)
+position = Vector2(159.875, 32)
+scale = Vector2(12.0586, 9)
 texture = ExtResource("16_mmdkx")
 
 [node name="Black2" type="Sprite2D" parent="."]
-position = Vector2(-472, 21)
-scale = Vector2(11.2617, 9.0459)
+position = Vector2(-586.187, 31.7344)
+scale = Vector2(11.2559, 8.9917)
 texture = ExtResource("17_puj5l")
 
 [node name="Squarefade3" type="Sprite2D" parent="."]
