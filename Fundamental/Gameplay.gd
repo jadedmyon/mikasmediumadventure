@@ -35,7 +35,7 @@ func loadlevel(levelname:String,posid:int):
 					pos = x.position #no break because it'll be overwritten by a real position
 	
 	mika.position = pos
-
+	$CanvasLayer/enemyinfo.visible = false
 
 
 ##To be replaced later with maybe a fadeout effect?
@@ -79,6 +79,9 @@ func _physics_process(delta):
 	if has_node("Entities"):
 		$Camera2D.position = get_node("Entities/Mika").position + Vector2(0,-100)
 
+	if $CanvasLayer/enemyinfo/HP.text == "0":
+		$CanvasLayer/enemyinfo.modulate.a -= 0.01
+
 
 func debug():
 	if has_node("Entities"):
@@ -104,10 +107,11 @@ func update_enemyinfo():
 	if shownenemy == null:
 		$CanvasLayer/enemyinfo.visible = false
 	else:
+		$CanvasLayer/enemyinfo.modulate.a = 1
 		$CanvasLayer/enemyinfo.visible = true
 		
 		$CanvasLayer/enemyinfo/Name.text = shownenemy.displayname
-		$CanvasLayer/enemyinfo/HP.text = str(shownenemy.hp) + " / " + str(shownenemy.hp_max)
+		$CanvasLayer/enemyinfo/HP.text = str(max(0,shownenemy.hp))
 		$CanvasLayer/enemyinfo/healthbar.value =  (float(shownenemy.hp) / float(shownenemy.hp_max)) * 100 
 		
 
