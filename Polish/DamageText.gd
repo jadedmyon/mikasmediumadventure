@@ -12,5 +12,4 @@ func _process(delta):
 	position.y -= 1.2
 	modulate.a -= fadespeed
 	if modulate.a <= 0:
-		print ("fdhgbsdlkfgj")
 		queue_free()

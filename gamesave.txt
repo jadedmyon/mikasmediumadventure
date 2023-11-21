@@ -1,0 +1,1 @@
+{"checkpointlevel":"MansionCheckpoint1","difficulty":2,"direction":1,"exp":null,"hp":48,"hp_max":80,"ismika":false,"latestmusic":"mikamansion","latestmusic_volume":-30,"level":null,"meter":null,"meter_max":null,"mikaquestionasked":false,"ninebuttonuses":0,"progression":1}

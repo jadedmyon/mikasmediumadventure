@@ -39,7 +39,12 @@ func titlescreen():
 	get_tree().reload_current_scene()
 
 func _ready():
+	if global.gamesave_default == {}: #meant to be used for ghdfsjklbhnsdlfsbigdbkidibkidikbdsahds
+		global.gamesave_default = global.gamesave.duplicate() 
+	loadsave()
 	createvn("titlescreen")
+
+
 #	playmusic("titlescreen")
 
 
@@ -53,9 +58,10 @@ func _ready():
 ##When music is played, a thingie shows up in the bottom of the screen that tells you the track name 
 var musicnames:Dictionary = {
 	"mikamansion" : "Ys III- The Boy Who Had Wings by Falcom",
-	"titlescreen" : "vghjfkkgj" ,
+	"titlescreen" : "vghjfkkgj by phlkhbkllk" ,
 	"death" : "Original- Mika Fuckign Dies by jadedmyon",
-	"sleep" : "Elona- Dungeon 1 song",
+	"sleep" : "Elona- Dungeon 1 by noacat",
+	"debutmika1" : "The Penis (Eek!) by Surasshu",
 	}
 
 func stopmusic():
@@ -80,3 +86,17 @@ func promptmusicname(musicname:String):
 	var showntext:String = musicnames[musicname]
 	if musicname != "titlescreen":
 		$CanvasLayer/musicshow.startshow(showntext)
+
+
+func loadsave():
+	var loadfile = FileAccess.open('res://gamesave.txt', FileAccess.READ)
+	if not FileAccess.file_exists('res://gamesave.txt'):
+		var saveasjson =  JSON.stringify(global.gamesave_default.duplicate())
+		var savefile = FileAccess.open('res://gamesave.txt', FileAccess.WRITE)
+		savefile.store_string(saveasjson)
+	else:
+		var parsed_json = JSON.parse_string(loadfile.get_as_text())
+		global.gamesave = {}
+		global.gamesave = parsed_json.duplicate()
+
+		loadfile.close() 

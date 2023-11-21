@@ -384,11 +384,22 @@ func forwardair_state():
 		create_hitbox({damage = 8,duration = 3, offset = Vector2(80,-85),scale = Vector2(4,4)})
 	if frame == 21:
 		endstate()
-	
 
 func backair_state():
 	flip()
-	nstate("forwardair") #placeholder
+	nstate("forwardair") #placeholder?
+
+func ninebutton_state():
+	
+	if frame == 0:
+		if invulntimer < 120: invulntimer = 120
+		dashes = 0
+		walljumps = 0
+		if velocity.y > 0: velocity.y = 0
+		heal(16)
+		
+	if frame == 10:
+		endstate()
 
 #hitstunground was planned but I might not do that. It was meant to have less stun and knockback
 #so staying on the ground was more advantageous and you could intentionally get hit on the floor

@@ -16,3 +16,7 @@ func _process(delta):
 func savegame():
 	global.gamesave.checkpointlevel = get_parent().get_parent().currentlevel
 	
+	var savefile = FileAccess.open('res://gamesave.txt', FileAccess.WRITE)
+	var save_as_json = JSON.stringify(global.gamesave)
+	savefile.store_string(save_as_json)
+	savefile.close() 
