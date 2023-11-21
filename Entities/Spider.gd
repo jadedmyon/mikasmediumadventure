@@ -3,16 +3,12 @@ extends "res://Fundamental/Entity.gd"
 
 func _ready():
 	fallaccel = 0
+	displayname = "Spider"
 
-func _physics_process(delta):
-	tickframe()
-	if hitstop == 0:
-		if invulntimer > 0: invulntimer-=1
-		move_and_slide()
-		gravity()
-		update_animation()
-		detect_mika()
-		state_called = []
+
+
+
+func uniquebehavior():
 		match state:
 			"stand":
 				if mikadetected:
@@ -54,8 +50,6 @@ func _physics_process(delta):
 					velocitytowardmika = 12, speedX = 0, speedY = 0, duration = 2100, speedscale = 0.5, anglevelocity = 1, angle = -15 })
 				if frame == 40:
 					nstate("stand")
-
-
 
 func findmika() -> Node:
 	for x in get_parent().get_children():

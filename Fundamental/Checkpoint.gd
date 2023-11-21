@@ -10,6 +10,7 @@ func _ready():
 func _process(delta):
 	for x in get_overlapping_bodies(): if x.name == "Mika":
 		if x.hp < x.hp_max: x.heal_full()
+		global.gamesave.hp = global.gamesave.hp_max
 		savegame()
 
 

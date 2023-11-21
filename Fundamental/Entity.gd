@@ -28,11 +28,13 @@ var fallspeed_max := 400
 var displayname := "? ? ? ?" 
 var team:= "enemy"
 @export var hp:= 10
-var hp_max:= 10
+var hp_max:= 0
 @export var deathgraphics:Array[String] = ["explosion"] #explosion;toss
 var deathtype := "normal" #normal, forceddeath, standup
 var hitsound := "hit1"
 var hitvolume := -10.0
+var show_info := true
+
 
 @export var realscale := 1.0
 
@@ -44,6 +46,7 @@ var state_called:Array[String] = [] #used to fix states not being called after s
 func _ready():
 	process_priority = 100
 
+
 ##this method won't happen because any inheritor will replace it with their own physics process
 ##use this as a copypaste you build enemy behavior off later 
 func _physics_process(delta):
@@ -53,6 +56,7 @@ func _physics_process(delta):
 ##Mika doesn't use this, but all the enemies probably should.
 func defaultbehavior():
 	tickframe()
+	if hp_max == 0: hp_max = hp
 	if hitstop == 0:
 		if invulntimer > 0: invulntimer-=1
 		move_and_slide()
@@ -119,8 +123,17 @@ func gethit():
 	flashingtimer = 4
 	sfx(hitsound,hitvolume,1)
 	$sprite.modulate = Color(3,3,3,1)
+	if show_info: update_enemyinfo()
 	if hp <= 0:
+
 		die()
+
+
+
+func update_enemyinfo(enemyused=self):
+	get_parent().get_parent().shownenemy = enemyused
+	get_parent().get_parent().update_enemyinfo()
+
 
 func die():
 	#fixes hitboxes referencing a creator that don't exist no more

@@ -15,6 +15,7 @@ func deletevn():
 		oldvnnode.queue_free()
 
 func newgame():
+
 	get_node("TitleScreen").fadestate = "fadeout"
 	createvn("opening")
 
@@ -41,6 +42,7 @@ func titlescreen():
 func _ready():
 	if global.gamesave_default == {}: #meant to be used for ghdfsjklbhnsdlfsbigdbkidibkidikbdsahds
 		global.gamesave_default = global.gamesave.duplicate() 
+	get_node("Gameplay/CanvasLayer/enemyinfo").visible = false
 	loadsave()
 	createvn("titlescreen")
 

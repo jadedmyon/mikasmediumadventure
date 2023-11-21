@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv6x4ylpjslba"]
+[gd_scene load_steps=6 format=3 uid="uid://dv6x4ylpjslba"]
 
 [ext_resource type="Script" path="res://Fundamental/Gameplay.gd" id="1_6v8t4"]
 [ext_resource type="Texture2D" uid="uid://d3u5g276hbcd4" path="res://Graphics/Crap/firefox_Hkxr0O68Bw.png" id="2_43ujn"]
+[ext_resource type="Texture2D" uid="uid://8625jdl2ctpp" path="res://CopyrightInfringement/UI/enemyinfo-shell.png" id="2_htios"]
 [ext_resource type="Script" path="res://Polish/fade.gd" id="3_sjc80"]
+[ext_resource type="Texture2D" uid="uid://cynaam0y24hd2" path="res://CopyrightInfringement/UI/enemyinfo-fill.png" id="3_wyl7e"]
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_6v8t4")
@@ -10,6 +12,41 @@ script = ExtResource("1_6v8t4")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="enemyinfo" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(506, 659)
+texture = ExtResource("2_htios")
+
+[node name="healthbar" type="TextureProgressBar" parent="CanvasLayer/enemyinfo"]
+show_behind_parent = true
+offset_left = -495.0
+offset_top = -45.0
+offset_right = 236.0
+offset_bottom = 83.0
+value = 100.0
+texture_progress = ExtResource("3_wyl7e")
+
+[node name="Name" type="Label" parent="CanvasLayer/enemyinfo"]
+offset_left = -146.0
+offset_top = -43.0
+offset_right = 218.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(0.305882, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 28
+text = "Default Enemy"
+
+[node name="HP" type="Label" parent="CanvasLayer/enemyinfo"]
+offset_left = -494.0
+offset_top = 25.0
+offset_right = -130.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0.113725, 0, 1)
+theme_override_colors/font_outline_color = Color(0.909804, 0.847059, 0.988235, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 28
+text = "128"
 
 [node name="DebugText" type="RichTextLabel" parent="CanvasLayer"]
 visible = false

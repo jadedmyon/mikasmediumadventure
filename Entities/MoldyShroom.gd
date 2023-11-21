@@ -3,20 +3,13 @@ extends "res://Fundamental/Entity.gd"
 func _ready():
 	hp = 30
 	realscale = 2
-	
+	displayname = "Moldy Shroom" 
 
 
 
 
-func _physics_process(delta):
-	tickframe()
-	if hitstop == 0:
-		if invulntimer > 0: invulntimer-=1
-		move_and_slide()
-		gravity()
-		update_animation()
-		detect_mika()
-		state_called = []
+
+func uniquebehavior():
 	match state:
 		"stand":
 			if frame == 1:

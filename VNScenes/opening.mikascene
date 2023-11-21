@@ -96,6 +96,7 @@ choice;Nah;stay4
 
 flag;wake4
 fadein;
+sfx;jumpsmall
 Oh, good, you're finally up.
 Like that was hard. 
 speaker;Mika

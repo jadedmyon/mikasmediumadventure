@@ -35,7 +35,7 @@ func _ready():
 	#initialization
 	state = "air"
 	team = "mika"
-	
+	show_info = false
 	
 	#custom values
 	hp = 80

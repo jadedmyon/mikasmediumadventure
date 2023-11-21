@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmsdum7dn3qlt"]
+[gd_scene load_steps=6 format=3 uid="uid://bmsdum7dn3qlt"]
 
 [ext_resource type="Script" path="res://Fundamental/Meta.gd" id="1_rr1rl"]
 [ext_resource type="PackedScene" uid="uid://dv6x4ylpjslba" path="res://Fundamental/Gameplay.tscn" id="1_ulcc3"]
 [ext_resource type="PackedScene" uid="uid://dq2lg163ah2n0" path="res://Fundamental/TitleScreen.tscn" id="2_cnaet"]
 [ext_resource type="Script" path="res://Fundamental/Music.gd" id="4_n28yw"]
-[ext_resource type="Texture2D" uid="uid://sei5mui21fjc" path="res://CopyrightInfringement/musicshower.png" id="4_rrmg0"]
 [ext_resource type="Script" path="res://Fundamental/musicshow.gd" id="5_6pjw4"]
 
 [node name="Meta" type="Node2D"]
@@ -23,7 +22,6 @@ modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0.2, 0.211765, 0.196078, 1)
 z_index = 15
 position = Vector2(1007, 15)
-texture = ExtResource("4_rrmg0")
 script = ExtResource("5_6pjw4")
 
 [node name="Label" type="Label" parent="CanvasLayer/musicshow"]

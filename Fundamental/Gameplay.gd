@@ -97,6 +97,21 @@ func global_hitstop(length:int):
 			x.hitstop = length
 		
 
+		##UI
+var shownenemy = null #reference to an entity
+
+func update_enemyinfo():
+	if shownenemy == null:
+		$CanvasLayer/enemyinfo.visible = false
+	else:
+		$CanvasLayer/enemyinfo.visible = true
+		
+		$CanvasLayer/enemyinfo/Name.text = shownenemy.displayname
+		$CanvasLayer/enemyinfo/HP.text = str(shownenemy.hp) + " / " + str(shownenemy.hp_max)
+		$CanvasLayer/enemyinfo/healthbar.value =  (float(shownenemy.hp) / float(shownenemy.hp_max)) * 100 
+		
+
+
 
 ########################
 ####	##INPUTS	####

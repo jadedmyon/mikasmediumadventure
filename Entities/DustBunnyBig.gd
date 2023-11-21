@@ -2,7 +2,7 @@ extends "res://Fundamental/Entity.gd"
 
 
 func _ready():
-	displayname = "Dust Bunny"
+	displayname = "Cough Bunny"
 	fallaccel = 12
 
 
