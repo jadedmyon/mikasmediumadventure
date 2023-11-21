@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dak2kjarx5701"]
+
+[ext_resource type="Script" path="res://Polish/DamageText.gd" id="1_yu4ep"]
+
+[node name="DamageText" type="Label"]
+z_index = 2
+z_as_relative = false
+offset_right = 96.0
+offset_bottom = 32.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.996078, 0.976471, 0.992157, 0.890196)
+theme_override_colors/font_shadow_color = Color(0.156863, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 80
+text = "-69"
+script = ExtResource("1_yu4ep")

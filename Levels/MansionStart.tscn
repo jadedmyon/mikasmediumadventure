@@ -371,6 +371,7 @@ texture = ExtResource("1_d4tal")
 centered = false
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
 offset_top = -902.0
 offset_right = 2734.0
 offset_bottom = -291.0
@@ -379,6 +380,7 @@ texture = ExtResource("2_m04bo")
 stretch_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -1
 offset_top = 326.0
 offset_right = 2751.0
 offset_bottom = 1113.0

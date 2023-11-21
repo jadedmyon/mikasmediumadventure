@@ -106,8 +106,19 @@ func hit_process():
 					entity.nstate("hitstunair")
 					entity.invulntimer = 120
 				entity.gethit()
-				
 				hitsleft -= 1
+				#damage values
+				var damagetext := preload("res://Polish/DamageText.tscn").instantiate()
+				get_parent().add_child(damagetext)
+				var rng := randi() % 5
+				var rngX := randi() % 5
+				damagetext.position = entity.position + Vector2(5 * rngX,-30 - (10 *rng))
+				damagetext.text = "-" +  str(damage)
+				
+				if entity.name == "Mika":
+					damagetext.scale *= 1.5
+					damagetext.fadespeed = 0.01
+					damagetext.add_theme_color_override("font_color", Color(1,0.1,0.2))
 
 func tickframe():
 	if hitstop == 0:

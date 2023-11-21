@@ -30,8 +30,8 @@ newgame;
 
 
 flag;continue
-newgame;
-#continue;
+continuegame;
+end;
 
 flag;settings
 newgame;

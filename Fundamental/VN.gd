@@ -127,6 +127,9 @@ func processline():
 		
 		get_parent().get_parent().newgame()
 		instantcontinue = false
+	if commandname == "continuegame":
+		get_parent().get_parent().continuegame()
+		instantcontinue = false
 	if commandname == "exitgame":
 		get_tree().quit()
 		

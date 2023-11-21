@@ -416,7 +416,8 @@ func death_state():
 	if frame == 0:
 		get_parent().get_parent().get_parent().playmusic("death",-10,false)
 		invulntimer = 1000
-	modulate.a -= 0.001
+		global.gamesave.hp = hp_max
+	modulate.a -= 0.003
 	fricting()
 	var camera = get_parent().get_parent().get_node("Camera2D")
 	camera.zoom += Vector2(0.005,0.005)

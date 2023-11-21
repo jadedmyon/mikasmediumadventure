@@ -11,6 +11,7 @@
 script = ExtResource("1_rr1rl")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_cnaet")]
+z_index = -2
 position = Vector2(-640, -360)
 
 [node name="Gameplay" parent="." instance=ExtResource("1_ulcc3")]
@@ -21,16 +22,15 @@ position = Vector2(-640, -360)
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0.2, 0.211765, 0.196078, 1)
 z_index = 15
-position = Vector2(773, 33)
-scale = Vector2(1.84278, 2)
+position = Vector2(1007, 15)
 texture = ExtResource("4_rrmg0")
 script = ExtResource("5_6pjw4")
 
 [node name="Label" type="Label" parent="CanvasLayer/musicshow"]
-offset_left = -256.0
-offset_top = -12.0
-offset_right = 260.0
-offset_bottom = 14.0
+offset_left = -246.775
+offset_top = -12.5
+offset_right = 269.225
+offset_bottom = 13.5
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Original- Rakhmaninof by Symphony 7
 "

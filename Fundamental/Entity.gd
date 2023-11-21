@@ -140,7 +140,20 @@ func die():
 
 
 
+func heal_full():
+	heal(hp_max-hp)
 
+func heal(healamount:int):
+	var healthbefore := hp
+	hp = min(hp_max,hp+healamount)
+	var healed := hp - healthbefore
+	var healtext := preload("res://Polish/DamageText.tscn").instantiate()
+	get_parent().add_child(healtext)
+	var rng := randi() % 5
+	var rngX := randi() % 5
+	healtext.position = position + Vector2(5 * rngX,-30 - (10 *rng))
+	healtext.text = "+" +  str(healed)
+	healtext.add_theme_color_override("font_color", Color(0.05,0.95,0.2))
 
 #state machine logic
 

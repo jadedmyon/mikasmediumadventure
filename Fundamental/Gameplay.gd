@@ -1,10 +1,13 @@
 extends Node2D
 
+var currentlevel = "MansionStart" #used to save level names when saving at checkpoints 
+
 ##For levels to work correctly, the level node MUST be named Entities.
 #No entity/hitbox that's expected to follow basic rules like hitstop should be a child of another entity.
 #Hitboxes and TileMap are also direct children of Entities node. 
 func loadlevel(levelname:String,posid:int):
 	var entitiesnode = load("res://Levels/" + levelname +".tscn").instantiate()
+	currentlevel = levelname
 	if has_node("Entities"): #delete existing entities node first
 		var oldentities = get_node("Entities")
 		oldentities.name = "AwfulEntities"
@@ -15,18 +18,24 @@ func loadlevel(levelname:String,posid:int):
 	var mika = preload('res://Fundamental/Mika.tscn').instantiate()
 	entitiesnode.add_child(mika)
 	loadstats()
-	mika.direction = -1
 		#Find position
 	var pos:Vector2 = Vector2(-9999999,-9999999) #default value to control for positionid not existing
-	for x in entitiesnode.get_children():
-		if x is PositionMarker:
-			if x.positionid == posid:
+	if posid == 685: #685 is used for skipping to checkpoint instead
+		for x in entitiesnode.get_children():
+			if x is CheckPoint:
 				pos = x.position
 				break
-			if pos == Vector2(-9999999,-9999999) and x.positionid == 0: #if positionid doesn't exist for some reason
-				pos = x.position #no break because it'll be overwritten by a real position
+	else:
+		for x in entitiesnode.get_children():
+			if x is PositionMarker:
+				if x.positionid == posid:
+					pos = x.position
+					break
+				if pos == Vector2(-9999999,-9999999) and x.positionid == 0: #if positionid doesn't exist for some reason
+					pos = x.position #no break because it'll be overwritten by a real position
 	
 	mika.position = pos
+
 
 
 ##To be replaced later with maybe a fadeout effect?
@@ -34,7 +43,8 @@ func levelswitch(levelname:String,posid:int):
 	if has_node("Entities/Mika"): savestats()
 	loadlevel(levelname,posid)
 
-const savedstatnames:Array[String] = ["hp","hp_max","meter","meter_max","exp","level",]
+const savedstatnames:Array[String] = ["hp","hp_max","meter","meter_max","exp","level","direction"]
+
 
 
 func savestats():
@@ -42,6 +52,7 @@ func savestats():
 
 	for x in savedstatnames:
 		global.gamesave[x] = mika.get(x)
+
 
 func loadstats():
 	var mika = get_node("Entities/Mika")

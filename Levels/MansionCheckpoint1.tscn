@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bm3kwlhvnb1sn"]
+[gd_scene load_steps=24 format=3 uid="uid://bm3kwlhvnb1sn"]
 
 [ext_resource type="Texture2D" uid="uid://ympb53oq2tiw" path="res://CopyrightInfringement/Environment/Mansion/MansionBG.png" id="1_3h5hy"]
 [ext_resource type="Texture2D" uid="uid://c4gkjib71mg5p" path="res://CopyrightInfringement/Environment/Mansion/MansionBGRepeat.png" id="2_tus06"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bwj75sf3yetn1" path="res://Fundamental/VNTrigger.tscn" id="14_cytnr"]
 [ext_resource type="Texture2D" uid="uid://yakqusko3p3h" path="res://addons/input_prompts/icons/keyboard/a.png" id="14_p2o3i"]
 [ext_resource type="PackedScene" uid="uid://bk1fnuqmkhfox" path="res://Entities/MoldyShroom.tscn" id="15_i0y80"]
+[ext_resource type="PackedScene" uid="uid://dd063elshexmr" path="res://Fundamental/Checkpoint.tscn" id="15_rc8gg"]
 [ext_resource type="PackedScene" uid="uid://rbkvjplxjhvc" path="res://Entities/Spider.tscn" id="15_sbwq0"]
 [ext_resource type="Texture2D" uid="uid://v7i3kcc7v86o" path="res://Graphics/UI/squarefade.png" id="16_mmdkx"]
 [ext_resource type="Texture2D" uid="uid://bolak2on6du3k" path="res://Graphics/UI/black.png" id="17_puj5l"]
@@ -399,19 +400,6 @@ theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 36
 text = "WALLJUMP"
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 3820.0
-offset_top = 1799.0
-offset_right = 4237.0
-offset_bottom = 1852.0
-theme_override_colors/font_shadow_color = Color(0.603922, 0, 0, 0.878431)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 16
-theme_override_font_sizes/font_size = 36
-text = "[insert checkpoint here]"
-
 [node name="MoldyShroom3" parent="." instance=ExtResource("15_i0y80")]
 position = Vector2(5123, -464)
 
@@ -424,3 +412,6 @@ scenename = "mansionpitquip"
 position = Vector2(3110, 1641)
 scale = Vector2(1.88572, 20.8971)
 levelname = "MansionFiller1"
+
+[node name="Checkpoint" parent="." instance=ExtResource("15_rc8gg")]
+position = Vector2(4129, 1919)
