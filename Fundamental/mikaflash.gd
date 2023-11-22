@@ -1,9 +1,9 @@
 extends Sprite2D
 
-
+var defaultmodulate = Color (1,1,1,1)
 
 func _ready():
-	pass # Replace with function body.
+	defaultmodulate = modulate
 
 
 
@@ -14,3 +14,8 @@ func _process(delta):
 		visible = true
 	else:
 		visible = false
+
+
+	if mika.state == "ninebutton":
+		modulate = Color(1,0.6,0.7,1)
+	else: modulate = defaultmodulate

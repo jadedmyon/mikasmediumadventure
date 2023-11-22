@@ -19,7 +19,7 @@ var crawlspeed_max := 165
 
 var dashes_max = 1
 var walljumps_max = 2
-var gravity_exceptions:Array[String] = ["dashstart","forwarddash","downdash","novdash","wallcling"]
+var gravity_exceptions:Array[String] = ["dashstart","forwarddash","downdash","novdash","wallcling","ninebutton",]
  
 #not stats
 var dashes := 0
@@ -45,7 +45,7 @@ func _ready():
 	realscale = 0.18
 
 	hitsound = "hitmika"
-	hitvolume = -4.0
+	hitvolume = -5.0
 
 func _physics_process(delta):
 	if hitstop == 0:
@@ -56,7 +56,8 @@ func _physics_process(delta):
 		if state not in gravity_exceptions: gravity() #this is wonky 
 		state_called = [] #put this after all state logic always 
 	update_animation()
-
+	if inputpressed("ninebutton"):
+		nstate("ninebutton")
 
 
 
@@ -92,6 +93,7 @@ func state_caller():
 
 	if statecheck("hitstunair"): hitstunair_state()
 	if statecheck("death"): death_state()
+	if statecheck("ninebutton"): ninebutton_state()
 
 	#states
 
@@ -390,15 +392,18 @@ func backair_state():
 	nstate("forwardair") #placeholder?
 
 func ninebutton_state():
-	
+	position -= velocity / 60
 	if frame == 0:
+		sfx("nine",-5)
 		if invulntimer < 120: invulntimer = 120
 		dashes = 0
 		walljumps = 0
 		if velocity.y > 0: velocity.y = 0
 		heal(16)
+		if get_parent().get_parent().currentlevel != "MansionNineButtonTutorial":
+			global.gamesave.ninebuttonuses+=1
 		
-	if frame == 10:
+	if frame == 20:
 		endstate()
 
 #hitstunground was planned but I might not do that. It was meant to have less stun and knockback

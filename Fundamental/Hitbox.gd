@@ -26,6 +26,10 @@ var velocitytowardmika = 0.0
 var angle := 0.0
 var anglevelocity := 0.0
 var speedscale :=  1.0
+var invulntimer := 120
+var launchdirection := 0 #0 is default behavior 
+
+
 
 var destroyontilemap := true
 
@@ -40,7 +44,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	hit_process()
-	
 	if hitboxtype == "melee":
 		position = creator.position + Vector2(offset.x*creator.direction , offset.y)
 		if initial_state != creator.state: queue_free() #if you get hit or slide off, delete hitbox 
@@ -96,15 +99,17 @@ func hit_process():
 	for x in get_overlapping_areas():
 		if x.name == "Hurtbox":
 			var entity = x.get_parent()
-			if entity.team != team and not entity in already_hit and entity.invulntimer == 0:
+			if entity.team != team and (not entity in already_hit) and ( entity.invulntimer == 0):
 				already_hit.append(entity)
 				entity.hp -= damage
 				entity.global_hitstop(hitstop_dealt)
 				if !entity.name == "Mika":
 					entity.hitstop+= hitstop_dealt
 				elif true: #!entity.is_on_floor() #if mika is one getting hit, kinda hacky
+					if launchdirection != 0: entity.direction = launchdirection
 					entity.nstate("hitstunair")
-					entity.invulntimer = 120
+					entity.invulntimer = invulntimer #120 default
+					
 				entity.gethit()
 				hitsleft -= 1
 				#damage values

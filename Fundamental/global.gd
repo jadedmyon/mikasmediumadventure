@@ -39,6 +39,7 @@ var gamesave:Dictionary = {
 	mikaquestionasked = false,
 	ismika = false,
 
+
 	}
 
 #copies gamesave on boot if this is empty

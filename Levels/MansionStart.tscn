@@ -700,7 +700,7 @@ texture = ExtResource("26_xo22l")
 [node name="LevelWarp" parent="." instance=ExtResource("27_c6d1g")]
 position = Vector2(4433, 900)
 scale = Vector2(1.88572, 20.8971)
-levelname = "MansionDashTutorial"
+levelname = "MansionNineButtonTutorial"
 
 [node name="MansionDesk2" type="Sprite2D" parent="."]
 position = Vector2(3379, 297)

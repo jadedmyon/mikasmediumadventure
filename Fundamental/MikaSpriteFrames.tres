@@ -599,6 +599,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("64_k35bo")
+}],
+"loop": true,
+"name": &"ninebutton",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("4_0ov4w")
 }],
 "loop": true,

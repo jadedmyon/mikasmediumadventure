@@ -29,6 +29,11 @@ animations = [{
 "name": &"new_animation",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"none",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_ke6kc")
@@ -54,4 +59,3 @@ polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_amgkx")
-animation = &"dustbullet"

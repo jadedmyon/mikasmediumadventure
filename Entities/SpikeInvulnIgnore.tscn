@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c21n1yc045gmn"]
+
+[ext_resource type="Script" path="res://Entities/SpikeInvulnIgnore.gd" id="1_2o10l"]
+[ext_resource type="Texture2D" uid="uid://bys4jo0ec1d5p" path="res://CopyrightInfringement/enemies/spike.png" id="1_y264g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_agusq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y264g")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
+
+[node name="SpikeInvulnIgnore" type="CharacterBody2D"]
+script = ExtResource("1_2o10l")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_agusq")
+animation = &"stand"
