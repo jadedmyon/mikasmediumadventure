@@ -40,6 +40,7 @@ func titlescreen():
 	get_tree().reload_current_scene()
 
 func _ready():
+	sfx("mimkatitel")
 	if global.gamesave_default == {}: #meant to be used for ghdfsjklbhnsdlfsbigdbkidibkidikbdsahds
 		global.gamesave_default = global.gamesave.duplicate() 
 	get_node("Gameplay/CanvasLayer/enemyinfo").visible = false
@@ -59,7 +60,7 @@ func _ready():
 
 ##When music is played, a thingie shows up in the bottom of the screen that tells you the track name 
 var musicnames:Dictionary = {
-	"mikamansion" : "Ys III- The Boy Who Had Wings by Falcom",
+	"mikamansion" : "Elona- Arena theme by noacat",
 	"titlescreen" : "vghjfkkgj by phlkhbkllk" ,
 	"death" : "Original- Mika Fuckign Dies by jadedmyon",
 	"sleep" : "Elona- Dungeon 1 by noacat",
@@ -102,3 +103,12 @@ func loadsave():
 		global.gamesave = parsed_json.duplicate()
 
 		loadfile.close() 
+
+func sfx(soundname:String,sfxvolume:float=0,pitch:float = 1.0):
+	var sfxnode := preload("res://Fundamental/SFX.tscn").instantiate()
+	var soundused := load('SFX/' + soundname + ".wav") 
+	add_child(sfxnode)
+	sfxnode.stream = soundused
+	sfxnode.pitch_scale = pitch
+	sfxnode.volume_db = sfxvolume
+	sfxnode.play()

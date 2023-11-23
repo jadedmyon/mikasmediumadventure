@@ -21,7 +21,6 @@ var invulntimer := 0
 var mikadetected := false
 var mikadirection := -1
 
-
 var fallaccel := 25
 var fallspeed_max := 400
 
@@ -40,15 +39,14 @@ var show_info := true
 
 #don't need to change these
 var state_called:Array[String] = [] #used to fix states not being called after state changes because of ordering
-
-
+var currentstatedamage := 0 #used for bosses
+var vulnerable: = false #if true then go to hitstun state 
 
 func _ready():
 	process_priority = 100
 
 
-##this method won't happen because any inheritor will replace it with their own physics process
-##use this as a copypaste you build enemy behavior off later 
+##Do not replace this, use uniquebehavior() instead 
 func _physics_process(delta):
 	defaultbehavior()
 
@@ -64,6 +62,7 @@ func defaultbehavior():
 		update_animation()
 		detect_mika()
 		uniquebehavior()
+		state_caller()
 		state_called = []
 
 #this should be replaced in the inherited script for custom behavior like the state machine. 
@@ -186,6 +185,7 @@ func nstate(newstate:String):
 	prevstate = state
 	state = newstate
 	frame = 0
+	currentstatedamage = 0
 	update_animation()
 	state_caller()
 

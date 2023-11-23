@@ -1,17 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://dhvvksbke2k82"]
+[gd_scene load_steps=23 format=3 uid="uid://c2piu2gv68j1i"]
 
-[ext_resource type="Script" path="res://Fundamental/Mika.gd" id="1_c1pl4"]
-[ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_p34cf"]
-[ext_resource type="SpriteFrames" uid="uid://cpjnacijfvjqf" path="res://Fundamental/MikaSpriteFrames.tres" id="3_jqmke"]
-[ext_resource type="Script" path="res://Fundamental/WallChecker.gd" id="3_su34n"]
-[ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="4_8u1ys"]
-[ext_resource type="Script" path="res://Fundamental/mikaflash.gd" id="5_xjlym"]
+[ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="1_glqmi"]
+[ext_resource type="Script" path="res://Entities/DebutMika1.gd" id="1_kwnon"]
+[ext_resource type="SpriteFrames" uid="uid://cpjnacijfvjqf" path="res://Fundamental/MikaSpriteFrames.tres" id="2_uif2k"]
+[ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="3_rikdb"]
+[ext_resource type="Script" path="res://Fundamental/mikaflash.gd" id="4_jsx06"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_clxpm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kp6x4"]
 size = Vector2(41, 116.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tibil"]
-shader = ExtResource("2_p34cf")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8g1h7"]
+shader = ExtResource("1_glqmi")
 shader_parameter/line_color = Vector4(0.5, 0.5, 0.7, 0.6)
 shader_parameter/line_thickness = 6.925
 
@@ -252,59 +251,37 @@ _data = {
 "walk": SubResource("Animation_ke67f")
 }
 
-[node name="Mika" type="CharacterBody2D"]
-z_index = 685
-floor_max_angle = 0.872665
-floor_snap_length = 32.0
-script = ExtResource("1_c1pl4")
+[node name="DebutMika1" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_kwnon")
 
 [node name="ECB" type="CollisionShape2D" parent="."]
 position = Vector2(0, -58.75)
-shape = SubResource("RectangleShape2D_clxpm")
+shape = SubResource("RectangleShape2D_kp6x4")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 clip_children = 2
 z_index = 5
 texture_filter = 1
-material = SubResource("ShaderMaterial_tibil")
+material = SubResource("ShaderMaterial_8g1h7")
 position = Vector2(0, -86)
 scale = Vector2(0.18, 0.18)
-sprite_frames = ExtResource("3_jqmke")
-animation = &"ninebutton"
+sprite_frames = ExtResource("2_uif2k")
+animation = &"hitstun"
 offset = Vector2(240, 44)
 
 [node name="mikaflash" type="Sprite2D" parent="sprite"]
-visible = false
 modulate = Color(0.764706, 0.729412, 0.756863, 0.741176)
 position = Vector2(38.889, 50.0001)
 scale = Vector2(21.8855, 20.4265)
-texture = ExtResource("4_8u1ys")
-script = ExtResource("5_xjlym")
+texture = ExtResource("3_rikdb")
+script = ExtResource("4_jsx06")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_dgdef")
 }
-
-[node name="WallCheckerL" type="Area2D" parent="."]
-visible = false
-position = Vector2(-19, -75)
-script = ExtResource("3_su34n")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallCheckerL"]
-position = Vector2(-3.8, -9.625)
-scale = Vector2(1.59375, 1.4375)
-polygon = PackedVector2Array(-4, -4, -4, 16, 4, 16, 4, -4)
-
-[node name="WallCheckerR" type="Area2D" parent="."]
-visible = false
-position = Vector2(19, -75)
-script = ExtResource("3_su34n")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallCheckerR"]
-position = Vector2(3.8, -9.625)
-scale = Vector2(1.59375, 1.4375)
-polygon = PackedVector2Array(-4, -4, -4, 16, 4, 16, 4, -4)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 position = Vector2(0, -32)
@@ -312,4 +289,4 @@ position = Vector2(0, -32)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
 modulate = Color(0.6, 0.419608, 0.901961, 0.8)
 position = Vector2(6, -79)
-polygon = PackedVector2Array(-17, 19, 6, 19, 6, 45, -17, 45)
+polygon = PackedVector2Array(-46, -45, 45, -48, 41, 112, -44, 108)

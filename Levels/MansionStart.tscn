@@ -708,3 +708,9 @@ texture = ExtResource("15_8svk1")
 
 [node name="DustBunnyBig" parent="." instance=ExtResource("3_4u5qs")]
 position = Vector2(4734, 223)
+
+[node name="LevelWarp2" parent="." instance=ExtResource("27_c6d1g")]
+position = Vector2(511, -581)
+scale = Vector2(8.5857, 26.5919)
+levelname = "MansionSmallerRoom"
+posid = 1

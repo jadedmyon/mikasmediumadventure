@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://brvchakgarqo4"]
+[gd_scene load_steps=8 format=3 uid="uid://brvchakgarqo4"]
 
 [ext_resource type="Script" path="res://Fundamental/Hitbox.gd" id="1_3lxlb"]
+[ext_resource type="Texture2D" uid="uid://dmacjrdawvuub" path="res://CopyrightInfringement/enemies/bullet.png" id="2_ba7me"]
 [ext_resource type="Texture2D" uid="uid://csnmc1a53hduk" path="res://CopyrightInfringement/arcing projectile.png" id="2_v68nw"]
 [ext_resource type="Texture2D" uid="uid://cvv3r7g3lwwqo" path="res://Graphics/spore.png" id="3_4xo7i"]
 [ext_resource type="Texture2D" uid="uid://dqcowvqhrqiq0" path="res://CopyrightInfringement/enemies/dustbullet.png" id="3_31wp2"]
@@ -8,6 +9,14 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_amgkx"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ba7me")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_v68nw")
@@ -59,3 +68,4 @@ polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_amgkx")
+animation = &"bullet"

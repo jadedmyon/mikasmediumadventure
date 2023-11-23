@@ -102,9 +102,12 @@ func hit_process():
 			if entity.team != team and (not entity in already_hit) and ( entity.invulntimer == 0):
 				already_hit.append(entity)
 				entity.hp -= damage
+				entity.currentstatedamage += damage
+				
 				entity.global_hitstop(hitstop_dealt)
 				if !entity.name == "Mika":
 					entity.hitstop+= hitstop_dealt
+					if entity.vulnerable: entity.nstate("hitstun")
 				elif true: #!entity.is_on_floor() #if mika is one getting hit, kinda hacky
 					if launchdirection != 0: entity.direction = launchdirection
 					entity.nstate("hitstunair")

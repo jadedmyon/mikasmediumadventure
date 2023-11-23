@@ -20,7 +20,7 @@ position = Vector2(-640, -360)
 
 [node name="musicshow" type="Sprite2D" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
-self_modulate = Color(0.2, 0.211765, 0.196078, 1)
+self_modulate = Color(0.431373, 0.431373, 0.45098, 1)
 z_index = 15
 position = Vector2(1007, 15)
 texture = ExtResource("4_pff2v")

@@ -23,6 +23,7 @@ patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
+metadata/_edit_use_anchors_ = true
 
 [node name="title of game" type="Label" parent="."]
 offset_left = 347.0
@@ -36,6 +37,7 @@ theme_override_font_sizes/font_size = 36
 text = "Mika Melatika's Medium Adventure
 
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="title of game" type="Label" parent="title of game"]
 layout_mode = 0
@@ -48,6 +50,7 @@ theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 30
 text = "An Action-Bullying Game
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="copyright" type="Label" parent="."]
 offset_left = 1026.0
@@ -55,7 +58,8 @@ offset_top = 680.0
 offset_right = 1286.0
 offset_bottom = 720.0
 theme_override_font_sizes/font_size = 24
-text = "Nijisanji 1999-2099©"
+text = "Nijisanji 1899-2099©"
+metadata/_edit_use_anchors_ = true
 
 [node name="TposeMikaTurned" type="Sprite2D" parent="."]
 position = Vector2(276, 229)

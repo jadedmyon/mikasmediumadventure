@@ -12,7 +12,7 @@ func _process(delta):
 	for x in $Area2D.get_overlapping_bodies():
 		if x.name == "Mika":
 			if type == "progression":
-				x.sfx("pickup")
+				x.sfx("pickup",-5)
 				if global.gamesave.progression < value: global.gamesave.progression = value
 				destroy()
 

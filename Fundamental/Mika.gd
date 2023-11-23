@@ -53,7 +53,7 @@ func _physics_process(delta):
 		state_caller()
 		move_and_slide()
 		
-		if state not in gravity_exceptions: gravity() #this is wonky 
+		if state not in gravity_exceptions: gravity() #this is fine 
 		state_called = [] #put this after all state logic always 
 	update_animation()
 	if inputpressed("ninebutton"):

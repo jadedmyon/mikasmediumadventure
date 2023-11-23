@@ -111,7 +111,7 @@ func update_enemyinfo():
 		$CanvasLayer/enemyinfo.visible = true
 		
 		$CanvasLayer/enemyinfo/Name.text = shownenemy.displayname
-		$CanvasLayer/enemyinfo/HP.text = str(max(0,shownenemy.hp))
+		$CanvasLayer/enemyinfo/HP.text = str(max(0,shownenemy.hp)) + " " + str(shownenemy.currentstatedamage)
 		$CanvasLayer/enemyinfo/healthbar.value =  (float(shownenemy.hp) / float(shownenemy.hp_max)) * 100 
 		
 
