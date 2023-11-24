@@ -132,7 +132,11 @@ func processline():
 		instantcontinue = false
 	if commandname == "exitgame":
 		get_tree().quit()
-		
+	
+	if commandname == "debutmika1after":
+		get_parent().get_parent().get_node("Gameplay").debutmika1after()
+	if commandname == "voxboot1":
+		get_parent().get_parent().get_node("Gameplay").voxboot1()
 	
 			#music
 	if commandname == "playmusic":

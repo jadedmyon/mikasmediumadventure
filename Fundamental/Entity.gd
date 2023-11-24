@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Entity extends CharacterBody2D
 
 #This is the script that Mika and her enemies inherit.
 #Having a common script base lets them and their hitboxes interact with one another.
@@ -33,7 +33,7 @@ var deathtype := "normal" #normal, forceddeath, standup
 var hitsound := "hit1"
 var hitvolume := -10.0
 var show_info := true
-
+var boss : = false
 
 
 @export var realscale := 1.0
@@ -97,6 +97,9 @@ func create_hitbox(p:Dictionary):
 	#weirder edge cases
 	if p.has("polygonscale"):
 		hitbox.get_node("CollisionPolygon2D").scale = p['polygonscale']
+	if p.has("everythingoffset"):
+		for x in hitbox.get_children():
+			x.position.x += p["everythingoffset"]
 	if not p.has("hitstop_dealt"):
 		hitbox.hitstop_dealt = int ( hitbox.damage / 3 ) + 4
 	if p.has("animation"):

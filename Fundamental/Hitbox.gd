@@ -28,6 +28,7 @@ var anglevelocity := 0.0
 var speedscale :=  1.0
 var invulntimer := 120
 var launchdirection := 0 #0 is default behavior 
+var adjustanglevisual = "no" #no, onstart, always
 
 var deathtype = "normal" #for bosses, forced hp = 0 on Debut Mika I and forced get up on Debut Mika VI 
 
@@ -62,7 +63,7 @@ func _process(delta):
 					velocity += normals * velocitytowardmika
 				else:
 					velocity +=  (mikahurtboxpos() - position ).normalized() * velocitytowardmika
-			if angle != 0:
+			if (anglevelocity != 0):
 				var normal = Vector2(cos(deg_to_rad(angle)), sin(deg_to_rad(angle)))
 				velocity+= normal * anglevelocity
 				
@@ -72,7 +73,9 @@ func _process(delta):
 			for x in get_overlapping_bodies():
 				if x is TileMap:
 					queue_free()
-
+		if (frame == 0 and adjustanglevisual == "onstart") or adjustanglevisual == "always":
+			anglevisual()
+		
 
 	
 	
@@ -86,6 +89,8 @@ func _process(delta):
 	
 	if hitsleft <= 0: queue_free()
 
+func anglevisual():
+	rotation = deg_to_rad(angle)
 
 func findmika() -> Node:
 	for x in get_parent().get_children():
@@ -103,8 +108,6 @@ func hit_process():
 			if entity.team != team and (not entity in already_hit) and ( entity.invulntimer == 0):
 				var finaldamage = int( damage * entity.damagetaken_mult )
 				already_hit.append(entity)
-
-
 				entity.deathtype = deathtype
 				entity.global_hitstop(hitstop_dealt)
 				if !entity.name == "Mika":

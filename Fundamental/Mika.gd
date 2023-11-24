@@ -48,8 +48,8 @@ func _ready():
 	hitvolume = -5.0
 	
 	
-	#bullshit
-	$Hurtbox/showhitbox.modulate = Color(4.1,0.7,0.3,0.7)
+
+	
 
 func _physics_process(delta):
 	if hitstop == 0:
@@ -62,7 +62,13 @@ func _physics_process(delta):
 	update_animation()
 	if inputpressed("ninebutton"):
 		nstate("ninebutton")
-
+	
+	#not the best way to do this but fuck you
+	if state in ["dashstart","forwarddash","downdash","updash","tridash","novdash",]:
+		$Hurtbox.position = Vector2(25*direction,-90)
+	else:
+		
+		$Hurtbox.position = Vector2(5*direction, -115)
 
 
 	
@@ -351,7 +357,7 @@ func groundstrike2_state():
 	
 	if frame == 5:
 		sfx("swing1",-4)
-		create_hitbox({damage = 8,duration = 4, offset = Vector2(42,-55),scale = Vector2(5,5)})
+		create_hitbox({damage = 8,duration = 4, offset = Vector2(48,-55),scale = Vector2(5,5)})
 	if frame > 5 and inputpressed("B",9):
 		nstate("groundstrike3")
 	if frame == 25:
@@ -403,7 +409,14 @@ func ninebutton_state():
 		dashes = 0
 		walljumps = 0
 		if velocity.y > 0: velocity.y = 0
-		heal(16)
+		heal(7)
+		for x in get_parent().get_children(): #deletes boss hp
+			if x is Entity:
+				if x.boss and x.state != "fuckyou":
+					x.invulntimer = 0
+					x.hp -= (x.hp_max/10)
+					x.update_enemyinfo()
+		
 		if get_parent().get_parent().currentlevel != "MansionNineButtonTutorial":
 			global.gamesave.ninebuttonuses+=1
 		
@@ -435,8 +448,12 @@ func die():
 		if deathtype == "normal":
 			nstate("death")
 		if deathtype == "forceddeath":
+			momentumreset(50000)
+			momentumresetY(55000)
 			nstate("hitstun")
-			frame = -50
+			get_parent().get_parent().createvn("postdebutmika1")
+		
+
 func death_state():
 	if frame == 0:
 		get_parent().get_parent().get_parent().playmusic("death",-10,false)
@@ -600,6 +617,10 @@ func endstate():
 
 
 	#visual
+
+func refresh_hitboxsprite():
+	$Hurtbox/showhitbox.refresh()
+	
 
 func silhouette():
 	if frame % 3 and dashing:

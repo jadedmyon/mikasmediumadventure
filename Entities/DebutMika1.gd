@@ -10,7 +10,7 @@ var fallaccel_default = 25
 func _ready():
 	displayname = "Debut Mika I"
 	hp = 685
-	
+	boss = true
 	
 	fallaccel = fallaccel_default
 	fallspeed_max = 900
@@ -31,6 +31,12 @@ func state_caller():
 
 	if state == "hitstun": damagetaken_mult = 1.5
 	else: damagetaken_mult = 1.0
+	
+	
+	if (float(hp)/hp_max) * 100 <= 15 and state != "fuckyou":
+		nstate("fuckyou")
+
+
 
 func stand_state():
 	if frame == 0:
@@ -38,18 +44,14 @@ func stand_state():
 		fallaccel_default = 25
 		hitstundmgthreshold = 40
 	if frame == 20:
-		if true: #hp > hp_max - 16
+		if hp > hp_max - 16: #hp > hp_max - 16
 			nstate("dashattack")
-			nstate("raisedust")
-			nextstate = "jumpblast"
-			nstate("walktomika")
 		else:
 			var rng := randi() % 5
 			match rng:
 				0:
-					nstate("runin")
+					nstate("dashattack")
 				1:
-					
 					nstate("raisedust")
 				2:
 					nstate("dashattack")
@@ -149,16 +151,37 @@ func jumpblast_state():
 	
 	if frame > 130 and is_on_floor():
 		vulnerable = false
-		var rng := randi() % 2
+		var rng := randi() % 3
 		hitstundmgthreshold = 40
 		if rng == 0:
 
 			nstate("dashattack")
-		else:
+		elif rng == 1:
 			nstate("raisedust")
-
+		else:
+			nstate("groundedhalfcircle")
 func groundedhalfcircle_state():
-	pass
+	if frame == 0:
+		lookat_mika()
+	
+	if frame == 70:
+		shootgroundedblast(0)
+		shootgroundedblast(180)
+	if frame == 85:
+		shootgroundedblast(210)
+		shootgroundedblast(15)
+	if frame == 100:
+		shootgroundedblast(220)
+	if frame == 105:
+		shootgroundedblast(70)
+	
+	if frame == 155:
+		shootgroundedblast(-35)
+		vulnerable = true
+	
+	
+	if frame == 220:
+		nstate("stand")
 
 func hitstun_state():
 	tracting()
@@ -185,14 +208,14 @@ func walktomika_state():
 
 func fuckyou_state():
 	if frame == 0:
+		fallaccel = fallaccel_default
 		invulntimer = 200
 
-	if frame == 100:
+	if frame == 50:
+		findmika().invulntimer = 0
+		create_hitbox({damage=findmika().hp,duration=2, scale = Vector2(400,500), deathtype = "forceddeath", offset = Vector2(0,-100) })
 		pass #fuck you beam
 		
-	
-	if frame == 200:
-		pass #start vn 
 	
 	
 
@@ -203,37 +226,42 @@ func shootdust():
 	var rngFall:float= ( randi() % 6 ) / 10
 	
 	var params:Dictionary = {
-		hitboxtype = "projectile",damage = 10, duration = 600, 
+		hitboxtype = "projectile",damage = 14, duration = 600, 
 		animation = "dustbullet", scale = Vector2(2,2),
 		offset = Vector2(0,-90),fallaccel = 0.5+ rngFall, speedX = 10+rngX, speedY = -5-rngY,speedscale = 1,}
 
 	create_hitbox(params)
 
-func shootblast(addangle:int=0):
+func shootblast(addangle:int=0,newmodulate=Color(1,1,1,1)):
 	
 	var params:Dictionary = {
-		hitboxtype = "projectile",damage = 10, duration = 300, 
+		hitboxtype = "projectile",damage = 11, duration = 300, 
 		animation = "bullet", scale = Vector2(1,1), polygonscale = Vector2(0.5,0.5),
-		offset = Vector2(0,0),
+		offset = Vector2(0,-100),
 		angle = 0 + addangle,
-		anglevelocity = 5,
+		anglevelocity = 5, adjustanglevisual = "onstart", everythingoffset = 12, modulate = newmodulate
 		}
 
 	create_hitbox(params)
 
 ##Fuck this specific function I hope it works
 func shootvolleyside(startframe:int=50,side:int=1,offset:int=90,times:int=4):
-	
 	for y in times:
 		if frame == startframe + y*8:
 			var angledrift = 0
 			if times % 2 == 0: angledrift = 8
-			
-			
+
 			for x in 6:
 				shootblast(  (side*offset + times*15 + x*(15+angledrift) )   )
 	
-	
+
+func shootgroundedblast(offset:int=180,side:int=1):
+
+	for x in 16:
+		var angledrift = 0
+		if x % 2 == 0: angledrift = 15
+		if x % 5 == 0: angledrift = 4
+		shootblast(  (side*direction*offset + 15 + x*(10+angledrift) ) , Color(2,1.5,1.5,1 ) )
 
 
 #Mika code copying for convenience

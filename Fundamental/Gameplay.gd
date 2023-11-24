@@ -115,7 +115,27 @@ func update_enemyinfo():
 		$CanvasLayer/enemyinfo/healthbar.value =  (float(shownenemy.hp) / float(shownenemy.hp_max)) * 100 
 		
 
+			##SPECIAL
 
+func debutmika1after():
+	for x in $Entities.get_children():
+		if x.name == "Mika":
+			x.hp = 1
+			x.position = Vector2(978,286)
+			x.direction = -1
+		if x.name == "vox":
+			x.position = Vector2(878,350)
+
+		if x.name == "bossblocker":
+			x.queue_free()
+		if x.name == "DebutMika1":
+			x.queue_free()
+
+func voxboot1():
+	for x in $Entities.get_children():
+		if x.name == "vox":
+
+			x.boot()
 
 ########################
 ####	##INPUTS	####

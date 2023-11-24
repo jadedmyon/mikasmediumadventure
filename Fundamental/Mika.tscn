@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dhvvksbke2k82"]
+[gd_scene load_steps=26 format=3 uid="uid://dhvvksbke2k82"]
 
 [ext_resource type="Script" path="res://Fundamental/Mika.gd" id="1_c1pl4"]
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_p34cf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="4_8u1ys"]
 [ext_resource type="Script" path="res://Fundamental/mikaflash.gd" id="5_xjlym"]
 [ext_resource type="Texture2D" uid="uid://s2k28aau63go" path="res://Graphics/UI/ChoiceMarker.png" id="7_0k665"]
+[ext_resource type="Script" path="res://Fundamental/showhitbox.gd" id="8_jj83r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clxpm"]
 size = Vector2(41, 116.5)
@@ -312,8 +313,10 @@ z_index = 6
 position = Vector2(0, -120)
 
 [node name="showhitbox" type="Sprite2D" parent="Hurtbox"]
+show_behind_parent = true
 position = Vector2(0, 11)
 texture = ExtResource("7_0k665")
+script = ExtResource("8_jj83r")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
 modulate = Color(0.6, 0.419608, 0.901961, 0.8)
