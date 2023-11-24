@@ -41,8 +41,8 @@ How long did you act like this before getting tired of yourself? Like a week?
 speaker;Mika
 Several months.
 speaker;Voice Actor
-Wow.
-I mean, wow. You sure have a lot of patience.
+Holy shit.
+I mean.. you sure have a lot of patience.
 speaker;Debut Mika
 I didn't say that!
 speaker;Voice Actor
@@ -51,17 +51,21 @@ speaker;Debut Mika
 HEY! COME BACK HERE!!
 Sheesh, he actually left.
 speaker;Mika
+Kahem.
 Say whatever you want.. I'm not using the UwU voice.. ever again.
 speaker;Debut Mika
-I'm not JUST an UwU voice, I am your true self! Not that I remember being called that..
+I'm not JUST an UwU voice, I am your true self! Not that I remember being you. 
 speaker;Mika
 You don't have my memories?
 speaker;Debut Mika
-Nah. Only when you speak like me do I wake up. I came out to tell you to do that more often.
-Well, now that I think about it..
+Nah. I wake up when you do "the UwU voice". I came out to tell you to do that more often.
+Though, now that I think about it..
 I'm separate from you now! Which means you're the fake Mika, and I can do whatever the hell I want!
 fadeout;0.05
 stopmusic;
+speaker; 
+icon;EMPTY
+...
 speaker;Mika
 She went outside...
 Ah dang- I mean fuck...
@@ -70,13 +74,15 @@ If only my British boyfriend was here.
 My beloved male coworker...
 The one from Nijisanji EN's fourth wave "Luxiem".
 speaker; British Boyfriend
+icon;EMPTY
 hi
 debutmika1after;
 fadein;
+speaker;British Boyfriend
 it me
 speaker;Mika
 Holy SHIT! It's my partner Vox Yakuza!!
-speaker; British Boyfriend
+speaker;British Boyfriend
 henlo
 ur haveing exsteiental crysis??
 speaker;Mika
@@ -100,7 +106,6 @@ OUCH!! I MEAN FUCK!!!
 speaker;British Boyfriend
 that is girl
 u aere save'd mnow mi lhover
-yipee
 speaker;Mika
 Thank you, my British boyfriend coworker from Nijisanji EN's fourth wave, Luxiem, Vox Yakub.
 speaker;British Boyfriend

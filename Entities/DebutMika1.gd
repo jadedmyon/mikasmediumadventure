@@ -76,18 +76,27 @@ func raisedust_state():
 		lookat_mika()
 	
 	if frame == 40:
-		pass
+		sfx("bunnyshot")
 		for x in 10: shootdust()
-	
+	if frame == 44:
+		sfx("bunnyshot")
 	if frame == 50:
+		sfx("bunnyshot")
 		for x in 8: shootdust()
-
+	if frame == 55:
+		sfx("bunnyshot")
 	if frame == 60:
+		sfx("bunnyshot")
 		for x in 5: shootdust()
-	
+	if frame == 63:
+		sfx("bunnyshot")
+	if frame == 68:
+		sfx("bunnyshot")
 	if frame == 70:
+		sfx("bunnyshot")
 		for x in 2: shootdust()
-
+	if frame == 71:
+		sfx("bunnyshot")
 	if frame == 50:
 		vulnerable = true
 	
@@ -108,6 +117,15 @@ func dashattack_state():
 func dashattackslip_state():
 	tracting()
 	if frame == 1:
+
+		var rng = randi() % 4
+		match rng:
+			0: sfx("bonk")
+			1: sfx("punch")
+			2:
+				sfx("hit1",0,0.7)
+				sfx("metalpipe")
+			3: sfx("punch")
 		create_hitbox({damage=12,duration=30,scale = Vector2(4,5), offset = Vector2(0,-100)}) #late hitbox
 	if frame == 30:
 		vulnerable = true
@@ -118,6 +136,7 @@ func dashattackslip_state():
 
 func jumpblast_state():
 	if frame == 0:
+		sfx("jumpbig")
 		invulntimer = 50
 		velocity.y = -1860
 		hitstundmgthreshold = 80
@@ -215,12 +234,14 @@ func fuckyou_state():
 		findmika().invulntimer = 0
 		create_hitbox({damage=findmika().hp,duration=2, scale = Vector2(400,500), deathtype = "forceddeath", offset = Vector2(0,-100) })
 		pass #fuck you beam
-		
 	
-	
+	if frame == 100:
+		get_parent().get_parent().createvn("postdebutmika1")
+		update_enemyinfo(null)
 
 
 func shootdust():
+	
 	var rngX :float= ( randi() % 70 ) / 10
 	var rngY :float= ( randi() % 10 )  / 3
 	var rngFall:float= ( randi() % 6 ) / 10
@@ -252,12 +273,14 @@ func shootvolleyside(startframe:int=50,side:int=1,offset:int=90,times:int=4):
 			if times % 2 == 0: angledrift = 8
 
 			for x in 6:
+				sfx("shotmedium2",-25)
 				shootblast(  (side*offset + times*15 + x*(15+angledrift) )   )
 	
 
 func shootgroundedblast(offset:int=180,side:int=1):
-
+	sfx("shotsmall2",0)
 	for x in 16:
+		
 		var angledrift = 0
 		if x % 2 == 0: angledrift = 15
 		if x % 5 == 0: angledrift = 4

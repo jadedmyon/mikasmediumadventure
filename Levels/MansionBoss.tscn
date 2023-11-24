@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdlqpspxhhm32"]
+[gd_scene load_steps=16 format=3 uid="uid://cdlqpspxhhm32"]
 
 [ext_resource type="Texture2D" uid="uid://ympb53oq2tiw" path="res://CopyrightInfringement/Environment/Mansion/MansionBG.png" id="1_rlern"]
 [ext_resource type="Texture2D" uid="uid://c4gkjib71mg5p" path="res://CopyrightInfringement/Environment/Mansion/MansionBGRepeat.png" id="2_hgcwm"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dl0pb0xurt3s1" path="res://CopyrightInfringement/bossblocker.png" id="7_7frii"]
 [ext_resource type="Texture2D" uid="uid://bpt2834bmmb00" path="res://CopyrightInfringement/FuckingDoor.png" id="8_sl8je"]
 [ext_resource type="PackedScene" uid="uid://e6udgwy88le4" path="res://Entities/vox.tscn" id="9_43bon"]
+[ext_resource type="Texture2D" uid="uid://v7i3kcc7v86o" path="res://Graphics/UI/squarefade.png" id="10_boy6h"]
+[ext_resource type="Texture2D" uid="uid://bolak2on6du3k" path="res://Graphics/UI/black.png" id="11_nw1nr"]
+[ext_resource type="PackedScene" uid="uid://dd063elshexmr" path="res://Fundamental/Checkpoint.tscn" id="12_7kgcr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfebw"]
 texture = ExtResource("3_gyu6t")
@@ -370,3 +373,17 @@ texture = ExtResource("8_sl8je")
 
 [node name="vox" parent="." instance=ExtResource("9_43bon")]
 position = Vector2(-251, 1500)
+
+[node name="Squarefade" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(2065, 255.944)
+scale = Vector2(-6.75, 1.9781)
+texture = ExtResource("10_boy6h")
+
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(2768.62, 256.219)
+scale = Vector2(15.2695, 1.97559)
+texture = ExtResource("11_nw1nr")
+
+[node name="Checkpoint" parent="." instance=ExtResource("12_7kgcr")]
+position = Vector2(1313, 1693)

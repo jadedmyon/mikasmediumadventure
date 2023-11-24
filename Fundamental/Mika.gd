@@ -451,7 +451,7 @@ func die():
 			momentumreset(50000)
 			momentumresetY(55000)
 			nstate("hitstun")
-			get_parent().get_parent().createvn("postdebutmika1")
+
 		
 
 func death_state():

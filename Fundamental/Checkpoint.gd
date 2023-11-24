@@ -13,8 +13,10 @@ func _process(delta):
 			x.sfx("checkpoint")
 			x.heal_full()
 		global.gamesave.hp = global.gamesave.hp_max
+
 		if global.gamesave.checkpointlevel == "MansionBoss":
 			global.gamesave.checkpointlevel = "MansionCheckpoint2"
+			print (global.gamesave.checkpointlevel)
 		
 		savegame()
 

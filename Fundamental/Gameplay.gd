@@ -123,13 +123,16 @@ func debutmika1after():
 			x.hp = 1
 			x.position = Vector2(978,286)
 			x.direction = -1
+			x.invulntimer = 0
 		if x.name == "vox":
-			x.position = Vector2(878,350)
+			x.position = Vector2(858,350)
 
 		if x.name == "bossblocker":
 			x.queue_free()
 		if x.name == "DebutMika1":
 			x.queue_free()
+		if x.name == "Checkpoint":
+			x.position = Vector2(1135,320)
 
 func voxboot1():
 	for x in $Entities.get_children():
