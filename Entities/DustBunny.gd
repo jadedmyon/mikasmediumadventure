@@ -26,7 +26,7 @@ func uniquebehavior():
 			if frame == 5:
 				sfx("jumpsmall")
 				fallaccel = 12
-				create_hitbox({damage=8,duration=120, scale = Vector2(3,3)})
+				create_hitbox({damage=8,duration=120, scale = Vector2(3,5)})
 				velocity.y = - 250
 				velocity.x = direction * 240
 			if frame > 5 and is_on_floor():
@@ -36,7 +36,7 @@ func uniquebehavior():
 			if frame == 1:
 				sfx("jumpbig")
 				fallaccel = 23
-				create_hitbox({damage=8,duration=120, scale = Vector2(2,2)})
+				create_hitbox({damage=8,duration=120, scale = Vector2(3,5)})
 				velocity.y = - 450
 				velocity.x = direction * 500
 			if frame > 5 and is_on_floor():

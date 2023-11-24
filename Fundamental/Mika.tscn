@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dhvvksbke2k82"]
+[gd_scene load_steps=25 format=3 uid="uid://dhvvksbke2k82"]
 
 [ext_resource type="Script" path="res://Fundamental/Mika.gd" id="1_c1pl4"]
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_p34cf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Fundamental/WallChecker.gd" id="3_su34n"]
 [ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="4_8u1ys"]
 [ext_resource type="Script" path="res://Fundamental/mikaflash.gd" id="5_xjlym"]
+[ext_resource type="Texture2D" uid="uid://s2k28aau63go" path="res://Graphics/UI/ChoiceMarker.png" id="7_0k665"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clxpm"]
 size = Vector2(41, 116.5)
@@ -259,6 +260,7 @@ floor_snap_length = 32.0
 script = ExtResource("1_c1pl4")
 
 [node name="ECB" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -58.75)
 shape = SubResource("RectangleShape2D_clxpm")
 
@@ -270,8 +272,7 @@ material = SubResource("ShaderMaterial_tibil")
 position = Vector2(0, -86)
 scale = Vector2(0.18, 0.18)
 sprite_frames = ExtResource("3_jqmke")
-animation = &"ninebutton"
-offset = Vector2(240, 44)
+animation = &"stand"
 
 [node name="mikaflash" type="Sprite2D" parent="sprite"]
 visible = false
@@ -307,9 +308,14 @@ scale = Vector2(1.59375, 1.4375)
 polygon = PackedVector2Array(-4, -4, -4, 16, 4, 16, 4, -4)
 
 [node name="Hurtbox" type="Area2D" parent="."]
-position = Vector2(0, -32)
+z_index = 6
+position = Vector2(0, -120)
+
+[node name="showhitbox" type="Sprite2D" parent="Hurtbox"]
+position = Vector2(0, 11)
+texture = ExtResource("7_0k665")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
 modulate = Color(0.6, 0.419608, 0.901961, 0.8)
-position = Vector2(6, -79)
-polygon = PackedVector2Array(-17, 19, 6, 19, 6, 45, -17, 45)
+position = Vector2(0, -21)
+polygon = PackedVector2Array(-8, 32, 0, 24, 8, 32, 0, 40)

@@ -46,6 +46,10 @@ func _ready():
 
 	hitsound = "hitmika"
 	hitvolume = -5.0
+	
+	
+	#bullshit
+	$Hurtbox/showhitbox.modulate = Color(4.1,0.7,0.3,0.7)
 
 func _physics_process(delta):
 	if hitstop == 0:
@@ -427,7 +431,12 @@ func hitstunground_state():
 
 
 func die():
-	if state != "death": nstate("death")
+	if state != "death":
+		if deathtype == "normal":
+			nstate("death")
+		if deathtype == "forceddeath":
+			nstate("hitstun")
+			frame = -50
 func death_state():
 	if frame == 0:
 		get_parent().get_parent().get_parent().playmusic("death",-10,false)

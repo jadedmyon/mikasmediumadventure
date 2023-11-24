@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cw260yylli4le"]
+[gd_scene load_steps=48 format=3 uid="uid://cw260yylli4le"]
 
 [ext_resource type="Texture2D" uid="uid://ympb53oq2tiw" path="res://CopyrightInfringement/Environment/Mansion/MansionBG.png" id="1_d4tal"]
 [ext_resource type="Texture2D" uid="uid://c4gkjib71mg5p" path="res://CopyrightInfringement/Environment/Mansion/MansionBGRepeat.png" id="2_m04bo"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://v7i3kcc7v86o" path="res://Graphics/UI/squarefade.png" id="25_y5k3n"]
 [ext_resource type="Texture2D" uid="uid://bolak2on6du3k" path="res://Graphics/UI/black.png" id="26_xo22l"]
 [ext_resource type="PackedScene" uid="uid://dxbfu3j55h7bp" path="res://Fundamental/LevelWarp.tscn" id="27_c6d1g"]
+[ext_resource type="PackedScene" uid="uid://dd063elshexmr" path="res://Fundamental/Checkpoint.tscn" id="28_ilh4j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfebw"]
 texture = ExtResource("5_l3i0y")
@@ -714,3 +715,7 @@ position = Vector2(511, -581)
 scale = Vector2(8.5857, 26.5919)
 levelname = "MansionSmallerRoom"
 posid = 1
+
+[node name="Checkpoint" parent="." instance=ExtResource("28_ilh4j")]
+visible = false
+position = Vector2(567, 321)

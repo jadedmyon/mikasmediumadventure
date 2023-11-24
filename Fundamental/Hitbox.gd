@@ -19,7 +19,7 @@ var damage:= 8
 var hitboxtype:= "melee" #melee is attached to the creator, projectile travels on its own
 var hitsleft = 99 #how many times before destroyed 
 var offset := Vector2(0,0) #not the best way to implement hitboxes tracking owners, better way would be paths ig
-var speedX := 10.0
+var speedX := 0.0
 var speedY := 0.0
 var fallaccel:= 0.0
 var velocitytowardmika = 0.0
@@ -29,6 +29,7 @@ var speedscale :=  1.0
 var invulntimer := 120
 var launchdirection := 0 #0 is default behavior 
 
+var deathtype = "normal" #for bosses, forced hp = 0 on Debut Mika I and forced get up on Debut Mika VI 
 
 
 var destroyontilemap := true
@@ -62,7 +63,7 @@ func _process(delta):
 				else:
 					velocity +=  (mikahurtboxpos() - position ).normalized() * velocitytowardmika
 			if angle != 0:
-				var normal = Vector2(cos(angle), sin(angle))
+				var normal = Vector2(cos(deg_to_rad(angle)), sin(deg_to_rad(angle)))
 				velocity+= normal * anglevelocity
 				
 		velocity.y += fallaccel * speedscale
@@ -100,19 +101,24 @@ func hit_process():
 		if x.name == "Hurtbox":
 			var entity = x.get_parent()
 			if entity.team != team and (not entity in already_hit) and ( entity.invulntimer == 0):
+				var finaldamage = int( damage * entity.damagetaken_mult )
 				already_hit.append(entity)
-				entity.hp -= damage
-				entity.currentstatedamage += damage
-				
+
+
+				entity.deathtype = deathtype
 				entity.global_hitstop(hitstop_dealt)
 				if !entity.name == "Mika":
 					entity.hitstop+= hitstop_dealt
-					if entity.vulnerable: entity.nstate("hitstun")
-				elif true: #!entity.is_on_floor() #if mika is one getting hit, kinda hacky
+					if entity.vulnerable:
+						finaldamage*= 1.5
+						entity.nstate("hitstun")
+
+				elif true: #placeholder for when I planned two different hitstun states for mika ignore ignore escapE ESCAPE 
 					if launchdirection != 0: entity.direction = launchdirection
 					entity.nstate("hitstunair")
 					entity.invulntimer = invulntimer #120 default
-					
+				entity.hp -= finaldamage
+				entity.currentstatedamage += finaldamage
 				entity.gethit()
 				hitsleft -= 1
 				#damage values
@@ -121,7 +127,7 @@ func hit_process():
 				var rng := randi() % 5
 				var rngX := randi() % 5
 				damagetext.position = entity.position + Vector2(5 * rngX,-30 - (10 *rng))
-				damagetext.text = "-" +  str(damage)
+				damagetext.text = "-" +  str(finaldamage)
 				
 				if entity.name == "Mika":
 					damagetext.scale *= 1.5

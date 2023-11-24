@@ -17,6 +17,8 @@ func deletevn():
 func newgame():
 
 	get_node("TitleScreen").fadestate = "fadeout"
+	global.wipesave()
+	
 	createvn("opening")
 
 func continuegame():

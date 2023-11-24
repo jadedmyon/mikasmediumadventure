@@ -45,6 +45,9 @@ var gamesave:Dictionary = {
 #copies gamesave on boot if this is empty
 var gamesave_default:Dictionary = {}
 
+func wipesave():
+	gamesave = gamesave_default.duplicate() 
+
 func _ready():
 	pass 
 

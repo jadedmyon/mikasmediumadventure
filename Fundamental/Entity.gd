@@ -35,12 +35,14 @@ var hitvolume := -10.0
 var show_info := true
 
 
+
 @export var realscale := 1.0
 
 #don't need to change these
 var state_called:Array[String] = [] #used to fix states not being called after state changes because of ordering
 var currentstatedamage := 0 #used for bosses
 var vulnerable: = false #if true then go to hitstun state 
+var damagetaken_mult = 1.0 
 
 func _ready():
 	process_priority = 100
@@ -93,6 +95,8 @@ func create_hitbox(p:Dictionary):
 		if p.has(x):
 			hitbox.set(x,p[x])
 	#weirder edge cases
+	if p.has("polygonscale"):
+		hitbox.get_node("CollisionPolygon2D").scale = p['polygonscale']
 	if not p.has("hitstop_dealt"):
 		hitbox.hitstop_dealt = int ( hitbox.damage / 3 ) + 4
 	if p.has("animation"):

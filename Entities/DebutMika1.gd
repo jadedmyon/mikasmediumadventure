@@ -1,10 +1,18 @@
 extends "res://Fundamental/Entity.gd"
 
+var nextstate := "groundedhalfcircle"
+var walklength := 40 #frames
+var hitstundmgthreshold = 40
+
+
+var fallaccel_default = 25
+
 func _ready():
-	hp = 200
+	displayname = "Debut Mika I"
+	hp = 685
 	
 	
-	fallaccel = 25
+	fallaccel = fallaccel_default
 	fallspeed_max = 900
 	realscale = 0.18
 
@@ -18,29 +26,43 @@ func state_caller():
 	if statecheck("groundedhalfcircle"): groundedhalfcircle_state()
 	if statecheck("hitstun"): hitstun_state()
 	if statecheck("dashattackslip"): dashattackslip_state()
+	if statecheck("walktomika"): walktomika_state()
+	if statecheck("fuckyou"): fuckyou_state()
 
+	if state == "hitstun": damagetaken_mult = 1.5
+	else: damagetaken_mult = 1.0
 
 func stand_state():
 	if frame == 0:
 		vulnerable = false
-	if frame == 30:
+		fallaccel_default = 25
+		hitstundmgthreshold = 40
+	if frame == 20:
 		if true: #hp > hp_max - 16
 			nstate("dashattack")
 			nstate("raisedust")
+			nextstate = "jumpblast"
+			nstate("walktomika")
 		else:
 			var rng := randi() % 5
 			match rng:
 				0:
 					nstate("runin")
 				1:
+					
 					nstate("raisedust")
 				2:
 					nstate("dashattack")
 				3:
 					nstate("jumpblast")
 				4:
-					nstate("groundedhalfcircle")
-
+					nextstate = "groundedhalfcircle"
+					walklength = 20
+					nstate("walktomika")
+				5:
+					nextstate = "jumpblast"
+					walklength = 40
+					nstate("walktomika")
 
 
 func runin_state():
@@ -49,6 +71,7 @@ func runin_state():
 func raisedust_state():
 	if frame == 0:
 		invulntimer = 80
+		lookat_mika()
 	
 	if frame == 40:
 		pass
@@ -83,29 +106,96 @@ func dashattack_state():
 func dashattackslip_state():
 	tracting()
 	if frame == 1:
-		create_hitbox({damage=12,duration=10,scale = Vector2(4,5), offset = Vector2(0,-100)}) #late hitbox
+		create_hitbox({damage=12,duration=30,scale = Vector2(4,5), offset = Vector2(0,-100)}) #late hitbox
 	if frame == 30:
 		vulnerable = true
 	
-	if frame == 100:
+	if frame == 90:
 		nstate("stand")
 
 
 func jumpblast_state():
-	pass
+	if frame == 0:
+		invulntimer = 50
+		velocity.y = -1860
+		hitstundmgthreshold = 80
+	#if frame >= 0 and frame <= 3:
+	#	velocity.y += 300
+	if frame >= 0 and frame <= 5:
+		velocity.y += 80
+	if frame >= 0 and frame <= 10:
+		velocity.y += 35
+	
+	if frame == 20:
+		fallaccel = 0
+		velocity.y = 0
+
+	shootvolleyside(50)
+	shootvolleyside(55,-1)
+	
+	shootvolleyside(60,1,45,3)
+	shootvolleyside(60,-1,45,3)
+	
+	shootvolleyside(80)
+	shootvolleyside(80,-1)
+	
+	
+	
+
+	if frame == 110:
+		vulnerable = true
+		fallaccel = 16
+	
+	
+	if frame > 130 and is_on_floor():
+		vulnerable = false
+		var rng := randi() % 2
+		hitstundmgthreshold = 40
+		if rng == 0:
+
+			nstate("dashattack")
+		else:
+			nstate("raisedust")
 
 func groundedhalfcircle_state():
 	pass
 
 func hitstun_state():
+	tracting()
 	if frame == 0:
-		velocity.x = 0
-		velocity.y = 0
+		velocity.y = -300
+		velocity.x = direction * - 800
 		vulnerable = false
-		print ("GHBSDKFGSJDG;F!!!!")
-	if frame == 500 or currentstatedamage > 50:
+		invulntimer = 30
+		fallaccel = fallaccel_default
+	if frame == 250 or currentstatedamage > hitstundmgthreshold:
 		nstate("stand")
+		invulntimer = 5
 		
+
+func walktomika_state():
+	if frame == 0: lookat_mika()
+	if frame >= 1 and frame <= walklength:
+		xvelocity_towards((150)*direction,500)
+	
+	if frame == walklength + 1:
+		velocity.x = 0 
+		nstate(nextstate)
+
+
+func fuckyou_state():
+	if frame == 0:
+		invulntimer = 200
+
+	if frame == 100:
+		pass #fuck you beam
+		
+	
+	if frame == 200:
+		pass #start vn 
+	
+	
+
 
 func shootdust():
 	var rngX :float= ( randi() % 70 ) / 10
@@ -118,6 +208,32 @@ func shootdust():
 		offset = Vector2(0,-90),fallaccel = 0.5+ rngFall, speedX = 10+rngX, speedY = -5-rngY,speedscale = 1,}
 
 	create_hitbox(params)
+
+func shootblast(addangle:int=0):
+	
+	var params:Dictionary = {
+		hitboxtype = "projectile",damage = 10, duration = 300, 
+		animation = "bullet", scale = Vector2(1,1), polygonscale = Vector2(0.5,0.5),
+		offset = Vector2(0,0),
+		angle = 0 + addangle,
+		anglevelocity = 5,
+		}
+
+	create_hitbox(params)
+
+##Fuck this specific function I hope it works
+func shootvolleyside(startframe:int=50,side:int=1,offset:int=90,times:int=4):
+	
+	for y in times:
+		if frame == startframe + y*8:
+			var angledrift = 0
+			if times % 2 == 0: angledrift = 8
+			
+			
+			for x in 6:
+				shootblast(  (side*offset + times*15 + x*(15+angledrift) )   )
+	
+	
 
 
 #Mika code copying for convenience
