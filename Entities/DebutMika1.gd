@@ -73,6 +73,7 @@ func runin_state():
 func raisedust_state():
 	if frame == 0:
 		invulntimer = 80
+		momentumreset(4000)
 		lookat_mika()
 	
 	if frame == 40:
@@ -228,8 +229,13 @@ func walktomika_state():
 func fuckyou_state():
 	if frame == 0:
 		fallaccel = fallaccel_default
+		momentumreset(4000)
 		invulntimer = 200
-
+	if frame == 12:
+		sfx("fuckyou")
+	
+	if frame == 45:
+		explosion()
 	if frame == 50:
 		findmika().invulntimer = 0
 		create_hitbox({damage=findmika().hp,duration=2, scale = Vector2(400,500), deathtype = "forceddeath", offset = Vector2(0,-100) })
@@ -239,6 +245,11 @@ func fuckyou_state():
 		get_parent().get_parent().createvn("postdebutmika1")
 		update_enemyinfo(null)
 
+func explosion():
+	var explosion := preload("res://Polish/DeathExplode.tscn").instantiate()
+	findmika().add_child(explosion)
+	explosion.scale = Vector2(12,12)
+#	explosion.position = mikahurtboxpos()
 
 func shootdust():
 	

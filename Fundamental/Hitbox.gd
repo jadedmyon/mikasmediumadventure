@@ -26,9 +26,13 @@ var velocitytowardmika = 0.0
 var angle := 0.0
 var anglevelocity := 0.0
 var speedscale :=  1.0
+
 var invulntimer := 120
 var launchdirection := 0 #0 is default behavior 
+var hitstun_knockback := Vector2(-800,-800) # only for Mika
+
 var adjustanglevisual = "no" #no, onstart, always
+
 
 var deathtype = "normal" #for bosses, forced hp = 0 on Debut Mika I and forced get up on Debut Mika VI 
 
@@ -115,9 +119,11 @@ func hit_process():
 					if entity.vulnerable:
 						finaldamage*= 1.5
 						entity.nstate("hitstun")
+						
 
 				elif true: #placeholder for when I planned two different hitstun states for mika ignore ignore escapE ESCAPE 
 					if launchdirection != 0: entity.direction = launchdirection
+					entity.hitstun_knockback = hitstun_knockback
 					entity.nstate("hitstunair")
 					entity.invulntimer = invulntimer #120 default
 				entity.hp -= finaldamage

@@ -13,16 +13,13 @@ func _process(delta):
 			x.sfx("checkpoint")
 			x.heal_full()
 		global.gamesave.hp = global.gamesave.hp_max
-
-		if global.gamesave.checkpointlevel == "MansionBoss":
-			global.gamesave.checkpointlevel = "MansionCheckpoint2"
-			print (global.gamesave.checkpointlevel)
-		
 		savegame()
 
 
 func savegame():
 	global.gamesave.checkpointlevel = get_parent().get_parent().currentlevel
+	if global.gamesave.checkpointlevel == "MansionBoss":
+		global.gamesave.checkpointlevel = "MansionCheckpoint2"
 	
 	var savefile = FileAccess.open('res://gamesave.txt', FileAccess.WRITE)
 	var save_as_json = JSON.stringify(global.gamesave)

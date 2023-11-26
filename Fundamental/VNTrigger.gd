@@ -4,17 +4,20 @@ extends Sprite2D
 #touch means you only need to collide with it. The object deletes itself after use. 
 #pressup means collide and press up on kb. should show a UI thing showing the bound up button
 @export var triggertype:String = "touch"
-
+@export var velreset:int = 1000
+@export var saveto_playedvns := true
 
 func _ready():
 	visible = false
-
+	if scenename in global.gamesave.playedvns:
+		queue_free()
 
 
 func _process(delta):
 	for x in $Area2D.get_overlapping_bodies():
 		if x.name == "Mika":
 			if triggertype == "touch":
-				x.momentumreset(1000)
+				x.momentumreset(velreset)
 				get_parent().get_parent().createvn(scenename)
+				if saveto_playedvns: global.gamesave.playedvns.append(scenename)
 				queue_free()

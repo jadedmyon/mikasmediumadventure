@@ -20,14 +20,14 @@ var crawlspeed_max := 165
 var dashes_max = 1
 var walljumps_max = 2
 var gravity_exceptions:Array[String] = ["dashstart","forwarddash","downdash","novdash","wallcling","ninebutton",]
- 
+
 #not stats
 var dashes := 0
 var walljumps := 0
 var dashing:bool= false #used for visuals only
 var airframes := 0 #used for adjustable jump height 
 var storedvelocity := 0 #used for walljumping preserving momentum probably
-
+var hitstun_knockback := Vector2(-800,-800)
 
 
 
@@ -156,6 +156,7 @@ func air_state():
 	if not inputheld("A"): airframes = 0
 	#Wall cling
 	if frame > 3: wallclingcheck() #frame is completely arbitrary 
+	
 	
 	if is_on_floor() and frame > 1:
 		sfx("land")
@@ -430,8 +431,9 @@ func hitstunair_state():
 	if frame == 0:
 		momentumreset(3000)
 		momentumresetY(1000)
-		velocity.y = -800
-		velocity.x = direction * - 800
+		velocity = hitstun_knockback
+		velocity.x *= direction
+
 	gravity()
 	fricting()
 	fricting()
@@ -512,6 +514,7 @@ func dashcheck():
 
 
 func wallclingcheck():
+	
 	if is_on_wall_only() and !inputheld("A"):
 		if $WallCheckerL.colliding == true:
 			if state == "air" and !inputheld("left"): return #this is a mess but its intentional ok,
@@ -521,6 +524,14 @@ func wallclingcheck():
 			if state == "air" and !inputheld("right"): return #only way to keep wallbouncing and sensible wallcling input
 			nstate("wallcling")
 			direction = -1
+	elif is_on_wall_only() and inputpressed("A") and state == "air" and walljumps < walljumps_max:
+		walljumps+=1
+		nstate("walljump")
+		if $WallCheckerL.colliding == true:
+			direction = 1
+		if $WallCheckerR.colliding == true:
+			direction = -1
+
 
 func jumpcheck():
 	if inputpressed("A"):

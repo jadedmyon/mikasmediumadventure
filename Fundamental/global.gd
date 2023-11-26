@@ -31,7 +31,7 @@ var gamesave:Dictionary = {
 	level = 1,
 	direction = 1,
 	
-	
+	playedvns = [], #filenames
 	
 	#Difficulty related
 	difficulty = 2, #0= Mika, 1= Easy, 2= Normal

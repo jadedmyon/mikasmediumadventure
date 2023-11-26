@@ -267,7 +267,7 @@ func loadscene(scenename:String):
 func sfx(soundname:String,sfxvolume:float=-10):
 	var sfxnode := preload("res://Fundamental/SFX.tscn").instantiate()
 	var soundused := load('SFX/' + soundname + ".wav") 
-	add_child(sfxnode)
+	get_parent().add_child(sfxnode)
 	sfxnode.stream = soundused
 	sfxnode.volume_db = sfxvolume
 	sfxnode.play()

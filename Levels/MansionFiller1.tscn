@@ -300,7 +300,7 @@ position = Vector2(961, 953)
 [node name="LevelWarp2" parent="." instance=ExtResource("8_58oqn")]
 position = Vector2(4389, 946)
 scale = Vector2(1.88572, 20.8971)
-levelname = "MansionStart"
+levelname = "MansionCheckpoint2"
 
 [node name="Squarefade" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://citaqu5mkabwf"]
+
+[ext_resource type="Texture2D" uid="uid://blcswajwo5eul" path="res://Graphics/MikaMika/firefox_OZMKKRrQLp.png" id="1_p4pnl"]
+[ext_resource type="Script" path="res://Fundamental/SFXPlayer.gd" id="2_0avnm"]
+
+[node name="SFXPlayer" type="Sprite2D"]
+modulate = Color(1, 0.368627, 1, 0.780392)
+texture = ExtResource("1_p4pnl")
+script = ExtResource("2_0avnm")
+
+[node name="Area2D" type="Area2D" parent="."]
+modulate = Color(1, 1, 1, 0.545098)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-35, -17, 35, -17, 35, 17, -35, 17)

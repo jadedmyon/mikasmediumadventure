@@ -7,4 +7,4 @@ func _ready():
 func boot():
 	sfx("boot")
 	state = "boot"
-	create_hitbox({scale = Vector2(30,30), damage = 0, duration = 5})
+	create_hitbox({scale = Vector2(30,30), damage = 0, duration = 5, hitstun_knockback = Vector2(-1100,-800)})
