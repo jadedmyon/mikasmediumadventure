@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cocihvnpkevm3"]
+[gd_scene load_steps=15 format=3 uid="uid://cocihvnpkevm3"]
 
 [ext_resource type="Texture2D" uid="uid://ympb53oq2tiw" path="res://CopyrightInfringement/Environment/Mansion/MansionBG.png" id="1_jo3e2"]
 [ext_resource type="Texture2D" uid="uid://c4gkjib71mg5p" path="res://CopyrightInfringement/Environment/Mansion/MansionBGRepeat.png" id="2_ccc1j"]
@@ -7,9 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bkyrm0f4hhn2g" path="res://CopyrightInfringement/Environment/Mansion/MansionDrawer.png" id="5_qaxv2"]
 [ext_resource type="PackedScene" uid="uid://dxbfu3j55h7bp" path="res://Fundamental/LevelWarp.tscn" id="8_58oqn"]
 [ext_resource type="PackedScene" uid="uid://byed55t14tjfu" path="res://Entities/DustBunny.tscn" id="12_3u4lg"]
-[ext_resource type="Texture2D" uid="uid://e5anmn0sc3pu" path="res://Graphics/MikaMika/debut mika shit.png" id="14_1yujo"]
 [ext_resource type="PackedScene" uid="uid://bk1fnuqmkhfox" path="res://Entities/MoldyShroom.tscn" id="14_n4skn"]
-[ext_resource type="PackedScene" uid="uid://bwj75sf3yetn1" path="res://Fundamental/VNTrigger.tscn" id="15_2i5cs"]
 [ext_resource type="PackedScene" uid="uid://rbkvjplxjhvc" path="res://Entities/Spider.tscn" id="15_8ek1d"]
 [ext_resource type="Texture2D" uid="uid://v7i3kcc7v86o" path="res://Graphics/UI/squarefade.png" id="16_rsf2a"]
 [ext_resource type="Texture2D" uid="uid://bolak2on6du3k" path="res://Graphics/UI/black.png" id="17_m8tph"]
@@ -272,6 +270,12 @@ modulate = Color(1, 1, 1, 0.486275)
 position = Vector2(5151, 279)
 scale = Vector2(1.73333, 1.66667)
 
+[node name="positionmarker2" parent="." instance=ExtResource("4_xtixi")]
+modulate = Color(1, 1, 1, 0.486275)
+position = Vector2(3915, 1110)
+scale = Vector2(1.73333, 1.66667)
+positionid = 1
+
 [node name="MansionDrawer" type="Sprite2D" parent="."]
 position = Vector2(2378, 294)
 texture = ExtResource("5_qaxv2")
@@ -300,7 +304,7 @@ position = Vector2(961, 953)
 [node name="LevelWarp2" parent="." instance=ExtResource("8_58oqn")]
 position = Vector2(4389, 946)
 scale = Vector2(1.88572, 20.8971)
-levelname = "MansionCheckpoint2"
+levelname = "MansionWalljumpTutorial"
 
 [node name="Squarefade" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -332,12 +336,3 @@ position = Vector2(3660, 129)
 
 [node name="MoldyShroom3" parent="." instance=ExtResource("14_n4skn")]
 position = Vector2(1131, 1271)
-
-[node name="DebutMikaShit" type="Sprite2D" parent="."]
-position = Vector2(3986, 1075)
-texture = ExtResource("14_1yujo")
-
-[node name="VNTrigger2" parent="." instance=ExtResource("15_2i5cs")]
-position = Vector2(3727, 931.406)
-scale = Vector2(1.64286, 18.3769)
-scenename = "debutmikaalpha"

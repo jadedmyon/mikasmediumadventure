@@ -117,6 +117,21 @@ func update_enemyinfo():
 
 			##SPECIAL
 
+func debutmikareveal():
+	var debutmika := preload("res://Entities/DebutMika1.tscn").instantiate()
+	get_node("Entities").add_child(debutmika)
+	debutmika.position = Vector2(980,324)
+	debutmika.nstate("reveal")
+	
+
+
+func debutmika1fight():
+	for x in $Entities.get_children():
+		if x.name == "DebutMika1":
+			x.nstate("stand")
+			x.update_enemyinfo()
+			
+
 func debutmika1after():
 	for x in $Entities.get_children():
 		if x.name == "Mika":
@@ -138,6 +153,9 @@ func voxboot1():
 	for x in $Entities.get_children():
 		if x.name == "vox":
 			x.boot()
+
+
+
 
 ########################
 ####	##INPUTS	####

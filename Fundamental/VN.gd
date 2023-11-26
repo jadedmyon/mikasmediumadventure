@@ -1,6 +1,7 @@
 extends Node2D
 
-var active := false #if true, then Gameplay node inputs are paused. Might simply erase this node
+
+var vnframe := 0 #used for the wait command to prevent moving forward
 var currentscene = [
 #[0]= command type
 #[1]= variable1. Should be text, I don't think we need more vars
@@ -133,10 +134,18 @@ func processline():
 	if commandname == "exitgame":
 		get_tree().quit()
 	
+				##In a perfect world all of these would be a gameplaycall; command with a call_deferred()
+				##But this is not a perfect world..
+	if commandname == "debutmikareveal":
+		get_parent().get_parent().get_node("Gameplay").debutmikareveal()
+	if commandname == "debutmika1fight":
+		get_parent().get_parent().get_node("Gameplay").debutmika1fight()
+	
 	if commandname == "debutmika1after":
 		get_parent().get_parent().get_node("Gameplay").debutmika1after()
 	if commandname == "voxboot1":
 		get_parent().get_parent().get_node("Gameplay").voxboot1()
+
 	
 			#music
 	if commandname == "playmusic":
@@ -153,6 +162,9 @@ func processline():
 		var volume := 0.0
 		if len(command) > 2: volume = float(command[2])
 		sfx(command[1],volume)
+	if commandname == "wait":
+
+		instantcontinue = false
 	
 func continuescene(instantcontinue):
 	sceneindex+=1
@@ -282,7 +294,7 @@ func PlayerInput():
 	if dialogueoptions == []:
 		processline()
 	else:
-
+		
 		if dialogueselected in range(len(dialogueoptions)):
 			var flag:String = dialogueoptions[dialogueselected][1]
 			dialogueoptions = []
@@ -313,7 +325,7 @@ func _process(delta):
 			elif dialogueselected != 0:
 				dialogueselected-=1
 				sfx("VNscroll")
-	
+	vnframe+=1
 	if Input.is_action_just_pressed("B"):
 		PlayerInput()
 	if Input.is_action_pressed("L") and Input.is_key_pressed(KEY_SHIFT):

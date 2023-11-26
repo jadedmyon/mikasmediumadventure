@@ -199,7 +199,6 @@ func groundedhalfcircle_state():
 		shootgroundedblast(-35)
 		vulnerable = true
 	
-	
 	if frame == 220:
 		nstate("stand")
 
