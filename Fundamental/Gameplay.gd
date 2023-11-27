@@ -120,9 +120,9 @@ func update_enemyinfo():
 func debutmikareveal():
 	var debutmika := preload("res://Entities/DebutMika1.tscn").instantiate()
 	get_node("Entities").add_child(debutmika)
-	debutmika.position = Vector2(980,324)
+	debutmika.position = Vector2(880,324)
 	debutmika.nstate("reveal")
-	
+	debutmika.explosion_self()
 
 
 func debutmika1fight():

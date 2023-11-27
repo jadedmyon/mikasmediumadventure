@@ -250,6 +250,12 @@ func explosion():
 	explosion.scale = Vector2(12,12)
 #	explosion.position = mikahurtboxpos()
 
+func explosion_self():
+	var explosion := preload("res://Polish/DeathExplode.tscn").instantiate()
+	add_child(explosion)
+	explosion.scale = Vector2(5,5)
+	explosion.position = Vector2(50,-50)
+
 func shootdust():
 	
 	var rngX :float= ( randi() % 70 ) / 10

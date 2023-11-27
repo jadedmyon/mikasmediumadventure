@@ -380,7 +380,7 @@ texture = ExtResource("11_nw1nr")
 position = Vector2(1313, 1693)
 
 [node name="VNTrigger2" parent="." instance=ExtResource("12_3brhp")]
-position = Vector2(534, -25.9123)
+position = Vector2(598, -25.9123)
 scale = Vector2(1.775, 25.6522)
 scenename = "debutmikareveal"
 velreset = 10000

@@ -24,6 +24,6 @@ func _process(delta):
 		modulate = Color(1,0.3,0.2,1)
 	elif mika.state == "reveal":
 		visible = true
-		modulate = Color ( 5 - float (frame) / 30 , 1, 1, 1 )
+		modulate = Color ( 5 , 0.15, 0.15, 1 - float(mika.frame) / 120 )
 	
 	else: modulate = defaultmodulate

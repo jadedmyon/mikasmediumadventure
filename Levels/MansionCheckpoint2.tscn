@@ -309,7 +309,7 @@ layer_0/tile_data = PackedInt32Array(327680, 0, 0, 327681, 65536, 0, 327682, 655
 
 [node name="positionmarker" parent="." instance=ExtResource("4_182f2")]
 modulate = Color(1, 1, 1, 0.486275)
-position = Vector2(5013, 292)
+position = Vector2(4968, 292)
 scale = Vector2(2.3, 1.65)
 positionid = 1
 
@@ -368,7 +368,7 @@ levelname = "MansionBoss"
 [node name="LevelWarp2" parent="." instance=ExtResource("10_eckgr")]
 position = Vector2(-291, 159)
 scale = Vector2(1.88572, 16.8015)
-levelname = "MansionFiller1"
+levelname = "MansionFiller2"
 posid = 1
 
 [node name="SFXPlayer2" parent="." instance=ExtResource("11_tckke")]
@@ -378,7 +378,6 @@ sfxname = "debutmikacheckpoint2"
 sfxvolume = -10
 
 [node name="SFXPlayer3" parent="." instance=ExtResource("11_tckke")]
-modulate = Color(1, 0.368627, 1, 0.780392)
 position = Vector2(1556.75, -116.5)
 scale = Vector2(3.55, 39.6765)
 sfxname = "debutmikacheckpoint1"
