@@ -72,7 +72,7 @@ func _physics_process(delta):
 
 
 	
-	
+	$TextAlert.visible = false
 	tickframe()
 
 
@@ -525,13 +525,16 @@ func wallclingcheck():
 			nstate("wallcling")
 			direction = -1
 	elif is_on_wall_only() and inputpressed("A") and state == "air" and walljumps < walljumps_max:
-		walljumps+=1
-		nstate("walljump")
 		if $WallCheckerL.colliding == true:
 			direction = 1
+			walljumps+=1
+			velocity.y = 0
+			nstate("walljump")
 		if $WallCheckerR.colliding == true:
 			direction = -1
-
+			walljumps+=1
+			velocity.y = 0
+			nstate("walljump")
 
 func jumpcheck():
 	if inputpressed("A"):
@@ -586,14 +589,7 @@ func tracting(): #maximum means it will only work above that value.
 		momentumreset(min(ground_traction,abs(velocity.x) - double_traction_threshold ))
 		
 
-func momentumreset(momentum): #like traction/friction but w a custom value
-	var initialspeed = velocity.x
-	if initialspeed > 0: 
-		velocity.x -= momentum
-		if velocity.x < 0: velocity.x = 0
-	else:
-		velocity.x += momentum
-		if velocity.x > 0: velocity.x = 0
+
 
 func momentumresetY(momentum): #like the above but lame
 	var initialspeed = velocity.y
@@ -648,13 +644,7 @@ func silhouette():
 
 	#Physics stuff
 
-##Changes non-absolute velocity in given direction with an absolute maximum
-func xvelocity_towards(addedvel:int,maximum):
-	var sign = abs(addedvel) / addedvel
-	if abs(velocity.x) > maximum: return
-	velocity.x += addedvel
-	if abs(velocity.x) > maximum:
-		velocity.x = maximum * sign
+
 
 		##Input
 

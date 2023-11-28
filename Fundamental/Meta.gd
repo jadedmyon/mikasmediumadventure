@@ -22,6 +22,7 @@ func newgame():
 	createvn("opening")
 
 func continuegame():
+	get_node("TitleScreen").queue_free()
 	if global.gamesave.checkpointlevel == "":
 		newgame()
 		return

@@ -37,6 +37,7 @@ var boss : = false
 
 
 @export var realscale := 1.0
+var updateanimation := true
 
 #don't need to change these
 var state_called:Array[String] = [] #used to fix states not being called after state changes because of ordering
@@ -61,7 +62,7 @@ func defaultbehavior():
 		if invulntimer > 0: invulntimer-=1
 		move_and_slide()
 		gravity()
-		update_animation()
+		if updateanimation: update_animation()
 		detect_mika()
 		uniquebehavior()
 		state_caller()
@@ -251,3 +252,21 @@ func gravity(customaccel:int=fallaccel):
 	
 func global_hitstop(length:int):
 	get_parent().get_parent().global_hitstop(length)
+
+
+##Changes non-absolute velocity in given direction with an absolute maximum
+func xvelocity_towards(addedvel:int,maximum):
+	var sign = abs(addedvel) / addedvel
+	if abs(velocity.x) > maximum: return
+	velocity.x += addedvel
+	if abs(velocity.x) > maximum:
+		velocity.x = maximum * sign
+
+func momentumreset(momentum): #like traction/friction but w a custom value
+	var initialspeed = velocity.x
+	if initialspeed > 0: 
+		velocity.x -= momentum
+		if velocity.x < 0: velocity.x = 0
+	else:
+		velocity.x += momentum
+		if velocity.x > 0: velocity.x = 0

@@ -354,7 +354,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("7_7frii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bossblocker"]
-position = Vector2(-14, -5)
+position = Vector2(-12, -5)
 shape = SubResource("RectangleShape2D_nettg")
 
 [node name="FuckingDoor" type="Sprite2D" parent="."]

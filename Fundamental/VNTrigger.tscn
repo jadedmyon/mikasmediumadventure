@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://Fundamental/VNTrigger.gd" id="2_gig3e"]
 
 [node name="VNTrigger" type="Sprite2D"]
-modulate = Color(1, 0.603922, 0.372549, 0.780392)
+modulate = Color(1, 1, 1, 0.780392)
+self_modulate = Color(1, 0.537255, 0.133333, 0.745098)
 texture = ExtResource("1_ycw75")
 script = ExtResource("2_gig3e")
 

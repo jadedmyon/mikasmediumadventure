@@ -308,27 +308,12 @@ func shootgroundedblast(offset:int=180,side:int=1):
 var ground_traction = 10 #per frame
 var double_traction_threshold = 600 #traction is double above this point
 
-func momentumreset(momentum): #like traction/friction but w a custom value
-	var initialspeed = velocity.x
-	if initialspeed > 0: 
-		velocity.x -= momentum
-		if velocity.x < 0: velocity.x = 0
-	else:
-		velocity.x += momentum
-		if velocity.x > 0: velocity.x = 0
 
 func tracting(): #maximum means it will only work above that value. 
 	momentumreset(ground_traction)
 	if abs(velocity.x) > double_traction_threshold:
 		momentumreset(min(ground_traction,abs(velocity.x) - double_traction_threshold ))
 	
-
-func xvelocity_towards(addedvel:int,maximum):
-	var sign = abs(addedvel) / addedvel
-	if abs(velocity.x) > maximum: return
-	velocity.x += addedvel
-	if abs(velocity.x) > maximum:
-		velocity.x = maximum * sign
 
 		#generally useful boss stuff
 

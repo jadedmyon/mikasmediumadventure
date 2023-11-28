@@ -259,6 +259,10 @@ z_index = 685
 floor_max_angle = 0.872665
 floor_snap_length = 32.0
 script = ExtResource("1_c1pl4")
+direction = null
+hp = null
+deathgraphics = null
+realscale = null
 
 [node name="ECB" type="CollisionShape2D" parent="."]
 visible = false
@@ -322,3 +326,11 @@ script = ExtResource("8_jj83r")
 modulate = Color(0.6, 0.419608, 0.901961, 0.8)
 position = Vector2(0, -21)
 polygon = PackedVector2Array(-8, 32, 0, 24, 8, 32, 0, 40)
+
+[node name="TextAlert" type="Label" parent="."]
+visible = false
+offset_left = -56.0
+offset_top = -196.0
+offset_right = 71.0
+offset_bottom = -170.0
+text = "Press Up To Talk"
