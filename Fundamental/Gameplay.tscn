@@ -77,6 +77,6 @@ theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 8
 theme_override_constants/line_separation = 2
 theme_override_constants/outline_size = 7
-theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/normal_font_size = 42
 text = "Fuck"
 metadata/_edit_use_anchors_ = true

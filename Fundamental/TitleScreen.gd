@@ -8,6 +8,7 @@ func _ready():
 		pass
 	else: #go to title screen as normal 
 		pass
+	#why did I do this?
 
 func _process(delta):
 	if fadestate == "fadeout":

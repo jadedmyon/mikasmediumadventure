@@ -333,6 +333,7 @@ texture = ExtResource("7_gdgwx")
 position = Vector2(152, 84)
 scale = Vector2(6.35, 23.775)
 scenename = "stopmusic"
+saveto_playedvns = false
 
 [node name="VNTrigger3" parent="." instance=ExtResource("7_ffwog")]
 position = Vector2(1407, -109)

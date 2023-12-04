@@ -22,7 +22,8 @@ func newgame():
 	createvn("opening")
 
 func continuegame():
-	get_node("TitleScreen").queue_free()
+	if has_node("TitleScreen"):
+		get_node("TitleScreen").queue_free()
 	if global.gamesave.checkpointlevel == "":
 		newgame()
 		return
@@ -40,7 +41,7 @@ func titlescreen_bad():
 	createvn("titlescreen")
 
 func titlescreen():
-	get_tree().reload_current_scene()
+	get_tree().reload_current_scene() #lmao
 
 func _ready():
 	sfx("mimkatitel")

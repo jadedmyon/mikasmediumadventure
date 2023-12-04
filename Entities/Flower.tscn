@@ -1,0 +1,125 @@
+[gd_scene load_steps=18 format=3 uid="uid://dganxsevbjx65"]
+
+[ext_resource type="Script" path="res://Entities/Flower.gd" id="1_dnsvh"]
+[ext_resource type="Texture2D" uid="uid://nnq5rwssb757" path="res://CopyrightInfringement/enemies/FlowerStand4.png" id="2_hgk67"]
+[ext_resource type="Texture2D" uid="uid://dtdi2r8l7kxnk" path="res://CopyrightInfringement/enemies/FlowerHitstun.png" id="2_umqy3"]
+[ext_resource type="Texture2D" uid="uid://cias52e05njnc" path="res://CopyrightInfringement/enemies/FlowerJump.png" id="3_hiwqh"]
+[ext_resource type="Texture2D" uid="uid://biahk78ojk42d" path="res://CopyrightInfringement/enemies/FlowerStand.png" id="3_ngguo"]
+[ext_resource type="Texture2D" uid="uid://c7ptdo3iknvrw" path="res://CopyrightInfringement/enemies/FlowerStand2.png" id="4_w3t70"]
+[ext_resource type="Texture2D" uid="uid://df3c7q0rah2uq" path="res://CopyrightInfringement/enemies/FlowerJump2.png" id="4_xxgvh"]
+[ext_resource type="Texture2D" uid="uid://bwm6oxroichxo" path="res://CopyrightInfringement/enemies/FlowerStand3.png" id="5_p3tsq"]
+[ext_resource type="Texture2D" uid="uid://cyxfyq5v28xbl" path="res://CopyrightInfringement/enemies/FlowerStand5.png" id="5_q2dcb"]
+[ext_resource type="Texture2D" uid="uid://bnf4u12fwdbs" path="res://CopyrightInfringement/enemies/FlowerWindup5.png" id="6_ot4sg"]
+[ext_resource type="Texture2D" uid="uid://dliobrl25a5lc" path="res://CopyrightInfringement/enemies/FlowerWindup.png" id="11_vdddu"]
+[ext_resource type="Texture2D" uid="uid://dmulwl54bc4rf" path="res://CopyrightInfringement/enemies/FlowerWindup2.png" id="12_t85vf"]
+[ext_resource type="Texture2D" uid="uid://ccugmwbuhcc4e" path="res://CopyrightInfringement/enemies/FlowerWindup3.png" id="13_rvpi6"]
+[ext_resource type="Texture2D" uid="uid://7xg1yphh73t6" path="res://CopyrightInfringement/enemies/FlowerWindup4.png" id="14_evb63"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4jlx8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_umqy3")
+}],
+"loop": true,
+"name": &"hitstun",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_vdddu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t85vf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rvpi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_evb63")
+}, {
+"duration": 99.0,
+"texture": ExtResource("6_ot4sg")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("3_hiwqh")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_xxgvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p3tsq")
+}],
+"loop": false,
+"name": &"smalljump",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hgk67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ngguo")
+}, {
+"duration": 3.0,
+"texture": ExtResource("4_w3t70")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ngguo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hgk67")
+}, {
+"duration": 4.0,
+"texture": ExtResource("5_q2dcb")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0jto"]
+size = Vector2(67, 79.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6i50"]
+size = Vector2(1243, 425)
+
+[node name="Flower" type="CharacterBody2D"]
+modulate = Color(1, 0.827451, 0.670588, 1)
+z_index = 10
+position = Vector2(-2, 0)
+script = ExtResource("1_dnsvh")
+displayname = "Flower"
+hp = 60
+realscale = 2.5
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -26)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_4jlx8")
+animation = &"shoot"
+
+[node name="ECB" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -38.125)
+shape = SubResource("RectangleShape2D_y0jto")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+modulate = Color(0.6, 0.419608, 0.901961, 0.8)
+position = Vector2(-12, -4)
+polygon = PackedVector2Array(-20, -43, 47, -43, 49, 37, -15, 38)
+
+[node name="MikaDetector" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MikaDetector"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_u6i50")
+debug_color = Color(0.654902, 0.505882, 0.282353, 0.419608)

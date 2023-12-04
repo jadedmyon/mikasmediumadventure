@@ -18,12 +18,12 @@ func _process(delta):
 		if x.name == "Mika":
 			if triggertype == "touch":
 				x.momentumreset(velreset)
-				get_parent().get_parent().createvn(scenename)
+				x.get_parent().get_parent().createvn(scenename)
 				if saveto_playedvns: global.gamesave.playedvns.append(scenename)
 				queue_free()
 			if triggertype == "uptalk":
 				x.get_node("TextAlert").text = "Press Up To Talk"
 				x.get_node("TextAlert").visible = true 
 				if x.inputpressed("up"):
-					get_parent().get_parent().createvn(scenename)
+					x.get_parent().get_parent().createvn(scenename)
 

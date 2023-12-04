@@ -1,0 +1,22 @@
+s;   
+flag;deathstart
+choice;Continue;continue
+choice;Title Screen;titlescreen
+You have.. died?? 
+
+
+flag;continue
+
+
+
+flag;titlescreen
+choice;Yup;sure
+choice;Nope;deathstart
+choice;Nope;deathstart
+choice;Nope;deathstart
+Are you sure?
+
+
+
+flag;sure
+to_titlescreen;

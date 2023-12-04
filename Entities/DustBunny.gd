@@ -2,7 +2,6 @@ extends "res://Fundamental/Entity.gd"
 
 
 func _ready():
-	displayname = "Dust Bunny"
 	fallaccel = 12
 	process_priority = 1 #I have 0 clue why I did this 
 	realscale = 1.2

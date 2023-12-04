@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://brvchakgarqo4"]
+[gd_scene load_steps=10 format=3 uid="uid://brvchakgarqo4"]
 
 [ext_resource type="Script" path="res://Fundamental/Hitbox.gd" id="1_3lxlb"]
 [ext_resource type="Texture2D" uid="uid://dmacjrdawvuub" path="res://CopyrightInfringement/enemies/bullet.png" id="2_ba7me"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cvv3r7g3lwwqo" path="res://Graphics/spore.png" id="3_4xo7i"]
 [ext_resource type="Texture2D" uid="uid://dqcowvqhrqiq0" path="res://CopyrightInfringement/enemies/dustbullet.png" id="3_31wp2"]
 [ext_resource type="Texture2D" uid="uid://btgyvwoot8rlf" path="res://CopyrightInfringement/enemies/spiderprojectile.png" id="3_ke6kc"]
+[ext_resource type="Texture2D" uid="uid://cg5ibq53gt8hk" path="res://CopyrightInfringement/enemies/delayedexplosionafter.png" id="4_j3fsk"]
+[ext_resource type="Texture2D" uid="uid://36eqh5fkovbq" path="res://CopyrightInfringement/enemies/greenbulle.png" id="5_4pcd2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_amgkx"]
 animations = [{
@@ -27,10 +29,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_j3fsk")
+}],
+"loop": false,
+"name": &"delayedprojectile",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_31wp2")
 }],
 "loop": true,
 "name": &"dustbullet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4pcd2")
+}],
+"loop": true,
+"name": &"green",
 "speed": 5.0
 }, {
 "frames": [],
@@ -38,10 +56,13 @@ animations = [{
 "name": &"new_animation",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
 "loop": true,
 "name": &"none",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -68,4 +89,4 @@ polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_amgkx")
-animation = &"bullet"
+animation = &"none"

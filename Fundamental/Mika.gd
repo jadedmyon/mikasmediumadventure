@@ -25,11 +25,12 @@ var gravity_exceptions:Array[String] = ["dashstart","forwarddash","downdash","no
 var dashes := 0
 var walljumps := 0
 var dashing:bool= false #used for visuals only
-var airframes := 0 #used for adjustable jump height 
-var storedvelocity := 0 #used for walljumping preserving momentum probably
+var airframes := 0 #used for adjustable jump height
 var hitstun_knockback := Vector2(-800,-800)
 
 
+#difficulty
+var damageboost:= 1.0
 
 func _ready():
 	#initialization
@@ -46,6 +47,8 @@ func _ready():
 
 	hitsound = "hitmika"
 	hitvolume = -5.0
+	
+	
 	
 	
 
@@ -232,7 +235,8 @@ func forwarddash_state():
 	if frame > 0:
 		if is_on_floor():
 			attackOK_ground()
-			if inputheld("L"): jumpcheck()
+			if inputheld("L"):
+				jumpcheck()
 		else:attackOK_air()
 
 	if frame > 0 and frame <= 9:
@@ -242,6 +246,7 @@ func forwarddash_state():
 		if is_on_floor():
 			dashes = 0
 			jumpcheck()
+			
 			dashing = true
 			tracting()
 
@@ -345,7 +350,7 @@ func groundstrike1_state():
 
 	if frame == 6:
 		sfx("swing1",-4)
-		create_hitbox({damage = 8,duration = 5, offset = Vector2(80,-55),scale = Vector2(3,3.5)})
+		create_hitbox({damage = 8 * damageboost,duration = 5, offset = Vector2(80,-55),scale = Vector2(3,3.5)})
 	if frame > 6:
 		if inputpressed("B",5+4): #increased buffer for successive attacks
 			nstate("groundstrike2")
@@ -358,7 +363,7 @@ func groundstrike2_state():
 	
 	if frame == 5:
 		sfx("swing1",-4)
-		create_hitbox({damage = 8,duration = 4, offset = Vector2(48,-55),scale = Vector2(5,5)})
+		create_hitbox({damage = 8 * damageboost,duration = 4, offset = Vector2(48,-55),scale = Vector2(5,5)})
 	if frame > 5 and inputpressed("B",9):
 		nstate("groundstrike3")
 	if frame == 25:
@@ -370,7 +375,7 @@ func groundstrike3_state():
 	
 	if frame == 5:
 		sfx("swing1",-4,0.8)
-		create_hitbox({damage = 16,duration = 9, offset = Vector2(120,-80),scale = Vector2(4.1,3)})
+		create_hitbox({damage = 16 * damageboost,duration = 9, offset = Vector2(120,-80),scale = Vector2(4.1,3)})
 	
 	if frame == 32:
 		endstate()
@@ -394,7 +399,7 @@ func forwardair_state():
 	
 	if frame == 3:
 		sfx("swing1",-4,1.1)
-		create_hitbox({damage = 8,duration = 3, offset = Vector2(80,-85),scale = Vector2(4,4)})
+		create_hitbox({damage = 8 * damageboost,duration = 3, offset = Vector2(80,-85),scale = Vector2(4,4)})
 	if frame == 21:
 		endstate()
 
@@ -454,20 +459,28 @@ func die():
 			momentumresetY(55000)
 			nstate("hitstun")
 
-		
+
 
 func death_state():
+	var gameplaynode := get_parent().get_parent()
 	if frame == 0:
-		get_parent().get_parent().get_parent().playmusic("death",-10,false)
+		gameplaynode.get_parent().playmusic("death",-10,false)
 		invulntimer = 1000
 		global.gamesave.hp = hp_max
+		global.gamesave.deaths+= 1
+		gameplaynode.get_node("fade").state = "fadeout"
+		gameplaynode.get_node("fade").fadespeed = 0.004
+	
+	
+	
 	modulate.a -= 0.003
 	fricting()
-	var camera = get_parent().get_parent().get_node("Camera2D")
+	var camera = gameplaynode.get_node("Camera2D")
 	camera.zoom += Vector2(0.005,0.005)
 	
 	if frame == 450:
-		get_tree().reload_current_scene() #placeholder 
+		gameplaynode.createvn("death")
+		#get_tree().reload_current_scene() #placeholder 
 	
 
 							#state machine helpers
@@ -541,6 +554,8 @@ func jumpcheck():
 		#if state == "forwarddash" or state == "tridash":
 		#	position.y -=  5 #hackity fuckity hack
 		### ^^ I removed this cause I forgoy why I did this in the first place and it seems to work fine
+		if state == "forwarddash" and is_on_floor() and frame < 9:
+			xvelocity_towards(100*direction, 999999) #compensation for being in the air without dashes
 		nstate("air")
 		velocity.y -= jumpstrength
 		airframes = 12
@@ -598,7 +613,7 @@ func momentumresetY(momentum): #like the above but lame
 		if velocity.y < 0: velocity.y = 0
 	else:
 		velocity.y += momentum
-		if velocity.y > 0: velocity.y = 0	
+		if velocity.y > 0: velocity.y = 0
 
 
 ##Lets your turn around the character if this is in a state.
@@ -621,6 +636,22 @@ func endstate():
 		nstate("stand")
 	else:
 		nstate("air")
+
+
+func update_difficulty():
+	if global.gamesave.difficulty == 1:
+		hp_max = 80
+		
+		global.gamesave.hp_max = 80
+		damageboost = 1.0
+	else:
+		hp_max = 120
+		if hp == 80: hp = 120
+		global.gamesave.hp_max = 120
+		damageboost = 1.5
+
+
+
 
 
 	#visual

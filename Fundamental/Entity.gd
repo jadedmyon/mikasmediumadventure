@@ -24,11 +24,11 @@ var mikadirection := -1
 var fallaccel := 25
 var fallspeed_max := 400
 
-var displayname := "? ? ? ?" 
+@export var displayname := "? ? ? ?" 
 var team:= "enemy"
 @export var hp:= 10
 var hp_max:= 0
-@export var deathgraphics:Array[String] = ["explosion"] #explosion;toss
+var deathgraphics:Array[String] = ["explosion"] #explosion;toss
 var deathtype := "normal" #normal, forceddeath, standup
 var hitsound := "hit1"
 var hitvolume := -10.0
@@ -62,7 +62,7 @@ func defaultbehavior():
 		if invulntimer > 0: invulntimer-=1
 		move_and_slide()
 		gravity()
-		if updateanimation: update_animation()
+		update_animation()
 		detect_mika()
 		uniquebehavior()
 		state_caller()
@@ -98,16 +98,38 @@ func create_hitbox(p:Dictionary):
 	#weirder edge cases
 	if p.has("polygonscale"):
 		hitbox.get_node("CollisionPolygon2D").scale = p['polygonscale']
-	if p.has("everythingoffset"):
+	if p.has("everythingoffset"): #this is dumb bullshit I didn't test
 		for x in hitbox.get_children():
 			x.position.x += p["everythingoffset"]
 	if not p.has("hitstop_dealt"):
-		hitbox.hitstop_dealt = int ( hitbox.damage / 3 ) + 4
+		hitbox.hitstop_dealt = int ( hitbox.damage / 3 ) + 5
 	if p.has("animation"):
 		hitbox.get_node("sprite").animation = p['animation']
 	elif hitbox.hitboxtype == "melee":
 		hitbox.get_node("sprite").visible = false
 
+func create_delayedhitbox(
+	
+	endframe:int=40,
+	dhitbox_scale:Vector2=Vector2(6,6),
+	dhitbox_pos:Vector2 = mikahurtboxpos(),
+
+p:Dictionary={
+	hitboxtype = "projectile", speedX = 0, speedY = 0, animation = "delayedprojectile",
+	destroyontilemap = false,
+	damage = 6, duration = 46,
+	scale = Vector2(6,6), fadeoutspeed = 0.022,
+	
+	
+}):
+	
+	var dhitbox := preload("res://Fundamental/DelayedAttack.tscn").instantiate()
+	get_parent().add_child(dhitbox)
+	dhitbox.creator = self
+	dhitbox.endframe = endframe
+	dhitbox.scale = dhitbox_scale
+	dhitbox.position = dhitbox_pos
+	dhitbox.passeddown_params = p
 
 
 func mikacollision_bounce():
@@ -126,7 +148,6 @@ func mikacollision_bounce():
 ##Replace this in inherited script if you want special code
 func gethit():
 #flash 
-
 	flashingtimer = 4
 	sfx(hitsound,hitvolume,1)
 	$sprite.modulate = Color(3,3,3,1)
@@ -212,7 +233,7 @@ func detect_mika():
 
 func update_animation():
 	$sprite.play(state)
-	$sprite.frame = frame
+	if updateanimation: $sprite.frame = frame
 	if has_node("AnimationPlayer"):
 		$AnimationPlayer.play(state)
 
@@ -240,6 +261,26 @@ func sfx(soundname:String,sfxvolume:float=0,pitch:float = 1.0):
 	sfxnode.stream = soundused
 	sfxnode.volume_db = sfxvolume
 	sfxnode.play()
+
+
+
+	#bosses mostly use this
+
+
+func lookat_mika():
+		if mikahurtboxpos().x > position.x:
+			direction = 1
+		else:
+			direction = -1
+
+func findmika() -> Node:
+	for x in get_parent().get_children():
+		if x.name == "Mika":
+			return x
+	return null
+
+func mikahurtboxpos() -> Vector2:
+	return findmika().get_node("Hurtbox").global_position
 
 
 

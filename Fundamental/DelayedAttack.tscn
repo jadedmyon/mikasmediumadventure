@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx8yx5enferi4"]
+
+[ext_resource type="Texture2D" uid="uid://brv7p016vv0d" path="res://CopyrightInfringement/enemies/delayedexplosionbefore.png" id="1_fsluy"]
+[ext_resource type="Script" path="res://Fundamental/DelayedAttack.gd" id="2_ajc3k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hfuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fsluy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DelayedAttack" type="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0.921569)
+z_index = 12
+sprite_frames = SubResource("SpriteFrames_0hfuq")
+script = ExtResource("2_ajc3k")

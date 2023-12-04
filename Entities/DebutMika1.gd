@@ -316,18 +316,3 @@ func tracting(): #maximum means it will only work above that value.
 	
 
 		#generally useful boss stuff
-
-func lookat_mika():
-		if mikahurtboxpos().x > position.x:
-			direction = 1
-		else:
-			direction = -1
-
-func findmika() -> Node:
-	for x in get_parent().get_children():
-		if x.name == "Mika":
-			return x
-	return null
-
-func mikahurtboxpos() -> Vector2:
-	return findmika().get_node("Hurtbox").global_position

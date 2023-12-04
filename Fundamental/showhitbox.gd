@@ -13,9 +13,14 @@ func _process(delta):
 	
 	
 	if mika.invulntimer != 0:
-		visible = false
+		modulate.r = 0.5
+		modulate.g = 0.7
+		modulate.b = 2.5
+		
 	else:
-		visible = true
+		modulate.r = 1
+		modulate.g = 1
+		modulate.b = 1
 	
 	if mika.inputheld("down"):
 		refresh()

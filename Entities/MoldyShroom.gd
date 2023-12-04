@@ -33,7 +33,7 @@ func uniquebehavior():
 			if frame == 105:
 				nstate("prepare")
 		"prepare":
-			if frame == 11:
+			if frame >= 11 and mikadetected:
 				nstate("stand")
 
 

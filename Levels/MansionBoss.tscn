@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdlqpspxhhm32"]
+[gd_scene load_steps=17 format=3 uid="uid://cdlqpspxhhm32"]
 
 [ext_resource type="Texture2D" uid="uid://ympb53oq2tiw" path="res://CopyrightInfringement/Environment/Mansion/MansionBG.png" id="1_rlern"]
 [ext_resource type="Texture2D" uid="uid://c4gkjib71mg5p" path="res://CopyrightInfringement/Environment/Mansion/MansionBGRepeat.png" id="2_hgcwm"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bolak2on6du3k" path="res://Graphics/UI/black.png" id="11_nw1nr"]
 [ext_resource type="PackedScene" uid="uid://bwj75sf3yetn1" path="res://Fundamental/VNTrigger.tscn" id="12_3brhp"]
 [ext_resource type="PackedScene" uid="uid://dd063elshexmr" path="res://Fundamental/Checkpoint.tscn" id="12_7kgcr"]
+[ext_resource type="PackedScene" uid="uid://dxbfu3j55h7bp" path="res://Fundamental/LevelWarp.tscn" id="13_l78n2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfebw"]
 texture = ExtResource("3_gyu6t")
@@ -385,3 +386,8 @@ scale = Vector2(1.775, 25.6522)
 scenename = "debutmikareveal"
 velreset = 10000
 saveto_playedvns = false
+
+[node name="LevelWarp2" parent="." instance=ExtResource("13_l78n2")]
+position = Vector2(2463, 221)
+scale = Vector2(8.5857, 12.6176)
+levelname = "OutsideStart"

@@ -34,10 +34,10 @@ var gamesave:Dictionary = {
 	playedvns = [], #filenames
 	
 	#Difficulty related
-	difficulty = 2, #0= Mika, 1= Easy, 2= Normal
+	difficulty = 1, #1= Normal, 2= Mika
+	deaths = 0,
 	ninebuttonuses = 0,
 	mikaquestionasked = false,
-	ismika = false,
 
 
 	}

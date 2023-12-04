@@ -18,6 +18,7 @@ func loadlevel(levelname:String,posid:int):
 	var mika = preload('res://Fundamental/Mika.tscn').instantiate()
 	entitiesnode.add_child(mika)
 	loadstats()
+	mika.update_difficulty()
 		#Find position
 	var pos:Vector2 = Vector2(-9999999,-9999999) #default value to control for positionid not existing
 	if posid == 685: #685 is used for skipping to checkpoint instead

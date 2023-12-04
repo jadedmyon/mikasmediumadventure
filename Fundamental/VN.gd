@@ -24,6 +24,8 @@ var dialogueoptions:Array = []
 var dialogueselected := -1 #array index. -1 by default so you don't accidentally continue.
 var dialoguepositions:Array[Vector2] = [] #For rendering the text 
 
+#Difficulty
+var attackboost := 1.0
 
 var speakercolors:Dictionary = {
 	"Debut Mika" : 0xDDBFF8,
@@ -90,9 +92,8 @@ func processline():
 
 	if commandname == "end":
 		end()
-	if commandname == "die":
-		die()
-
+	if commandname == "continuegame":
+		continuegame()
 	
 	if commandname == "fadein":
 		var fadenode = get_parent().get_parent().get_node("Gameplay/CanvasLayer/fade") #fuck this hierarchy
@@ -145,8 +146,13 @@ func processline():
 		get_parent().get_parent().get_node("Gameplay").debutmika1after()
 	if commandname == "voxboot1":
 		get_parent().get_parent().get_node("Gameplay").voxboot1()
+	if commandname == "to_titlescreen":
+		to_titlescreen()
 
-	
+	if commandname == "difficulty":
+		global.gamesave.difficulty = command[1]
+	if commandname == "die":
+		to_titlescreen()
 			#music
 	if commandname == "playmusic":
 		var volume := -10.0
@@ -158,14 +164,16 @@ func processline():
 	continuescene(instantcontinue)
 	if commandname == "stopmusic":
 		get_parent().get_parent().stopmusic()
-	if commandname == "sfx": #untested
+	if commandname == "sfx":
 		var volume := 0.0
 		if len(command) > 2: volume = float(command[2])
 		sfx(command[1],volume)
-	if commandname == "wait":
-
-		instantcontinue = false
+	if commandname == "playvoice":
+		var volume := 0.0
+		if len(command) > 2 : volume = float(command[2])
+		playvoice(command[1],volume)
 	
+
 func continuescene(instantcontinue):
 	sceneindex+=1
 	if instantcontinue:
@@ -246,10 +254,15 @@ func jump(flagname:String):
 				return
 
 func end():
+	name = "shitfuckvn"
 	queue_free()
 
-func die():
+func to_titlescreen():
 	get_parent().get_parent().titlescreen()
+	end()
+
+func continuegame():
+	
 	end()
 
 func loadlevel(levelname:String,posid:String):
@@ -284,10 +297,16 @@ func sfx(soundname:String,sfxvolume:float=-10):
 	sfxnode.volume_db = sfxvolume
 	sfxnode.play()
 
+func playvoice(voicename:String, voicevolume:float=0.0):
+	var voicenode := get_node("Voice")
+	voicenode.stop()
+	var voiceused := load("Voice/" + voicename + ".ogg")
+	voicenode.stream = voiceused
+	voicenode.volume_db = voicevolume
+	voicenode.play()
 
 
 func _ready():
-
 	pass
 
 func PlayerInput():

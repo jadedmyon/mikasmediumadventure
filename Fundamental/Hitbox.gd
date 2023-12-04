@@ -13,7 +13,7 @@ var frame := 0
 var hitstop := 0
 
 #definable parameters
-var duration:=15
+var duration:= 1500
 var damage:= 8
 
 var hitboxtype:= "melee" #melee is attached to the creator, projectile travels on its own
@@ -32,7 +32,7 @@ var launchdirection := 0 #0 is default behavior
 var hitstun_knockback := Vector2(-800,-800) # only for Mika
 
 var adjustanglevisual = "no" #no, onstart, always
-
+var fadeoutspeed = 0 #for delayed attack, doubt it's useful elsewhere
 
 var deathtype = "normal" #for bosses, forced hp = 0 on Debut Mika I and forced get up on Debut Mika VI 
 
@@ -85,13 +85,13 @@ func _process(delta):
 	
 	position += velocity * speedscale
 	
-	
+	$sprite.modulate.a -= fadeoutspeed
 	
 	if frame >= duration:
+
 		queue_free()
 	tickframe()
 	
-	if hitsleft <= 0: queue_free()
 
 func anglevisual():
 	rotation = deg_to_rad(angle)

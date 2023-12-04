@@ -1,0 +1,46 @@
+speaker;Questioner
+You, the girl reading this.
+choice;Yes;ismika
+choice;No;notmika
+Are you Mika Melatika?
+
+
+
+
+flag;ismika
+difficulty;2
+The game difficulty has been lowered from Normal Mode to Mika Mode.
+Health and damage have been boosted by 1.5x. 
+Have a nice stream ghostie~~
+end;
+
+
+
+
+flag;notmika
+I see.
+Well, who are you then?
+nameselect;
+Cute name~
+This game has an easy mode called Mika Mode.
+It boosts your attack power and maximum health by 1.5. 
+I made it since I didn't exactly have time to balance this game well.
+I recommend you use it to get through the content faster.
+No use for gamer pride when playing a rushed game made in 2 months~~
+choice;Yes;mikamodechosen
+choice;No;normalmodechosen
+Would you like to enable Mika Mode? 
+
+
+
+flag;mikamodechosen
+difficulty;2
+Alright~~
+You can go back to Normal Mode in the pause menu.
+end;
+
+flag;normalmodechosen
+difficulty;1
+Alright~~
+If you change your mind, you can change the difficulty in the pause menu. 
+end;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvi8rdpmmwrih"]
+[gd_scene load_steps=16 format=3 uid="uid://bvi8rdpmmwrih"]
 
 [ext_resource type="Script" path="res://Fundamental/VN.gd" id="1_gonm3"]
 [ext_resource type="Texture2D" uid="uid://bl4e3udellahv" path="res://Graphics/UI/ninepatch1.png" id="2_1up5t"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dxlig3wmxlidb" path="res://Graphics/Crap/vox-pfp.png" id="5_xnytk"]
 [ext_resource type="Texture2D" uid="uid://dgt5qiwspl0y" path="res://Graphics/MikaMika/emotedmika2.png" id="7_fdqup"]
 [ext_resource type="Texture2D" uid="uid://clyp8rx0yoq5s" path="res://Graphics/MikaMika/voiceactor-pfp.png" id="9_iddlm"]
+[ext_resource type="Texture2D" uid="uid://2lprktsqhyge" path="res://CopyrightInfringement/Environment/sign-pfp.png" id="11_1a7ad"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_w6qia"]
 device = -1
@@ -68,6 +69,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"Human",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("7_fdqup")
 }],
 "loop": true,
@@ -88,6 +97,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Shroom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_1a7ad")
+}],
+"loop": true,
+"name": &"Sign",
 "speed": 5.0
 }, {
 "frames": [{
@@ -174,7 +191,7 @@ patch_margin_bottom = 8
 [node name="icon" type="AnimatedSprite2D" parent="."]
 position = Vector2(220, 599)
 sprite_frames = SubResource("SpriteFrames_5ilg0")
-animation = &"EMPTY"
+animation = &"Sign"
 
 [node name="OptionsBox" type="NinePatchRect" parent="."]
 visible = false

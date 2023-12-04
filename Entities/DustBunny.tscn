@@ -72,6 +72,7 @@ size = Vector2(901.5, 497)
 [node name="DustBunny" type="CharacterBody2D"]
 z_index = 10
 script = ExtResource("1_sqq6j")
+displayname = "Dust Bunny"
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22)
