@@ -468,8 +468,8 @@ func death_state():
 		invulntimer = 1000
 		global.gamesave.hp = hp_max
 		global.gamesave.deaths+= 1
-		gameplaynode.get_node("fade").state = "fadeout"
-		gameplaynode.get_node("fade").fadespeed = 0.004
+		gameplaynode.get_node("CanvasLayer/fade").state = "fadeout"
+		gameplaynode.get_node("CanvasLayer/fade").fadespeed = 0.004
 	
 	
 	
@@ -478,9 +478,11 @@ func death_state():
 	var camera = gameplaynode.get_node("Camera2D")
 	camera.zoom += Vector2(0.005,0.005)
 	
+	
 	if frame == 450:
 		gameplaynode.createvn("death")
-		#get_tree().reload_current_scene() #placeholder 
+		gameplaynode.delete_entitiesnode()
+
 	
 
 							#state machine helpers

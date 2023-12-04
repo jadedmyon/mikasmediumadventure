@@ -37,7 +37,7 @@ func loadlevel(levelname:String,posid:int):
 	
 	mika.position = pos
 	$CanvasLayer/enemyinfo.visible = false
-
+	$Camera2D.zoom = Vector2(1,1)
 
 ##To be replaced later with maybe a fadeout effect?
 func levelswitch(levelname:String,posid:int):
@@ -155,8 +155,11 @@ func voxboot1():
 		if x.name == "vox":
 			x.boot()
 
-
-
+func delete_entitiesnode():
+	if has_node("Entities"):
+		var oldentities = get_node("Entities")
+		oldentities.name = "badentities"
+		oldentities.queue_free()
 
 ########################
 ####	##INPUTS	####

@@ -41,7 +41,7 @@ func uniquebehavior():
 				shoot()
 			if frame == 45:
 				shoot()
-			if frame == 95:
+			if frame == 100:
 				nstate("stand")
 
 		"windup": #unused?
@@ -67,7 +67,7 @@ func shoot():
 	})
 	create_hitbox({ #gay
 		hitboxtype = "projectile", duration = 600,
-		speedX = 8.5, speedY = -5, fallaccel = 0.02,
+		speedX = 8.5, speedY = -6, fallaccel = 0.02,
 		adjustanglevisual = "onstart",
 		animation = "green", offset = Vector2(0,-51), scale = Vector2(1.5,1.5),
 	})
