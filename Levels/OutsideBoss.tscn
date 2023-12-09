@@ -373,4 +373,5 @@ debug_color = Color(0.952941, 0.843137, 0.2, 0.780392)
 
 [node name="Enna" parent="." instance=ExtResource("7_arafo")]
 position = Vector2(590, 313)
+direction = null
 hp = 9

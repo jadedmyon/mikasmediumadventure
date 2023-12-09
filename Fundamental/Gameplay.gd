@@ -176,6 +176,11 @@ func voxrockspawn():
 			print (voxrock.position)
 			print (x.position)
 
+func activateenna():
+	for x in $Entities.get_children():
+		if x.name == "Enna":
+			x.nstate("stand")
+
 func delete_entitiesnode():
 	if has_node("Entities"):
 		var oldentities = get_node("Entities")

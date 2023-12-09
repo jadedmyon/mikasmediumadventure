@@ -12,9 +12,10 @@ var ennadelayedhitbox:Dictionary = {hitboxtype = "projectile", speedX = 0, speed
 
 func _ready():
 	boss = true
-	hp = 550
+	hp = 540
 	fallaccel = 15
 	fallspeed_max = 900
+	hitsoundrandoms = ["enna-fucking","enna-bitch","enna-fuck","enna-questionmark","enna-kya"]
 	
 
 func state_caller():
@@ -22,6 +23,7 @@ func state_caller():
 	if statecheck("calm"): calm_state()
 	if statecheck("rest"): rest_state()
 	if statecheck("hitstun"): hitstun_state()
+	if statecheck("unaggressive"): pass
 
 	if statecheck("pattern1setup"): pattern1setup_state()
 	if statecheck("pattern3setup"): pattern3setup_state()

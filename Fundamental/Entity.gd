@@ -31,6 +31,7 @@ var hp_max:= 0
 var deathgraphics:Array[String] = ["explosion"] #explosion;toss
 var deathtype := "normal" #normal, forceddeath, standup
 var hitsound := "hit1"
+var hitsoundrandoms :Array[String] = []
 var hitvolume := -10.0
 var show_info := true
 var boss : = false
@@ -150,6 +151,9 @@ func gethit():
 #flash 
 	flashingtimer = 4
 	sfx(hitsound,hitvolume,1)
+	if hitsoundrandoms != []:
+		var index := randi() % len(hitsoundrandoms)
+		sfx(hitsoundrandoms[index])
 	$sprite.modulate = Color(3,3,3,1)
 	if show_info: update_enemyinfo()
 	if hp <= 0:
