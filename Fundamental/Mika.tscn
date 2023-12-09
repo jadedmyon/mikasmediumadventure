@@ -1,16 +1,23 @@
-[gd_scene load_steps=26 format=3 uid="uid://dhvvksbke2k82"]
+[gd_scene load_steps=29 format=3 uid="uid://dhvvksbke2k82"]
 
 [ext_resource type="Script" path="res://Fundamental/Mika.gd" id="1_c1pl4"]
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_p34cf"]
-[ext_resource type="SpriteFrames" uid="uid://cpjnacijfvjqf" path="res://Fundamental/MikaSpriteFrames.tres" id="3_jqmke"]
+[ext_resource type="SpriteFrames" uid="uid://fiu8ofj7nxwf" path="res://Entities/MikaSprites.tres" id="3_qbbiu"]
 [ext_resource type="Script" path="res://Fundamental/WallChecker.gd" id="3_su34n"]
 [ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="4_8u1ys"]
+[ext_resource type="Script" path="res://Fundamental/omegaoutline.gd" id="4_b72gf"]
+[ext_resource type="Texture2D" uid="uid://cc0uc7apgmjho" path="res://Graphics/Crap/complete white.png" id="5_3bifm"]
 [ext_resource type="Script" path="res://Fundamental/mikaflash.gd" id="5_xjlym"]
 [ext_resource type="Texture2D" uid="uid://s2k28aau63go" path="res://Graphics/UI/ChoiceMarker.png" id="7_0k665"]
 [ext_resource type="Script" path="res://Fundamental/showhitbox.gd" id="8_jj83r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clxpm"]
 size = Vector2(41, 116.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vjjcf"]
+shader = ExtResource("2_p34cf")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 6.263
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tibil"]
 shader = ExtResource("2_p34cf")
@@ -261,9 +268,24 @@ floor_snap_length = 32.0
 script = ExtResource("1_c1pl4")
 
 [node name="ECB" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -58.75)
 shape = SubResource("RectangleShape2D_clxpm")
+
+[node name="omegaoutline" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(0.886275, 0.298039, 0.34902, 0.898039)
+clip_children = 2
+material = SubResource("ShaderMaterial_vjjcf")
+position = Vector2(5, -96)
+scale = Vector2(0.18, 0.18)
+sprite_frames = ExtResource("3_qbbiu")
+animation = &"air"
+script = ExtResource("4_b72gf")
+
+[node name="Sprite2D" type="Sprite2D" parent="omegaoutline"]
+position = Vector2(105.556, 25)
+scale = Vector2(32.4074, 35.4167)
+texture = ExtResource("5_3bifm")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 clip_children = 2
@@ -272,8 +294,8 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_tibil")
 position = Vector2(0, -86)
 scale = Vector2(0.18, 0.18)
-sprite_frames = ExtResource("3_jqmke")
-animation = &"stand"
+sprite_frames = ExtResource("3_qbbiu")
+animation = &"air"
 
 [node name="mikaflash" type="Sprite2D" parent="sprite"]
 visible = false

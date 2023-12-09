@@ -73,7 +73,17 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	if Input.is_action_pressed("Start"): get_tree().reload_current_scene()
+	var mikaok = true
+	if has_node("Entities/Mika"):
+		if get_node("Entities/Mika").state == "death": mikaok = false
+	if Input.is_action_just_pressed("Start") and mikaok:
+		if not get_parent().has_node("CanvasLayer/VN"):
+			createvn("pausemenu")
+		else:
+			var vn_node := get_parent().get_node("CanvasLayer/VN")
+			if vn_node.scenefilename == "pausemenu":
+				vn_node.end()
+	
 	debug()
 	buffer_processing()
 	gametime+=1
@@ -155,11 +165,27 @@ func voxboot1():
 		if x.name == "vox":
 			x.boot()
 
+func voxrockspawn():
+	print ("hi fuck")
+	for x in $Entities.get_children():
+		if x.name == "Mika":
+			var voxpos:Vector2 = x.position + Vector2(80,-500)
+			var voxrock = preload("res://Polish/voxrock.tscn").instantiate()
+			$Entities.add_child(voxrock)
+			voxrock.position = voxpos
+			print (voxrock.position)
+			print (x.position)
+
 func delete_entitiesnode():
 	if has_node("Entities"):
 		var oldentities = get_node("Entities")
 		oldentities.name = "badentities"
 		oldentities.queue_free()
+
+
+
+
+
 
 ########################
 ####	##INPUTS	####

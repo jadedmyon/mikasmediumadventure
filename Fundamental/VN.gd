@@ -2,6 +2,7 @@ extends Node2D
 
 
 var vnframe := 0 #used for the wait command to prevent moving forward
+var scenefilename = "grfhnbjdfgbh"
 var currentscene = [
 #[0]= command type
 #[1]= variable1. Should be text, I don't think we need more vars
@@ -45,6 +46,7 @@ func processline():
 	var instantcontinue = true #if false, the loop will end. Only rly happens w/ print
 
 	if commandname in ["print","p"]:
+
 		printspeech(command[1])
 		instantcontinue = false 
 
@@ -146,8 +148,15 @@ func processline():
 		get_parent().get_parent().get_node("Gameplay").debutmika1after()
 	if commandname == "voxboot1":
 		get_parent().get_parent().get_node("Gameplay").voxboot1()
+		
+	if commandname == "gameplaynodecall":
+		get_parent().get_parent().get_node("Gameplay").call_deferred(command[1])
+	
 	if commandname == "to_titlescreen":
 		to_titlescreen()
+
+	
+
 
 	if commandname == "difficulty":
 		global.gamesave.difficulty = command[1]
@@ -286,6 +295,7 @@ func addscene(scenename:String):
 
 func loadscene(scenename:String):
 	currentscene = []
+	scenefilename = scenename #used for unpausing the game
 	addscene(scenename)
 	processline()
 

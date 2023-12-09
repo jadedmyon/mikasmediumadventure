@@ -8,7 +8,7 @@ var endframe := 70
 var passeddown_params:Dictionary = {}
 
 func _ready():
-	sfx("delayedattack-start",-9,0.8)
+	sfx("delayedattack-start",-11,0.8)
 
 
 
@@ -28,7 +28,7 @@ func _process(delta):
 
 
 func create_hitbox(p:Dictionary):
-	sfx("delayedattack-blow",-6)
+	sfx("delayedattack-blow",-8)
 	
 	
 	var hitbox = preload('res://Fundamental/Hitbox.tscn').instantiate()

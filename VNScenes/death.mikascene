@@ -1,5 +1,5 @@
 s;   
-icon;empty
+icon;EMPTY
 flag;deathstart
 choice;Continue;continue
 choice;Go To Title Screen;titlescreen
@@ -13,6 +13,7 @@ continuegame;
 
 flag;titlescreen
 choice;Yup;sure
+choice;Nope;deathstart
 choice;Nope;deathstart
 Are you sure?
 

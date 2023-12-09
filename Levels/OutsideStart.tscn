@@ -230,7 +230,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_ernbj")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lr5h"]
-size = Vector2(267, 1389)
+size = Vector2(267, 2771)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6q8ar"]
 animations = [{
@@ -363,7 +363,7 @@ collision_mask = 3
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocker"]
-position = Vector2(-56.5, -634.5)
+position = Vector2(-56.5, -1325.5)
 shape = SubResource("RectangleShape2D_6lr5h")
 debug_color = Color(0.952941, 0.843137, 0.2, 0.780392)
 

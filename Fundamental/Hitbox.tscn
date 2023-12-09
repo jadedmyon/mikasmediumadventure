@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://brvchakgarqo4"]
+[gd_scene load_steps=15 format=3 uid="uid://brvchakgarqo4"]
 
 [ext_resource type="Script" path="res://Fundamental/Hitbox.gd" id="1_3lxlb"]
 [ext_resource type="Texture2D" uid="uid://dmacjrdawvuub" path="res://CopyrightInfringement/enemies/bullet.png" id="2_ba7me"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://btgyvwoot8rlf" path="res://CopyrightInfringement/enemies/spiderprojectile.png" id="3_ke6kc"]
 [ext_resource type="Texture2D" uid="uid://cg5ibq53gt8hk" path="res://CopyrightInfringement/enemies/delayedexplosionafter.png" id="4_j3fsk"]
 [ext_resource type="Texture2D" uid="uid://36eqh5fkovbq" path="res://CopyrightInfringement/enemies/greenbulle.png" id="5_4pcd2"]
+[ext_resource type="Texture2D" uid="uid://ugsbrl623u73" path="res://Graphics/feathers/feather-blue-bright.png" id="6_6wk2k"]
+[ext_resource type="Texture2D" uid="uid://od03r2cmlvuo" path="res://Graphics/feathers/feather-blue-light.png" id="7_od8iu"]
+[ext_resource type="Texture2D" uid="uid://dq2tgo5osgqu8" path="res://Graphics/feathers/feather-emerald-dark.png" id="8_m8ryi"]
+[ext_resource type="Texture2D" uid="uid://c2x6bph1qunef" path="res://Graphics/feathers/feather-purple-bright.png" id="9_nlw3x"]
+[ext_resource type="Texture2D" uid="uid://b3gu5d3yyidw" path="res://Graphics/feathers/feather-purple-light.png" id="10_uj8q0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_amgkx"]
 animations = [{
@@ -41,6 +46,46 @@ animations = [{
 }],
 "loop": true,
 "name": &"dustbullet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6wk2k")
+}],
+"loop": true,
+"name": &"feather-blue-bright",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_od8iu")
+}],
+"loop": true,
+"name": &"feather-blue-light",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_m8ryi")
+}],
+"loop": true,
+"name": &"feather-emerald-dark",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_nlw3x")
+}],
+"loop": true,
+"name": &"feather-purple-bright",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_uj8q0")
+}],
+"loop": true,
+"name": &"feather-purple-light",
 "speed": 5.0
 }, {
 "frames": [{
@@ -89,4 +134,4 @@ polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_amgkx")
-animation = &"none"
+animation = &"feather-blue-bright"

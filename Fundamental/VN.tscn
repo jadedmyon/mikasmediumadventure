@@ -1,15 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://bvi8rdpmmwrih"]
+[gd_scene load_steps=18 format=3 uid="uid://bvi8rdpmmwrih"]
 
 [ext_resource type="Script" path="res://Fundamental/VN.gd" id="1_gonm3"]
 [ext_resource type="Texture2D" uid="uid://bl4e3udellahv" path="res://Graphics/UI/ninepatch1.png" id="2_1up5t"]
 [ext_resource type="Texture2D" uid="uid://bwhf0tx67yj7a" path="res://addons/input_prompts/icons/keyboard/s.png" id="3_5rpwo"]
 [ext_resource type="Texture2D" uid="uid://c7bfmp3vlgt86" path="res://Graphics/MikaMika/emotedmika.png" id="3_wtdo2"]
 [ext_resource type="Script" path="res://addons/input_prompts/action_prompt/action_prompt.gd" id="4_0spfq"]
+[ext_resource type="Texture2D" uid="uid://sc77hboytwvp" path="res://Graphics/Crap/AI-Mika-pfp.png" id="5_23h8m"]
 [ext_resource type="Texture2D" uid="uid://umhfxnn3rn5e" path="res://Graphics/MikaMika/debutmika-pfp.png" id="5_aedcd"]
 [ext_resource type="Texture2D" uid="uid://dyof6q3475rob" path="res://CopyrightInfringement/enemies/moldyshroom.png" id="5_v3ity"]
 [ext_resource type="Texture2D" uid="uid://dxlig3wmxlidb" path="res://Graphics/Crap/vox-pfp.png" id="5_xnytk"]
 [ext_resource type="Texture2D" uid="uid://dgt5qiwspl0y" path="res://Graphics/MikaMika/emotedmika2.png" id="7_fdqup"]
 [ext_resource type="Texture2D" uid="uid://clyp8rx0yoq5s" path="res://Graphics/MikaMika/voiceactor-pfp.png" id="9_iddlm"]
+[ext_resource type="Texture2D" uid="uid://c1nn83oaxyckq" path="res://Graphics/Crap/enna-pfp.png" id="9_plers"]
 [ext_resource type="Texture2D" uid="uid://2lprktsqhyge" path="res://CopyrightInfringement/Environment/sign-pfp.png" id="11_1a7ad"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_w6qia"]
@@ -27,6 +29,14 @@ device = -1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5ilg0"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_23h8m")
+}],
+"loop": true,
+"name": &"AI Mika",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_xnytk")
@@ -57,6 +67,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Emoted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_plers")
+}],
+"loop": true,
+"name": &"Enna",
 "speed": 5.0
 }, {
 "frames": [{
@@ -191,7 +209,7 @@ patch_margin_bottom = 8
 [node name="icon" type="AnimatedSprite2D" parent="."]
 position = Vector2(220, 599)
 sprite_frames = SubResource("SpriteFrames_5ilg0")
-animation = &"Sign"
+animation = &"Enna"
 
 [node name="OptionsBox" type="NinePatchRect" parent="."]
 visible = false

@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm1ddl7na6wgn"]
+
+[ext_resource type="Texture2D" uid="uid://y2yhg12jwvbr" path="res://Graphics/Crap/voxakuka2.png" id="1_dqqlr"]
+[ext_resource type="Texture2D" uid="uid://3qya30fwab3n" path="res://Graphics/Crap/voxakuka1.png" id="2_k8n6y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xqpfc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dqqlr")
+}],
+"loop": true,
+"name": &"boot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k8n6y")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvh6t"]
+size = Vector2(41, 61)
+
+[node name="vox-rock" type="RigidBody2D"]
+z_index = 99
+collision_layer = 2
+collision_mask = 2
+mass = 0.3
+inertia = 0.61
+center_of_mass_mode = 1
+angular_damp_mode = 1
+angular_damp = 0.002
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+clip_children = 2
+z_index = 5
+texture_filter = 1
+position = Vector2(-234, -68)
+sprite_frames = SubResource("SpriteFrames_xqpfc")
+animation = &"boot"
+offset = Vector2(240, 44)
+
+[node name="ECB" type="CollisionShape2D" parent="."]
+z_index = 77
+position = Vector2(-1, -3)
+shape = SubResource("RectangleShape2D_xvh6t")

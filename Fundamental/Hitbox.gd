@@ -115,7 +115,7 @@ func hit_process():
 				entity.deathtype = deathtype
 				entity.global_hitstop(hitstop_dealt)
 				if !entity.name == "Mika":
-					entity.hitstop+= hitstop_dealt
+					if not entity.boss: entity.hitstop+= hitstop_dealt
 					if entity.vulnerable:
 						finaldamage*= 1.5
 						entity.nstate("hitstun")

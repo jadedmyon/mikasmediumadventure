@@ -1,0 +1,36 @@
+speaker;
+icon;EMPTY
+flag;pausemenustart
+choice; Change Difficulty;changedifficulty
+choice; Exit To Title Screen;titlescreenprompt
+choice; Back To Game;unpause
+Pause Menu
+
+
+flag;titlescreenprompt
+choice;Yup;titlescreengo
+choice;Nope;pausemenustart
+choice;Nope;pausemenustart
+Are you sure?
+
+
+
+
+
+flag;titlescreengo
+to_titlescreen;
+end;
+This is a message you can't read. It's necessary for the game to not enter an infinite recursion. Pasting this here is faster than fixing the bug. Too bad!
+
+
+flag;unpause
+end;
+This is a message you can't read. It's necessary for the game to not enter an infinite recursion. Pasting this here is faster than fixing the bug. Too bad!
+
+
+
+
+flag;changedifficulty
+jump;unpause
+end;
+This is a message you can't read. It's necessary for the game to not enter an infinite recursion. Pasting this here is faster than fixing the bug. Too bad!

@@ -337,7 +337,7 @@ position = Vector2(892, 325)
 [node name="LevelWarp2" parent="." instance=ExtResource("8_tbmw7")]
 position = Vector2(2675.04, -1928)
 scale = Vector2(8.5857, 136.251)
-levelname = "OutsideCheckpointFinal"
+levelname = "OutsideBoss"
 
 [node name="Squarefade2" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -359,8 +359,8 @@ scenename = "stopmusic"
 saveto_playedvns = false
 
 [node name="VNTrigger" parent="." instance=ExtResource("9_6r3j4")]
-position = Vector2(1826, 151)
-scale = Vector2(3.42857, 10.239)
+position = Vector2(1832.5, 136.532)
+scale = Vector2(4.52857, 11.0901)
 scenename = "talktosignfinal"
 triggertype = "uptalk"
 velreset = 0

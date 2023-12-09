@@ -713,7 +713,7 @@ position = Vector2(4734, 223)
 [node name="LevelWarp2" parent="." instance=ExtResource("27_c6d1g")]
 position = Vector2(511, -581)
 scale = Vector2(8.5857, 26.5919)
-levelname = "OutsideStart"
+levelname = "OutsideBoss"
 
 [node name="Checkpoint" parent="." instance=ExtResource("28_ilh4j")]
 visible = false

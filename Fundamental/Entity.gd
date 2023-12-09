@@ -283,6 +283,12 @@ func mikahurtboxpos() -> Vector2:
 	return findmika().get_node("Hurtbox").global_position
 
 
+func createvn(scenename:String):
+	var VN = preload('res://Fundamental/VN.tscn').instantiate()
+	get_parent().get_parent().get_parent().get_node("CanvasLayer").add_child(VN)
+	VN.loadscene(scenename)
+
+
 
 #Usefuls
 
