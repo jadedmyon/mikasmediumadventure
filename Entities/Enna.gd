@@ -16,7 +16,17 @@ func _ready():
 	fallaccel = 15
 	fallspeed_max = 900
 	hitsoundrandoms = ["enna-fucking","enna-bitch","enna-fuck","enna-questionmark","enna-kya"]
-	
+	checkvn()
+
+
+func checkvn():
+	for x in get_parent().get_children():
+		if x.name == "EnnaTrigger":
+			if x.scenename in global.gamesave.playedvns:
+				state = "stand"
+				return
+	state = "unaggressive"
+
 
 func state_caller():
 	if statecheck("stand"): stand_state()
@@ -45,11 +55,12 @@ func state_caller():
 func stand_state():
 	if frame == 0:
 		fallaccel = 15
+		$sprite.offset= Vector2(0,0)
 	
 	if frame >= 10:
 		var percent = ( float( hp) / hp_max ) * 100
 
-		if percent > 75:
+		if percent > 85:
 			nstate("pattern1setup")
 		elif percent > 50:
 			nstate("pattern2")
@@ -72,7 +83,10 @@ func calm_state():
 		fallaccel = 35
 		velocity.x = 0
 		velocity.y = 0
-	
+		var explosion := preload("res://Polish/DeathExplode.tscn").instantiate()
+		get_parent().add_child(explosion)
+		explosion.scale *= 2
+		explosion.position = $sprite.global_position
 	if frame == 60:
 		createvn("postenna")
 
@@ -82,6 +96,7 @@ func rest_state():
 		vulnerable = true
 		damagetaken_mult = 1.5
 		lookat_mika()
+		$sprite.offset= Vector2(0,0)
 	
 	momentumreset(2)
 	
@@ -96,6 +111,7 @@ func hitstun_state():
 		vulnerable = false
 		invulntimer = 30
 		fallaccel = 15
+		$sprite.offset= Vector2(200*direction,0)
 	if frame >= 300 or currentstatedamage > hitstundmgthreshold:
 		nstate("stand")
 		damagetaken_mult = 1.0
@@ -113,7 +129,7 @@ func pattern1setup_state():
 	if frame == 0:
 		randomdirection()
 		fallaccel = 0
-	
+
 	velocity.x = 600 * direction
 	velocity.y = 140
 	
@@ -151,9 +167,18 @@ func pattern4setup_state():
 		nstate("pattern4")
 
 
+func spawntruth():
+	if not global.gamesave.ennatruthed:
+			global.gamesave.ennatruthed = true
+			var ennatruth := preload("res://Polish/ennatruth.tscn").instantiate()
+			get_parent().add_child(ennatruth)
+			ennatruth.position = position + Vector2(-300,-200)
 
 
 func pattern1_state():
+	
+
+
 	if frame % 21 == 0 and frame < 299:
 		var rng = (randi() % 2 ) * 2
 		shootp1(0+rng)
@@ -179,6 +204,7 @@ func pattern1_state():
 func pattern2_state():
 	if frame == 0:
 		fallaccel = 2
+		
 	if frame <= 150:
 		velocity.x = 0
 		velocity.y = 0
@@ -186,9 +212,12 @@ func pattern2_state():
 		if frame % 17 == 0:
 			shootp2(float(frame)/8)
 	
+	if frame == 0:
+		spawntruth()
 	if frame >= 20 and frame < 30:
 		velocity.x = 1000 * direction
 		velocity.y = -1400
+		
 	if frame  >= 40 and frame < 50:
 		velocity.x = -1900 * direction
 		velocity.y = -100
@@ -258,6 +287,7 @@ func randomdirection():
 
 
 func shootp1(addangle=0):
+	sfx("feather",-15)
 	var rng = randi() % 2
 	var hitbox = {
 		hitboxtype = "projectile",damage = 20, duration = 900, 
@@ -275,6 +305,7 @@ func shootp1(addangle=0):
 
 
 func shootp2(angleoffset:int=0):
+	sfx("feather",-7,1.5)
 	var addangle = 5.9
 	var hitbox = {
 		hitboxtype = "projectile",damage = 20, duration = 900, 
@@ -295,6 +326,7 @@ func shootp2(angleoffset:int=0):
 
 
 func shootp3(addangle=0):
+	sfx("feather",-19,0.6)
 	var rng = randi() % 2
 	var hitbox = {
 		hitboxtype = "projectile",damage = 20, duration = 900, 
@@ -311,6 +343,7 @@ func shootp3(addangle=0):
 	create_hitbox(hitbox)
 
 func shootp4(angleoffset:int=0):
+	sfx("feather",-7,1.5)
 	var addangle = 12.37
 	var hitbox = {
 		hitboxtype = "projectile",damage = 19, duration = 900, 

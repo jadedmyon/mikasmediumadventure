@@ -1,19 +1,39 @@
 speaker;
 icon;EMPTY
 flag;pausemenustart
-choice; Change Difficulty;changedifficulty
+difficultycheck;2;pausemenumikamode
+flag;pausemenunormalmode
+choice; Change Difficulty From Normal To Mika Mode;difftomikamode
 choice; Exit To Title Screen;titlescreenprompt
 choice; Back To Game;unpause
 Pause Menu
+vxcvxzcvzxcvzxvczxcvzxvc
+flag;pausemenumikamode
+Am I fucking stupid??? This has to be here or else nothing works???? And you can't even read it???? I'm too done to debug this 
+WHAT??!?!?!!!
+choice; Change Difficulty From Mika To Normal Mode;difftonormalmode
+choice; Exit To Title Screen;titlescreenprompt
+choice; Back To Game;unpause
+p;Pause Menu
+fjhfgjhf
+
+flag;difftomikamode
+difficultychange;2
+end;
+ababa
+
+
+flag;difftonormalmode
+difficultychange;1
+end;
+ababa
 
 
 flag;titlescreenprompt
 choice;Yup;titlescreengo
 choice;Nope;pausemenustart
-choice;Nope;pausemenustart
+choice;NO;pausemenustart
 Are you sure?
-
-
 
 
 
@@ -30,7 +50,5 @@ This is a message you can't read. It's necessary for the game to not enter an in
 
 
 
-flag;changedifficulty
-jump;unpause
 end;
 This is a message you can't read. It's necessary for the game to not enter an infinite recursion. Pasting this here is faster than fixing the bug. Too bad!

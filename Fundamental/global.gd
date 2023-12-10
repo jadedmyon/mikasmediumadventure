@@ -31,6 +31,7 @@ var gamesave:Dictionary = {
 	level = 1,
 	direction = 1,
 	
+	
 	playedvns = [], #filenames
 	
 	#Difficulty related
@@ -39,6 +40,8 @@ var gamesave:Dictionary = {
 	ninebuttonuses = 0,
 	mikaquestionasked = false,
 
+	ennatruthed = false,
+	debutmika6losses = 0,
 
 	}
 

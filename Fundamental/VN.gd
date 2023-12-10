@@ -25,8 +25,7 @@ var dialogueoptions:Array = []
 var dialogueselected := -1 #array index. -1 by default so you don't accidentally continue.
 var dialoguepositions:Array[Vector2] = [] #For rendering the text 
 
-#Difficulty
-var attackboost := 1.0
+
 
 var speakercolors:Dictionary = {
 	"Debut Mika" : 0xDDBFF8,
@@ -158,8 +157,12 @@ func processline():
 	
 
 
-	if commandname == "difficulty":
-		global.gamesave.difficulty = command[1]
+	if commandname == "difficultychange":
+		global.gamesave.difficulty = int(command[1])
+		get_parent().get_parent().get_node("Gameplay").mika_update_difficulty() #this is so inefficient fuck fuck 
+	if commandname == "difficultycheck":
+		if int(command[1]) == global.gamesave.difficulty:
+			jump(command[2])
 	if commandname == "die":
 		to_titlescreen()
 			#music
@@ -171,6 +174,7 @@ func processline():
 		get_parent().get_parent().playmusic(command[1],volume)
 	##Continues scene. Needs to be a separate function for the same frame loop to work(?)
 	continuescene(instantcontinue)
+	
 	if commandname == "stopmusic":
 		get_parent().get_parent().stopmusic()
 	if commandname == "sfx":
@@ -258,6 +262,7 @@ func jump(flagname:String):
 	for x in len(currentscene):
 		if currentscene[x][0] == "flag":
 			if currentscene[x][1] == flagname:
+				dialogueoptions = []
 				sceneindex = x
 				processline()
 				return
@@ -328,8 +333,8 @@ func PlayerInput():
 			var flag:String = dialogueoptions[dialogueselected][1]
 			dialogueoptions = []
 			$OptionsText.text = ""
-			$OptionsBox.visible = false
-			$OptionsText.visible = false
+			$OptionsBox.visible = true#CHANGE TYHIS NOW IMEDIATLETY WHEN YOU DONE W DEBUG
+			$OptionsText.visible = false 
 			dialogueselected = -1
 			jump(flag)
 			

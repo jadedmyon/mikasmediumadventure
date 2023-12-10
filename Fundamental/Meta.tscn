@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Fundamental/musicshow.gd" id="5_6pjw4"]
 
 [node name="Meta" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_rr1rl")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_cnaet")]

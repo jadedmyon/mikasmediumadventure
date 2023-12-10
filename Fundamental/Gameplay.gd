@@ -14,6 +14,7 @@ func loadlevel(levelname:String,posid:int):
 		oldentities.visible = false
 		oldentities.queue_free() #this used to be a free() but it crashed too often with no discernible reason
 	add_child(entitiesnode)
+	entitiesnode.process_mode = Node.PROCESS_MODE_PAUSABLE
 			#Instantiate Mika
 	var mika = preload('res://Fundamental/Mika.tscn').instantiate()
 	entitiesnode.add_child(mika)
@@ -72,6 +73,8 @@ func createvn(scenename:String):
 func _ready():
 	pass
 
+
+
 func _physics_process(delta):
 	var mikaok = true
 	if has_node("Entities/Mika"):
@@ -79,10 +82,13 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Start") and mikaok:
 		if not get_parent().has_node("CanvasLayer/VN"):
 			createvn("pausemenu")
+			get_tree().paused = true
 		else:
 			var vn_node := get_parent().get_node("CanvasLayer/VN")
 			if vn_node.scenefilename == "pausemenu":
 				vn_node.end()
+				get_tree().paused = false
+
 	
 	debug()
 	buffer_processing()
@@ -188,7 +194,14 @@ func delete_entitiesnode():
 		oldentities.queue_free()
 
 
+#fuck me in the ass with three thousand needles 
+func mika_update_difficulty():
+	var mika
+	for x in $Entities.get_children():
+		if x.name == "Mika":
+			mika = x
 
+	mika.update_difficulty()
 
 
 
