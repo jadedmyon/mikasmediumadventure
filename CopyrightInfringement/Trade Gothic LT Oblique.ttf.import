@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://dibci7pt62uox"
+path="res://.godot/imported/Trade Gothic LT Oblique.ttf-4dd7e18c37ef9b356e67eb729aa1f802.fontdata"
+
+[deps]
+
+source_file="res://CopyrightInfringement/Trade Gothic LT Oblique.ttf"
+dest_files=["res://.godot/imported/Trade Gothic LT Oblique.ttf-4dd7e18c37ef9b356e67eb729aa1f802.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

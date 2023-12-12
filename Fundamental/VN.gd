@@ -117,6 +117,8 @@ func processline():
 			fadenode.modulate.a = 1.0
 	if commandname == "hidetextbox":
 		hidetextbox()
+	if commandname == "hidetextboxbox":
+		hidetextboxbox()
 	if commandname == "choiceboxpos":
 		$OptionsText.position.x = int(command[1])
 		$OptionsText.position.y = int(command[2])
@@ -153,6 +155,7 @@ func processline():
 	
 	if commandname == "to_titlescreen":
 		to_titlescreen()
+		get_tree().paused = false
 
 	
 
@@ -185,7 +188,10 @@ func processline():
 		var volume := 0.0
 		if len(command) > 2 : volume = float(command[2])
 		playvoice(command[1],volume)
-	
+	if commandname == "showchat":
+		showchat()
+	if commandname == "killchat":
+		killchat()
 
 func continuescene(instantcontinue):
 	sceneindex+=1
@@ -217,6 +223,14 @@ func hidespeaker():
 
 func hidetextbox():
 	$textbox.visible = false
+
+#pretty much just "the thing I call in death scene"
+#this name sucks
+func hidetextboxbox():
+	$textbox.self_modulate.a = 0
+	$textbox/ActionPrompt6.visible = false
+	$textbox/label.add_theme_font_size_override("normal_font_size", 32 )
+	$textbox/label.modulate.r = 2.2
 
 func hideicon():
 	$iconbox.visible = false
@@ -250,6 +264,14 @@ func renderchoices():
 	$OptionsBox.size = contentsize + Vector2(64,24)
 	
 
+func showchat():
+	var chatnode = preload("res://Polish/chat.tscn").instantiate()
+	get_parent().add_child(chatnode)
+
+func killchat():
+	var canvaslayergameplay = get_parent().get_parent().get_node("Gameplay/CanvasLayer") #fuck
+	if canvaslayergameplay.has_node("chat"):
+		canvaslayergameplay.get_node("chat").queue_free()
 
 func create_choicemarker(pos:Vector2,dialoguepos:int):
 	var choicemarker := preload("res://Polish/ChoiceMarker.tscn").instantiate()
@@ -272,11 +294,12 @@ func end():
 	queue_free()
 
 func to_titlescreen():
+	killchat()
 	get_parent().get_parent().titlescreen()
 	end()
 
-func continuegame():
-	
+func continuegame(): #???? why did I make this
+	killchat()
 	end()
 
 func loadlevel(levelname:String,posid:String):

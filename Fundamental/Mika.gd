@@ -463,6 +463,7 @@ func die():
 
 func death_state():
 	var gameplaynode := get_parent().get_parent()
+	
 	if frame == 0:
 		gameplaynode.get_parent().playmusic("death",-10,false)
 		invulntimer = 1000
@@ -470,7 +471,9 @@ func death_state():
 		global.gamesave.deaths+= 1
 		gameplaynode.get_node("CanvasLayer/fade").state = "fadeout"
 		gameplaynode.get_node("CanvasLayer/fade").fadespeed = 0.004
-	
+		var chatnode = preload("res://Polish/chat.tscn").instantiate()
+		gameplaynode.get_node("CanvasLayer").add_child(chatnode)
+		chatnode.position = Vector2 (1070,350)
 	
 	
 	modulate.a -= 0.003

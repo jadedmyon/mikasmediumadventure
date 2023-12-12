@@ -1,5 +1,9 @@
 s;   
 icon;EMPTY
+hidespeaker;
+hideicon;
+hidetextboxbox;
+choicetextsize;25
 flag;deathstart
 choice;Continue;continue
 choice;Go To Title Screen;titlescreen

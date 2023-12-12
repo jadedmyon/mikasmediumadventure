@@ -116,3 +116,12 @@ func sfx(soundname:String,sfxvolume:float=0,pitch:float = 1.0):
 	sfxnode.pitch_scale = pitch
 	sfxnode.volume_db = sfxvolume
 	sfxnode.play()
+
+
+
+
+
+
+#Death screen chat scroll
+
+

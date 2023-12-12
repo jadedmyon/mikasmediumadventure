@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://11pjvy23murt"]
+
+[ext_resource type="Texture2D" uid="uid://cxhia807jh1ac" path="res://Graphics/Crap/chatbg.png" id="1_holov"]
+[ext_resource type="Script" path="res://Polish/chat.gd" id="2_kilc6"]
+[ext_resource type="FontFile" uid="uid://c8n51f1hoaner" path="res://CopyrightInfringement/Trade Gothic LT.ttf" id="3_mth6l"]
+
+[sub_resource type="Theme" id="Theme_m4s46"]
+default_font = ExtResource("3_mth6l")
+default_font_size = 16
+
+[node name="chat" type="Sprite2D"]
+clip_children = 2
+z_index = 20
+texture = ExtResource("1_holov")
+script = ExtResource("2_kilc6")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -193.0
+offset_top = -470.0
+offset_right = 190.0
+offset_bottom = 265.0
+theme = SubResource("Theme_m4s46")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+autowrap_mode = 2
+clip_text = true

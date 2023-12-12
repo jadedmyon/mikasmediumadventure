@@ -42,8 +42,8 @@ metadata/_edit_use_anchors_ = true
 [node name="title of game" type="Label" parent="title of game"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.025974
-anchor_right = 0.0340909
+anchor_left = -0.00487011
+anchor_right = 0.0551948
 offset_left = 117.0
 offset_top = 54.0
 offset_right = 490.0
@@ -51,7 +51,7 @@ offset_bottom = 244.0
 theme_override_colors/font_outline_color = Color(0, 0.443137, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 30
-text = "An Action-VN-Bullying Game
+text = "An Action-Bullying Game
 "
 metadata/_edit_use_anchors_ = true
 
