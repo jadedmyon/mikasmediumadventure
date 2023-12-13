@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6jraba38rdcm"]
+[gd_scene load_steps=16 format=3 uid="uid://6jraba38rdcm"]
 
 [ext_resource type="Texture2D" uid="uid://5x1ipkfpkkau" path="res://CopyrightInfringement/Outside/outsidebg.png" id="1_ckyem"]
 [ext_resource type="Texture2D" uid="uid://mxb1skwsgn15" path="res://CopyrightInfringement/Outside/TreesFGcover.png" id="2_ex2w4"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://v7i3kcc7v86o" path="res://Graphics/UI/squarefade.png" id="6_uwlm0"]
 [ext_resource type="PackedScene" uid="uid://cr1a153jkm4oo" path="res://Entities/Enna.tscn" id="7_arafo"]
 [ext_resource type="PackedScene" uid="uid://bwj75sf3yetn1" path="res://Fundamental/VNTrigger.tscn" id="8_wvi8c"]
+[ext_resource type="Texture2D" uid="uid://brxg33gwr8osl" path="res://CopyrightInfringement/INSIDE/minddoor.png" id="9_4u5l6"]
+[ext_resource type="PackedScene" uid="uid://dxbfu3j55h7bp" path="res://Fundamental/LevelWarp.tscn" id="10_hpcpl"]
+[ext_resource type="Texture2D" uid="uid://cati8wpip8dhg" path="res://CopyrightInfringement/INSIDE/crashreport.png" id="11_egnde"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ernbj"]
 texture = ExtResource("4_c1e8d")
@@ -381,3 +384,17 @@ hp = 9
 position = Vector2(355, -42)
 scale = Vector2(1.86071, 23.775)
 scenename = "ennareveal"
+
+[node name="minddoor" type="Sprite2D" parent="."]
+position = Vector2(1240, 1219)
+texture = ExtResource("9_4u5l6")
+
+[node name="LevelWarp" parent="minddoor" instance=ExtResource("10_hpcpl")]
+position = Vector2(17.4999, -19.5)
+scale = Vector2(2.52857, 4.32353)
+levelname = "INSIDEStart"
+
+[node name="crashreport" type="Sprite2D" parent="."]
+z_index = 999
+position = Vector2(1129, 1443)
+texture = ExtResource("11_egnde")

@@ -11,5 +11,5 @@ func _ready():
 func _process(delta):
 	for x in $Area2D.get_overlapping_bodies():
 		if x.name == "Mika":
-			var gameplaynode := get_parent().get_parent()
+			var gameplaynode = x.get_parent().get_parent()
 			gameplaynode.levelswitch(levelname,posid)

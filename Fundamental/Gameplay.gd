@@ -187,6 +187,30 @@ func activateenna():
 		if x.name == "Enna":
 			x.nstate("stand")
 
+func movecrashreport():
+	var mikapos :Vector2
+	for x in $Entities.get_children():
+		if x.name == "Mika":
+			mikapos = x.position
+	for x in $Entities.get_children():
+		if x.name == "crashreport":
+			x.position = Vector2(mikapos.x,163)
+
+
+func spawnminddoor():
+	var mikapos :Vector2
+	for x in $Entities.get_children():
+		if x.name == "crashreport":
+			x.queue_free()
+		if x.name == "Mika":
+			mikapos = x.position
+		if x.name == "blocker2":
+			x.queue_free()
+	for x in $Entities.get_children():
+		if x.name == "minddoor":
+			x.position = Vector2(mikapos.x+400,278)
+
+
 func delete_entitiesnode():
 	if has_node("Entities"):
 		var oldentities = get_node("Entities")

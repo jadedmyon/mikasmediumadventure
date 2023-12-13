@@ -112,14 +112,14 @@ func create_hitbox(p:Dictionary):
 func create_delayedhitbox(
 	
 	endframe:int=40,
-	dhitbox_scale:Vector2=Vector2(6,6),
+	dhitbox_scale:Vector2=Vector2(4,4),
 	dhitbox_pos:Vector2 = mikahurtboxpos(),
 
 p:Dictionary={
 	hitboxtype = "projectile", speedX = 0, speedY = 0, animation = "delayedprojectile",
 	destroyontilemap = false,
 	damage = 6, duration = 46,
-	scale = Vector2(6,6), fadeoutspeed = 0.022,
+	scale = Vector2(4,4), fadeoutspeed = 0.022,
 	
 	
 }):

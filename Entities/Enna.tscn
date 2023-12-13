@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cr1a153jkm4oo"]
+[gd_scene load_steps=15 format=3 uid="uid://cr1a153jkm4oo"]
 
 [ext_resource type="Script" path="res://Entities/Enna.gd" id="1_wkjpp"]
 [ext_resource type="Texture2D" uid="uid://q32fwpys37jq" path="res://Graphics/Crap/enna alouette spritte.png" id="2_mbwtd"]
@@ -182,8 +182,36 @@ tracks/1/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_7xkow"]
+resource_name = "calm"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.698132]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ucdn6"]
 _data = {
+"calm": SubResource("Animation_7xkow"),
 "hitstun": SubResource("Animation_14p1y"),
 "pattern1": SubResource("Animation_yxfx7"),
 "pattern2": SubResource("Animation_1lvft"),
@@ -206,6 +234,7 @@ realscale = 0.25
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 clip_children = 2
 position = Vector2(0, -62)
+rotation = 0.698132
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_7ish5")
 
