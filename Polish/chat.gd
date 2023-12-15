@@ -75,7 +75,8 @@ var chatters:Array[String] = [
 	"John Chatter", "THEY CANCELLED THE COPE CAGE", #im sorry
 	"[USER WAS MILKED FOR THIS POST]", "say gex",
 	"NobleNoisii", "Eating Mike Tyson's Ass", "Sean Ramsey", #actual people
-	
+	"19 wheeler", "Rare Decency", #actual people??
+	"",
 	
 	
 ]

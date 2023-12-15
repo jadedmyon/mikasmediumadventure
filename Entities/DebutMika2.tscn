@@ -1,0 +1,292 @@
+[gd_scene load_steps=23 format=3 uid="uid://3jenakib3slw"]
+
+[ext_resource type="Script" path="res://Entities/DebutMika2.gd" id="1_4u2hj"]
+[ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_4udng"]
+[ext_resource type="SpriteFrames" uid="uid://cpjnacijfvjqf" path="res://Fundamental/MikaSpriteFrames.tres" id="3_kvrnh"]
+[ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="4_88nqh"]
+[ext_resource type="Script" path="res://Fundamental/mikaflash.gd" id="5_tdlpm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kp6x4"]
+size = Vector2(41, 116.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8g1h7"]
+shader = ExtResource("2_4udng")
+shader_parameter/line_color = Vector4(0.5, 0.5, 0.7, 0.6)
+shader_parameter/line_thickness = 6.925
+
+[sub_resource type="Animation" id="Animation_vcegn"]
+resource_name = "air"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(45, 60)]
+}
+
+[sub_resource type="Animation" id="Animation_1cc2t"]
+resource_name = "downdash"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-42, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_i4x1q"]
+resource_name = "forwardair"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 42)]
+}
+
+[sub_resource type="Animation" id="Animation_5lysh"]
+resource_name = "forwarddash"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-42, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_4ekko"]
+resource_name = "groundstrike1"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 42)]
+}
+
+[sub_resource type="Animation" id="Animation_kbqgi"]
+resource_name = "groundstrike2"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 42)]
+}
+
+[sub_resource type="Animation" id="Animation_2g1xp"]
+resource_name = "groundstrike3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(240, 44)]
+}
+
+[sub_resource type="Animation" id="Animation_5dajq"]
+resource_name = "hitstunair"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-150, 60)]
+}
+
+[sub_resource type="Animation" id="Animation_4ob73"]
+resource_name = "ninebutton"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(240, 44)]
+}
+
+[sub_resource type="Animation" id="Animation_bju8n"]
+resource_name = "novdash"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-42, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_0mxpl"]
+resource_name = "stand"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7i816"]
+resource_name = "tridash"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-42, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_bi5qw"]
+resource_name = "updash"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-42, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_ke67f"]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dgdef"]
+_data = {
+"air": SubResource("Animation_vcegn"),
+"downdash": SubResource("Animation_1cc2t"),
+"forwardair": SubResource("Animation_i4x1q"),
+"forwarddash": SubResource("Animation_5lysh"),
+"groundstrike1": SubResource("Animation_4ekko"),
+"groundstrike2": SubResource("Animation_kbqgi"),
+"groundstrike3": SubResource("Animation_2g1xp"),
+"hitstunair": SubResource("Animation_5dajq"),
+"ninebutton": SubResource("Animation_4ob73"),
+"novdash": SubResource("Animation_bju8n"),
+"stand": SubResource("Animation_0mxpl"),
+"tridash": SubResource("Animation_7i816"),
+"updash": SubResource("Animation_bi5qw"),
+"walk": SubResource("Animation_ke67f")
+}
+
+[node name="DebutMika1" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_4u2hj")
+
+[node name="ECB" type="CollisionShape2D" parent="."]
+position = Vector2(0, -58.75)
+shape = SubResource("RectangleShape2D_kp6x4")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+clip_children = 2
+z_index = 5
+texture_filter = 1
+material = SubResource("ShaderMaterial_8g1h7")
+position = Vector2(0, -86)
+scale = Vector2(0.18, 0.18)
+sprite_frames = ExtResource("3_kvrnh")
+animation = &"hitstun"
+offset = Vector2(240, 44)
+
+[node name="mikaflash" type="Sprite2D" parent="sprite"]
+modulate = Color(0.764706, 0.729412, 0.756863, 0.741176)
+position = Vector2(38.889, 50.0001)
+scale = Vector2(21.8855, 20.4265)
+texture = ExtResource("4_88nqh")
+script = ExtResource("5_tdlpm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dgdef")
+}
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+modulate = Color(0.6, 0.419608, 0.901961, 0.8)
+position = Vector2(6, -79)
+polygon = PackedVector2Array(-46, -45, 45, -48, 41, 112, -44, 108)

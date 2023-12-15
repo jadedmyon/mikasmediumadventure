@@ -229,11 +229,9 @@ func pattern2_state():
 		velocity.y = -900
 	if frame >= 90 and frame < 96:
 		velocity.x = direction * 3500
-		
 
 	if frame == 200:
 		nstate("rest")
-
 
 
 func pattern3_state():

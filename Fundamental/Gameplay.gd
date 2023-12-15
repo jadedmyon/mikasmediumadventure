@@ -94,7 +94,10 @@ func _physics_process(delta):
 	buffer_processing()
 	gametime+=1
 	if has_node("Entities"):
-		$Camera2D.position = get_node("Entities/Mika").position + Vector2(0,-100)
+		if get_node("Entities").has_node("CameraFixedPos"):
+			$Camera2D.position = get_node("Entities/CameraFixedPos").position
+		else:
+			$Camera2D.position = get_node("Entities/Mika").position + Vector2(0,-100)
 
 	if $CanvasLayer/enemyinfo/HP.text == "0":
 		$CanvasLayer/enemyinfo.modulate.a -= 0.01
