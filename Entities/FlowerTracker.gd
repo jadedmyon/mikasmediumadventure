@@ -54,7 +54,7 @@ func uniquebehavior():
 				shoot()
 			if frame == 65:
 				shoot()
-			if frame == 120:
+			if frame == 130:
 				nstate("stand")
 
 		"windup": #unused?

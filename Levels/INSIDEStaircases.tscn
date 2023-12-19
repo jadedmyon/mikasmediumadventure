@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://n851xw2gr011"]
+[gd_scene load_steps=11 format=3 uid="uid://n851xw2gr011"]
 
 [ext_resource type="Texture2D" uid="uid://dgmmr7txqp4is" path="res://CopyrightInfringement/INSIDE/hospitalColor.png" id="2_4qlme"]
 [ext_resource type="Texture2D" uid="uid://cud43o7twdbdu" path="res://CopyrightInfringement/Environment/TilesetINSIDE.png" id="3_ymch0"]
 [ext_resource type="PackedScene" uid="uid://q6oik8e2kjc0" path="res://Fundamental/positionmarker.tscn" id="4_f2k87"]
 [ext_resource type="PackedScene" uid="uid://rbkvjplxjhvc" path="res://Entities/Spider.tscn" id="5_fvlue"]
+[ext_resource type="PackedScene" uid="uid://dxbfu3j55h7bp" path="res://Fundamental/LevelWarp.tscn" id="6_f8unf"]
+[ext_resource type="PackedScene" uid="uid://dd063elshexmr" path="res://Fundamental/Checkpoint.tscn" id="7_onsu4"]
 [ext_resource type="PackedScene" uid="uid://bwj75sf3yetn1" path="res://Fundamental/VNTrigger.tscn" id="7_y4jgj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tisu4"]
@@ -322,3 +324,11 @@ position = Vector2(1813, 3108)
 
 [node name="Spider7" parent="." instance=ExtResource("5_fvlue")]
 position = Vector2(1337, 3359)
+
+[node name="LevelWarp2" parent="." instance=ExtResource("6_f8unf")]
+position = Vector2(433.75, 2560.97)
+scale = Vector2(9.77857, 61.3549)
+levelname = "INSIDEBoss"
+
+[node name="Checkpoint" parent="." instance=ExtResource("7_onsu4")]
+position = Vector2(879, 3456)

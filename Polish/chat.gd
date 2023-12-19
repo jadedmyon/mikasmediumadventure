@@ -74,9 +74,10 @@ var chatters:Array[String] = [
 	"talented semen contortionist", "i am good at bonking", #actual thing JSH said
 	"John Chatter", "THEY CANCELLED THE COPE CAGE", #im sorry
 	"[USER WAS MILKED FOR THIS POST]", "say gex",
-	"NobleNoisii", "Eating Mike Tyson's Ass", "Sean Ramsey", #actual people
-	"19 wheeler", "Rare Decency", #actual people??
-	"",
+	"NobleNoisii", "Eating Mike Tyson's Ass", "Sean Ramsey", #mikacord requests
+	"19 wheeler", "Rare Decency", #mikacord requests 
+	"cumguzzler3000", "I FUCKING HATE MONCTON", "IM NOT FROM HERE I LIVE HERE",
+	
 	
 	
 ]
@@ -133,4 +134,8 @@ var chatmessages:Array[String] = [
 "you're late and muted",
 "where are the boobs",
 "mika you forgot the banana in level 2",
+"yo this game improved a lot since 2017",
+"when were you when mik melanin dies? ",
+"mika is kill",
+"no",
 ]

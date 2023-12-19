@@ -1,10 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://3jenakib3slw"]
+[gd_scene load_steps=27 format=3 uid="uid://3jenakib3slw"]
 
 [ext_resource type="Script" path="res://Entities/DebutMika2.gd" id="1_4u2hj"]
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_4udng"]
 [ext_resource type="SpriteFrames" uid="uid://cpjnacijfvjqf" path="res://Fundamental/MikaSpriteFrames.tres" id="3_kvrnh"]
 [ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="4_88nqh"]
 [ext_resource type="Script" path="res://Fundamental/mikaflash.gd" id="5_tdlpm"]
+[ext_resource type="SpriteFrames" uid="uid://fiu8ofj7nxwf" path="res://Entities/MikaSprites.tres" id="6_mqx56"]
+[ext_resource type="Script" path="res://Fundamental/omegaoutline.gd" id="7_0w324"]
+[ext_resource type="Texture2D" uid="uid://cc0uc7apgmjho" path="res://Graphics/Crap/complete white.png" id="8_uj31o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kp6x4"]
 size = Vector2(41, 116.5)
@@ -251,7 +254,12 @@ _data = {
 "walk": SubResource("Animation_ke67f")
 }
 
-[node name="DebutMika1" type="CharacterBody2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8nhbx"]
+shader = ExtResource("2_4udng")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 6.263
+
+[node name="DebutMika2" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4u2hj")
@@ -290,3 +298,18 @@ position = Vector2(0, -32)
 modulate = Color(0.6, 0.419608, 0.901961, 0.8)
 position = Vector2(6, -79)
 polygon = PackedVector2Array(-46, -45, 45, -48, 41, 112, -44, 108)
+
+[node name="omegaoutline" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.886275, 0.298039, 0.34902, 0.898039)
+clip_children = 2
+material = SubResource("ShaderMaterial_8nhbx")
+position = Vector2(5, -96)
+scale = Vector2(0.18, 0.18)
+sprite_frames = ExtResource("6_mqx56")
+animation = &"air"
+script = ExtResource("7_0w324")
+
+[node name="Sprite2D" type="Sprite2D" parent="omegaoutline"]
+position = Vector2(105.556, 25)
+scale = Vector2(32.4074, 35.4167)
+texture = ExtResource("8_uj31o")

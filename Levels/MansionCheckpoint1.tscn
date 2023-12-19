@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bm3kwlhvnb1sn"]
+[gd_scene load_steps=14 format=3 uid="uid://bm3kwlhvnb1sn"]
 
 [ext_resource type="Texture2D" uid="uid://ympb53oq2tiw" path="res://CopyrightInfringement/Environment/Mansion/MansionBG.png" id="1_3h5hy"]
 [ext_resource type="Texture2D" uid="uid://c4gkjib71mg5p" path="res://CopyrightInfringement/Environment/Mansion/MansionBGRepeat.png" id="2_tus06"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://q6oik8e2kjc0" path="res://Fundamental/positionmarker.tscn" id="4_kn1ax"]
 [ext_resource type="PackedScene" uid="uid://dxbfu3j55h7bp" path="res://Fundamental/LevelWarp.tscn" id="8_fgyvd"]
 [ext_resource type="PackedScene" uid="uid://byed55t14tjfu" path="res://Entities/DustBunny.tscn" id="12_jfggv"]
-[ext_resource type="PackedScene" uid="uid://bwj75sf3yetn1" path="res://Fundamental/VNTrigger.tscn" id="14_cytnr"]
 [ext_resource type="PackedScene" uid="uid://bk1fnuqmkhfox" path="res://Entities/MoldyShroom.tscn" id="15_i0y80"]
 [ext_resource type="PackedScene" uid="uid://dd063elshexmr" path="res://Fundamental/Checkpoint.tscn" id="15_rc8gg"]
 [ext_resource type="PackedScene" uid="uid://rbkvjplxjhvc" path="res://Entities/Spider.tscn" id="15_sbwq0"]
@@ -336,11 +335,6 @@ posid = 1
 
 [node name="MoldyShroom3" parent="." instance=ExtResource("15_i0y80")]
 position = Vector2(5123, -464)
-
-[node name="VNTrigger2" parent="." instance=ExtResource("14_cytnr")]
-position = Vector2(5303, 1793)
-scale = Vector2(1.64286, 13.1066)
-scenename = "mansionpitquip"
 
 [node name="LevelWarp" parent="." instance=ExtResource("8_fgyvd")]
 position = Vector2(3110, 1641)

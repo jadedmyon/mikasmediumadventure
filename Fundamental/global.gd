@@ -41,6 +41,7 @@ var gamesave:Dictionary = {
 	mikaquestionasked = false,
 
 	ennatruthed = false,
+	debutmika2talked = false,
 	debutmika6losses = 0,
 
 	}

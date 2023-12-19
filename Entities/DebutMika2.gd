@@ -3,21 +3,24 @@ extends "res://Fundamental/Entity.gd"
 var nextstate := "groundedhalfcircle"
 var walklength := 40 #frames
 var hitstundmgthreshold = 40
-
+var bumptimes := 0
+var bumptimes_max = 2
 
 var fallaccel_default = 25
 
 func _ready():
 	displayname = "Debut Mika II"
-	hp = 800
+	hp = 750
 	boss = true
 	
 	fallaccel = fallaccel_default
 	fallspeed_max = 900
 	realscale = 0.18
+	state = "calm"
 
 func state_caller():
 
+	if statecheck("calm"): calm_state()
 	if statecheck("stand"): stand_state()
 	if statecheck("runin"): runin_state()
 	if statecheck("raisedust"): raisedust_state()
@@ -27,23 +30,25 @@ func state_caller():
 	if statecheck("hitstun"): hitstun_state()
 	if statecheck("dashattackslip"): dashattackslip_state()
 	if statecheck("walktomika"): walktomika_state()
-	if statecheck("fuckyou"): fuckyou_state()
+
+
 
 	if state == "hitstun": damagetaken_mult = 1.5
 	else: damagetaken_mult = 1.0
 	
-	
-	if (float(hp)/hp_max) * 100 <= 15 and state != "fuckyou":
-		nstate("fuckyou")
 
 
+
+
+func calm_state():
+	pass
 
 func stand_state():
 	if frame == 0:
 		vulnerable = false
-		fallaccel_default = 25
+		fallaccel = fallaccel_default
 		hitstundmgthreshold = 40
-	if frame == 20:
+	if frame == 30:
 		if hp > hp_max - 16: #hp > hp_max - 16
 			nstate("dashattack")
 		else:
@@ -59,11 +64,11 @@ func stand_state():
 					nstate("jumpblast")
 				4:
 					nextstate = "groundedhalfcircle"
-					walklength = 20
+					walklength = 40
 					nstate("walktomika")
 				5:
 					nextstate = "jumpblast"
-					walklength = 40
+					walklength = 15
 					nstate("walktomika")
 
 
@@ -76,26 +81,29 @@ func raisedust_state():
 		momentumreset(4000)
 		lookat_mika()
 	
+	if frame > 20 and frame < 60:
+		xvelocity_towards(31*direction,460)
+	
 	if frame == 40:
 		sfx("bunnyshot")
-		for x in 10: shootdust()
+		for x in 20: shootdust()
 	if frame == 44:
 		sfx("bunnyshot")
 	if frame == 50:
 		sfx("bunnyshot")
-		for x in 8: shootdust()
+		for x in 16: shootdust()
 	if frame == 55:
 		sfx("bunnyshot")
 	if frame == 60:
 		sfx("bunnyshot")
-		for x in 5: shootdust()
+		for x in 8: shootdust()
 	if frame == 63:
 		sfx("bunnyshot")
 	if frame == 68:
 		sfx("bunnyshot")
 	if frame == 70:
 		sfx("bunnyshot")
-		for x in 2: shootdust()
+		for x in 3: shootdust()
 	if frame == 71:
 		sfx("bunnyshot")
 	if frame == 50:
@@ -110,13 +118,15 @@ func dashattack_state():
 		lookat_mika()
 		create_hitbox({damage=12,duration=40, scale = Vector2(4,5), offset = Vector2(0,-100) })
 	if frame >= 1 and frame < 90:
-		xvelocity_towards((90)*direction,700)
-	if frame == 30:
+		xvelocity_towards((150)*direction,800)
+	
+	if frame == 25:
 		nstate("dashattackslip")
 
 
 func dashattackslip_state():
 	tracting()
+	tracting() #lmao
 	if frame == 1:
 
 		var rng = randi() % 4
@@ -128,10 +138,15 @@ func dashattackslip_state():
 				sfx("metalpipe")
 			3: sfx("punch")
 		create_hitbox({damage=12,duration=30,scale = Vector2(4,5), offset = Vector2(0,-100)}) #late hitbox
+	if frame == 20:
+		if bumptimes < bumptimes_max:
+			bumptimes+=1
+			nstate("dashattack")
 	if frame == 30:
 		vulnerable = true
 	
 	if frame == 90:
+		bumptimes = 0
 		nstate("stand")
 
 
@@ -151,6 +166,14 @@ func jumpblast_state():
 	if frame == 20:
 		fallaccel = 0
 		velocity.y = 0
+		velocity.x = 900 * direction
+
+	if frame > 20 and frame < 105:
+		if frame % 19 == 0:
+			direction *= -1
+			velocity.x = 900 * direction
+		momentumreset(32)
+
 
 	shootvolleyside(50)
 	shootvolleyside(55,-1)
@@ -161,7 +184,8 @@ func jumpblast_state():
 	shootvolleyside(80)
 	shootvolleyside(80,-1)
 	
-	
+	shootvolleyside(95)
+	shootvolleyside(95,-1)
 	
 
 	if frame == 110:
@@ -169,7 +193,7 @@ func jumpblast_state():
 		fallaccel = 16
 	
 	
-	if frame > 130 and is_on_floor():
+	if frame > 145 and is_on_floor():
 		vulnerable = false
 		var rng := randi() % 3
 		hitstundmgthreshold = 40
@@ -184,22 +208,25 @@ func groundedhalfcircle_state():
 	if frame == 0:
 		lookat_mika()
 	
-	if frame == 70:
+	if frame == 50:
 		shootgroundedblast(0)
+		
 		shootgroundedblast(180)
-	if frame == 85:
+	if frame == 65:
 		shootgroundedblast(210)
 		shootgroundedblast(15)
-	if frame == 100:
+	if frame == 80:
 		shootgroundedblast(220)
-	if frame == 105:
+	if frame == 90:
 		shootgroundedblast(70)
-	
-	if frame == 155:
 		shootgroundedblast(-35)
+	
+	if frame == 120:
+		shootgroundedblast(-35)
+		
 		vulnerable = true
 	
-	if frame == 220:
+	if frame == 195:
 		nstate("stand")
 
 func hitstun_state():
@@ -210,6 +237,7 @@ func hitstun_state():
 		vulnerable = false
 		invulntimer = 30
 		fallaccel = fallaccel_default
+		bumptimes = 0
 	if frame == 250 or currentstatedamage > hitstundmgthreshold:
 		nstate("stand")
 		invulntimer = 5
@@ -218,7 +246,7 @@ func hitstun_state():
 func walktomika_state():
 	if frame == 0: lookat_mika()
 	if frame >= 1 and frame <= walklength:
-		xvelocity_towards((150)*direction,500)
+		xvelocity_towards((150)*direction,900)
 	
 	if frame == walklength + 1:
 		velocity.x = 0 
@@ -258,14 +286,14 @@ func explosion_self():
 
 func shootdust():
 	
-	var rngX :float= ( randi() % 70 ) / 10
-	var rngY :float= ( randi() % 10 )  / 3
+	var rngX :float= ( randi() % 115 ) / 10
+	var rngY :float= ( randi() % 15 )  / 3
 	var rngFall:float= ( randi() % 6 ) / 10
 	
 	var params:Dictionary = {
 		hitboxtype = "projectile",damage = 14, duration = 600, 
 		animation = "dustbullet", scale = Vector2(2,2),
-		offset = Vector2(0,-90),fallaccel = 0.5+ rngFall, speedX = 10+rngX, speedY = -5-rngY,speedscale = 1,}
+		offset = Vector2(0,-90),fallaccel = 0.5+ rngFall, speedX = 15+rngX, speedY = -5-rngY,speedscale = 1,}
 
 	create_hitbox(params)
 

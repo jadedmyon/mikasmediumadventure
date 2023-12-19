@@ -214,6 +214,16 @@ func spawnminddoor():
 			x.position = Vector2(mikapos.x+400,278)
 
 
+func debutmika2fight():
+	for x in $Entities.get_children():
+		if x.name == "DebutMika2":
+			x.nstate("stand")
+		if x.name == "DebutMika2Trigger":
+			x.queue_free()
+
+
+
+
 func delete_entitiesnode():
 	if has_node("Entities"):
 		var oldentities = get_node("Entities")

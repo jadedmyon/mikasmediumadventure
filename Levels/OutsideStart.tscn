@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://css06hchswjjw"]
+[gd_scene load_steps=22 format=3 uid="uid://css06hchswjjw"]
 
 [ext_resource type="Texture2D" uid="uid://cahw82q85d2d0" path="res://CopyrightInfringement/Environment/TilesetOutside.png" id="1_x3epe"]
 [ext_resource type="Texture2D" uid="uid://5g6bxr3v3pf0" path="res://CopyrightInfringement/Outside/TreesBG.png" id="2_utb0p"]
@@ -252,6 +252,23 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_bnq8j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_gqm6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0mash")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fweqd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
 [node name="Entities" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -415,3 +432,20 @@ position = Vector2(9690, 31.9999)
 position = Vector2(11508, -2207)
 scale = Vector2(8.5857, 136.251)
 levelname = "OutsideMushrooms"
+
+[node name="nerd2" type="AnimatedSprite2D" parent="."]
+position = Vector2(10000, 7)
+rotation = 3.14159
+scale = Vector2(3, -3)
+sprite_frames = SubResource("SpriteFrames_bnq8j")
+script = ExtResource("11_8mci4")
+
+[node name="VNTrigger" parent="nerd2" instance=ExtResource("8_jf6fc")]
+show_behind_parent = true
+position = Vector2(5.6665, -38.6666)
+rotation = 3.14159
+scale = Vector2(1.24762, -3.57107)
+scenename = "outsidetalkpomu"
+triggertype = "uptalk"
+velreset = 0
+saveto_playedvns = false
