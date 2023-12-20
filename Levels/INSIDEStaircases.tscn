@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://n851xw2gr011"]
 
-[ext_resource type="Texture2D" uid="uid://dgmmr7txqp4is" path="res://CopyrightInfringement/INSIDE/hospitalColor.png" id="2_4qlme"]
 [ext_resource type="Texture2D" uid="uid://cud43o7twdbdu" path="res://CopyrightInfringement/Environment/TilesetINSIDE.png" id="3_ymch0"]
 [ext_resource type="PackedScene" uid="uid://q6oik8e2kjc0" path="res://Fundamental/positionmarker.tscn" id="4_f2k87"]
 [ext_resource type="PackedScene" uid="uid://dxbfu3j55h7bp" path="res://Fundamental/LevelWarp.tscn" id="6_f8unf"]
+[ext_resource type="Texture2D" uid="uid://cid82lric8hkt" path="res://Graphics/INSIDEbg1.png" id="6_lokno"]
 [ext_resource type="PackedScene" uid="uid://dd063elshexmr" path="res://Fundamental/Checkpoint.tscn" id="7_onsu4"]
 [ext_resource type="PackedScene" uid="uid://bwj75sf3yetn1" path="res://Fundamental/VNTrigger.tscn" id="7_y4jgj"]
 
@@ -253,19 +253,27 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_tisu4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lr5h"]
-size = Vector2(267, 2771)
+size = Vector2(267, 2846.5)
 
 [node name="Entities" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -4
 
-[node name="hospitalColor" type="TextureRect" parent="CanvasLayer"]
-modulate = Color(0.0901961, 0.0392157, 0.0588235, 1)
-offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("2_4qlme")
-metadata/_edit_use_anchors_ = true
+[node name="truebg" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 0.137255, 0.0941176, 1)
+z_index = -10
+anchors_preset = -1
+anchor_left = -2.55391
+anchor_top = -2.35417
+anchor_right = 4.59297
+anchor_bottom = 7.37917
+offset_left = 3269.0
+offset_top = 1695.0
+offset_right = -3319.0
+offset_bottom = -3873.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_lokno")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -289,7 +297,7 @@ collision_mask = 3
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocker"]
-position = Vector2(-96, -1325)
+position = Vector2(-96, -1287.25)
 shape = SubResource("RectangleShape2D_6lr5h")
 debug_color = Color(0.952941, 0.843137, 0.2, 0.780392)
 

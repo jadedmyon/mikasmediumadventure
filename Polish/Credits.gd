@@ -13,3 +13,5 @@ func _process(delta):
 		x.position -= scrollspeed
 		if Input.is_action_pressed("B"):
 			x.position -= scrollspeed #double speed
+		if x.name == "ender":
+			pass

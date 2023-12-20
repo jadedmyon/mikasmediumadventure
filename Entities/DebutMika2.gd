@@ -292,14 +292,14 @@ func explosion_self():
 
 func shootdust():
 	
-	var rngX :float= ( randi() % 115 ) / 10
+	var rngX :float= ( randi() % 100 ) / 10
 	var rngY :float= ( randi() % 15 )  / 3
 	var rngFall:float= ( randi() % 6 ) / 10
 	
 	var params:Dictionary = {
 		hitboxtype = "projectile",damage = 14, duration = 600, 
 		animation = "dustbullet", scale = Vector2(2,2),
-		offset = Vector2(0,-90),fallaccel = 0.5+ rngFall, speedX = 15+rngX, speedY = -5-rngY,speedscale = 1,}
+		offset = Vector2(0,-90),fallaccel = 0.5+ rngFall, speedX = 12+rngX, speedY = -5-rngY,speedscale = 1,}
 
 	create_hitbox(params)
 

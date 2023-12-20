@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1xpx4jay5k1k"]
+[gd_scene load_steps=11 format=3 uid="uid://b1xpx4jay5k1k"]
 
-[ext_resource type="Texture2D" uid="uid://dgmmr7txqp4is" path="res://CopyrightInfringement/INSIDE/hospitalColor.png" id="1_gil4x"]
+[ext_resource type="Texture2D" uid="uid://bqc1hdes3qsaw" path="res://Graphics/INSIDEbg2.png" id="1_f3rbl"]
+[ext_resource type="Texture2D" uid="uid://dtlclddlfge2c" path="res://Graphics/mikaface.png" id="2_ia5mu"]
 [ext_resource type="Texture2D" uid="uid://cud43o7twdbdu" path="res://CopyrightInfringement/Environment/TilesetINSIDE.png" id="2_qtxlu"]
 [ext_resource type="PackedScene" uid="uid://q6oik8e2kjc0" path="res://Fundamental/positionmarker.tscn" id="3_3btxe"]
+[ext_resource type="Script" path="res://Polish/Mikaface.gd" id="3_s80eq"]
 [ext_resource type="PackedScene" uid="uid://3jenakib3slw" path="res://Entities/DebutMika2.tscn" id="4_o6to0"]
 [ext_resource type="Texture2D" uid="uid://b07pwdbysdqmk" path="res://CopyrightInfringement/position marker.png" id="5_5qjc5"]
 [ext_resource type="PackedScene" uid="uid://bwj75sf3yetn1" path="res://Fundamental/VNTrigger.tscn" id="6_63lok"]
@@ -258,11 +260,30 @@ sources/0 = SubResource("TileSetAtlasSource_tisu4")
 layer = -4
 
 [node name="hospitalColor" type="TextureRect" parent="CanvasLayer"]
-modulate = Color(0, 0, 0, 1)
-offset_right = 1280.0
+modulate = Color(0.447059, 0, 0, 1)
+anchors_preset = -1
+anchor_right = 1.29062
+anchor_bottom = 1.05833
+offset_left = -78.0
+offset_right = 1202.0
 offset_bottom = 720.0
-texture = ExtResource("1_gil4x")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_f3rbl")
 metadata/_edit_use_anchors_ = true
+
+[node name="Mikaface" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(71, 164)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ia5mu")
+script = ExtResource("3_s80eq")
+
+[node name="Mikaface3" type="Sprite2D" parent="CanvasLayer/Mikaface"]
+position = Vector2(293.5, 0)
+texture = ExtResource("2_ia5mu")
+
+[node name="Mikaface5" type="Sprite2D" parent="CanvasLayer/Mikaface"]
+position = Vector2(597, 1.5)
+texture = ExtResource("2_ia5mu")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -274,12 +295,12 @@ layer_0/tile_data = PackedInt32Array(2162710, 0, 0, 2162711, 0, 0, 2162712, 0, 0
 
 [node name="positionmarker" parent="." instance=ExtResource("3_3btxe")]
 modulate = Color(1, 1, 1, 0.486275)
-position = Vector2(1444, 2071)
+position = Vector2(2215, 2068)
 rotation = 3.14159
 scale = Vector2(2.03114, -1.80619)
 
 [node name="DebutMika2" parent="." instance=ExtResource("4_o6to0")]
-position = Vector2(2106, 2096)
+position = Vector2(1595, 2088)
 
 [node name="CameraFixedPos" type="Sprite2D" parent="."]
 visible = false
@@ -288,7 +309,7 @@ position = Vector2(1984, 1824)
 texture = ExtResource("5_5qjc5")
 
 [node name="DebutMika2Trigger" parent="." instance=ExtResource("6_63lok")]
-position = Vector2(2109.44, 1762)
+position = Vector2(1517, 1764)
 scale = Vector2(7.21607, 25.6522)
 scenename = "debutmika2reveal"
 triggertype = "uptalk"
