@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://lmrkje250ave"]
+
+[ext_resource type="Script" path="res://Polish/Credits.gd" id="1_uij8j"]
+[ext_resource type="Texture2D" uid="uid://cajbdgqmsa23q" path="res://CopyrightInfringement/enemies/dustbunny1.png" id="2_12y2u"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_uij8j")
+
+[node name="ender" type="Sprite2D" parent="."]
+position = Vector2(-185, 1289)
+texture = ExtResource("2_12y2u")

@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://n851xw2gr011"]
+[gd_scene load_steps=10 format=3 uid="uid://n851xw2gr011"]
 
 [ext_resource type="Texture2D" uid="uid://dgmmr7txqp4is" path="res://CopyrightInfringement/INSIDE/hospitalColor.png" id="2_4qlme"]
 [ext_resource type="Texture2D" uid="uid://cud43o7twdbdu" path="res://CopyrightInfringement/Environment/TilesetINSIDE.png" id="3_ymch0"]
 [ext_resource type="PackedScene" uid="uid://q6oik8e2kjc0" path="res://Fundamental/positionmarker.tscn" id="4_f2k87"]
-[ext_resource type="PackedScene" uid="uid://rbkvjplxjhvc" path="res://Entities/Spider.tscn" id="5_fvlue"]
 [ext_resource type="PackedScene" uid="uid://dxbfu3j55h7bp" path="res://Fundamental/LevelWarp.tscn" id="6_f8unf"]
 [ext_resource type="PackedScene" uid="uid://dd063elshexmr" path="res://Fundamental/Checkpoint.tscn" id="7_onsu4"]
 [ext_resource type="PackedScene" uid="uid://bwj75sf3yetn1" path="res://Fundamental/VNTrigger.tscn" id="7_y4jgj"]
@@ -303,27 +302,6 @@ debug_color = Color(0.952941, 0.843137, 0.2, 0.780392)
 position = Vector2(1050, 2499)
 scale = Vector2(4.10805, 62.5521)
 scenename = "hospitaldiary6"
-
-[node name="Spider" parent="." instance=ExtResource("5_fvlue")]
-position = Vector2(877, 648)
-
-[node name="Spider2" parent="." instance=ExtResource("5_fvlue")]
-position = Vector2(1219, 1222)
-
-[node name="Spider3" parent="." instance=ExtResource("5_fvlue")]
-position = Vector2(2859, 2079)
-
-[node name="Spider4" parent="." instance=ExtResource("5_fvlue")]
-position = Vector2(2370, 2503)
-
-[node name="Spider5" parent="." instance=ExtResource("5_fvlue")]
-position = Vector2(1978, 2965)
-
-[node name="Spider6" parent="." instance=ExtResource("5_fvlue")]
-position = Vector2(1813, 3108)
-
-[node name="Spider7" parent="." instance=ExtResource("5_fvlue")]
-position = Vector2(1337, 3359)
 
 [node name="LevelWarp2" parent="." instance=ExtResource("6_f8unf")]
 position = Vector2(433.75, 2560.97)

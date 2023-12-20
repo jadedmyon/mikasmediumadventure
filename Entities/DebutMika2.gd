@@ -10,13 +10,19 @@ var fallaccel_default = 25
 
 func _ready():
 	displayname = "Debut Mika II"
-	hp = 750
+	hp = 685
 	boss = true
 	
 	fallaccel = fallaccel_default
 	fallspeed_max = 900
 	realscale = 0.18
 	state = "calm"
+	team = "mika"
+	if global.gamesave.debutmika2talked:
+		nstate("stand")
+		team = "enemy"
+		for x in get_parent().get_children(): if x.name == "DebutMika2Trigger":
+			x.queue_free()
 
 func state_caller():
 

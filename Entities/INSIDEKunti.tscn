@@ -1,0 +1,133 @@
+[gd_scene load_steps=25 format=3 uid="uid://7ax27dxfr0wd"]
+
+[ext_resource type="Script" path="res://Entities/INSIDEKunti.gd" id="1_jrtvw"]
+[ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_al101"]
+[ext_resource type="Texture2D" uid="uid://cu8pdsq2aao1a" path="res://Graphics/INSIDEKunti/0001.png" id="2_deqod"]
+[ext_resource type="Texture2D" uid="uid://isulefgwwkx6" path="res://Graphics/INSIDEKunti/0002.png" id="3_1hwx6"]
+[ext_resource type="Texture2D" uid="uid://cq2qsaliky26j" path="res://Graphics/INSIDEKunti/0003.png" id="4_vfx8n"]
+[ext_resource type="Texture2D" uid="uid://fshn77accodf" path="res://Graphics/INSIDEKunti/0004.png" id="5_ls8mr"]
+[ext_resource type="Texture2D" uid="uid://npi0u355i7v3" path="res://Graphics/INSIDEKunti/0005.png" id="6_kv45m"]
+[ext_resource type="Texture2D" uid="uid://c6nsre5het2gg" path="res://Graphics/INSIDEKunti/0006.png" id="7_repjn"]
+[ext_resource type="Texture2D" uid="uid://w1knkye17obk" path="res://Graphics/INSIDEKunti/0007.png" id="8_ult3v"]
+[ext_resource type="Texture2D" uid="uid://cfpv2j2katxaf" path="res://Graphics/INSIDEKunti/0008.png" id="9_yqs6c"]
+[ext_resource type="Texture2D" uid="uid://dioi0vhc2h3fg" path="res://Graphics/INSIDEKunti/0009.png" id="10_d2lth"]
+[ext_resource type="Texture2D" uid="uid://bqdkobwy1k2mx" path="res://Graphics/INSIDEKunti/0010.png" id="11_5oydt"]
+[ext_resource type="Texture2D" uid="uid://dtpnl45h3qday" path="res://Graphics/INSIDEKunti/0011.png" id="12_b413o"]
+[ext_resource type="Texture2D" uid="uid://b5mehrilkjr3a" path="res://Graphics/INSIDEKunti/0012.png" id="13_dwfj3"]
+[ext_resource type="Texture2D" uid="uid://uy7tjc6im72p" path="res://Graphics/INSIDEKunti/0013.png" id="14_70aem"]
+[ext_resource type="Texture2D" uid="uid://b8kfy7v03ij7o" path="res://Graphics/INSIDEKunti/0014.png" id="15_5y13r"]
+[ext_resource type="Texture2D" uid="uid://bfgvjd8o0r8n3" path="res://Graphics/INSIDEKunti/0015.png" id="16_qks6a"]
+[ext_resource type="Texture2D" uid="uid://bleejo8ta5lqt" path="res://Graphics/INSIDEKunti/0016.png" id="17_sxw6o"]
+[ext_resource type="Texture2D" uid="uid://b4ile5t33myrr" path="res://Graphics/INSIDEKunti/0017.png" id="18_tqrlj"]
+[ext_resource type="Texture2D" uid="uid://cmregli1jl3x0" path="res://Graphics/INSIDEKunti/prone.png" id="19_rg1hw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mmw0x"]
+shader = ExtResource("2_al101")
+shader_parameter/line_color = Vector4(1, 0, 0, 1)
+shader_parameter/line_thickness = 6.408
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlun2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_deqod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1hwx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vfx8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ls8mr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kv45m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_repjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ult3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yqs6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_d2lth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5oydt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b413o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_dwfj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_70aem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5y13r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qks6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_sxw6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tqrlj")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_rg1hw")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0jto"]
+size = Vector2(39, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6i50"]
+size = Vector2(521, 772)
+
+[node name="INSIDEKunti" type="CharacterBody2D"]
+z_index = 10
+collision_layer = 3
+collision_mask = 2
+script = ExtResource("1_jrtvw")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.870588, 0.803922, 1)
+material = SubResource("ShaderMaterial_mmw0x")
+position = Vector2(29, -64)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_qlun2")
+animation = &"dash"
+
+[node name="ECB" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -51)
+shape = SubResource("RectangleShape2D_y0jto")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+modulate = Color(0.6, 0.419608, 0.901961, 0.8)
+position = Vector2(-13, -2)
+polygon = PackedVector2Array(-91, -132, 144, -138, 106, 88, -49, 83)
+
+[node name="MikaDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MikaDetector"]
+position = Vector2(5.5, -10)
+shape = SubResource("RectangleShape2D_u6i50")
+debug_color = Color(0.654902, 0.505882, 0.282353, 0.419608)

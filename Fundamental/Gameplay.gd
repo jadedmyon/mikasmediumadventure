@@ -218,8 +218,10 @@ func debutmika2fight():
 	for x in $Entities.get_children():
 		if x.name == "DebutMika2":
 			x.nstate("stand")
+			x.team = "enemy"
 		if x.name == "DebutMika2Trigger":
 			x.queue_free()
+	global.gamesave.debutmika2talked = true
 
 
 

@@ -69,6 +69,8 @@ var musicnames:Dictionary = {
 	"death" : "Original- Mika Fuckign Dies by jadedmyon",
 	"sleep" : "Elona- Dungeon 1 by noacat",
 	"debutmika1" : "The Penis (Eek!) by Surasshu",
+	"ennaboss" : "Elona- Final Boss by noacat",
+	"outside" : "",
 	}
 
 func stopmusic():

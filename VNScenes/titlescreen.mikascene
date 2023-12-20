@@ -12,7 +12,6 @@ choiceboxpos;740;150
 
 choice;New Game;newgame
 choice;Continue;continue
-choice;Settings;settings
 choice;Exit Game;exitgame
     :)
 
