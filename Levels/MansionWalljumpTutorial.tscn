@@ -376,6 +376,20 @@ theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 36
 text = "WALLCLING"
 
+[node name="Label3" type="Label" parent="."]
+offset_left = 1639.0
+offset_top = 145.0
+offset_right = 1845.0
+offset_bottom = 198.0
+theme_override_colors/font_shadow_color = Color(0.603922, 0, 0, 0.878431)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 36
+text = "HOLD
+"
+
 [node name="Label2" type="Label" parent="."]
 offset_left = 1259.0
 offset_top = 240.0

@@ -460,3 +460,16 @@ position = Vector2(2382, 1281)
 position = Vector2(4163, 991)
 scale = Vector2(1.64286, 27.4324)
 scenename = "mikaisanerd"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 3110.0
+offset_top = -256.0
+offset_right = 3577.0
+offset_bottom = -203.0
+theme_override_colors/font_shadow_color = Color(0.603922, 0, 0, 0.878431)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 36
+text = "DASH IN ALL 8 DIRECTIONS"
