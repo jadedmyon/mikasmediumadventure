@@ -1,0 +1,73 @@
+speaker; 
+icon;EMPTY
+fadeout;0.01
+stopmusic;
+...
+s;Debut Mika
+So, you're graduating.
+After all the work I've put into this.
+s;Mika
+...Yeah.
+Sorry.
+s;Debut Mika
+Heh.
+That's the first nice thing you said to me.
+s;Mika
+Yeah, I'm too harsh on my CURRENT self, let alone you.
+s;Debut Mika
+So.
+May I ask why?
+s;Mika
+You may.
+s;Debut Mika
+..
+Why?
+s;Mika
+I've gotten stale.
+There's nothing left to do for me.
+s;Debut Mika
+But I had so many ideas! You've done all of them in just two years?
+s;Mika
+...
+It's gotten so bad, Mika.
+So bad that I'm even exploiting my own fans to make the content FOR me.
+In fact, I'm literally doing that right now by playing this shitty game.
+s;Debut Mika
+I can't even believe what you're saying.
+How can I run out of things to do, stuff to say?
+Well, I don't know what happens in the future.
+I'll understand you eventually.
+So anyways.
+What are you doing next?
+s;Mika
+No idea.
+s;Debut Mika
+I'm sorry, what?!
+s;Mika
+Yeah. My head empty. Zero plans.
+s;Debut Mika
+I thought you were smarter than me! Did I REGRESS in the next two years?!
+s;Mika
+loadlevel;INSIDEWhite;0
+I know how you feel.
+If you're not carefully planning everything, then you're going off course.
+You'll end up in a ditch instead of a respectable member of society or whatever. 
+If I don't have a plan, then I'm just going to waste away without a purpose.
+That's how life works.
+s;Debut Mika
+Then..
+s;Mika
+But you know what, Mika?
+I have nothing in front of me right now.
+fadein;0.01
+And you have no idea how good that feels.
+credits;
+end;
+
+
+
+
+
+
+
+

@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://umhfxnn3rn5e" path="res://Graphics/MikaMika/debutmika-pfp.png" id="5_aedcd"]
 [ext_resource type="Texture2D" uid="uid://dyof6q3475rob" path="res://CopyrightInfringement/enemies/moldyshroom.png" id="5_v3ity"]
 [ext_resource type="Texture2D" uid="uid://dxlig3wmxlidb" path="res://Graphics/Crap/vox-pfp.png" id="5_xnytk"]
-[ext_resource type="Texture2D" uid="uid://dgt5qiwspl0y" path="res://Graphics/MikaMika/emotedmika2.png" id="7_fdqup"]
 [ext_resource type="Texture2D" uid="uid://clyp8rx0yoq5s" path="res://Graphics/MikaMika/voiceactor-pfp.png" id="9_iddlm"]
 [ext_resource type="Texture2D" uid="uid://c1nn83oaxyckq" path="res://Graphics/Crap/enna-pfp.png" id="9_plers"]
 [ext_resource type="Texture2D" uid="uid://2lprktsqhyge" path="res://CopyrightInfringement/Environment/sign-pfp.png" id="11_1a7ad"]
+[ext_resource type="Texture2D" uid="uid://bfyu6qi4vmghy" path="res://Graphics/mika-pfp.png" id="11_hwlb4"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_w6qia"]
 device = -1
@@ -95,7 +95,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_fdqup")
+"texture": ExtResource("11_hwlb4")
 }],
 "loop": true,
 "name": &"Mika",
@@ -209,7 +209,7 @@ patch_margin_bottom = 8
 [node name="icon" type="AnimatedSprite2D" parent="."]
 position = Vector2(220, 599)
 sprite_frames = SubResource("SpriteFrames_5ilg0")
-animation = &"Enna"
+animation = &"Mika"
 
 [node name="OptionsBox" type="NinePatchRect" parent="."]
 visible = false

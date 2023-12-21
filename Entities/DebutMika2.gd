@@ -37,13 +37,22 @@ func state_caller():
 	if statecheck("dashattackslip"): dashattackslip_state()
 	if statecheck("walktomika"): walktomika_state()
 
-
+	if statecheck("death"): death_state()
 
 	if state == "hitstun": damagetaken_mult = 1.5
 	else: damagetaken_mult = 1.0
+
+
+func die():
+	update_enemyinfo(null)
+	invulntimer = 500
+	nstate("death")
+
+
+func death_state():
 	
-
-
+	if frame == 120:
+		createvn("postdebutmika2")
 
 
 func calm_state():

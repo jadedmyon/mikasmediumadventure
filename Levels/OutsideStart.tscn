@@ -395,6 +395,12 @@ triggertype = "uptalk"
 velreset = 0
 saveto_playedvns = false
 
+[node name="VNTrigger2" parent="." instance=ExtResource("8_jf6fc")]
+position = Vector2(95, -42)
+scale = Vector2(8.97143, 23.2941)
+scenename = "playoutsidemusic"
+velreset = 0
+
 [node name="nerd" type="AnimatedSprite2D" parent="."]
 position = Vector2(829, 263)
 scale = Vector2(3, 3)

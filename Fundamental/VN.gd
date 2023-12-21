@@ -192,7 +192,8 @@ func processline():
 		showchat()
 	if commandname == "killchat":
 		killchat()
-
+	if commandname == "credits":
+		get_tree().change_scene_to_file("res://Polish/Credits.tscn")
 func continuescene(instantcontinue):
 	sceneindex+=1
 	if instantcontinue:

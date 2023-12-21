@@ -41,18 +41,42 @@ All for the sake of, what? Appealing to Vtuber fans?
 People you don't even know yet?
 You're pretending to be a perfect anime girl.
 All because you're scared to be disliked by people.
-No, having even ONE person dislike you is too much for you. 
+No, having even ONE person dislike you is too much for you.
 I'm shameful. You don't even allow yourself to be shameful.
 Your future will not happen.
 Not only because I don't exactly care what my future selves think...
 But also...
+choice;Tell her;tellher
+choice;Don't tell her;tellnoting
+Tell her about December 28th?
+flag;tellnothing
 Never mind.
 s;Debut Mika
 What? Never mind what?!
 s;Mika
 Enough.
+I'll kill you.
 gameplaynodecall;debutmika2fight
 end;
 
 
 
+flag;tellher
+I'm graduating.
+s;Debut Mika
+...
+WHAT?!
+No.
+Nononono.
+DON'T DO THIS.
+DON'T DO THIS DON'T DO THIS DON'T DON'T DON'T DON'T
+THIS WASN'T MY PLAN.
+WHAT ARE YOU DOING?
+EVERYTHING IS GOING TO GO FINE.
+AS LONG AS YOU GO ACCORDING TO PLAN.
+THAT'S HOW IT'S ALWAYS BEEN.
+IF YOU STRAY
+YOU'RE A FAILURE
+I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU I'LL KILL YOU 
+gameplaynodecall;debutmika2fight
+end;
