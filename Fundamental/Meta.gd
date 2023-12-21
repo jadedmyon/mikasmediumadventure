@@ -71,6 +71,7 @@ var musicnames:Dictionary = {
 	"debutmika1" : "The Penis (Eek!) by Surasshu",
 	"ennaboss" : "Elona- Final Boss by noacat",
 	"outside" : "Elona- orc04.mid by noacat (fuck you noacat why are your song names so stupid)",
+	"INSIDE" : "Original- Poorly Loopable by jadedmyon",
 	}
 
 func stopmusic():

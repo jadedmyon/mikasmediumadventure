@@ -341,3 +341,9 @@ scenename = "hospitaldiary5"
 
 [node name="INSIDEKunti" parent="." instance=ExtResource("8_nxu4h")]
 position = Vector2(8970, 256)
+
+[node name="VNTrigger3" parent="." instance=ExtResource("8_pess3")]
+position = Vector2(340.5, -34)
+scale = Vector2(11.9857, 23.2941)
+scenename = "playINSIDEmusic"
+velreset = 0
