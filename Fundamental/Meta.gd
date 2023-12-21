@@ -72,6 +72,7 @@ var musicnames:Dictionary = {
 	"ennaboss" : "Elona- Final Boss by noacat",
 	"outside" : "Elona- orc04.mid by noacat (fuck you noacat why are your song names so stupid)",
 	"INSIDE" : "Original- Poorly Loopable by jadedmyon",
+	"finalboss" : "Megaman Zero 3- Cannonball by Capcom",
 	}
 
 func stopmusic():

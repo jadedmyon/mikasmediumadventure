@@ -22,5 +22,146 @@ texture = ExtResource("3_vwmkj")
 metadata/_edit_use_anchors_ = true
 
 [node name="ender" type="Sprite2D" parent="."]
-position = Vector2(171, 1493)
+position = Vector2(117, 9861)
 texture = ExtResource("2_12y2u")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 761.0
+offset_right = 1285.0
+offset_bottom = 9651.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.313726, 0.168627, 0.564706, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_font_sizes/font_size = 48
+text = "MIKA MELATIKA'S MEDIUM ADVENTURE
+
+A game
+Made for the express purpose of bullying
+Mika Melatika
+for the last time ever~~~
+
+Please sit through this ok?
+it'll mean a lot to me
+
+
+
+			Personnel
+
+Game Design, Writing, Original Music- jadedmyon
+
+Mika 3D Model Rigging- icybreadpeople
+
+
+
+			Built with:
+
+Adobe Photoshop (I didn't buy this one)
+
+FL Studio (yeah this was pirated too)
+
+Godot Engine (this one's fucking free)
+
+Blender (all good things are free)
+
+
+
+			Used Work
+
+Lots of music was taken from Elona
+Say thanks to noacat's permissive music license
+I would hate the stream to get copyright struck
+for some dumb random reason
+
+Mika sprites built from 3D models made by
+Kiddo Acosta on sketchfab.com
+I doubt I would even take on the project
+if those models didn't exist.
+
+Broom model by JmPrsh153 on sketchfab.com
+
+Enna's feather projectile sprite by YuriNikolai
+on opengameart.com
+
+
+
+			Other Used work
+
+Pretty much all other sprites taken from Rabi-Ribi
+
+
+SFX from Rabi-Ribi, Megaman Zero,
+ Ace Attorney, Undertale
+
+Mika 3D Animations taken from mixamo.com 
+
+Final Boss song- Cannonball from Megaman Zero 3 
+
+
+			Inspirations
+
+Celeste- dash movement
+
+Megaman Zero- combat system,
+ wallclinging & walljumping
+
+Smash Bros series- physics system
+
+Rabi-Ribi- boss design
+
+OMORI- I didn't play it lol
+
+Mika Melatika- i forgot why but shes here 
+
+
+Oshi:
+
+
+
+
+
+
+
+
+Enna Alouette
+
+
+
+
+
+
+Kyo Kaneko
+Hana Macchia
+Jerma985
+GEEGA
+JoshStrifeHayes
+Binyot Vinesauce
+Joseph Anderson
+
+
+
+
+The best talent in Nijisanji,
+a constant source of inspiration,
+a kind and untiring soul,
+and my kamioshi:
+
+
+
+			Mika Melatika
+
+
+
+
+
+
+
+
+			's Roomie
+
+
+
+
+					Rest In Peace.
+"
+horizontal_alignment = 1

@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var scrollspeed = 2
+var scrollspeed = 1
 
 func _ready():
 	pass 
