@@ -292,6 +292,8 @@ func jump(flagname:String):
 
 func end():
 	name = "shitfuckvn"
+	if get_tree().paused:
+		get_tree().paused = false
 	queue_free()
 
 func to_titlescreen():
