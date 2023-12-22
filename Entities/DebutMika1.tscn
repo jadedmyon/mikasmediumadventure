@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="1_glqmi"]
 [ext_resource type="Script" path="res://Entities/DebutMika1.gd" id="1_kwnon"]
-[ext_resource type="SpriteFrames" uid="uid://cpjnacijfvjqf" path="res://Fundamental/MikaSpriteFrames.tres" id="2_uif2k"]
+[ext_resource type="SpriteFrames" uid="uid://do11dgok8vaji" path="res://Graphics/DebutBasicSprites.tres" id="3_nivsh"]
 [ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="3_rikdb"]
 [ext_resource type="Script" path="res://Fundamental/mikaflash.gd" id="4_jsx06"]
 
@@ -271,9 +271,9 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_8g1h7")
 position = Vector2(0, -86)
 scale = Vector2(0.18, 0.18)
-sprite_frames = ExtResource("2_uif2k")
-animation = &"hitstun"
-offset = Vector2(240, 44)
+sprite_frames = ExtResource("3_nivsh")
+animation = &"dashattackslip"
+offset = Vector2(45, 60)
 
 [node name="mikaflash" type="Sprite2D" parent="sprite"]
 modulate = Color(0.764706, 0.729412, 0.756863, 0.741176)

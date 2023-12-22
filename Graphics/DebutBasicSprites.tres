@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://do11dgok8vaji"]
+
+[ext_resource type="Texture2D" uid="uid://bbmj3wmrrhu1t" path="res://Graphics/DebutBasic/0072.png" id="1_qagba"]
+[ext_resource type="Texture2D" uid="uid://fnlkv3482wmu" path="res://Graphics/DebutBasic/stand.png" id="2_owp0h"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qagba")
+}],
+"loop": true,
+"name": &"dashattackslip",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_owp0h")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]

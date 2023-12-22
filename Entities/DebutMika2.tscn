@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Entities/DebutMika2.gd" id="1_4u2hj"]
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_4udng"]
-[ext_resource type="SpriteFrames" uid="uid://cpjnacijfvjqf" path="res://Fundamental/MikaSpriteFrames.tres" id="3_kvrnh"]
+[ext_resource type="SpriteFrames" uid="uid://do11dgok8vaji" path="res://Graphics/DebutBasicSprites.tres" id="3_e0uyd"]
 [ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="4_88nqh"]
 [ext_resource type="Script" path="res://Fundamental/mikaflash.gd" id="5_tdlpm"]
 [ext_resource type="SpriteFrames" uid="uid://fiu8ofj7nxwf" path="res://Entities/MikaSprites.tres" id="6_mqx56"]
@@ -275,8 +275,8 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_8g1h7")
 position = Vector2(0, -86)
 scale = Vector2(0.18, 0.18)
-sprite_frames = ExtResource("3_kvrnh")
-animation = &"hitstun"
+sprite_frames = ExtResource("3_e0uyd")
+animation = &"stand"
 offset = Vector2(240, 44)
 
 [node name="mikaflash" type="Sprite2D" parent="sprite"]
