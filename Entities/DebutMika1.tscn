@@ -272,7 +272,7 @@ material = SubResource("ShaderMaterial_8g1h7")
 position = Vector2(0, -86)
 scale = Vector2(0.18, 0.18)
 sprite_frames = ExtResource("3_nivsh")
-animation = &"hitstun"
+animation = &"stand"
 offset = Vector2(45, 60)
 
 [node name="mikaflash" type="Sprite2D" parent="sprite"]
