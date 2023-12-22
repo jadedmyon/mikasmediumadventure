@@ -411,7 +411,7 @@ func ninebutton_state():
 	position -= velocity / 60
 	if frame == 0:
 		sfx("nine",-5)
-		if invulntimer < 120: invulntimer = 120
+		if invulntimer < 200: invulntimer = 200
 		dashes = 0
 		walljumps = 0
 		if velocity.y > 0: velocity.y = 0
