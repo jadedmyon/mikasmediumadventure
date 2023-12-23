@@ -15,6 +15,7 @@ func _ready():
 	fallaccel = fallaccel_default
 	fallspeed_max = 900
 	realscale = 0.18
+	direction = -1
 
 func state_caller():
 

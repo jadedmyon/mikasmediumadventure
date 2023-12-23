@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="1_glqmi"]
 [ext_resource type="Script" path="res://Entities/DebutMika1.gd" id="1_kwnon"]
-[ext_resource type="SpriteFrames" uid="uid://do11dgok8vaji" path="res://Graphics/DebutBasicSprites.tres" id="3_nivsh"]
+[ext_resource type="SpriteFrames" uid="uid://bsqe7cu7ftu87" path="res://Graphics/Debut3DSprites.tres" id="3_gk7ic"]
 [ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="3_rikdb"]
 [ext_resource type="Script" path="res://Fundamental/mikaflash.gd" id="4_jsx06"]
 
@@ -255,10 +255,6 @@ _data = {
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_kwnon")
-direction = null
-displayname = null
-hp = null
-realscale = null
 
 [node name="ECB" type="CollisionShape2D" parent="."]
 position = Vector2(0, -58.75)
@@ -271,8 +267,8 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_8g1h7")
 position = Vector2(0, -86)
 scale = Vector2(0.18, 0.18)
-sprite_frames = ExtResource("3_nivsh")
-animation = &"stand"
+sprite_frames = ExtResource("3_gk7ic")
+animation = &"reveal"
 offset = Vector2(45, 60)
 
 [node name="mikaflash" type="Sprite2D" parent="sprite"]
