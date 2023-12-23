@@ -222,7 +222,7 @@ func debutmika2fight():
 		if x.name == "DebutMika2Trigger":
 			x.queue_free()
 	global.gamesave.debutmika2talked = true
-
+	move_enemyshow()
 
 
 
@@ -242,6 +242,8 @@ func mika_update_difficulty():
 
 	mika.update_difficulty()
 
+func move_enemyshow():
+	$CanvasLayer/enemyinfo.position = Vector2(1032,62)
 
 
 ########################

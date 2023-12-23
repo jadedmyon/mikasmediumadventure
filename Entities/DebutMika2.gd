@@ -50,7 +50,7 @@ func die():
 
 
 func death_state():
-	
+	momentumreset(40)
 	if frame == 120:
 		createvn("postdebutmika2")
 

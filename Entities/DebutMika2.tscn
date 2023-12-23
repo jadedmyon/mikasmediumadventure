@@ -1,11 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://3jenakib3slw"]
+[gd_scene load_steps=30 format=3 uid="uid://3jenakib3slw"]
 
 [ext_resource type="Script" path="res://Entities/DebutMika2.gd" id="1_4u2hj"]
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="2_4udng"]
-[ext_resource type="SpriteFrames" uid="uid://do11dgok8vaji" path="res://Graphics/DebutBasicSprites.tres" id="3_e0uyd"]
+[ext_resource type="SpriteFrames" uid="uid://bsqe7cu7ftu87" path="res://Graphics/Debut3DSprites.tres" id="3_6pol6"]
 [ext_resource type="Texture2D" uid="uid://do5th7u8va10m" path="res://Graphics/UI/glow-white.png" id="4_88nqh"]
 [ext_resource type="Script" path="res://Fundamental/mikaflash.gd" id="5_tdlpm"]
-[ext_resource type="SpriteFrames" uid="uid://fiu8ofj7nxwf" path="res://Entities/MikaSprites.tres" id="6_mqx56"]
 [ext_resource type="Script" path="res://Fundamental/omegaoutline.gd" id="7_0w324"]
 [ext_resource type="Texture2D" uid="uid://cc0uc7apgmjho" path="res://Graphics/Crap/complete white.png" id="8_uj31o"]
 
@@ -16,6 +15,11 @@ size = Vector2(41, 116.5)
 shader = ExtResource("2_4udng")
 shader_parameter/line_color = Vector4(1, 0.5, 0.7, 0.6)
 shader_parameter/line_thickness = 9.044
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8nhbx"]
+shader = ExtResource("2_4udng")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 6.263
 
 [sub_resource type="Animation" id="Animation_vcegn"]
 resource_name = "air"
@@ -186,7 +190,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 70)]
 }
 
 [sub_resource type="Animation" id="Animation_7i816"]
@@ -236,28 +240,89 @@ tracks/0/keys = {
 "values": [Vector2(20, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_52owm"]
+resource_name = "dashattackslip"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 380)]
+}
+
+[sub_resource type="Animation" id="Animation_w3t6y"]
+resource_name = "raisedust"
+length = 50.0
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.583333, 0.766667, 1.15, 1.28333),
+"transitions": PackedFloat32Array(1, 0.965936, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 120), Vector2(0, 80), Vector2(0, 110), Vector2(0, 38), Vector2(0, 130), Vector2(0, 120)]
+}
+
+[sub_resource type="Animation" id="Animation_j1sy7"]
+resource_name = "dashattack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 70)]
+}
+
+[sub_resource type="Animation" id="Animation_qppv4"]
+resource_name = "hitstun"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 380)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgdef"]
 _data = {
 "air": SubResource("Animation_vcegn"),
+"dashattack": SubResource("Animation_j1sy7"),
+"dashattackslip": SubResource("Animation_52owm"),
 "downdash": SubResource("Animation_1cc2t"),
 "forwardair": SubResource("Animation_i4x1q"),
 "forwarddash": SubResource("Animation_5lysh"),
 "groundstrike1": SubResource("Animation_4ekko"),
 "groundstrike2": SubResource("Animation_kbqgi"),
 "groundstrike3": SubResource("Animation_2g1xp"),
+"hitstun": SubResource("Animation_qppv4"),
 "hitstunair": SubResource("Animation_5dajq"),
 "ninebutton": SubResource("Animation_4ob73"),
 "novdash": SubResource("Animation_bju8n"),
+"raisedust": SubResource("Animation_w3t6y"),
 "stand": SubResource("Animation_0mxpl"),
 "tridash": SubResource("Animation_7i816"),
 "updash": SubResource("Animation_bi5qw"),
 "walk": SubResource("Animation_ke67f")
 }
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8nhbx"]
-shader = ExtResource("2_4udng")
-shader_parameter/line_color = Vector4(1, 1, 1, 1)
-shader_parameter/line_thickness = 6.263
 
 [node name="DebutMika2" type="CharacterBody2D"]
 collision_layer = 2
@@ -275,9 +340,9 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_8g1h7")
 position = Vector2(0, -86)
 scale = Vector2(0.18, 0.18)
-sprite_frames = ExtResource("3_e0uyd")
+sprite_frames = ExtResource("3_6pol6")
 animation = &"stand"
-offset = Vector2(240, 44)
+offset = Vector2(45, 60)
 
 [node name="mikaflash" type="Sprite2D" parent="sprite"]
 modulate = Color(0.764706, 0.729412, 0.756863, 0.741176)
@@ -285,11 +350,6 @@ position = Vector2(38.889, 50.0001)
 scale = Vector2(21.8855, 20.4265)
 texture = ExtResource("4_88nqh")
 script = ExtResource("5_tdlpm")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_dgdef")
-}
 
 [node name="Hurtbox" type="Area2D" parent="."]
 position = Vector2(0, -32)
@@ -305,11 +365,16 @@ clip_children = 2
 material = SubResource("ShaderMaterial_8nhbx")
 position = Vector2(5, -96)
 scale = Vector2(0.18, 0.18)
-sprite_frames = ExtResource("6_mqx56")
-animation = &"air"
+sprite_frames = ExtResource("3_6pol6")
+animation = &"stand"
 script = ExtResource("7_0w324")
 
 [node name="Sprite2D" type="Sprite2D" parent="omegaoutline"]
 position = Vector2(105.556, 25)
 scale = Vector2(32.4074, 35.4167)
 texture = ExtResource("8_uj31o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dgdef")
+}
