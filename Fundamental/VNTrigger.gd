@@ -21,7 +21,7 @@ func _process(delta):
 				x.get_parent().get_parent().createvn(scenename)
 				if saveto_playedvns: global.gamesave.playedvns.append(scenename)
 				queue_free()
-			if triggertype == "uptalk":
+			if triggertype == "uptalk" and x.is_on_floor():
 				x.get_node("TextAlert").text = "Press Up To Talk"
 				x.get_node("TextAlert").visible = true 
 				if x.inputpressed("up"):

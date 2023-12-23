@@ -465,7 +465,7 @@ func death_state():
 	var gameplaynode := get_parent().get_parent()
 	
 	if frame == 0:
-		gameplaynode.get_parent().playmusic("death",-10,false)
+		gameplaynode.get_parent().playmusic("death",-5,false)
 		invulntimer = 1000
 		global.gamesave.hp = hp_max
 		global.gamesave.deaths+= 1
