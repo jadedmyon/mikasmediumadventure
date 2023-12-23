@@ -11,8 +11,8 @@ size = Vector2(41, 116.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8g1h7"]
 shader = ExtResource("1_glqmi")
-shader_parameter/line_color = Vector4(0.5, 0.5, 0.7, 0.6)
-shader_parameter/line_thickness = 6.925
+shader_parameter/line_color = Vector4(1, 0.5, 0.7, 0.6)
+shader_parameter/line_thickness = 8.196
 
 [sub_resource type="Animation" id="Animation_vcegn"]
 resource_name = "air"
