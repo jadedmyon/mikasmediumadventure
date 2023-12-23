@@ -14,7 +14,7 @@ layer = -4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("4_mjrh4")
-volume_db = -16.437
+volume_db = -10.0
 pitch_scale = 0.89
 autoplay = true
 
