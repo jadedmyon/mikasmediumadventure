@@ -67,3 +67,16 @@ metadata/_edit_use_anchors_ = true
 [node name="TposeMikaTurned" type="Sprite2D" parent="."]
 position = Vector2(276, 229)
 texture = ExtResource("2_4akn5")
+
+[node name="revision" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = -0.00487011
+anchor_right = 0.0551948
+offset_left = 245.0
+offset_top = 621.0
+offset_right = 618.0
+offset_bottom = 679.0
+theme_override_colors/font_outline_color = Color(0.152941, 0.376471, 0.572549, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = "revision 2"

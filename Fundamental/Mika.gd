@@ -363,7 +363,7 @@ func groundstrike2_state():
 	
 	if frame == 5:
 		sfx("swing1",-4)
-		create_hitbox({damage = 8 * damageboost,duration = 4, offset = Vector2(48,-55),scale = Vector2(5,5)})
+		create_hitbox({damage = 8 * damageboost,duration = 4, offset = Vector2(50,-55),scale = Vector2(5.1,5)})
 	if frame > 5 and inputpressed("B",9):
 		nstate("groundstrike3")
 	if frame == 25:

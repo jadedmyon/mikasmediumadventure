@@ -306,7 +306,7 @@ func shootp2(angleoffset:int=0):
 	sfx("feather",-7,1.5)
 	var addangle = 5.9
 	var hitbox = {
-		hitboxtype = "projectile",damage = 20, duration = 900, 
+		hitboxtype = "projectile",damage = 18, duration = 900, 
 		animation = "feather-emerald", scale = Vector2(1.9,1.9),
 		polygonscale = Vector2(0.5,0.25),
 		offset = Vector2(0,-100),
@@ -314,7 +314,7 @@ func shootp2(angleoffset:int=0):
 		anglevelocity = 3, adjustanglevisual = "onstart",
 		destroyontilemap = false,
 		}
-	for x in 34:
+	for x in 30:
 		if x % 2 == 0:
 			hitbox.animation = "feather-purple-bright"
 		else:
