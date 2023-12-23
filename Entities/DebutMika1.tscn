@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c2piu2gv68j1i"]
+[gd_scene load_steps=25 format=3 uid="uid://c2piu2gv68j1i"]
 
 [ext_resource type="Shader" path="res://Graphics/Outline.gdshader" id="1_glqmi"]
 [ext_resource type="Script" path="res://Entities/DebutMika1.gd" id="1_kwnon"]
@@ -233,9 +233,40 @@ tracks/0/keys = {
 "values": [Vector2(20, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_52owm"]
+resource_name = "dashattackslip"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 380)]
+}
+
+[sub_resource type="Animation" id="Animation_w3t6y"]
+resource_name = "raisedust"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 120)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgdef"]
 _data = {
 "air": SubResource("Animation_vcegn"),
+"dashattackslip": SubResource("Animation_52owm"),
 "downdash": SubResource("Animation_1cc2t"),
 "forwardair": SubResource("Animation_i4x1q"),
 "forwarddash": SubResource("Animation_5lysh"),
@@ -245,6 +276,7 @@ _data = {
 "hitstunair": SubResource("Animation_5dajq"),
 "ninebutton": SubResource("Animation_4ob73"),
 "novdash": SubResource("Animation_bju8n"),
+"raisedust": SubResource("Animation_w3t6y"),
 "stand": SubResource("Animation_0mxpl"),
 "tridash": SubResource("Animation_7i816"),
 "updash": SubResource("Animation_bi5qw"),
@@ -268,10 +300,11 @@ material = SubResource("ShaderMaterial_8g1h7")
 position = Vector2(0, -86)
 scale = Vector2(0.18, 0.18)
 sprite_frames = ExtResource("3_gk7ic")
-animation = &"reveal"
-offset = Vector2(45, 60)
+animation = &"raisedust"
+offset = Vector2(0, 120)
 
 [node name="mikaflash" type="Sprite2D" parent="sprite"]
+visible = false
 modulate = Color(0.764706, 0.729412, 0.756863, 0.741176)
 position = Vector2(38.889, 50.0001)
 scale = Vector2(21.8855, 20.4265)
