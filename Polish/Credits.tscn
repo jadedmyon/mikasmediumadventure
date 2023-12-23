@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://lmrkje250ave"]
+[gd_scene load_steps=6 format=3 uid="uid://lmrkje250ave"]
 
 [ext_resource type="Script" path="res://Polish/Credits.gd" id="1_uij8j"]
 [ext_resource type="Texture2D" uid="uid://cajbdgqmsa23q" path="res://CopyrightInfringement/enemies/dustbunny1.png" id="2_12y2u"]
 [ext_resource type="Texture2D" uid="uid://cc0uc7apgmjho" path="res://Graphics/Crap/complete white.png" id="3_vwmkj"]
 [ext_resource type="AudioStream" uid="uid://bc7fj1cqt8vx6" path="res://Music/credits.ogg" id="4_mjrh4"]
+[ext_resource type="Texture2D" uid="uid://bg5kp7jkbe4im" path="res://Graphics/grave.png" id="5_kwyd8"]
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_uij8j")
@@ -51,7 +52,7 @@ for the last time ever~~~
 Please sit through this ok?
 it'll mean a lot to me
 
-
+R.I.P.
 
 			Personnel
 
@@ -81,7 +82,7 @@ Lots of music was taken from Elona
 Mika sprites built from 3D models made by
 Kiddo Acosta on sketchfab.com
 I doubt I would even take on the project
-if those models didn't exist.
+if those models didn't exist
 
 Broom model by JmPrsh153 on sketchfab.com
 
@@ -167,7 +168,12 @@ and my kamioshi:
 
 
 
-	Rest In Peace.
+	RIP AGAIN DUMBASS
 
                                                              -jadedmyon"
 horizontal_alignment = 1
+
+[node name="Grave" type="Sprite2D" parent="."]
+position = Vector2(455, 9998)
+scale = Vector2(1.91787, 1.72715)
+texture = ExtResource("5_kwyd8")
